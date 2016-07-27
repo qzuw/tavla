@@ -2,7 +2,11 @@
 
 **Aihe:** [Tavla](https://en.wikipedia.org/wiki/Tavla) on vanha lautapeli, jonka tunnetumpi variantti tunnetaan länsimaissa nimellä [Backgammon](https://en.wikipedia.org/wiki/Backgammon). Pelissä kaksi pelaajaa pyrkii kuljettamaan omat pelinappulansa pelilaudan halki noppien määräämillä siirroilla omalle kotialueelleen ja sen jälkeen sieltä ulos.
 
-**Käyttäjät:** Peliä pelaavat pelaajat
+Pelaajat heittävät vuorollaan kahta noppaa ja sen jälkeen siirtävät jotain tai joitain omia nappuloitansa eteenpäin noppien määräämän etäisyyden. Nappulaa ei saa siirtää ruutuun jossa on kaksi tai useampi vastustajan nappula. Nappulaa on aina siirrettävä tasan yksittäisen nopan määräämä etäisyys, minkä jälkeen sitä voi siirtää uudestaan toisen nopan määräämän etäisyyden. Jos molemmat nopat ovat saman arvoiset, siirtojen määrä tuplataan. Jos nappulan siirtää yksittäisen vastustajan nappulan päällä, tulee vastustajan nappula syödyksi ja joutuu palaamaan vastustajan vuorolla pelilaudalle ennen kuin vastustaja voi siirtää muita nappuloita.
+
+Kun pelaaja on saanut siirrettyä kaikki nappulansa omalle kotialueelleen, voi hän alkaa siirtämään niitä ulos pelilaudalta. Peli päättyy kun toinen pelaajista on saanut kaikki nappulansa pois laudalta.
+
+**Käyttäjät:** Peliä pelaava(t) pelaaja(t)
 
 **Käyttäjän toiminnot:**
 
