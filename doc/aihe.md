@@ -1,7 +1,6 @@
 # Tavla
 
-**Aihe:** Tavla on vanha lautapeli, jonka tunnetumpi variantti tunetaan länsimaissa nimellä Backgammon. Pelissä kaksi pelaajaa pyrkii kuljettamaan omat pelinappulansa 
-pelilaudan halki noppien määräämillä siirroilla omalle kotialueelleen ja sen jälkeen sieltä ulos.
+**Aihe:** [Tavla](https://en.wikipedia.org/wiki/Tavla) on vanha lautapeli, jonka tunnetumpi variantti tunnetaan länsimaissa nimellä [Backgammon](https://en.wikipedia.org/wiki/Backgammon). Pelissä kaksi pelaajaa pyrkii kuljettamaan omat pelinappulansa pelilaudan halki noppien määräämillä siirroilla omalle kotialueelleen ja sen jälkeen sieltä ulos.
 
 **Käyttäjät:** Peliä pelaavat pelaajat
 
