@@ -8,12 +8,13 @@
 
 - Uuden pelin käynnistäminen
 - Pelin pelaaminen
-  - Nopan heittäminen
+  - Noppien heittäminen
+    - Jos molemmat nopat antavat saman arvon, siirtojen lukumäärä tuplataan (Esim nopat: 4 + 4 => siirrot: 4 + 4 + 4 + 4)
   - Syödyn pelinappulan siirtäminen laudalle
     - Onnistuu jos pelilaudalla on vapaa alue jolle nappulan voi siirtää yhden nopan luvulla
   - Vastustajan pelinappulan syöminen ja/tai oman nappulan siirtäminen
     - Syöminen onnistuu jos omia syötyjä nappuloita ei ole enempää ja pelilaudalla on yksinäinen vastustajan nappula jonka päälle voi siirtää oman nappulan yhden nopan arvolla.
-    - Siirtäminen onnistuu jos omia syötyjä nappuloita ei ole enempää ja pelilaudalla on vapaita ruutuja joille jonkun oman nappulan voi siirtää
+    - Siirtäminen onnistuu jos omia syötyjä nappuloita ei ole enempää ja pelilaudalla on vapaita ruutuja joille jonkun oman nappulan voi siirtää yhden nopan määräämällä siirrolla.
   - Omien nappuloiden siirtäminen pois laudalta
     - Onnistuu jos kaikki omat nappulat ovat kotialueella
 
