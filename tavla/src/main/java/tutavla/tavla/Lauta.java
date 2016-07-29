@@ -16,6 +16,7 @@ public class Lauta {
 
     public Lauta() {
         ruudut = new ArrayList<>();
+        // 0 ja 25 erikoistapauksia
         for (int i = 0; i < 26; i++) {
             ruudut.add(new ArrayList<Nappula>());
         }
@@ -23,7 +24,7 @@ public class Lauta {
     
     public boolean ruutuPelaajalla(int ruutu, Pelaaja pelaaja){
         boolean pelaajalla = false;
-        if (!ruudut.get(ruutu).isEmpty()){
+        if (!ruudut.get(ruutu).isEmpty() && ruutu != 0 && ruutu != 25){
             pelaajalla = (ruudut.get(ruutu).get(0).getPelaaja().equals(pelaaja));
         }
         return pelaajalla;
