@@ -12,6 +12,7 @@ import java.util.Random;
  * @author ttuotila
  */
 public class Noppa {
+
     private Random random;
     private int arvo;
 
@@ -19,7 +20,7 @@ public class Noppa {
         random = new Random();
         this.arvo();
     }
-    
+
     public void arvo() {
         arvo = random.nextInt(6) + 1;
     }
@@ -27,5 +28,5 @@ public class Noppa {
     public int getArvo() {
         return arvo;
     }
-    
+
 }

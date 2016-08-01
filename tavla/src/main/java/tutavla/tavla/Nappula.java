@@ -24,6 +24,5 @@ public class Nappula {
     public Pelaaja getPelaaja() {
         return pelaaja;
     }
-    
-    
+
 }

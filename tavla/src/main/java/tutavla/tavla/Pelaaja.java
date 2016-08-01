@@ -12,6 +12,7 @@ import java.util.Objects;
  * @author ttuotila
  */
 public class Pelaaja {
+
     private String nimi;
     private boolean ihminen;
     private boolean musta;
@@ -80,6 +81,4 @@ public class Pelaaja {
 //        }
 //        return true;
 //    }
-    
-    
 }

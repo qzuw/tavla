@@ -7,11 +7,13 @@ package tutavla.tavla;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  *
  * @author ttuotila
  */
 public class Lauta {
+
     private List<Ruutu> ruudut;
 
     public Lauta() {
@@ -21,25 +23,25 @@ public class Lauta {
             ruudut.add(new Ruutu());
         }
     }
-    
-    public boolean ruutuPelaajalla(int ruutu, Pelaaja pelaaja){
+
+    public boolean ruutuPelaajalla(int ruutu, Pelaaja pelaaja) {
         boolean pelaajalla = false;
-        if (!ruudut.get(ruutu).isEmpty() && ruutu != 0 && ruutu != 25){
+        if (!ruudut.get(ruutu).isEmpty() && ruutu != 0 && ruutu != 25) {
             pelaajalla = (ruudut.get(ruutu).getPelaaja().equals(pelaaja));
         }
         return pelaajalla;
     }
-    
-    public int nappuloitaRuudussa(int ruutu){
+
+    public int nappuloitaRuudussa(int ruutu) {
         return ruudut.get(ruutu).nappuloidenMaara();
     }
-    
-    public void asetaNappula(Nappula nappula, int ruutu){
+
+    public void asetaNappula(Nappula nappula, int ruutu) {
         ruudut.get(ruutu).lisaaNappula(nappula);
     }
 
-    public void siirraNappula(int mista, int minne){
+    public void siirraNappula(int mista, int minne) {
         ruudut.get(minne).lisaaNappula(ruudut.get(mista).otaNappula());
     }
-    
+
 }

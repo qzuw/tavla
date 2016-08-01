@@ -15,31 +15,31 @@ import java.util.List;
 public class Ruutu {
 
     List<Nappula> nappulat;
-    
+
     public Ruutu() {
         nappulat = new ArrayList<>();
     }
-    
-    public void lisaaNappula(Nappula nappula){
+
+    public void lisaaNappula(Nappula nappula) {
         nappulat.add(nappula);
     }
-    
-    public Nappula otaNappula(){
+
+    public Nappula otaNappula() {
         Nappula nappula = nappulat.get(0);
         nappulat.remove(0);
         return nappula;
     }
-    
-    public int nappuloidenMaara(){
+
+    public int nappuloidenMaara() {
         return nappulat.size();
     }
-    
-    public boolean isEmpty(){
+
+    public boolean isEmpty() {
         return nappulat.isEmpty();
     }
-    
-    public Pelaaja getPelaaja(){
-        if (nappulat.isEmpty()){
+
+    public Pelaaja getPelaaja() {
+        if (nappulat.isEmpty()) {
             return null;
         }
         return nappulat.get(0).getPelaaja();
