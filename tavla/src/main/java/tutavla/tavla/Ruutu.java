@@ -21,7 +21,9 @@ public class Ruutu {
     }
 
     public void lisaaNappula(Nappula nappula) {
-        nappulat.add(nappula);
+        if (!nappulat.contains(nappula)) {
+            nappulat.add(nappula);
+        }
     }
 
     public Nappula otaNappula() {
