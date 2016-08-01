@@ -17,22 +17,22 @@ import static org.junit.Assert.*;
  * @author ttuotila
  */
 public class PelaajaTest {
-    
+
     public PelaajaTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -43,28 +43,52 @@ public class PelaajaTest {
     // @Test
     // public void hello() {}
     @Test
-    public void pelaajallaOnNimi(){
+    public void pelaajallaOnNimi() {
         Pelaaja pelaaja = new Pelaaja("asdf");
-        
+
         String nimi = pelaaja.getNimi();
-        
+
         assertEquals("asdf", nimi);
     }
-    
+
     @Test
-    public void tietokoneOnTietokone(){
+    public void tietokoneOnTietokone() {
         Pelaaja pelaaja = new Pelaaja();
         boolean onkoTietokone = !pelaaja.isIhminen();
-        
+
         assertTrue(onkoTietokone);
     }
-    
+
     @Test
-    public void ihminenOnIhminen(){
+    public void ihminenOnIhminen() {
         Pelaaja pelaaja = new Pelaaja("asdf");
         boolean onkoTietokone = !pelaaja.isIhminen();
-        
+
         assertFalse(onkoTietokone);
     }
-    
+
+    @Test
+    public void pelaajaEqualsPelaaja() {
+        Pelaaja pelaaja = new Pelaaja();
+        Pelaaja kopio = pelaaja;
+
+        boolean pelaajaOnSama = pelaaja.equals(kopio);
+
+        assertTrue(pelaajaOnSama);
+    }
+
+    @Test
+    public void pelaajaNotEqualsPelaaja() {
+        Pelaaja pelaaja = new Pelaaja("adsf");
+        Pelaaja toinen = new Pelaaja("sdfg");
+        Pelaaja tietokone = new Pelaaja();
+        Pelaaja toinenTietokone = new Pelaaja();
+
+        boolean pelaajaOnSama = pelaaja.equals(toinen);
+        boolean tietokoneOnSama = pelaaja.equals(toinen);
+
+        assertFalse(pelaajaOnSama);
+        assertFalse(tietokoneOnSama);
+    }
+
 }
