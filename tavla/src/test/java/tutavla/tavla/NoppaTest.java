@@ -63,4 +63,11 @@ public class NoppaTest {
             assertTrue(luku <= 6);
         }
     }
+    
+    @Test
+    public void konstruktoriLuoArvon(){
+        Noppa noppa = new Noppa();
+        assertTrue(noppa.getArvo()<7);
+        assertTrue(noppa.getArvo()>0);
+    }
 }
