@@ -27,6 +27,9 @@ public class Ruutu {
     }
 
     public Nappula otaNappula() {
+        if (nappulat.size() < 1) {
+            return null;
+        }
         Nappula nappula = nappulat.get(0);
         nappulat.remove(0);
         return nappula;
