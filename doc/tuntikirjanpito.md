@@ -7,4 +7,4 @@ Päivä | Tunnit | Kuvaus
 01.08.2016 | 1h | Ruutu-luokka ja testejä
 02.08.2016 | 1h | Testejä, pit & checkstyle toiminta, luokkakaavion alku
 03.08.2016 | 1h | refaktorointi erillisiksi pakkauksiksi, luokkakaavio, pit & checkstyle dokumentaatioon
-03.08.2016 | 1h | logiikan aloitus
+03.08.2016 | 1 1/2 h | logiikan aloitus
