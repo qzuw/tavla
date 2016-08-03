@@ -23,3 +23,8 @@ Kun pelaaja on saanut siirrettyä kaikki nappulansa omalle kotialueelleen, voi h
     - Onnistuu jos kaikki omat nappulat ovat kotialueella
 
 Peli loppuu kun toinen pelaaja on siirtänyt kaikki omat nappulansa ulos laudalta.
+
+
+## Luokkakaavio
+
+![Luokkakaavio](https://github.com/qzuw/tavla/blob/master/doc/tavla-luokkakaavio.png)
