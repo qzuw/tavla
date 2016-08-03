@@ -80,4 +80,12 @@ public class LogiikkaTest {
         assertFalse(logiikka.ruutuOnTyhja(24));
         assertEquals(logiikka.ruudunNappulat(24), 2);
     }
+
+//    @Test
+//    public void pelaajaSiirtaaEnsin() {
+//        Logiikka logiikka = new Logiikka();
+//        
+//        logiikka.asetaPelaajaSiirtaaEnsin(true);
+//        
+//    }
 }

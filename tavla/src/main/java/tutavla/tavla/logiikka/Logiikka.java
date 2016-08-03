@@ -5,6 +5,7 @@
  */
 package tutavla.tavla.logiikka;
 
+import java.util.ArrayList;
 import tutavla.tavla.domain.Lauta;
 import tutavla.tavla.domain.Nappula;
 import tutavla.tavla.domain.Noppa;
@@ -21,12 +22,15 @@ public class Logiikka {
     private Pelaaja tietokone;
     private Noppa noppa1;
     private Noppa noppa2;
-    private boolean pelaajaEnsin;
+    private ArrayList<Pelaaja> siirtojarjestys;
 
     public Logiikka() {
         lauta = new Lauta();
         pelaaja = new Pelaaja("");
         tietokone = new Pelaaja();
+        siirtojarjestys = new ArrayList<>();
+        siirtojarjestys.add(pelaaja);
+        siirtojarjestys.add(tietokone);
         noppa1 = new Noppa();
         noppa2 = new Noppa();
     }
@@ -35,12 +39,19 @@ public class Logiikka {
         lauta = new Lauta();
         pelaaja = new Pelaaja(nimi);
         tietokone = new Pelaaja();
+        siirtojarjestys = new ArrayList<>();
+        siirtojarjestys.add(pelaaja);
+        siirtojarjestys.add(tietokone);
         noppa1 = new Noppa();
         noppa2 = new Noppa();
     }
 
     public void asetaPelaajaSiirtaaEnsin(boolean pelaajaEnsin) {
-        this.pelaajaEnsin = pelaajaEnsin;
+        if (!(siirtojarjestys.get(0).isIhminen() == pelaajaEnsin)){
+            Pelaaja siirrettava = siirtojarjestys.get(0);
+            siirtojarjestys.add(siirrettava);
+            siirtojarjestys.remove(0);
+        }
     }
 
     public void asetaNappulat() {
