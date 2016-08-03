@@ -55,33 +55,22 @@ public class Logiikka {
     }
 
     public void asetaNappulat() {
-        for (int i = 0; i < 2; i++) {
-            lauta.asetaNappula(new Nappula(pelaaja), 24);
-        }
-        for (int i = 0; i < 5; i++) {
-            lauta.asetaNappula(new Nappula(pelaaja), 13);
-        }
-        for (int i = 0; i < 3; i++) {
-            lauta.asetaNappula(new Nappula(pelaaja), 8);
-        }
-        for (int i = 0; i < 5; i++) {
-            lauta.asetaNappula(new Nappula(pelaaja), 6);
-        }
-        for (int i = 0; i < 2; i++) {
-            lauta.asetaNappula(new Nappula(tietokone), 1);
-        }
-        for (int i = 0; i < 5; i++) {
-            lauta.asetaNappula(new Nappula(tietokone), 12);
-        }
-        for (int i = 0; i < 3; i++) {
-            lauta.asetaNappula(new Nappula(tietokone), 17);
-        }
-        for (int i = 0; i < 5; i++) {
-            lauta.asetaNappula(new Nappula(tietokone), 19);
-        }
-
+        asetaNappuloitaRuutuun(pelaaja, 2, 24);
+        asetaNappuloitaRuutuun(pelaaja, 5, 13);
+        asetaNappuloitaRuutuun(pelaaja, 3, 8);
+        asetaNappuloitaRuutuun(pelaaja, 5, 6);
+        asetaNappuloitaRuutuun(tietokone, 2, 1);
+        asetaNappuloitaRuutuun(tietokone, 5, 12);
+        asetaNappuloitaRuutuun(tietokone, 3, 17);
+        asetaNappuloitaRuutuun(tietokone, 5, 19);
     }
 
+    private void asetaNappuloitaRuutuun(Pelaaja pelaaja, int maara, int ruutu){
+        for (int i = 0; i < maara; i++) {
+            lauta.asetaNappula(new Nappula(pelaaja), ruutu);
+        }        
+    }
+    
     public int ruudunNappulat(int ruutu) {
         return lauta.nappuloitaRuudussa(ruutu);
     }
