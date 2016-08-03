@@ -3,8 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tutavla.tavla;
+package tutavla.tavla.domain;
 
+import tutavla.tavla.domain.Nappula;
+import tutavla.tavla.domain.Lauta;
+import tutavla.tavla.domain.Pelaaja;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
