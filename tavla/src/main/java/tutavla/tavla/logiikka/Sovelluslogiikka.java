@@ -5,6 +5,7 @@
  */
 package tutavla.tavla.logiikka;
 
+import tutavla.tavla.domain.Pelaaja;
 import tutavla.tavla.ui.Kayttoliittyma;
 
 /**
@@ -23,10 +24,15 @@ public class Sovelluslogiikka {
     public void kaynnista() {
         //kysy pelaajamaara
         //kysy nimet
-        //pelilogiikka = new Pelilogiikka(...);
+        
+        Pelaaja pelaaja1 = new Pelaaja();
+        Pelaaja pelaaja2 = new Pelaaja();
+        
+        pelilogiikka = new Pelilogiikka(pelaaja1, pelaaja2);
         
         pelilogiikka.asetaNappulat();
-        pelilogiikka.kaynnistaPeli();
+        
+        //pelisilmukka?
         
         //tätä täytyy vielä miettiä
     }

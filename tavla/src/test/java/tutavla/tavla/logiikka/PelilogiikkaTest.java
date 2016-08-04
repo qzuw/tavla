@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import tutavla.tavla.domain.Pelaaja;
 
 /**
  *
@@ -44,7 +45,9 @@ public class PelilogiikkaTest {
     // public void hello() {}
     @Test
     public void asetaNappulatLaudalle() {
-        Pelilogiikka logiikka = new Pelilogiikka();
+        Pelaaja pelaaja1 = new Pelaaja();
+        Pelaaja pelaaja2 = new Pelaaja();
+        Pelilogiikka logiikka = new Pelilogiikka(pelaaja1, pelaaja2);
 
         logiikka.asetaNappulat();
         assertFalse(logiikka.ruutuOnTyhja(1));

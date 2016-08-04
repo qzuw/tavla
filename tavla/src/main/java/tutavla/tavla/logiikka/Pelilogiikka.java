@@ -18,16 +18,12 @@ import tutavla.tavla.domain.Pelaaja;
 public class Pelilogiikka {
 
     private Lauta lauta;
-    private Pelaaja pelaaja1;
-    private Pelaaja pelaaja2;
     private Noppa noppa1;
     private Noppa noppa2;
     private ArrayList<Pelaaja> siirtojarjestys;
 
-    public Pelilogiikka() {
+    public Pelilogiikka(Pelaaja pelaaja1, Pelaaja pelaaja2) {
         lauta = new Lauta();
-        pelaaja1 = new Pelaaja();
-        pelaaja2 = new Pelaaja();
         siirtojarjestys = new ArrayList<>();
         siirtojarjestys.add(pelaaja1);
         siirtojarjestys.add(pelaaja2);
@@ -35,31 +31,8 @@ public class Pelilogiikka {
         noppa2 = new Noppa();
     }
 
-    public Pelilogiikka(String nimi) {
-        lauta = new Lauta();
-        pelaaja1 = new Pelaaja(nimi);
-        pelaaja2 = new Pelaaja();
-        siirtojarjestys = new ArrayList<>();
-        siirtojarjestys.add(pelaaja1);
-        siirtojarjestys.add(pelaaja2);
-        noppa1 = new Noppa();
-        noppa2 = new Noppa();
-    }
-
-    public Pelilogiikka(String nimi1, String nimi2) {
-        lauta = new Lauta();
-        pelaaja1 = new Pelaaja(nimi1);
-        pelaaja2 = new Pelaaja(nimi2);
-        siirtojarjestys = new ArrayList<>();
-        siirtojarjestys.add(pelaaja1);
-        siirtojarjestys.add(pelaaja2);
-        noppa1 = new Noppa();
-        noppa2 = new Noppa();
-    }
-
-    public void asetaPelaajaSiirtaaEnsin(boolean pelaajaEnsin) {
-        //tämä pitää ajatella uudelleen
-        if (!(siirtojarjestys.get(0).isIhminen() == pelaajaEnsin)) {
+    public void pelaajaSiirtaaEnsin(boolean pelaajaEnsin, Pelaaja pelaaja) {
+        if (!(siirtojarjestys.get(0).equals(pelaaja) == pelaajaEnsin)) {
             Pelaaja siirrettava = siirtojarjestys.get(0);
             siirtojarjestys.add(siirrettava);
             siirtojarjestys.remove(0);
@@ -67,14 +40,14 @@ public class Pelilogiikka {
     }
 
     public void asetaNappulat() {
-        asetaNappuloitaRuutuun(pelaaja1, 2, 24);
-        asetaNappuloitaRuutuun(pelaaja1, 5, 13);
-        asetaNappuloitaRuutuun(pelaaja1, 3, 8);
-        asetaNappuloitaRuutuun(pelaaja1, 5, 6);
-        asetaNappuloitaRuutuun(pelaaja2, 2, 1);
-        asetaNappuloitaRuutuun(pelaaja2, 5, 12);
-        asetaNappuloitaRuutuun(pelaaja2, 3, 17);
-        asetaNappuloitaRuutuun(pelaaja2, 5, 19);
+        asetaNappuloitaRuutuun(this.siirtojarjestys.get(0), 2, 24);
+        asetaNappuloitaRuutuun(this.siirtojarjestys.get(0), 5, 13);
+        asetaNappuloitaRuutuun(this.siirtojarjestys.get(0), 3, 8);
+        asetaNappuloitaRuutuun(this.siirtojarjestys.get(0), 5, 6);
+        asetaNappuloitaRuutuun(this.siirtojarjestys.get(1), 2, 1);
+        asetaNappuloitaRuutuun(this.siirtojarjestys.get(1), 5, 12);
+        asetaNappuloitaRuutuun(this.siirtojarjestys.get(1), 3, 17);
+        asetaNappuloitaRuutuun(this.siirtojarjestys.get(1), 5, 19);
     }
 
     private void asetaNappuloitaRuutuun(Pelaaja pelaaja, int maara, int ruutu) {
@@ -91,17 +64,8 @@ public class Pelilogiikka {
         return (lauta.nappuloitaRuudussa(ruutu) == 0);
     }
 
-    public boolean ruutuOnPelaajan(int ruutu) {
-        //tämäkin pitää vielä miettiä
-        return lauta.ruutuPelaajalla(ruutu, pelaaja1);
+    public boolean ruutuOnPelaajan(int ruutu, Pelaaja pelaaja) {
+        return lauta.ruutuPelaajalla(ruutu, pelaaja);
     }
 
-    public boolean ruutuOnTietokoneen(int ruutu) {
-        //tämäkin pitää vielä miettiä
-        return lauta.ruutuPelaajalla(ruutu, pelaaja2);
-    }
-
-    public void kaynnistaPeli() {
-
-    }
 }
