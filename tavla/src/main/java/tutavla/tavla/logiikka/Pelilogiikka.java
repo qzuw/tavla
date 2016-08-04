@@ -21,6 +21,8 @@ public class Pelilogiikka {
     private Noppa noppa1;
     private Noppa noppa2;
     private ArrayList<Pelaaja> siirtojarjestys;
+    // siirtojärjestys pitäisi olla svl, ei täällä
+    // tällöin myös nopat pitäisi olla siellä
 
     public Pelilogiikka(Pelaaja pelaaja1, Pelaaja pelaaja2) {
         lauta = new Lauta();
@@ -66,6 +68,19 @@ public class Pelilogiikka {
 
     public boolean ruutuOnPelaajan(int ruutu, Pelaaja pelaaja) {
         return lauta.ruutuPelaajalla(ruutu, pelaaja);
+    }
+
+    public boolean ruutuunVoiSiirtya(int ruutu, Pelaaja pelaaja) {
+        if (ruutu == 0 || ruutu == 25) {
+            return true;
+        }
+        if (this.ruutuOnPelaajan(ruutu, pelaaja)) {
+            return true;
+        }
+        if (this.ruutuOnTyhja(ruutu)) {
+            return true;
+        }
+        return false;
     }
 
 }
