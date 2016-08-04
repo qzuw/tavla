@@ -71,7 +71,7 @@ public class Pelilogiikka {
     }
 
     public boolean ruutuunVoiSiirtya(int ruutu, Pelaaja pelaaja) {
-        if (ruutu == 0 || ruutu == 25) {
+        if (ruutu == pelaaja.getMaali()) {
             return true;
         }
         if (this.ruutuOnPelaajan(ruutu, pelaaja)) {

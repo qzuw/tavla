@@ -16,17 +16,20 @@ public class Pelaaja {
     private String nimi;
     private boolean ihminen;
     private boolean musta;
+    private int maali;
 
     public Pelaaja(String nimi) {
         this.nimi = nimi;
         musta = false;
         ihminen = true;
+        maali = 0;
     }
 
     public Pelaaja() {
         nimi = "Tietokone";
         ihminen = false;
         musta = true;
+        maali = 25;
     }
 
     public String getNimi() {
@@ -41,6 +44,10 @@ public class Pelaaja {
         return musta;
     }
 
+    public int getMaali() {
+        return maali;
+    }
+
     public void setNimi(String nimi) {
         this.nimi = nimi;
     }
@@ -53,32 +60,10 @@ public class Pelaaja {
         this.musta = musta;
     }
 
-//    @Override
-//    public int hashCode() {
-//        int hash = 7;
-//        hash = 71 * hash + Objects.hashCode(this.nimi);
-//        hash = 71 * hash + (this.ihminen ? 1 : 0);
-//        return hash;
-//    }
-//
-//    @Override
-//    public boolean equals(Object obj) {
-//        if (this == obj) {
-//            return true;
-//        }
-//        if (obj == null) {
-//            return false;
-//        }
-//        if (getClass() != obj.getClass()) {
-//            return false;
-//        }
-//        final Pelaaja other = (Pelaaja) obj;
-//        if (this.ihminen != other.ihminen) {
-//            return false;
-//        }
-//        if (!Objects.equals(this.nimi, other.nimi)) {
-//            return false;
-//        }
-//        return true;
-//    }
+    public void setMaali(int maali) {
+        if (maali == 0 || maali == 25) {
+            this.maali = maali;
+        }
+    }
+
 }
