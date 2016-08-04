@@ -16,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author ttuotila@cs
  */
-public class LogiikkaTest {
+public class PelilogiikkaTest {
 
-    public LogiikkaTest() {
+    public PelilogiikkaTest() {
     }
 
     @BeforeClass
@@ -44,7 +44,7 @@ public class LogiikkaTest {
     // public void hello() {}
     @Test
     public void asetaNappulatLaudalle() {
-        Logiikka logiikka = new Logiikka();
+        Pelilogiikka logiikka = new Pelilogiikka();
 
         logiikka.asetaNappulat();
         assertFalse(logiikka.ruutuOnTyhja(1));
@@ -83,7 +83,7 @@ public class LogiikkaTest {
 
 //    @Test
 //    public void pelaajaSiirtaaEnsin() {
-//        Logiikka logiikka = new Logiikka();
+//        Pelilogiikka logiikka = new Pelilogiikka();
 //        
 //        logiikka.asetaPelaajaSiirtaaEnsin(true);
 //        

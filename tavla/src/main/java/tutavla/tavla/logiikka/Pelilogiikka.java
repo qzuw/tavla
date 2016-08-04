@@ -15,7 +15,7 @@ import tutavla.tavla.domain.Pelaaja;
  *
  * @author ttuotila@cs
  */
-public class Logiikka {
+public class Pelilogiikka {
 
     private Lauta lauta;
     private Pelaaja pelaaja;
@@ -24,7 +24,7 @@ public class Logiikka {
     private Noppa noppa2;
     private ArrayList<Pelaaja> siirtojarjestys;
 
-    public Logiikka() {
+    public Pelilogiikka() {
         lauta = new Lauta();
         pelaaja = new Pelaaja("");
         tietokone = new Pelaaja();
@@ -35,7 +35,7 @@ public class Logiikka {
         noppa2 = new Noppa();
     }
 
-    public Logiikka(String nimi) {
+    public Pelilogiikka(String nimi) {
         lauta = new Lauta();
         pelaaja = new Pelaaja(nimi);
         tietokone = new Pelaaja();
