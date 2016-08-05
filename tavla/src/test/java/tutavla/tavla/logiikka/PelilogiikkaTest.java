@@ -109,4 +109,22 @@ public class PelilogiikkaTest {
 
     }
 
+    @Test
+    public void voikoSiirtaaSiirronJalkeen() {
+        Pelaaja pelaaja1 = new Pelaaja();
+        Pelaaja pelaaja2 = new Pelaaja();
+        Pelilogiikka l = new Pelilogiikka();
+
+        l.asetaNappulat(pelaaja1, pelaaja2);
+
+        l.siirraNappulaa(pelaaja2, 12, 14);
+        assertTrue(l.ruutuunVoiSiirtya(12, pelaaja2));
+        assertFalse(l.ruutuunVoiSiirtya(12, pelaaja1));
+        assertEquals(l.ruudunNappulat(12), 4);
+        assertTrue(l.ruutuOnPelaajan(14, pelaaja2));
+        assertTrue(l.ruutuunVoiSiirtya(14, pelaaja2));
+        assertTrue(l.ruutuunVoiSiirtya(14, pelaaja1));
+        assertEquals(l.ruudunNappulat(14), 1);
+
+    }
 }

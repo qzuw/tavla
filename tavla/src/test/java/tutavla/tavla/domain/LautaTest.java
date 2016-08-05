@@ -81,6 +81,33 @@ public class LautaTest {
         assertFalse(lauta.ruutuPelaajalla(24, pelaaja));
         assertFalse(lauta.ruutuPelaajalla(25, pelaaja));
         assertFalse(lauta.ruutuPelaajalla(25, toinen));
+
+    }
+
+    @Test
+    public void siirraNappulaa() {
+        Lauta lauta = new Lauta();
+        Pelaaja pelaaja = new Pelaaja();
+        Pelaaja toinen = new Pelaaja();
+        Nappula nappula1 = new Nappula(pelaaja);
+        Nappula nappula2 = new Nappula(pelaaja);
+        Nappula nappula3 = new Nappula(pelaaja);
         
+        lauta.asetaNappula(nappula1, 5);
+        lauta.asetaNappula(nappula2, 5);
+        lauta.asetaNappula(nappula3, 5);
+        
+        assertEquals(lauta.nappuloitaRuudussa(5), 3);
+        lauta.siirraNappula(5, 7);
+        assertEquals(lauta.nappuloitaRuudussa(5), 2);
+        assertEquals(lauta.nappuloitaRuudussa(7), 1);
+        lauta.siirraNappula(5, 8);
+        assertEquals(lauta.nappuloitaRuudussa(5), 1);
+        assertEquals(lauta.nappuloitaRuudussa(7), 1);
+        assertEquals(lauta.nappuloitaRuudussa(8), 1);
+        lauta.siirraNappula(7, 8);
+        assertEquals(lauta.nappuloitaRuudussa(5), 1);
+        assertEquals(lauta.nappuloitaRuudussa(7), 0);
+        assertEquals(lauta.nappuloitaRuudussa(8), 2);
     }
 }
