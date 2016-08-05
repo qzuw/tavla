@@ -92,11 +92,11 @@ public class LautaTest {
         Nappula nappula1 = new Nappula(pelaaja);
         Nappula nappula2 = new Nappula(pelaaja);
         Nappula nappula3 = new Nappula(pelaaja);
-        
+
         lauta.asetaNappula(nappula1, 5);
         lauta.asetaNappula(nappula2, 5);
         lauta.asetaNappula(nappula3, 5);
-        
+
         assertEquals(lauta.nappuloitaRuudussa(5), 3);
         lauta.siirraNappula(5, 7);
         assertEquals(lauta.nappuloitaRuudussa(5), 2);

@@ -9,3 +9,4 @@ Päivä | Tunnit | Kuvaus
 03.08.2016 | 1h | refaktorointi erillisiksi pakkauksiksi, luokkakaavio, pit & checkstyle dokumentaatioon
 03.08.2016 | 1 1/2 h | logiikan aloitus
 04.08.2016 | 1 h | logiikan ja uin suhteen pohtimista yms
+05.08.2016 | 1 h | lähinnä testejä
