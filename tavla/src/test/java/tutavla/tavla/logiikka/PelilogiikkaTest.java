@@ -47,9 +47,9 @@ public class PelilogiikkaTest {
     public void asetaNappulatLaudalle() {
         Pelaaja pelaaja1 = new Pelaaja();
         Pelaaja pelaaja2 = new Pelaaja();
-        Pelilogiikka logiikka = new Pelilogiikka(pelaaja1, pelaaja2);
+        Pelilogiikka logiikka = new Pelilogiikka();
 
-        logiikka.asetaNappulat();
+        logiikka.asetaNappulat(pelaaja1, pelaaja2);
         assertFalse(logiikka.ruutuOnTyhja(1));
         assertEquals(logiikka.ruudunNappulat(1), 2);
         assertTrue(logiikka.ruutuOnTyhja(2));
