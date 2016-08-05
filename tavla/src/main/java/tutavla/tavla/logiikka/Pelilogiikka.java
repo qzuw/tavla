@@ -64,6 +64,9 @@ public class Pelilogiikka {
         if (this.ruutuOnTyhja(ruutu)) {
             return true;
         }
+        if (this.ruudunNappulat(ruutu) < 2) {
+            return true;
+        }
         return false;
     }
 

@@ -38,14 +38,22 @@ public class Sovelluslogiikka {
         }
     }
 
+    public void setSiirtojarjestys(Pelaaja pelaaja1, Pelaaja pelaaja2) {
+        siirtojarjestys.add(pelaaja1);
+        siirtojarjestys.add(pelaaja2);
+    }
+
+    public ArrayList<Pelaaja> getSiirtojarjestys() {
+        return siirtojarjestys;
+    }
+
     public void kaynnista() {
         //kysy pelaajamaara
         //kysy nimet
 
         Pelaaja pelaaja1 = new Pelaaja();
         Pelaaja pelaaja2 = new Pelaaja();
-        siirtojarjestys.add(pelaaja1);
-        siirtojarjestys.add(pelaaja2);
+        this.setSiirtojarjestys(pelaaja1, pelaaja2);
 
         pelilogiikka = new Pelilogiikka();
 

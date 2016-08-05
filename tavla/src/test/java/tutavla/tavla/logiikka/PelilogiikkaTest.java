@@ -84,11 +84,29 @@ public class PelilogiikkaTest {
         assertEquals(logiikka.ruudunNappulat(24), 2);
     }
 
-//    @Test
-//    public void pelaajaSiirtaaEnsin() {
-//        Pelilogiikka logiikka = new Pelilogiikka();
-//        
-//        logiikka.asetaPelaajaSiirtaaEnsin(true);
-//        
-//    }
+    @Test
+    public void voikoSiirtaa() {
+        Pelaaja pelaaja1 = new Pelaaja();
+        Pelaaja pelaaja2 = new Pelaaja();
+        Pelilogiikka l = new Pelilogiikka();
+
+        l.asetaNappulat(pelaaja1, pelaaja2);
+
+        for (int i = 0; i < 26; i++) {
+            if (l.ruutuOnPelaajan(i, pelaaja2)) {
+                assertTrue(l.ruutuunVoiSiirtya(i, pelaaja2));
+                assertFalse(l.ruutuunVoiSiirtya(i, pelaaja1));
+            }
+            if (l.ruutuOnPelaajan(i, pelaaja1)) {
+                assertFalse(l.ruutuunVoiSiirtya(i, pelaaja2));
+                assertTrue(l.ruutuunVoiSiirtya(i, pelaaja1));
+            }
+            if (l.ruutuOnTyhja(i)) {
+                assertTrue(l.ruutuunVoiSiirtya(i, pelaaja2));
+                assertTrue(l.ruutuunVoiSiirtya(i, pelaaja1));
+            }
+        }
+
+    }
+
 }
