@@ -92,4 +92,20 @@ public class PelaajaTest {
         assertFalse(tietokoneOnSama);
     }
 
+    @Test
+    public void pelaajanMaaliToimiiOikein() {
+        Pelaaja pelaaja = new Pelaaja();
+
+        pelaaja.setMaali(0);
+        assertEquals(pelaaja.getMaali(), 0);
+        pelaaja.setMaali(5);
+        assertEquals(pelaaja.getMaali(), 0);
+        pelaaja.setMaali(25);
+        assertEquals(pelaaja.getMaali(), 25);
+        pelaaja.setMaali(40);
+        assertEquals(pelaaja.getMaali(), 25);
+        pelaaja.setMaali(0);
+        pelaaja.setMaali(40);
+        assertEquals(pelaaja.getMaali(), 0);
+    }
 }
