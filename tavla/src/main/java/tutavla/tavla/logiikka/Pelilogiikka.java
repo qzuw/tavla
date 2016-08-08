@@ -16,13 +16,13 @@ import tutavla.tavla.domain.Pelaaja;
  * @author ttuotila@cs
  */
 public class Pelilogiikka {
-    
+
     private Lauta lauta;
 
     public Pelilogiikka() {
         lauta = new Lauta();
     }
-    
+
     public void asetaNappulat(Pelaaja pelaaja1, Pelaaja pelaaja2) {
         asetaNappuloitaRuutuun(pelaaja1, 2, 24);
         asetaNappuloitaRuutuun(pelaaja1, 5, 13);
@@ -33,29 +33,29 @@ public class Pelilogiikka {
         asetaNappuloitaRuutuun(pelaaja2, 3, 17);
         asetaNappuloitaRuutuun(pelaaja2, 5, 19);
     }
-    
+
     private void asetaNappuloitaRuutuun(Pelaaja pelaaja, int maara, int ruutu) {
         for (int i = 0; i < maara; i++) {
             lauta.asetaNappula(new Nappula(pelaaja), ruutu);
         }
     }
-    
+
     public int ruudunNappulaMaara(int ruutu) {
         return lauta.nappuloitaRuudussa(ruutu);
     }
-    
+
     public boolean ruutuOnTyhja(int ruutu) {
         return (lauta.nappuloitaRuudussa(ruutu) == 0);
     }
-    
+
     public boolean ruutuOnPelaajan(int ruutu, Pelaaja pelaaja) {
         return lauta.ruutuPelaajalla(ruutu, pelaaja);
     }
-    
+
     public int pelaajanNappulaMaara(int ruutu, Pelaaja pelaaja) {
         return lauta.pelaajanNappuloitaRuudussa(ruutu, pelaaja);
     }
-    
+
     public boolean ruutuunVoiSiirtya(int ruutu, Pelaaja pelaaja) {
         if (ruutu == pelaaja.getMaali()) {
             return true;
@@ -68,12 +68,21 @@ public class Pelilogiikka {
         }
         return false;
     }
-    
+
     public void siirraNappulaa(Pelaaja pelaaja, int mista, int minne) {
         if (lauta.ruutuPelaajalla(mista, pelaaja) && this.ruutuunVoiSiirtya(minne, pelaaja)) {
             lauta.siirraNappula(mista, minne);
         }
-        
+
     }
-    
+
+    public boolean onkoPelaajaVoittanut(Pelaaja pelaaja) {
+        
+        if (lauta.pelaajanNappuloitaRuudussa(pelaaja.getMaali(), pelaaja) == 15){
+            return true;
+        }
+        
+        return false;
+    }
+
 }

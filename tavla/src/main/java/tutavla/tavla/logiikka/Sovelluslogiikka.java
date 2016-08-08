@@ -47,7 +47,7 @@ public class Sovelluslogiikka {
     }
 
     public void kaynnista() {
-        
+
         Pelaaja pelaaja1 = new Pelaaja();
         Pelaaja pelaaja2 = new Pelaaja();
         this.setSiirtojarjestys(pelaaja1, pelaaja2);
@@ -56,6 +56,28 @@ public class Sovelluslogiikka {
 
         pelilogiikka.asetaNappulat(siirtojarjestys.get(0), siirtojarjestys.get(1));
 
+    }
+
+    public boolean onkoJokuVoittanut() {
+        
+        for (Pelaaja pelaaja : siirtojarjestys) {
+            if (pelilogiikka.onkoPelaajaVoittanut(pelaaja)){
+                return true;
+            }
+        }
+        
+        return false;
+    }
+
+    public Pelaaja kukaVoitti() {
+        
+        for (Pelaaja pelaaja : siirtojarjestys) {
+            if (pelilogiikka.onkoPelaajaVoittanut(pelaaja)){
+                return pelaaja;
+            }
+        }
+        
+        return null;
     }
 
 }
