@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
     <item>
-      <title>File: 5,
+      <title>File: 10,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -47,6 +47,48 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#tutavla.tavla.domain.Lauta.java">tutavla/tavla/domain/Lauta.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.ui.Kayttoliittyma.java">tutavla/tavla/ui/Kayttoliittyma.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.Main.java">tutavla/tavla/Main.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.logiikka.Pelilogiikka.java">tutavla/tavla/logiikka/Pelilogiikka.java</a>
                 </td>
                 <td>
                   0
@@ -102,7 +144,35 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.logiikka.Sovelluslogiikka.java">tutavla/tavla/logiikka/Sovelluslogiikka.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#tutavla.tavla.domain.Nappula.java">tutavla/tavla/domain/Nappula.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.ui.Tekstikayttoliittyma.java">tutavla/tavla/ui/Tekstikayttoliittyma.java</a>
                 </td>
                 <td>
                   0
