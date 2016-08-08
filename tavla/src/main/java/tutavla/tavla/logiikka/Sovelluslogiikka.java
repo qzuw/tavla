@@ -48,9 +48,7 @@ public class Sovelluslogiikka {
     }
 
     public void kaynnista() {
-        //kysy pelaajamaara
-        //kysy nimet
-
+        
         Pelaaja pelaaja1 = new Pelaaja();
         Pelaaja pelaaja2 = new Pelaaja();
         this.setSiirtojarjestys(pelaaja1, pelaaja2);
@@ -59,8 +57,6 @@ public class Sovelluslogiikka {
 
         pelilogiikka.asetaNappulat(siirtojarjestys.get(0), siirtojarjestys.get(1));
 
-        //pelisilmukka?
-        //tätä täytyy vielä miettiä
     }
 
 }

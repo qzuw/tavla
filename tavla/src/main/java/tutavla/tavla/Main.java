@@ -21,8 +21,7 @@ public class Main {
      */
     public static void main(String[] args) {
         Kayttoliittyma kali = new Tekstikayttoliittyma();
-        Sovelluslogiikka peli = new Sovelluslogiikka(kali);
-        peli.kaynnista();
+        kali.kaynnista();
     }
     
 }

@@ -18,8 +18,6 @@ import tutavla.tavla.domain.Pelaaja;
 public class Pelilogiikka {
     
     private Lauta lauta;
-    // siirtojärjestys pitäisi olla svl, ei täällä
-    // tällöin myös nopat pitäisi olla siellä
 
     public Pelilogiikka() {
         lauta = new Lauta();
