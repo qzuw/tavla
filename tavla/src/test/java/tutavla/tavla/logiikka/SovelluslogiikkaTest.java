@@ -5,6 +5,7 @@
  */
 package tutavla.tavla.logiikka;
 
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -49,8 +50,7 @@ public class SovelluslogiikkaTest {
     public void muutaSiirtojarjestys() {
         Pelaaja p1 = new Pelaaja();
         Pelaaja p2 = new Pelaaja();
-        Kayttoliittyma kali = new Tekstikayttoliittyma();
-        Sovelluslogiikka svl = new Sovelluslogiikka(kali);
+        Sovelluslogiikka svl = new Sovelluslogiikka();
 
         svl.setSiirtojarjestys(p1, p2);
         assertEquals(svl.getSiirtojarjestys().get(0), p1);
@@ -63,4 +63,30 @@ public class SovelluslogiikkaTest {
         assertEquals(svl.getSiirtojarjestys().get(1), p2);
 
     }
+    
+    @Test
+    public void kaynnistaTest(){
+        Sovelluslogiikka svl = new Sovelluslogiikka();
+        svl.kaynnista();
+        
+        ArrayList<Pelaaja> jarjestys = svl.getSiirtojarjestys();
+
+        // ei tätä voi oikein testata järkevästi
+        
+        assertTrue(jarjestys.size() == 2);
+    }
+    
+    @Test
+    public void siirtojarjestysTest(){
+        Sovelluslogiikka svl = new Sovelluslogiikka();
+        svl.kaynnista();
+        
+        ArrayList<Pelaaja> jarjestys = svl.getSiirtojarjestys();
+        
+        svl.setSiirtojarjestys(jarjestys.get(0), jarjestys.get(1));
+
+        
+        assertTrue(jarjestys.size() == 2);
+    }
+    
 }

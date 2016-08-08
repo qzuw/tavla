@@ -17,13 +17,11 @@ import tutavla.tavla.ui.Kayttoliittyma;
 public class Sovelluslogiikka {
 
     private Pelilogiikka pelilogiikka;
-    private Kayttoliittyma kali;
     private ArrayList<Pelaaja> siirtojarjestys;
     private Noppa noppa1;
     private Noppa noppa2;
 
-    public Sovelluslogiikka(Kayttoliittyma kali) {
-        this.kali = kali;
+    public Sovelluslogiikka() {
         siirtojarjestys = new ArrayList<>();
         noppa1 = new Noppa();
         noppa2 = new Noppa();
@@ -39,6 +37,7 @@ public class Sovelluslogiikka {
     }
 
     public void setSiirtojarjestys(Pelaaja pelaaja1, Pelaaja pelaaja2) {
+        siirtojarjestys.clear();
         siirtojarjestys.add(pelaaja1);
         siirtojarjestys.add(pelaaja2);
     }
