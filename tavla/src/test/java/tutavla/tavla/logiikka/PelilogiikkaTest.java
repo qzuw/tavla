@@ -51,37 +51,37 @@ public class PelilogiikkaTest {
 
         logiikka.asetaNappulat(pelaaja1, pelaaja2);
         assertFalse(logiikka.ruutuOnTyhja(1));
-        assertEquals(logiikka.ruudunNappulat(1), 2);
+        assertEquals(logiikka.ruudunNappulaMaara(1), 2);
         assertTrue(logiikka.ruutuOnTyhja(2));
         assertTrue(logiikka.ruutuOnTyhja(3));
         assertTrue(logiikka.ruutuOnTyhja(4));
         assertTrue(logiikka.ruutuOnTyhja(5));
         assertFalse(logiikka.ruutuOnTyhja(6));
-        assertEquals(logiikka.ruudunNappulat(6), 5);
+        assertEquals(logiikka.ruudunNappulaMaara(6), 5);
         assertTrue(logiikka.ruutuOnTyhja(7));
         assertFalse(logiikka.ruutuOnTyhja(8));
-        assertEquals(logiikka.ruudunNappulat(8), 3);
+        assertEquals(logiikka.ruudunNappulaMaara(8), 3);
         assertTrue(logiikka.ruutuOnTyhja(9));
         assertTrue(logiikka.ruutuOnTyhja(10));
         assertTrue(logiikka.ruutuOnTyhja(11));
         assertFalse(logiikka.ruutuOnTyhja(12));
-        assertEquals(logiikka.ruudunNappulat(12), 5);
+        assertEquals(logiikka.ruudunNappulaMaara(12), 5);
         assertFalse(logiikka.ruutuOnTyhja(13));
-        assertEquals(logiikka.ruudunNappulat(13), 5);
+        assertEquals(logiikka.ruudunNappulaMaara(13), 5);
         assertTrue(logiikka.ruutuOnTyhja(14));
         assertTrue(logiikka.ruutuOnTyhja(15));
         assertTrue(logiikka.ruutuOnTyhja(16));
         assertFalse(logiikka.ruutuOnTyhja(17));
-        assertEquals(logiikka.ruudunNappulat(17), 3);
+        assertEquals(logiikka.ruudunNappulaMaara(17), 3);
         assertTrue(logiikka.ruutuOnTyhja(18));
         assertFalse(logiikka.ruutuOnTyhja(19));
-        assertEquals(logiikka.ruudunNappulat(19), 5);
+        assertEquals(logiikka.ruudunNappulaMaara(19), 5);
         assertTrue(logiikka.ruutuOnTyhja(20));
         assertTrue(logiikka.ruutuOnTyhja(21));
         assertTrue(logiikka.ruutuOnTyhja(22));
         assertTrue(logiikka.ruutuOnTyhja(23));
         assertFalse(logiikka.ruutuOnTyhja(24));
-        assertEquals(logiikka.ruudunNappulat(24), 2);
+        assertEquals(logiikka.ruudunNappulaMaara(24), 2);
     }
 
     @Test
@@ -120,11 +120,11 @@ public class PelilogiikkaTest {
         l.siirraNappulaa(pelaaja2, 12, 14);
         assertTrue(l.ruutuunVoiSiirtya(12, pelaaja2));
         assertFalse(l.ruutuunVoiSiirtya(12, pelaaja1));
-        assertEquals(l.ruudunNappulat(12), 4);
+        assertEquals(l.ruudunNappulaMaara(12), 4);
         assertTrue(l.ruutuOnPelaajan(14, pelaaja2));
         assertTrue(l.ruutuunVoiSiirtya(14, pelaaja2));
         assertTrue(l.ruutuunVoiSiirtya(14, pelaaja1));
-        assertEquals(l.ruudunNappulat(14), 1);
+        assertEquals(l.ruudunNappulaMaara(14), 1);
 
     }
 }

@@ -40,7 +40,7 @@ public class Pelilogiikka {
         }
     }
     
-    public int ruudunNappulat(int ruutu) {
+    public int ruudunNappulaMaara(int ruutu) {
         return lauta.nappuloitaRuudussa(ruutu);
     }
     
@@ -52,11 +52,15 @@ public class Pelilogiikka {
         return lauta.ruutuPelaajalla(ruutu, pelaaja);
     }
     
+    public int pelaajanNappulaMaara(int ruutu, Pelaaja pelaaja) {
+        return lauta.pelaajanNappuloitaRuudussa(ruutu, pelaaja);
+    }
+    
     public boolean ruutuunVoiSiirtya(int ruutu, Pelaaja pelaaja) {
         if (ruutu == pelaaja.getMaali()) {
             return true;
         }
-        if (this.ruudunNappulat(ruutu) < 2) {
+        if (this.ruudunNappulaMaara(ruutu) < 2) {
             return true;
         }
         if (this.ruutuOnPelaajan(ruutu, pelaaja)) {

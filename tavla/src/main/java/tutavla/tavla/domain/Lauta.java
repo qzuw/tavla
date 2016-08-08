@@ -36,6 +36,10 @@ public class Lauta {
         return ruudut.get(ruutu).nappuloidenMaara();
     }
 
+    public int pelaajanNappuloitaRuudussa(int ruutu, Pelaaja pelaaja) {
+        return ruudut.get(ruutu).pelaajanNappuloidenMaara(pelaaja);
+    }
+
     public void asetaNappula(Nappula nappula, int ruutu) {
         ruudut.get(ruutu).lisaaNappula(nappula);
     }

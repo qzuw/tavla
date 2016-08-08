@@ -39,6 +39,16 @@ public class Ruutu {
         return nappulat.size();
     }
 
+    public int pelaajanNappuloidenMaara(Pelaaja pelaaja) {
+        int maara = 0;
+        for (Nappula nappula : nappulat) {
+            if (nappula.getPelaaja().equals(pelaaja)){
+                maara++;
+            }
+        }
+        return maara;
+    }
+
     public boolean isEmpty() {
         return nappulat.isEmpty();
     }
