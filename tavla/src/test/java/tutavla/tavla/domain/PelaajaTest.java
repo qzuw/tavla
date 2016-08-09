@@ -108,4 +108,35 @@ public class PelaajaTest {
         pelaaja.setMaali(40);
         assertEquals(pelaaja.getMaali(), 0);
     }
+    
+    @Test
+    public void onkoMusta(){
+        Pelaaja pelaaja = new Pelaaja();
+        
+        pelaaja.setMusta(true);
+        assertTrue(pelaaja.isMusta());
+        pelaaja.setMusta(false);
+        assertFalse(pelaaja.isMusta());
+    }
+    
+    @Test
+    public void pelaajaMuuttuuKoneeksiJaTakaisin(){
+        Pelaaja pelaaja = new Pelaaja("asdf");
+        
+        assertTrue(pelaaja.isIhminen());
+        pelaaja.setIhminen(false);
+        assertFalse(pelaaja.isIhminen());        
+        pelaaja.setIhminen(true);
+        assertTrue(pelaaja.isIhminen());        
+    }
+    
+    @Test
+    public void tietokoneelleNimi(){
+        Pelaaja pelaaja = new Pelaaja();
+        String nimi = "asdf";
+        
+        assertEquals(pelaaja.getNimi(), "Tietokone");
+        pelaaja.setNimi(nimi);
+        assertEquals(pelaaja.getNimi(), nimi);
+    }
 }
