@@ -17,10 +17,6 @@ public class Nappula {
         this.pelaaja = pelaaja;
     }
 
-    public boolean onkoMusta() {
-        return pelaaja.isMusta();
-    }
-
     public Pelaaja getPelaaja() {
         return pelaaja;
     }
