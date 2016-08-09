@@ -24,6 +24,8 @@ public class Pelilogiikka {
     }
 
     public void asetaNappulat(Pelaaja pelaaja1, Pelaaja pelaaja2) {
+        pelaaja1.setMaali(0);
+        pelaaja2.setMaali(25);
         asetaNappuloitaRuutuun(pelaaja1, 2, 24);
         asetaNappuloitaRuutuun(pelaaja1, 5, 13);
         asetaNappuloitaRuutuun(pelaaja1, 3, 8);

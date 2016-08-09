@@ -54,6 +54,14 @@ public class LautaTest {
         assertEquals(lauta.nappuloitaRuudussa(12), 0);
         lauta.asetaNappula(nappula, 12);
         assertEquals(lauta.nappuloitaRuudussa(12), 1);
+
+        assertEquals(lauta.nappuloitaRuudussa(0), 0);
+        lauta.asetaNappula(nappula, 0);
+        assertEquals(lauta.nappuloitaRuudussa(0), 1);
+
+        assertEquals(lauta.nappuloitaRuudussa(25), 0);
+        lauta.asetaNappula(nappula, 25);
+        assertEquals(lauta.nappuloitaRuudussa(25), 1);
     }
 
     @Test
@@ -109,5 +117,22 @@ public class LautaTest {
         assertEquals(lauta.nappuloitaRuudussa(5), 1);
         assertEquals(lauta.nappuloitaRuudussa(7), 0);
         assertEquals(lauta.nappuloitaRuudussa(8), 2);
+    }
+    
+    @Test
+    public void pelaajanNappuloitaRuudussa(){
+        Lauta lauta = new Lauta();
+        Pelaaja pelaaja = new Pelaaja();
+        Pelaaja toinen = new Pelaaja();
+
+        assertEquals(lauta.pelaajanNappuloitaRuudussa(6, pelaaja), 0);
+        lauta.asetaNappula(new Nappula(pelaaja), 6);
+        lauta.asetaNappula(new Nappula(pelaaja), 6);
+        assertEquals(lauta.pelaajanNappuloitaRuudussa(6, pelaaja), 2);
+        lauta.asetaNappula(new Nappula(toinen), 6);
+        assertEquals(lauta.pelaajanNappuloitaRuudussa(6, pelaaja), 2);
+        lauta.asetaNappula(new Nappula(pelaaja), 6);
+        assertEquals(lauta.pelaajanNappuloitaRuudussa(6, pelaaja), 3);
+
     }
 }

@@ -82,6 +82,9 @@ public class PelilogiikkaTest {
         assertTrue(logiikka.ruutuOnTyhja(23));
         assertFalse(logiikka.ruutuOnTyhja(24));
         assertEquals(logiikka.ruudunNappulaMaara(24), 2);
+        
+        assertEquals(pelaaja1.getMaali(), 0);
+        assertEquals(pelaaja2.getMaali(), 25);
     }
 
     @Test
@@ -126,5 +129,51 @@ public class PelilogiikkaTest {
         assertTrue(l.ruutuunVoiSiirtya(14, pelaaja1));
         assertEquals(l.ruudunNappulaMaara(14), 1);
 
+    }
+
+    @Test
+    public void pelaajanNappuloitaRuudussa() {
+        Pelaaja pelaaja = new Pelaaja();
+        Pelaaja toinen = new Pelaaja();
+        Pelilogiikka plk = new Pelilogiikka();
+
+        plk.asetaNappulat(pelaaja, toinen);
+
+        assertEquals(plk.pelaajanNappulaMaara(0, pelaaja), 0);
+        plk.siirraNappulaa(pelaaja, 13, 0);
+        plk.siirraNappulaa(pelaaja, 13, 0);
+        assertEquals(plk.pelaajanNappulaMaara(0, pelaaja), 2);
+        plk.siirraNappulaa(toinen, 12, 0);
+        plk.siirraNappulaa(toinen, 12, 0);
+        assertEquals(plk.pelaajanNappulaMaara(0, pelaaja), 2);
+        plk.siirraNappulaa(pelaaja, 13, 0);
+        assertEquals(plk.pelaajanNappulaMaara(0, pelaaja), 3);
+    }
+
+    @Test
+    public void onkoVoittanut() {
+        Pelaaja pelaaja = new Pelaaja();
+        Pelaaja toinen = new Pelaaja();
+        Pelilogiikka plk = new Pelilogiikka();
+        plk.asetaNappulat(pelaaja, toinen);
+
+        plk.siirraNappulaa(pelaaja, 24, 0);
+        plk.siirraNappulaa(pelaaja, 24, 0);
+        plk.siirraNappulaa(pelaaja, 13, 0);
+        plk.siirraNappulaa(pelaaja, 13, 0);
+        plk.siirraNappulaa(pelaaja, 13, 0);
+        plk.siirraNappulaa(pelaaja, 13, 0);
+        plk.siirraNappulaa(pelaaja, 13, 0);
+        plk.siirraNappulaa(pelaaja, 8, 0);
+        plk.siirraNappulaa(pelaaja, 8, 0);
+        plk.siirraNappulaa(pelaaja, 8, 0);
+        plk.siirraNappulaa(pelaaja, 6, 0);
+        plk.siirraNappulaa(pelaaja, 6, 0);
+        plk.siirraNappulaa(pelaaja, 6, 0);
+        plk.siirraNappulaa(pelaaja, 6, 0);
+        assertFalse(plk.onkoPelaajaVoittanut(pelaaja));
+        plk.siirraNappulaa(pelaaja, 6, 0);
+        assertFalse(plk.onkoPelaajaVoittanut(toinen));
+        assertTrue(plk.onkoPelaajaVoittanut(pelaaja));
     }
 }
