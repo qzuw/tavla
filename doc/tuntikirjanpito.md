@@ -11,3 +11,4 @@ Päivä | Tunnit | Kuvaus
 04.08.2016 | 1 h | logiikan ja uin suhteen pohtimista yms
 05.08.2016 | 1 h | lähinnä testejä
 08.08.2016 | 1 h | pikkuhiomista, testejä
+09.08.2016 | 1 h | testejä
