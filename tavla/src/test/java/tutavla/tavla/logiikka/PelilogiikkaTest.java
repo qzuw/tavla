@@ -82,7 +82,7 @@ public class PelilogiikkaTest {
         assertTrue(logiikka.ruutuOnTyhja(23));
         assertFalse(logiikka.ruutuOnTyhja(24));
         assertEquals(logiikka.ruudunNappulaMaara(24), 2);
-        
+
         assertEquals(pelaaja1.getMaali(), 0);
         assertEquals(pelaaja2.getMaali(), 25);
     }

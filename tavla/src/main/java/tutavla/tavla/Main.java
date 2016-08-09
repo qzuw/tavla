@@ -9,7 +9,6 @@ import tutavla.tavla.ui.Tekstikayttoliittyma;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author ttuotila@cs
@@ -23,5 +22,5 @@ public class Main {
         Kayttoliittyma kali = new Tekstikayttoliittyma();
         kali.kaynnista();
     }
-    
+
 }

@@ -118,9 +118,9 @@ public class LautaTest {
         assertEquals(lauta.nappuloitaRuudussa(7), 0);
         assertEquals(lauta.nappuloitaRuudussa(8), 2);
     }
-    
+
     @Test
-    public void pelaajanNappuloitaRuudussa(){
+    public void pelaajanNappuloitaRuudussa() {
         Lauta lauta = new Lauta();
         Pelaaja pelaaja = new Pelaaja();
         Pelaaja toinen = new Pelaaja();

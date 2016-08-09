@@ -12,5 +12,5 @@ package tutavla.tavla.ui;
 public interface Kayttoliittyma {
 
     public void kaynnista();
-    
+
 }

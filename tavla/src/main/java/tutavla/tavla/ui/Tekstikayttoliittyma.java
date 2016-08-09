@@ -14,10 +14,9 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
     @Override
     public void kaynnista() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        
+
         //kysy pelaajamaara
         //kysy nimet
-
     }
 
 }

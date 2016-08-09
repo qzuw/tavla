@@ -59,24 +59,24 @@ public class Sovelluslogiikka {
     }
 
     public boolean onkoJokuVoittanut() {
-        
+
         for (Pelaaja pelaaja : siirtojarjestys) {
-            if (pelilogiikka.onkoPelaajaVoittanut(pelaaja)){
+            if (pelilogiikka.onkoPelaajaVoittanut(pelaaja)) {
                 return true;
             }
         }
-        
+
         return false;
     }
 
     public Pelaaja kukaVoitti() {
-        
+
         for (Pelaaja pelaaja : siirtojarjestys) {
-            if (pelilogiikka.onkoPelaajaVoittanut(pelaaja)){
+            if (pelilogiikka.onkoPelaajaVoittanut(pelaaja)) {
                 return pelaaja;
             }
         }
-        
+
         return null;
     }
 
