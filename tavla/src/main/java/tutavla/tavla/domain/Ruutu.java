@@ -42,7 +42,7 @@ public class Ruutu {
     public int pelaajanNappuloidenMaara(Pelaaja pelaaja) {
         int maara = 0;
         for (Nappula nappula : nappulat) {
-            if (nappula.getPelaaja().equals(pelaaja)){
+            if (nappula.getPelaaja().equals(pelaaja)) {
                 maara++;
             }
         }
