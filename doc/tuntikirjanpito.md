@@ -12,3 +12,4 @@ Päivä | Tunnit | Kuvaus
 05.08.2016 | 1 h | lähinnä testejä
 08.08.2016 | 1 h | pikkuhiomista, testejä
 09.08.2016 | 1 h | testejä
+10.08.2016 | 1 h | lähinnä dok-päivityksiä + checkstylen säätö
