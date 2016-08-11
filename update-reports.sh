@@ -28,3 +28,6 @@ if [ 'x'$viimeisinpit != 'x' -a -d tavla/target/pit-reports/$viimeisinpit ]
         rm README.new
     fi
 fi
+
+git add -A
+git commit -m "pit- ja checkstyle-raporttien päivitys"
