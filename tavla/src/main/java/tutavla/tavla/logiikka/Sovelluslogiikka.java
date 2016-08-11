@@ -54,7 +54,7 @@ public class Sovelluslogiikka {
 
         pelilogiikka = new Pelilogiikka();
 
-        pelilogiikka.asetaNappulat(siirtojarjestys.get(0), siirtojarjestys.get(1));
+        pelilogiikka.alustaPelitilanne(siirtojarjestys.get(0), siirtojarjestys.get(1));
 
     }
 

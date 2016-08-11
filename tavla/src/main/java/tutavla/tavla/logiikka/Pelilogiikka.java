@@ -23,7 +23,7 @@ public class Pelilogiikka {
         lauta = new Lauta();
     }
 
-    public void asetaNappulat(Pelaaja pelaaja1, Pelaaja pelaaja2) {
+    public void alustaPelitilanne(Pelaaja pelaaja1, Pelaaja pelaaja2) {
         pelaaja1.setMaali(0);
         pelaaja2.setMaali(25);
         asetaNappuloitaRuutuun(pelaaja1, 2, 24);

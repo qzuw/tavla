@@ -49,7 +49,7 @@ public class PelilogiikkaTest {
         Pelaaja pelaaja2 = new Pelaaja();
         Pelilogiikka logiikka = new Pelilogiikka();
 
-        logiikka.asetaNappulat(pelaaja1, pelaaja2);
+        logiikka.alustaPelitilanne(pelaaja1, pelaaja2);
         assertFalse(logiikka.ruutuOnTyhja(1));
         assertEquals(logiikka.ruudunNappulaMaara(1), 2);
         assertTrue(logiikka.ruutuOnTyhja(2));
@@ -93,7 +93,7 @@ public class PelilogiikkaTest {
         Pelaaja pelaaja2 = new Pelaaja();
         Pelilogiikka l = new Pelilogiikka();
 
-        l.asetaNappulat(pelaaja1, pelaaja2);
+        l.alustaPelitilanne(pelaaja1, pelaaja2);
 
         for (int i = 0; i < 26; i++) {
             if (l.ruutuOnPelaajan(i, pelaaja2)) {
@@ -118,7 +118,7 @@ public class PelilogiikkaTest {
         Pelaaja pelaaja2 = new Pelaaja();
         Pelilogiikka l = new Pelilogiikka();
 
-        l.asetaNappulat(pelaaja1, pelaaja2);
+        l.alustaPelitilanne(pelaaja1, pelaaja2);
 
         l.siirraNappulaa(pelaaja2, 12, 14);
         assertTrue(l.ruutuunVoiSiirtya(12, pelaaja2));
@@ -137,7 +137,7 @@ public class PelilogiikkaTest {
         Pelaaja toinen = new Pelaaja();
         Pelilogiikka plk = new Pelilogiikka();
 
-        plk.asetaNappulat(pelaaja, toinen);
+        plk.alustaPelitilanne(pelaaja, toinen);
 
         assertEquals(plk.pelaajanNappulaMaara(0, pelaaja), 0);
         plk.siirraNappulaa(pelaaja, 13, 0);
@@ -155,7 +155,7 @@ public class PelilogiikkaTest {
         Pelaaja pelaaja = new Pelaaja();
         Pelaaja toinen = new Pelaaja();
         Pelilogiikka plk = new Pelilogiikka();
-        plk.asetaNappulat(pelaaja, toinen);
+        plk.alustaPelitilanne(pelaaja, toinen);
 
         plk.siirraNappulaa(pelaaja, 24, 0);
         plk.siirraNappulaa(pelaaja, 24, 0);
