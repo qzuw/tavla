@@ -66,4 +66,9 @@ public class Pelaaja {
         }
     }
 
+    @Override
+    public String toString() {
+        return nimi;
+    }
+
 }

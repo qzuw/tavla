@@ -48,11 +48,10 @@ public class SovelluslogiikkaTest {
     // public void hello() {}
     @Test
     public void muutaSiirtojarjestys() {
-        Pelaaja p1 = new Pelaaja();
-        Pelaaja p2 = new Pelaaja();
         Sovelluslogiikka svl = new Sovelluslogiikka();
+        Pelaaja p1 = svl.getSiirtojarjestys().get(0);
+        Pelaaja p2 = svl.getSiirtojarjestys().get(1);
 
-        svl.setSiirtojarjestys(p1, p2);
         assertEquals(svl.getSiirtojarjestys().get(0), p1);
         assertEquals(svl.getSiirtojarjestys().get(1), p2);
         svl.pelaajaSiirtaaEnsin(true, p2);
@@ -67,7 +66,6 @@ public class SovelluslogiikkaTest {
     @Test
     public void kaynnistaTest(){
         Sovelluslogiikka svl = new Sovelluslogiikka();
-        svl.kaynnista();
         
         ArrayList<Pelaaja> jarjestys = svl.getSiirtojarjestys();
 
@@ -76,17 +74,16 @@ public class SovelluslogiikkaTest {
         assertTrue(jarjestys.size() == 2);
     }
     
-    @Test
-    public void siirtojarjestysTest(){
-        Sovelluslogiikka svl = new Sovelluslogiikka();
-        svl.kaynnista();
-        
-        ArrayList<Pelaaja> jarjestys = svl.getSiirtojarjestys();
-        
-        svl.setSiirtojarjestys(jarjestys.get(0), jarjestys.get(1));
-
-        
-        assertTrue(jarjestys.size() == 2);
-    }
+//    @Test
+//    public void siirtojarjestysTest(){
+//        Sovelluslogiikka svl = new Sovelluslogiikka();
+//        
+//        ArrayList<Pelaaja> jarjestys = svl.getSiirtojarjestys();
+//        
+//        svl.setSiirtojarjestys(jarjestys.get(0), jarjestys.get(1));
+//
+//        
+//        assertTrue(jarjestys.size() == 2);
+//    }
     
 }

@@ -78,6 +78,10 @@ public class Pelilogiikka {
 
     }
 
+    public Lauta pelitilanne() {
+        return lauta;
+    }
+
     public boolean onkoPelaajaVoittanut(Pelaaja pelaaja) {
 
         if (lauta.pelaajanNappuloitaRuudussa(pelaaja.getMaali(), pelaaja) == 15) {
