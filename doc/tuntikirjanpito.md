@@ -13,3 +13,4 @@ Päivä | Tunnit | Kuvaus
 08.08.2016 | 1 h | pikkuhiomista, testejä
 09.08.2016 | 1 h | testejä
 10.08.2016 | 1 h | lähinnä dok-päivityksiä + checkstylen säätö
+11.08.2016 | 2 1/2 h | tekstikäyttöliittymän alku, logiikkaa, testejä, raporttiautomaatio
