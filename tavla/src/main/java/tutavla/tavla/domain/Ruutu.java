@@ -59,23 +59,23 @@ public class Ruutu {
         }
         return nappulat.get(0).getPelaaja();
     }
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         String s = "[] ";
-        
-        if (!this.isEmpty()){
-            if (this.nappulat.get(0).getPelaaja().isMusta()){
+
+        if (!this.isEmpty()) {
+            if (this.nappulat.get(0).getPelaaja().isMusta()) {
                 s = "M";
             } else {
                 s = "V";
             }
             s += this.nappuloidenMaara();
-            if (this.nappuloidenMaara() < 10){
+            if (this.nappuloidenMaara() < 10) {
                 s += " ";
             }
         }
-        
+
         return s;
     }
 }
