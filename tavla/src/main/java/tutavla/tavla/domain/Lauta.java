@@ -48,4 +48,34 @@ public class Lauta {
         ruudut.get(minne).lisaaNappula(ruudut.get(mista).otaNappula());
     }
 
+    @Override
+    public String toString() {
+        String s = "";
+        for (int i = 13; i <= 24; i++) {
+            s += i + "  ";
+        }
+
+        s += "\n";
+
+        for (int i = 13; i <= 24; i++) {
+            s += ruudut.get(i) + " ";
+        }
+
+        s += "\n";
+        s += "\n";
+
+        for (int i = 12; i >= 1; i--) {
+            s += ruudut.get(i) + " ";
+        }
+        s += "\n";
+        for (int i = 12; i >= 1; i--) {
+            s += i + "  ";
+            if (i < 10) {
+                s += " ";
+            }
+        }
+        s += "\n";
+
+        return s;
+    }
 }

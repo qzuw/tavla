@@ -146,6 +146,8 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
 
         while (true) {
             System.out.println("Kierros alkaa");
+            System.out.println(svl.pelitilanne());
+            System.out.println("");
 
             for (Pelaaja pelaaja : pelaajat) {
 
@@ -176,8 +178,7 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
                     }
                 }
 
-                Lauta lauta = svl.pelitilanne();
-                // tulostetaan tilanne
+                System.out.println(svl.pelitilanne());
 
             }
         }

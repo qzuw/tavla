@@ -109,6 +109,7 @@ public class Sovelluslogiikka {
 
     public void tietokoneValitseeVarin() {
         // rand
+        this.asetaPelaajaMustaksi(siirtojarjestys.get(1));
     }
 
     public void pelaaTietokone() {
