@@ -162,4 +162,11 @@ public class SovelluslogiikkaTest {
 
         assertTrue(siirrot.size() == 0);
     }
+    
+    @Test
+    public void aloittaessaEiOleVoittajaa(){
+        Sovelluslogiikka svl = new Sovelluslogiikka();
+        
+        assertFalse(svl.onkoJokuVoittanut());
+    }
 }
