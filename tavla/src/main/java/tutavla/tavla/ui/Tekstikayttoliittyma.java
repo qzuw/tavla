@@ -29,20 +29,13 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
 
         int pelaajamaara = kysyPelaajamaara();
 
-        ArrayList<String> pelaajanimet = new ArrayList<>();
-
         kysyPelaajanimet(pelaajamaara);
 
         System.out.println("Paina enter heittääksesi noppaa");
         lukija.nextLine();
         svl.heitaNopat();
 
-        ArrayList<Integer> siirrot;
-        ArrayList<Pelaaja> pelaajat;
-
         arvoAloittaja();
-
-        pelaajat = svl.getSiirtojarjestys();
 
         valitseVari();
 
