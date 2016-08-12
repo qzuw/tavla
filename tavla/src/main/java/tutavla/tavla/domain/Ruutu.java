@@ -35,6 +35,27 @@ public class Ruutu {
         return nappula;
     }
 
+    public Nappula otaPelaajanNappula(Pelaaja pelaaja) {
+        if (nappulat.size() < 1) {
+            return null;
+        }
+
+        int poistettava = -1;
+        for (int i = 0; i < nappulat.size(); i++) {
+            if (nappulat.get(i).getPelaaja().equals(pelaaja)) {
+                poistettava = i;
+                break;
+            }
+        }
+        if (poistettava < 0) {
+            return null;
+        }
+
+        Nappula nappula = nappulat.get(poistettava);
+        nappulat.remove(poistettava);
+        return nappula;
+    }
+
     public int nappuloidenMaara() {
         return nappulat.size();
     }

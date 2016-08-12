@@ -111,4 +111,29 @@ public class RuutuTest {
         assertEquals(ruutu.pelaajanNappuloidenMaara(toinen), 2);
 
     }
+    
+    @Test
+    public void otaPelaajanNappula() {
+        Ruutu ruutu = new Ruutu();
+        Pelaaja pelaaja = new Pelaaja();
+        Pelaaja toinen = new Pelaaja();
+        
+        ruutu.lisaaNappula(new Nappula(pelaaja));
+        ruutu.lisaaNappula(new Nappula(toinen));
+        
+        assertEquals(ruutu.otaPelaajanNappula(toinen).getPelaaja(), toinen);
+        assertEquals(ruutu.nappuloidenMaara(), 1);
+    }
+    
+    @Test
+    public void otaPelaajanNappulaEiOtaVaaraa() {
+        Ruutu ruutu = new Ruutu();
+        Pelaaja pelaaja = new Pelaaja();
+        Pelaaja toinen = new Pelaaja();
+        
+        ruutu.lisaaNappula(new Nappula(pelaaja));
+        
+        assertEquals(ruutu.otaPelaajanNappula(toinen), null);
+        assertEquals(ruutu.nappuloidenMaara(), 1);
+    }
 }
