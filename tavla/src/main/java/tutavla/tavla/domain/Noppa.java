@@ -16,8 +16,8 @@ public class Noppa {
     private Random random;
     private int arvo;
 
-    public Noppa() {
-        random = new Random();
+    public Noppa(Random r) {
+        random = r;
         this.arvo();
     }
 

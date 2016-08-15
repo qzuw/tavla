@@ -6,6 +6,7 @@
 package tutavla.tavla.logiikka;
 
 import java.util.ArrayList;
+import java.util.Random;
 import tutavla.tavla.domain.Lauta;
 import tutavla.tavla.domain.Noppa;
 import tutavla.tavla.domain.Pelaaja;
@@ -21,15 +22,19 @@ public class Sovelluslogiikka {
     private ArrayList<Pelaaja> siirtojarjestys;
     private ArrayList<Noppa> nopat;
     private ArrayList<Integer> siirrot;
+    private Tekoaly tekoaly;
 
     public Sovelluslogiikka() {
         siirtojarjestys = new ArrayList<>();
         siirrot = new ArrayList<>();
         nopat = new ArrayList<>();
 
+        Random random = new Random();
         for (int i = 0; i < 2; i++) {
-            nopat.add(new Noppa());
+            nopat.add(new Noppa(random));
         }
+
+        tekoaly = new Tekoaly(random);
 
         Pelaaja pelaaja1 = new Pelaaja();
         Pelaaja pelaaja2 = new Pelaaja();
@@ -108,12 +113,11 @@ public class Sovelluslogiikka {
     }
 
     public void tietokoneValitseeVarin() {
-        // rand
-        this.asetaPelaajaMustaksi(siirtojarjestys.get(1));
+        this.asetaPelaajaMustaksi(tekoaly.valitseVari(siirtojarjestys));
     }
 
     public void pelaaTietokone() {
-// tänne logiikka mahtavalle tekoälylle        
+        tekoaly.pelaa(pelilogiikka.pelitilanne(), siirrot);
     }
 
     public Lauta pelitilanne() {
