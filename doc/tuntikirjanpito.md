@@ -15,3 +15,4 @@ Päivä | Tunnit | Kuvaus
 10.08.2016 | 1 h | lähinnä dok-päivityksiä + checkstylen säätö
 11.08.2016 | 2 1/2 h | tekstikäyttöliittymän alku, logiikkaa, testejä, raporttiautomaatio
 12.08.2016 | 1 1/2 h | toString, otaPelaajanNappula, refaktorointia (ja n 2h koodikatselmointia)
+15.08.2016 | 3 h | tietokonepelaaja, loppupeli, yms
