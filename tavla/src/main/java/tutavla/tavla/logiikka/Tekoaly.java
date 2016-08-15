@@ -23,7 +23,7 @@ public class Tekoaly {
     }
 
     public Pelaaja valitseVari(ArrayList<Pelaaja> siirtojarjestys) {
-        return siirtojarjestys.get(random.nextInt(1));
+        return siirtojarjestys.get(random.nextInt(siirtojarjestys.size()));
     }
 
     public void pelaa(Pelaaja tietokone, Pelilogiikka plk, ArrayList<Integer> siirrot) {
