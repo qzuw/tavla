@@ -25,7 +25,7 @@ public class Tekoaly {
         return siirtojarjestys.get(random.nextInt(1));
     }
     
-    public void pelaa(Lauta lauta, ArrayList<Integer> siirrot){
+    public void pelaa(Pelaaja tietokone, Pelilogiikka plk, ArrayList<Integer> siirrot){
         
     }
 }

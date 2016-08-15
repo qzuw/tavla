@@ -116,8 +116,8 @@ public class Sovelluslogiikka {
         this.asetaPelaajaMustaksi(tekoaly.valitseVari(siirtojarjestys));
     }
 
-    public void pelaaTietokone() {
-        tekoaly.pelaa(pelilogiikka.pelitilanne(), siirrot);
+    public void pelaaTietokone(Pelaaja tietokone) {
+        tekoaly.pelaa(tietokone, pelilogiikka, siirrot);
     }
 
     public Lauta pelitilanne() {
