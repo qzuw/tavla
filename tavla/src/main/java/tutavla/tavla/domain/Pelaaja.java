@@ -68,7 +68,13 @@ public class Pelaaja {
 
     @Override
     public String toString() {
-        return nimi;
+        String s = nimi + " (";
+        if (musta) {
+            s += "musta)";
+        } else {
+            s += "valkoinen)";
+        }
+        return s;
     }
 
 }

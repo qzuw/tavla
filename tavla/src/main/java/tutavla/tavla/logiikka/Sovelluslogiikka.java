@@ -10,6 +10,7 @@ import java.util.Random;
 import tutavla.tavla.domain.Lauta;
 import tutavla.tavla.domain.Noppa;
 import tutavla.tavla.domain.Pelaaja;
+import tutavla.tavla.domain.Siirto;
 import tutavla.tavla.ui.Kayttoliittyma;
 
 /**
@@ -91,6 +92,8 @@ public class Sovelluslogiikka {
 
     public void heitaNopat() {
 
+        siirrot.clear();
+
         for (int i = 0; i < 2; i++) {
             nopat.get(i).heita();
             if (siirrot.contains(nopat.get(i).getArvo())) {
@@ -116,8 +119,35 @@ public class Sovelluslogiikka {
         this.asetaPelaajaMustaksi(tekoaly.valitseVari(siirtojarjestys));
     }
 
-    public void pelaaTietokone(Pelaaja tietokone) {
-        tekoaly.pelaa(tietokone, pelilogiikka, siirrot);
+    public Siirto pelaaTietokone(Pelaaja tietokone) {
+        Siirto siirto = tekoaly.pelaa(tietokone, pelilogiikka, siirrot);
+        return siirto;
+    }
+
+    public boolean eiVoiSiirtaa(Pelaaja pelaaja) {
+        boolean voiSiirtaa = false;
+
+        if (pelaaja.getMaali() == 0) {
+            if (pelilogiikka.pelaajanNappulaMaara(25, pelaaja) > 0) {
+                for (int siirto : siirrot) {
+                    if (pelilogiikka.ruutuunVoiSiirtya((25 - siirto), pelaaja)) {
+                        voiSiirtaa = true;
+                        break;
+                    }
+                }
+            } else {
+                for (int siirto : siirrot) {
+                    for (int ruutu : pelilogiikka.pelaajaVoiSiirtaaRuuduista(pelaaja)) {
+                        if (pelilogiikka.pelaajaVoiSiirtaaRuutuihin(pelaaja, ruutu).contains(siirto)) {
+                            voiSiirtaa = true;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        return !voiSiirtaa;
     }
 
     public Lauta pelitilanne() {

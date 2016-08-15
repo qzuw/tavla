@@ -73,6 +73,9 @@ public class Pelilogiikka {
 
     public void siirraNappulaa(Pelaaja pelaaja, int mista, int minne) {
         if (lauta.ruutuPelaajalla(mista, pelaaja) && this.ruutuunVoiSiirtya(minne, pelaaja)) {
+            if (!lauta.ruutuPelaajalla(minne, pelaaja) && lauta.nappuloitaRuudussa(minne) == 1) {
+                lauta.siirraNappula(minne, pelaaja.getMaali());
+            }
             lauta.siirraNappula(mista, minne);
         }
 
@@ -91,4 +94,90 @@ public class Pelilogiikka {
         return false;
     }
 
+    public ArrayList<Integer> pelaajaVoiSiirtaaRuuduista(Pelaaja pelaaja) {
+        ArrayList<Integer> lista = new ArrayList<>();
+
+        int syotyjenNappuloidenRuutu = Math.abs(pelaaja.getMaali() - 25);
+
+        if (lauta.pelaajanNappuloitaRuudussa(syotyjenNappuloidenRuutu, pelaaja) > 0) {
+            lista.add(syotyjenNappuloidenRuutu);
+            return lista;
+        }
+
+        for (int i = 1; i < 25; i++) {
+            if (lauta.ruutuPelaajalla(i, pelaaja)) {
+                lista.add(i);
+            }
+        }
+
+        return lista;
+    }
+
+    public ArrayList<Integer> pelaajaVoiSiirtaaRuutuihin(Pelaaja pelaaja, int lahtoruutu) {
+        ArrayList<Integer> lista = new ArrayList<>();
+
+        if (pelaaja.getMaali() == 0) {
+
+            int i = lahtoruutu;
+            int siirto = 0;
+            while (true) {
+                siirto++;
+                int kohderuutu = lahtoruutu - siirto;
+                if (kohderuutu < 0) {
+                    kohderuutu = 0;
+                    if (!lista.contains(kohderuutu)) {
+                        lista.add(kohderuutu);
+                    }
+                    break;
+                }
+                if (siirto > 6) {
+                    break;
+                }
+                if (this.ruutuunVoiSiirtya(kohderuutu, pelaaja)) {
+                    lista.add(kohderuutu);
+                }
+            }
+
+        } else {
+
+            int i = lahtoruutu;
+            int siirto = 0;
+            while (true) {
+                siirto++;
+                int kohderuutu = siirto + lahtoruutu;
+                if (kohderuutu > 25) {
+                    kohderuutu = 25;
+                    if (!lista.contains(kohderuutu)) {
+                        lista.add(kohderuutu);
+                    }
+                    break;
+                }
+                if (siirto > 6) {
+                    break;
+                }
+                if (this.ruutuunVoiSiirtya(kohderuutu, pelaaja)) {
+                    lista.add(kohderuutu);
+                }
+            }
+        }
+
+        return lista;
+    }
+
+    public boolean nappulatKotialueella(Pelaaja pelaaja) {
+        int maara = 0;
+        if (pelaaja.getMaali() == 0) {
+            for (int i = 0; i < 7; i++) {
+                maara += lauta.pelaajanNappuloitaRuudussa(i, pelaaja);
+            }
+        } else {
+            for (int i = 25; i > 18; i--) {
+                maara += lauta.pelaajanNappuloitaRuudussa(i, pelaaja);
+            }
+        }
+        if (maara == 15) {
+            return true;
+        }
+        return false;
+    }
 }

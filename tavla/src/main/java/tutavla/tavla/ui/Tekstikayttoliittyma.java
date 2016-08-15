@@ -8,6 +8,7 @@ package tutavla.tavla.ui;
 import java.util.*;
 import tutavla.tavla.domain.Lauta;
 import tutavla.tavla.domain.Pelaaja;
+import tutavla.tavla.domain.Siirto;
 import tutavla.tavla.logiikka.Sovelluslogiikka;
 
 /**
@@ -48,6 +49,7 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
                 break;
             }
         }
+        System.out.println(svl.kukaVoitti() + " voitti!");
     }
 
     private void pelaaKierros() {
@@ -59,30 +61,31 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
 
         for (Pelaaja pelaaja : pelaajat) {
 
-            System.out.print("Pelaajan " + pelaaja + " ");
-            if (pelaaja.isMusta()) {
-                System.out.print("(musta)");
-            } else {
-                System.out.print("(valkoinen)");
+            if (svl.onkoJokuVoittanut()) {
+                System.out.println("Peli on päättynyt!");
+                break;
             }
-            System.out.println(" vuoro");
+
+            System.out.println("Pelaajan " + pelaaja + " vuoro");
+            System.out.println("Pelaajan siirrot ovat " + svl.haeSiirrot());
 
             if (pelaaja.isIhminen()) {
-                pelaajaSiirtaa();
+                pelaajaSiirtaa(pelaaja);
             } else {
                 tietokoneSiirtaa(pelaaja);
             }
 
+            svl.heitaNopat();
             System.out.println(svl.pelitilanne());
 
         }
     }
 
-    private void pelaajaSiirtaa() {
+    private void pelaajaSiirtaa(Pelaaja pelaaja) {
         ArrayList<Integer> siirrot;
         while (true) {
             siirrot = svl.haeSiirrot();
-            if (siirrot.size() < 1) {
+            if (siirrot.isEmpty() || svl.eiVoiSiirtaa(pelaaja)) {
                 break;
             }
             // yksi siirto
@@ -94,10 +97,11 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
         ArrayList<Integer> siirrot;
         while (true) {
             siirrot = svl.haeSiirrot();
-            if (siirrot.size() < 1) {
+            if (siirrot.isEmpty() || svl.eiVoiSiirtaa(pelaaja)) {
                 break;
             }
-            svl.pelaaTietokone(pelaaja);
+            Siirto siirto = svl.pelaaTietokone(pelaaja);
+            System.out.println(pelaaja.getNimi() + " siirtää ruudusta " + siirto.getLahto() + " ruutuun " + siirto.getMaali());
         }
     }
 
@@ -178,7 +182,7 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
                 System.out.println("Molemmat pelaajat heittivät saman luvun, aloittajaa ei voi päättää!");
                 System.out.println("Paina enter heittääksesi noppaa uudestaan");
                 lukija.nextLine();
-                svl.poistaSiirrot();
+//                svl.poistaSiirrot();
                 svl.heitaNopat();
             } else {
                 System.out.println("");

@@ -9,6 +9,7 @@ import java.util.*;
 import java.util.Random;
 import tutavla.tavla.domain.Lauta;
 import tutavla.tavla.domain.Pelaaja;
+import tutavla.tavla.domain.Siirto;
 
 /**
  *
@@ -26,7 +27,49 @@ public class Tekoaly {
         return siirtojarjestys.get(random.nextInt(siirtojarjestys.size()));
     }
 
-    public void pelaa(Pelaaja tietokone, Pelilogiikka plk, ArrayList<Integer> siirrot) {
+    public Siirto pelaa(Pelaaja tietokone, Pelilogiikka plk, ArrayList<Integer> siirrot) {
+        ArrayList<Integer> lahtoruudut = plk.pelaajaVoiSiirtaaRuuduista(tietokone);
 
+        int lahtoruutu = 0;
+        int kohderuutu = 0;
+
+        int limit = 1000;
+        while (true) {
+            //oikeasti pitäisi ensin selvittää onko mahdollista siirtää ylipäätään, ja vasta sen jälkeen arpoa siirto
+
+            lahtoruutu = lahtoruudut.get(random.nextInt(lahtoruudut.size()));
+            ArrayList<Integer> kohderuudut = plk.pelaajaVoiSiirtaaRuutuihin(tietokone, lahtoruutu);
+
+            if (kohderuudut.size() > 0) {
+                kohderuutu = kohderuudut.get(random.nextInt(kohderuudut.size()));
+                Integer siirto = Math.abs(kohderuutu - lahtoruutu);
+                if (siirrot.contains(siirto)) {
+                    plk.siirraNappulaa(tietokone, lahtoruutu, kohderuutu);
+                    siirrot.remove(siirto);
+                    break;
+                } else if (plk.nappulatKotialueella(tietokone)) {
+                    int poistettava = -1;
+                    for (Integer s : siirrot) {
+                        if (s > siirto) {
+                            plk.siirraNappulaa(tietokone, lahtoruutu, kohderuutu);
+                            poistettava = siirrot.indexOf(s);
+                            break;
+                        }
+                    }
+                    if (poistettava >= 0) {
+                        siirrot.remove(poistettava);
+                    }
+                }
+            }
+
+            limit--;
+            if (limit < 0) {
+                break;
+            }
+        }
+
+        Siirto s = new Siirto(lahtoruutu, kohderuutu);
+
+        return s;
     }
 }
