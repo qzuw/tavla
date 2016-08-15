@@ -70,7 +70,7 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
             if (pelaaja.isIhminen()) {
                 pelaajaSiirtaa();
             } else {
-                tietokoneSiirtaa();
+                tietokoneSiirtaa(pelaaja);
             }
 
             System.out.println(svl.pelitilanne());
@@ -90,14 +90,14 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
         }
     }
 
-    private void tietokoneSiirtaa() {
+    private void tietokoneSiirtaa(Pelaaja pelaaja) {
         ArrayList<Integer> siirrot;
         while (true) {
             siirrot = svl.haeSiirrot();
             if (siirrot.size() < 1) {
                 break;
             }
-            svl.pelaaTietokone();
+            svl.pelaaTietokone(pelaaja);
         }
     }
 

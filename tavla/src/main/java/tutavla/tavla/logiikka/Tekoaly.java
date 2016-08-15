@@ -15,17 +15,18 @@ import tutavla.tavla.domain.Pelaaja;
  * @author ttuotila
  */
 public class Tekoaly {
+
     private Random random;
 
     public Tekoaly(Random random) {
         this.random = random;
     }
-    
-    public Pelaaja valitseVari(ArrayList<Pelaaja> siirtojarjestys){
+
+    public Pelaaja valitseVari(ArrayList<Pelaaja> siirtojarjestys) {
         return siirtojarjestys.get(random.nextInt(1));
     }
-    
-    public void pelaa(Pelaaja tietokone, Pelilogiikka plk, ArrayList<Integer> siirrot){
-        
+
+    public void pelaa(Pelaaja tietokone, Pelilogiikka plk, ArrayList<Integer> siirrot) {
+
     }
 }
