@@ -18,10 +18,10 @@ public class Noppa {
 
     public Noppa(Random r) {
         random = r;
-        this.arvo();
+        this.heita();
     }
 
-    public void arvo() {
+    public void heita() {
         arvo = random.nextInt(6) + 1;
     }
 

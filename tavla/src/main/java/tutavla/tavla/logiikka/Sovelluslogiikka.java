@@ -92,7 +92,7 @@ public class Sovelluslogiikka {
     public void heitaNopat() {
 
         for (int i = 0; i < 2; i++) {
-            nopat.get(i).arvo();
+            nopat.get(i).heita();
             if (siirrot.contains(nopat.get(i).getArvo())) {
                 for (int j = 0; j < 3; j++) {
                     siirrot.add(nopat.get(i).getArvo());

@@ -50,7 +50,7 @@ public class NoppaTest {
         Noppa noppa = new Noppa(r);
 
         for (int i = 0; i < 60; i++) {
-            noppa.arvo();
+            noppa.heita();
             int luku = noppa.getArvo();
             assertTrue(luku >= 1);
         }
@@ -62,7 +62,7 @@ public class NoppaTest {
         Noppa noppa = new Noppa(r);
 
         for (int i = 0; i < 60; i++) {
-            noppa.arvo();
+            noppa.heita();
             int luku = noppa.getArvo();
             assertTrue(luku <= 6);
         }
