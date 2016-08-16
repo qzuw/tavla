@@ -43,7 +43,7 @@ public class Tekoaly {
             if (kohderuudut.size() > 0) {
                 kohderuutu = kohderuudut.get(random.nextInt(kohderuudut.size()));
                 Integer siirto = Math.abs(kohderuutu - lahtoruutu);
-                if (siirrot.contains(siirto)) {
+                if (siirrot.contains(siirto) && kohderuutu != tietokone.getMaali()) {
                     plk.siirraNappulaa(tietokone, lahtoruutu, kohderuutu);
                     siirrot.remove(siirto);
                     break;
