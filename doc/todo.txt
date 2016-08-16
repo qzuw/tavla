@@ -1,5 +1,5 @@
 - pelaaja siirtää nappulaa
-- tietokoneen nappuloiden siirtelyssä on jotain mätää, tekee siirtoja nappuloilla joita ei ole tai toisin päin?
+- tietokoneen nappuloiden siirtelyssä on jotain mätää, tekee siirtoja nappuloilla joita ei ole tai ei siirrä mitä väittää?
 - kerro syödyt nappulat ja ulos pelatut
 - kerro nappuloiden syömisestä
 
