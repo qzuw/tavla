@@ -1,5 +1,5 @@
 - pelaaja siirtää nappulaa
-- tietokonee nappuloiden siirtelyssä on jotain mätää
+- tietokoneen nappuloiden siirtelyssä on jotain mätää, tekee siirtoja nappuloilla joita ei ole
 - kerro nappuloiden syömisestä
 
 - javadoc
