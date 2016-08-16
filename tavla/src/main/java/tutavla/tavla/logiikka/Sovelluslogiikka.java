@@ -145,21 +145,19 @@ public class Sovelluslogiikka {
                     }
                 }
             }
+        } else if (pelilogiikka.pelaajanNappulaMaara(0, pelaaja) > 0) {
+            for (int siirto : siirrot) {
+                if (pelilogiikka.ruutuunVoiSiirtya((0 + siirto), pelaaja)) {
+                    voiSiirtaa = true;
+                    break;
+                }
+            }
         } else {
-            if (pelilogiikka.pelaajanNappulaMaara(0, pelaaja) > 0) {
-                for (int siirto : siirrot) {
-                    if (pelilogiikka.ruutuunVoiSiirtya((0 + siirto), pelaaja)) {
+            for (int siirto : siirrot) {
+                for (int ruutu : pelilogiikka.pelaajaVoiSiirtaaRuuduista(pelaaja)) {
+                    if (pelilogiikka.pelaajaVoiSiirtaaRuutuihin(pelaaja, ruutu).contains(ruutu + siirto)) {
                         voiSiirtaa = true;
                         break;
-                    }
-                }
-            } else {
-                for (int siirto : siirrot) {
-                    for (int ruutu : pelilogiikka.pelaajaVoiSiirtaaRuuduista(pelaaja)) {
-                        if (pelilogiikka.pelaajaVoiSiirtaaRuutuihin(pelaaja, ruutu).contains(ruutu + siirto)) {
-                            voiSiirtaa = true;
-                            break;
-                        }
                     }
                 }
             }
