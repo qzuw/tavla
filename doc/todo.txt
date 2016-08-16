@@ -1,7 +1,6 @@
 - pelaaja siirtää nappulaa
-- tietokoneen nappuloiden siirtelyssä on jotain mätää, tekee siirtoja nappuloilla joita ei ole tai ei siirrä mitä väittää?
+- tietokoneen nappuloiden siirtelyssä on jotain mätää, takaisin laudalle siirtymisessä mätää, samoin viimeisen nappulan poistossa?
 - kerro syödyt nappulat ja ulos pelatut
-- kerro nappuloiden syömisestä
 
 - javadoc
 
