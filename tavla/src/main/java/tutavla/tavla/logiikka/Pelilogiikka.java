@@ -123,17 +123,15 @@ public class Pelilogiikka {
             while (true) {
                 siirto++;
                 int kohderuutu = lahtoruutu - siirto;
-                if (kohderuutu < 0) {
+                if (siirto > 6) {
+                    break;
+                } else if (kohderuutu <= 0) {
                     kohderuutu = 0;
-                    if (!lista.contains(kohderuutu)) {
+                    if (this.nappulatKotialueella(pelaaja) && !lista.contains(kohderuutu)) {
                         lista.add(kohderuutu);
                     }
                     break;
-                }
-                if (siirto > 6) {
-                    break;
-                }
-                if (this.ruutuunVoiSiirtya(kohderuutu, pelaaja)) {
+                } else if (this.ruutuunVoiSiirtya(kohderuutu, pelaaja)) {
                     lista.add(kohderuutu);
                 }
             }
@@ -145,17 +143,15 @@ public class Pelilogiikka {
             while (true) {
                 siirto++;
                 int kohderuutu = siirto + lahtoruutu;
-                if (kohderuutu > 25) {
+                if (siirto > 6) {
+                    break;
+                } else if (kohderuutu > 25) {
                     kohderuutu = 25;
-                    if (!lista.contains(kohderuutu)) {
+                    if (this.nappulatKotialueella(pelaaja) && !lista.contains(kohderuutu)) {
                         lista.add(kohderuutu);
                     }
                     break;
-                }
-                if (siirto > 6) {
-                    break;
-                }
-                if (this.ruutuunVoiSiirtya(kohderuutu, pelaaja)) {
+                } else if (this.ruutuunVoiSiirtya(kohderuutu, pelaaja)) {
                     lista.add(kohderuutu);
                 }
             }
