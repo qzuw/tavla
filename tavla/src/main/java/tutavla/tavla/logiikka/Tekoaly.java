@@ -32,6 +32,7 @@ public class Tekoaly {
 
         int lahtoruutu = 0;
         int kohderuutu = 0;
+        boolean syoVastustajanNappula = false;
 
         int limit = 1000;
         while (true) {
@@ -44,6 +45,9 @@ public class Tekoaly {
                 kohderuutu = kohderuudut.get(random.nextInt(kohderuudut.size()));
                 Integer siirto = Math.abs(kohderuutu - lahtoruutu);
                 if (siirrot.contains(siirto) && kohderuutu != tietokone.getMaali()) {
+                    if (!plk.ruutuOnTyhja(kohderuutu) && plk.pelaajanNappulaMaara(kohderuutu, tietokone) == 0) {
+                        syoVastustajanNappula = true;
+                    }
                     plk.siirraNappulaa(tietokone, lahtoruutu, kohderuutu);
                     siirrot.remove(siirto);
                     break;
@@ -51,6 +55,11 @@ public class Tekoaly {
                     int poistettava = -1;
                     for (Integer s : siirrot) {
                         if (s > siirto) {
+                            if (kohderuutu != tietokone.getMaali()
+                                    && !plk.ruutuOnTyhja(kohderuutu)
+                                    && plk.pelaajanNappulaMaara(kohderuutu, tietokone) == 0) {
+                                syoVastustajanNappula = true;
+                            }
                             plk.siirraNappulaa(tietokone, lahtoruutu, kohderuutu);
                             poistettava = siirrot.indexOf(s);
                             break;
@@ -58,6 +67,7 @@ public class Tekoaly {
                     }
                     if (poistettava >= 0) {
                         siirrot.remove(poistettava);
+                        break;
                     }
                 }
             }
@@ -68,7 +78,7 @@ public class Tekoaly {
             }
         }
 
-        Siirto s = new Siirto(lahtoruutu, kohderuutu);
+        Siirto s = new Siirto(lahtoruutu, kohderuutu, syoVastustajanNappula);
 
         return s;
     }

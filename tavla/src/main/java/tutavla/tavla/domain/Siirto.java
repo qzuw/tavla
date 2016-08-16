@@ -13,10 +13,12 @@ public class Siirto {
 
     private final int lahto;
     private final int maali;
+    private final boolean syo;
 
-    public Siirto(int lahto, int maali) {
+    public Siirto(int lahto, int maali, boolean syo) {
         this.lahto = lahto;
         this.maali = maali;
+        this.syo = syo;
     }
 
     public int getLahto() {
@@ -25,6 +27,10 @@ public class Siirto {
 
     public int getMaali() {
         return maali;
+    }
+
+    public boolean vastustajanNappulaSyoty() {
+        return syo;
     }
 
 }

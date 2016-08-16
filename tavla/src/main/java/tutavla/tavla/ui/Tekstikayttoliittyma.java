@@ -102,6 +102,9 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
             }
             Siirto siirto = svl.pelaaTietokone(pelaaja);
             System.out.println(pelaaja.getNimi() + " siirtää ruudusta " + siirto.getLahto() + " ruutuun " + siirto.getMaali());
+            if (siirto.vastustajanNappulaSyoty()){
+                System.out.println(pelaaja.getNimi() + " syö vastustajan nappulan!");
+            }
         }
     }
 
