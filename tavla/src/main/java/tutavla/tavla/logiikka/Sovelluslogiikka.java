@@ -138,7 +138,7 @@ public class Sovelluslogiikka {
             } else {
                 for (int siirto : siirrot) {
                     for (int ruutu : pelilogiikka.pelaajaVoiSiirtaaRuuduista(pelaaja)) {
-                        if (pelilogiikka.pelaajaVoiSiirtaaRuutuihin(pelaaja, ruutu).contains(siirto)) {
+                        if (pelilogiikka.pelaajaVoiSiirtaaRuutuihin(pelaaja, ruutu).contains(ruutu - siirto)) {
                             voiSiirtaa = true;
                             break;
                         }
@@ -156,7 +156,7 @@ public class Sovelluslogiikka {
             } else {
                 for (int siirto : siirrot) {
                     for (int ruutu : pelilogiikka.pelaajaVoiSiirtaaRuuduista(pelaaja)) {
-                        if (pelilogiikka.pelaajaVoiSiirtaaRuutuihin(pelaaja, ruutu).contains(siirto)) {
+                        if (pelilogiikka.pelaajaVoiSiirtaaRuutuihin(pelaaja, ruutu).contains(ruutu + siirto)) {
                             voiSiirtaa = true;
                             break;
                         }
