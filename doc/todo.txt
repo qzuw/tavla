@@ -1,0 +1,7 @@
+- pelaaja siirtää nappulaa
+- tietokone ei jostain syystä siirrä nappulaita maalia 25 kohti
+- tietokone ei siirrä viimeistä nappulaa pois laudalta
+
+- javadoc
+
+- gui
