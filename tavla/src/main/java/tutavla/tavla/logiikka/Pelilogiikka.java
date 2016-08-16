@@ -145,7 +145,7 @@ public class Pelilogiikka {
                 int kohderuutu = siirto + lahtoruutu;
                 if (siirto > 6) {
                     break;
-                } else if (kohderuutu > 25) {
+                } else if (kohderuutu >= 25) {
                     kohderuutu = 25;
                     if (this.nappulatKotialueella(pelaaja) && !lista.contains(kohderuutu)) {
                         lista.add(kohderuutu);
