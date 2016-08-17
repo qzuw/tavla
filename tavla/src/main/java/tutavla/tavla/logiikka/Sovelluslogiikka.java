@@ -90,6 +90,9 @@ public class Sovelluslogiikka {
         return siirtojarjestys;
     }
 
+    /**
+     * Poistaa vanhat siirrot, heittää noppia uudestaan ja tallettaa uudet siirrot
+     */
     public void heitaNopat() {
 
         siirrot.clear();
@@ -119,6 +122,13 @@ public class Sovelluslogiikka {
         this.asetaPelaajaMustaksi(tekoaly.valitseVari(siirtojarjestys));
     }
 
+    /**
+     * Antaa tietokoneen pelattavaksi yhden siirron ja palauttaa Siirto-oliona
+     * tämän tuloksen.
+     * 
+     * @param tietokone Pelaaja jonka nappuloilla tietokone pelaa siirron
+     * @return valittu siirto
+     */
     public Siirto pelaaTietokone(Pelaaja tietokone) {
         Siirto siirto = new Siirto(0, 0, false, false);
         if (!this.eiVoiSiirtaa(tietokone)) {
@@ -129,6 +139,12 @@ public class Sovelluslogiikka {
         return siirto;
     }
 
+    /**
+     * Tarkistaa voiko annettu Pelaaja siirtää mitään nappuloitaan
+     * 
+     * @param pelaaja tarkistettava pelaaja
+     * @return palauttaa true jos mitään nappuloita ei voi siirtää
+     */
     public boolean eiVoiSiirtaa(Pelaaja pelaaja) {
         boolean voiSiirtaa = false;
 
@@ -175,6 +191,11 @@ public class Sovelluslogiikka {
         return pelilogiikka.pelitilanne();
     }
 
+    /**
+     * Käy Pelaajat läpi ja tarkistaa onko joku voittanut
+     * 
+     * @return true jos joku on voittanut
+     */
     public boolean onkoJokuVoittanut() {
 
         for (Pelaaja pelaaja : siirtojarjestys) {
@@ -186,6 +207,11 @@ public class Sovelluslogiikka {
         return false;
     }
 
+    /**
+     * Palauttaa pelin voittaneen Pelaajan
+     * 
+     * @return pelin voittanut pelaaja
+     */
     public Pelaaja kukaVoitti() {
 
         for (Pelaaja pelaaja : siirtojarjestys) {

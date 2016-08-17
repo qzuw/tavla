@@ -6,7 +6,6 @@
 package tutavla.tavla.logiikka;
 
 import java.util.*;
-import java.util.Random;
 import tutavla.tavla.domain.Lauta;
 import tutavla.tavla.domain.Pelaaja;
 import tutavla.tavla.domain.Siirto;
@@ -23,10 +22,25 @@ public class Tekoaly {
         this.random = random;
     }
 
+    /**
+     * Arpoo tietokonepelaajalle nappuloiden värin valitsemalla satunnaisesti 
+     * pelaajan
+     * 
+     * @param siirtojarjestys lista pelaajista
+     * @return satunnaisesti valittu pelaaja
+     */
     public Pelaaja valitseVari(ArrayList<Pelaaja> siirtojarjestys) {
         return siirtojarjestys.get(random.nextInt(siirtojarjestys.size()));
     }
 
+    /**
+     * Arpoo yhden siirron ja palauttaa sen.
+     * 
+     * @param tietokone
+     * @param plk
+     * @param siirrot lista noppien arvoja
+     * @return 
+     */
     public Siirto pelaa(Pelaaja tietokone, Pelilogiikka plk, ArrayList<Integer> siirrot) {
         ArrayList<Integer> lahtoruudut = plk.pelaajaVoiSiirtaaRuuduista(tietokone);
 
