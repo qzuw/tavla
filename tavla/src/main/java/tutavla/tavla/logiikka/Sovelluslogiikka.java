@@ -115,9 +115,9 @@ public class Sovelluslogiikka {
         return siirrot;
     }
 
-//    public void tietokoneValitseeVarin() {
-//        this.asetaPelaajaMustaksi(tekoaly.valitseVari(siirtojarjestys));
-//    }
+    public void tietokoneValitseeVarin() {
+        this.asetaPelaajaMustaksi(tekoaly.valitseVari(siirtojarjestys));
+    }
 
     /**
      * Antaa tietokoneen pelattavaksi yhden siirron ja palauttaa Siirto-oliona
