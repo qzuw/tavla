@@ -35,4 +35,8 @@ public class Siirto {
         return syo;
     }
 
+    public boolean eiVoiSiirtaa() {
+        return eiVoi;
+    }
+
 }

@@ -101,9 +101,13 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
                 break;
             }
             Siirto siirto = svl.pelaaTietokone(pelaaja);
-            System.out.println(pelaaja.getNimi() + " siirtää ruudusta " + siirto.getLahto() + " ruutuun " + siirto.getMaali());
-            if (siirto.vastustajanNappulaSyoty()){
-                System.out.println(pelaaja.getNimi() + " syö vastustajan nappulan!");
+            if (siirto.eiVoiSiirtaa()) {
+                System.out.println(pelaaja + " ei voi siirtää!");
+            } else {
+                System.out.println(pelaaja.getNimi() + " siirtää ruudusta " + siirto.getLahto() + " ruutuun " + siirto.getMaali());
+                if (siirto.vastustajanNappulaSyoty()) {
+                    System.out.println(pelaaja.getNimi() + " syö vastustajan nappulan!");
+                }
             }
         }
     }
