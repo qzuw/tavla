@@ -14,11 +14,13 @@ public class Siirto {
     private final int lahto;
     private final int maali;
     private final boolean syo;
+    private final boolean eiVoi;
 
-    public Siirto(int lahto, int maali, boolean syo) {
+    public Siirto(int lahto, int maali, boolean syo, boolean eiVoi) {
         this.lahto = lahto;
         this.maali = maali;
         this.syo = syo;
+        this.eiVoi = eiVoi;
     }
 
     public int getLahto() {
