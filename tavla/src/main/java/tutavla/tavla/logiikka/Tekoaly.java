@@ -44,27 +44,15 @@ public class Tekoaly {
                 kohderuutu = kohderuudut.get(random.nextInt(kohderuudut.size()));
                 Integer siirto = Math.abs(kohderuutu - lahtoruutu);
                 if (siirrot.contains(siirto) && kohderuutu != tietokone.getMaali()) {
-                    if (!plk.ruutuOnTyhja(kohderuutu) && plk.pelaajanNappulaMaara(kohderuutu, tietokone) == 0) {
-                        syoVastustajanNappula = true;
-                    }
+                    syoVastustajanNappula = syodaankoTassaVastustajanNappula(kohderuutu, tietokone, plk, syoVastustajanNappula);
                     plk.siirraNappulaa(tietokone, lahtoruutu, kohderuutu);
                     siirrot.remove(siirto);
                     break;
                 } else if (plk.nappulatKotialueella(tietokone)) {
                     int poistettava = -1;
-                    for (Integer s : siirrot) {
-                        if (s > siirto) {
-                            if (kohderuutu != tietokone.getMaali()
-                                    && !plk.ruutuOnTyhja(kohderuutu)
-                                    && plk.pelaajanNappulaMaara(kohderuutu, tietokone) == 0) {
-                                syoVastustajanNappula = true;
-                            }
-                            plk.siirraNappulaa(tietokone, lahtoruutu, kohderuutu);
-                            poistettava = siirrot.indexOf(s);
-                            break;
-                        }
-                    }
+                    poistettava = nappulaSilmukkaRefaktoroiNimiMyohemmin(siirrot, siirto, plk, tietokone, lahtoruutu, kohderuutu, poistettava);
                     if (poistettava >= 0) {
+                        syoVastustajanNappula = syodaankoTassaVastustajanNappula(kohderuutu, tietokone, plk, syoVastustajanNappula);
                         siirrot.remove(poistettava);
                         break;
                     }
@@ -81,4 +69,31 @@ public class Tekoaly {
 
         return s;
     }
+
+    private int nappulaSilmukkaRefaktoroiNimiMyohemmin(ArrayList<Integer> siirrot, Integer siirto, Pelilogiikka plk, Pelaaja tietokone, int lahtoruutu, int kohderuutu, int poistettava) {
+        for (Integer s : siirrot) {
+            if (s > siirto) {
+                plk.siirraNappulaa(tietokone, lahtoruutu, kohderuutu);
+                poistettava = siirrot.indexOf(s);
+                break;
+            }
+        }
+        return poistettava;
+    }
+
+    private boolean syodaankoTassaVastustajanNappula(int kohderuutu, Pelaaja tietokone, Pelilogiikka plk, boolean syoVastustajanNappula) {
+        if (kohderuutu != tietokone.getMaali()
+                && !plk.ruutuOnTyhja(kohderuutu)
+                && plk.pelaajanNappulaMaara(kohderuutu, tietokone) == 0) {
+            syoVastustajanNappula = true;
+        }
+        return syoVastustajanNappula;
+    }
+
+//    private boolean syodaankoTassaSamallaVastustajanNappula(Pelilogiikka plk, int kohderuutu, Pelaaja tietokone, boolean syoVastustajanNappula) {
+//        if (!plk.ruutuOnTyhja(kohderuutu) && plk.pelaajanNappulaMaara(kohderuutu, tietokone) == 0) {
+//            syoVastustajanNappula = true;
+//        }
+//        return syoVastustajanNappula;
+//    }
 }
