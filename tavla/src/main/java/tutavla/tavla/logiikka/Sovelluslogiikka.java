@@ -91,7 +91,8 @@ public class Sovelluslogiikka {
     }
 
     /**
-     * Poistaa vanhat siirrot, heittää noppia uudestaan ja tallettaa uudet siirrot
+     * Poistaa vanhat siirrot, heittää noppia uudestaan ja tallettaa uudet
+     * siirrot
      */
     public void heitaNopat() {
 
@@ -109,23 +110,19 @@ public class Sovelluslogiikka {
         }
     }
 
-    public void poistaSiirrot() {
-        siirrot.clear();
-    }
-
     public ArrayList<Integer> haeSiirrot() {
 
         return siirrot;
     }
 
-    public void tietokoneValitseeVarin() {
-        this.asetaPelaajaMustaksi(tekoaly.valitseVari(siirtojarjestys));
-    }
+//    public void tietokoneValitseeVarin() {
+//        this.asetaPelaajaMustaksi(tekoaly.valitseVari(siirtojarjestys));
+//    }
 
     /**
      * Antaa tietokoneen pelattavaksi yhden siirron ja palauttaa Siirto-oliona
      * tämän tuloksen.
-     * 
+     *
      * @param tietokone Pelaaja jonka nappuloilla tietokone pelaa siirron
      * @return valittu siirto
      */
@@ -141,7 +138,7 @@ public class Sovelluslogiikka {
 
     /**
      * Tarkistaa voiko annettu Pelaaja siirtää mitään nappuloitaan
-     * 
+     *
      * @param pelaaja tarkistettava pelaaja
      * @return palauttaa true jos mitään nappuloita ei voi siirtää
      */
@@ -149,26 +146,18 @@ public class Sovelluslogiikka {
         boolean voiSiirtaa = false;
 
         if (pelaaja.getMaali() == 0) {
-            if (pelilogiikka.pelaajanNappulaMaara(25, pelaaja) > 0) {
-                for (int siirto : siirrot) {
-                    if (pelilogiikka.ruutuunVoiSiirtya((25 - siirto), pelaaja)) {
-                        voiSiirtaa = true;
-                        break;
-                    }
-                }
-            } else {
-                for (int siirto : siirrot) {
-                    for (int ruutu : pelilogiikka.pelaajaVoiSiirtaaRuuduista(pelaaja)) {
-                        if (pelilogiikka.pelaajaVoiSiirtaaRuutuihin(pelaaja, ruutu).contains(ruutu - siirto)) {
-                            voiSiirtaa = true;
-                            break;
-                        }
-                    }
-                }
-            }
-        } else if (pelilogiikka.pelaajanNappulaMaara(0, pelaaja) > 0) {
+            voiSiirtaa = voikoPelaajaSiirtaa(pelaaja, -1);
+        } else {
+            voiSiirtaa = voikoPelaajaSiirtaa(pelaaja, 1);
+        }
+        return !voiSiirtaa;
+    }
+
+    private boolean voikoPelaajaSiirtaa(Pelaaja pelaaja, int suunta) {
+        boolean voiSiirtaa = false;
+        if (pelilogiikka.pelaajanNappulaMaara(Math.abs(pelaaja.getMaali() - 25), pelaaja) > 0) {
             for (int siirto : siirrot) {
-                if (pelilogiikka.ruutuunVoiSiirtya((0 + siirto), pelaaja)) {
+                if (pelilogiikka.ruutuunVoiSiirtya((Math.abs(pelaaja.getMaali() - 25) + suunta * siirto), pelaaja)) {
                     voiSiirtaa = true;
                     break;
                 }
@@ -176,15 +165,14 @@ public class Sovelluslogiikka {
         } else {
             for (int siirto : siirrot) {
                 for (int ruutu : pelilogiikka.pelaajaVoiSiirtaaRuuduista(pelaaja)) {
-                    if (pelilogiikka.pelaajaVoiSiirtaaRuutuihin(pelaaja, ruutu).contains(ruutu + siirto)) {
+                    if (pelilogiikka.pelaajaVoiSiirtaaRuutuihin(pelaaja, ruutu).contains(ruutu + suunta * siirto)) {
                         voiSiirtaa = true;
                         break;
                     }
                 }
             }
         }
-
-        return !voiSiirtaa;
+        return voiSiirtaa;
     }
 
     public Lauta pelitilanne() {
@@ -193,7 +181,7 @@ public class Sovelluslogiikka {
 
     /**
      * Käy Pelaajat läpi ja tarkistaa onko joku voittanut
-     * 
+     *
      * @return true jos joku on voittanut
      */
     public boolean onkoJokuVoittanut() {
@@ -209,7 +197,7 @@ public class Sovelluslogiikka {
 
     /**
      * Palauttaa pelin voittaneen Pelaajan
-     * 
+     *
      * @return pelin voittanut pelaaja
      */
     public Pelaaja kukaVoitti() {
