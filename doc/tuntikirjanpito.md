@@ -17,4 +17,4 @@ Päivä | Tunnit | Kuvaus
 12.08.2016 | 1 1/2 h | toString, otaPelaajanNappula, refaktorointia (ja n 2h koodikatselmointia)
 15.08.2016 | 3 h | tietokonepelaaja, loppupeli, yms
 16.08.2016 | 1 h | bugien metsästystä
-17.08.2016 | 1 1/2 h | bugien metsästystä yms
+17.08.2016 | 2 1/2 h | bugien metsästystä yms javadoc alku
