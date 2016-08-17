@@ -74,6 +74,7 @@ public class Pelilogiikka {
     public void siirraNappulaa(Pelaaja pelaaja, int mista, int minne) {
         if ((lauta.ruutuPelaajalla(mista, pelaaja) || mista == Math.abs(pelaaja.getMaali() - 25)) && this.ruutuunVoiSiirtya(minne, pelaaja)) {
             if (!lauta.ruutuPelaajalla(minne, pelaaja) && lauta.nappuloitaRuudussa(minne) == 1) {
+                // tässä syödään vastustajan nappula
                 lauta.siirraNappula(minne, pelaaja.getMaali());
             }
             lauta.siirraNappula(mista, minne);
