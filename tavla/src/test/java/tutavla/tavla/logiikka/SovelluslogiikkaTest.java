@@ -154,16 +154,6 @@ public class SovelluslogiikkaTest {
     }
 
     @Test
-    public void poistaSiirrot() {
-        Sovelluslogiikka svl = new Sovelluslogiikka();
-        svl.heitaNopat();
-        svl.poistaSiirrot();
-        ArrayList<Integer> siirrot = svl.haeSiirrot();
-
-        assertTrue(siirrot.size() == 0);
-    }
-    
-    @Test
     public void aloittaessaEiOleVoittajaa(){
         Sovelluslogiikka svl = new Sovelluslogiikka();
         
