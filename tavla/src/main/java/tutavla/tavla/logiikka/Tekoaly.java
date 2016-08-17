@@ -36,7 +36,6 @@ public class Tekoaly {
 
         int limit = 1000;
         while (true) {
-            //oikeasti pitäisi ensin selvittää onko mahdollista siirtää ylipäätään, ja vasta sen jälkeen arpoa siirto
 
             lahtoruutu = lahtoruudut.get(random.nextInt(lahtoruudut.size()));
             ArrayList<Integer> kohderuudut = plk.pelaajaVoiSiirtaaRuutuihin(tietokone, lahtoruutu);
