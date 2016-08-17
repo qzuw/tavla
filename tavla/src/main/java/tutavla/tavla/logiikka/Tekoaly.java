@@ -78,7 +78,7 @@ public class Tekoaly {
             }
         }
 
-        Siirto s = new Siirto(lahtoruutu, kohderuutu, syoVastustajanNappula);
+        Siirto s = new Siirto(lahtoruutu, kohderuutu, syoVastustajanNappula, false);
 
         return s;
     }
