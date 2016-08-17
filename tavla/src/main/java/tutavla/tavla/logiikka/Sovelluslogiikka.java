@@ -120,7 +120,12 @@ public class Sovelluslogiikka {
     }
 
     public Siirto pelaaTietokone(Pelaaja tietokone) {
-        Siirto siirto = tekoaly.pelaa(tietokone, pelilogiikka, siirrot);
+        Siirto siirto = new Siirto(0, 0, false, false);
+        if (!this.eiVoiSiirtaa(tietokone)) {
+            siirto = tekoaly.pelaa(tietokone, pelilogiikka, siirrot);
+        } else {
+            siirto = new Siirto(0, 0, false, true);
+        }
         return siirto;
     }
 
