@@ -2,7 +2,6 @@
 - tietokoneen nappuloiden siirtelyssä on jotain mätää, viimeisen nappulan poistossa? 
 - kerro syödyt nappulat ja ulos pelatut
 - refakt pelaajaVoiSiirtaaRuutuihin -> apumetodi haeMahdollisetKohderuudut(int kerroin, int maali)
-- refakt svl eiVoiSiirtaa p.maali -> math.abs(p.maali - x), if ... kerroin = 1/-1
 
 - javadoc
 
