@@ -1,11 +1,8 @@
 - pelaaja siirtää nappulaa
-- tietokoneen nappuloiden siirtelyssä on jotain mätää, takaisin laudalle siirtymisessä mätää, samoin viimeisen nappulan poistossa? - pelilogiikka 75 bugi - lisää math.abs(p.maali-25)
+- tietokoneen nappuloiden siirtelyssä on jotain mätää, viimeisen nappulan poistossa? 
 - kerro syödyt nappulat ja ulos pelatut
-- pelilogiikka 77 bugi - eikun ok, mutta lisää kommentti syömisestä
 - refakt pelaajaVoiSiirtaaRuutuihin -> apumetodi haeMahdollisetKohderuudut(int kerroin, int maali)
 - refakt svl eiVoiSiirtaa p.maali -> math.abs(p.maali - x), if ... kerroin = 1/-1
-- svl pelaaTietokone -> if (this.eiVoiSiirtaa())
-- siirto: bool eiVoiSiirtaa
 
 - päivitä uml
 
