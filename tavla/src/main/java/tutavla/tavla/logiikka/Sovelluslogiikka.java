@@ -56,16 +56,14 @@ public class Sovelluslogiikka {
 
     public void pelaajaSiirtaaEnsin(boolean pelaajaEnsin, Pelaaja pelaaja) {
         if (!(siirtojarjestys.get(0).equals(pelaaja) == pelaajaEnsin)) {
-            Pelaaja siirrettava = siirtojarjestys.get(0);
-            siirtojarjestys.add(siirrettava);
+            siirtojarjestys.add(siirtojarjestys.get(0));
             siirtojarjestys.remove(0);
         }
     }
 
     public void pelaajaSiirtaaEnsin(boolean pelaajaEnsin, int pelaajaIndex) {
         if ((pelaajaIndex != 0) == pelaajaEnsin) {
-            Pelaaja siirrettava = siirtojarjestys.get(0);
-            siirtojarjestys.add(siirrettava);
+            siirtojarjestys.add(siirtojarjestys.get(0));
             siirtojarjestys.remove(0);
         }
     }
