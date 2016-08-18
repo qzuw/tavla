@@ -5,10 +5,8 @@
  */
 package tutavla.tavla.logiikka;
 
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
 import tutavla.tavla.domain.Lauta;
-import tutavla.tavla.domain.Noppa;
 import tutavla.tavla.domain.Pelaaja;
 import tutavla.tavla.domain.Siirrot;
 import tutavla.tavla.domain.Siirto;
