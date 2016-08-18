@@ -164,5 +164,14 @@ public class SovelluslogiikkaTest {
 
         assertEquals(svl.kukaVoitti(), null);
     }
+    
+    @Test
+    public void tietokoneVoiPelataSiirronAlussa(){
+        Sovelluslogiikka svl = new Sovelluslogiikka();
+        Pelaaja p = svl.getSiirtojarjestys().get(0);
+        svl.heitaNopat();
+        
+        assertFalse(svl.pelaaTietokone(p).eiVoiSiirtaa());
+    }
 
 }
