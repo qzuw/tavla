@@ -18,3 +18,4 @@ Päivä | Tunnit | Kuvaus
 15.08.2016 | 3 h | tietokonepelaaja, loppupeli, yms
 16.08.2016 | 1 h | bugien metsästystä
 17.08.2016 | 3 1/2 h | bugien metsästystä, refaktorointia, javadoc alku
+18.08.2016 | 1 h | bugin korjaus?, refaktorointia, testejä
