@@ -47,6 +47,7 @@ public class Tekoaly {
         int lahtoruutu = 0;
         int kohderuutu = 0;
         boolean syoVastustajanNappula = false;
+        boolean siirtoOnnistui = false;
 
         int limit = 1000;
         while (true) {
@@ -60,13 +61,15 @@ public class Tekoaly {
                 if (siirrot.contains(siirto) && kohderuutu != tietokone.getMaali()) {
                     syoVastustajanNappula = syodaankoTassaVastustajanNappula(kohderuutu, tietokone, plk, syoVastustajanNappula);
                     plk.siirraNappulaa(tietokone, lahtoruutu, kohderuutu);
+                    siirtoOnnistui = true;
                     siirrot.remove(siirto);
                     break;
                 } else if (plk.nappulatKotialueella(tietokone)) {
-                    int poistettava = -1;
+                    Integer poistettava = -1;
                     poistettava = nappulaSilmukkaRefaktoroiNimiMyohemmin(siirrot, siirto, plk, tietokone, lahtoruutu, kohderuutu, poistettava);
                     if (poistettava >= 0) {
                         syoVastustajanNappula = syodaankoTassaVastustajanNappula(kohderuutu, tietokone, plk, syoVastustajanNappula);
+                        siirtoOnnistui = true;
                         siirrot.remove(poistettava);
                         break;
                     }
@@ -79,12 +82,12 @@ public class Tekoaly {
             }
         }
 
-        Siirto s = new Siirto(lahtoruutu, kohderuutu, syoVastustajanNappula, false);
+        Siirto s = new Siirto(lahtoruutu, kohderuutu, syoVastustajanNappula, !siirtoOnnistui);
 
         return s;
     }
 
-    private int nappulaSilmukkaRefaktoroiNimiMyohemmin(ArrayList<Integer> siirrot, Integer siirto, Pelilogiikka plk, Pelaaja tietokone, int lahtoruutu, int kohderuutu, int poistettava) {
+    private Integer nappulaSilmukkaRefaktoroiNimiMyohemmin(ArrayList<Integer> siirrot, Integer siirto, Pelilogiikka plk, Pelaaja tietokone, int lahtoruutu, int kohderuutu, int poistettava) {
         for (Integer s : siirrot) {
             if (s > siirto) {
                 plk.siirraNappulaa(tietokone, lahtoruutu, kohderuutu);

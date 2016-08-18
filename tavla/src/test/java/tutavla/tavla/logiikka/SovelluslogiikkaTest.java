@@ -46,7 +46,6 @@ public class SovelluslogiikkaTest {
     //
     // @Test
     // public void hello() {}
-
     @Test
     public void maaritaPelaaja() {
         Sovelluslogiikka svl = new Sovelluslogiikka();
@@ -143,7 +142,6 @@ public class SovelluslogiikkaTest {
 //        
 //        assertTrue(jarjestys.size() == 2);
 //    }
-    
     @Test
     public void heitaNopat() {
         Sovelluslogiikka svl = new Sovelluslogiikka();
@@ -154,9 +152,17 @@ public class SovelluslogiikkaTest {
     }
 
     @Test
-    public void aloittaessaEiOleVoittajaa(){
+    public void aloittaessaEiOleVoittajaa() {
         Sovelluslogiikka svl = new Sovelluslogiikka();
-        
+
         assertFalse(svl.onkoJokuVoittanut());
     }
+
+    @Test
+    public void aloittaessaEiOleVoittajaa2() {
+        Sovelluslogiikka svl = new Sovelluslogiikka();
+
+        assertEquals(svl.kukaVoitti(), null);
+    }
+
 }
