@@ -10,6 +10,7 @@ import java.util.Random;
 import tutavla.tavla.domain.Lauta;
 import tutavla.tavla.domain.Noppa;
 import tutavla.tavla.domain.Pelaaja;
+import tutavla.tavla.domain.Siirrot;
 import tutavla.tavla.domain.Siirto;
 import tutavla.tavla.ui.Kayttoliittyma;
 
@@ -21,21 +22,15 @@ public class Sovelluslogiikka {
 
     private Pelilogiikka pelilogiikka;
     private ArrayList<Pelaaja> siirtojarjestys;
-    private ArrayList<Noppa> nopat;
-    private ArrayList<Integer> siirrot;
     private Tekoaly tekoaly;
+    private Siirrot siirrot;
 
     public Sovelluslogiikka() {
         siirtojarjestys = new ArrayList<>();
-        siirrot = new ArrayList<>();
-        nopat = new ArrayList<>();
 
         Random random = new Random();
-        for (int i = 0; i < 2; i++) {
-            nopat.add(new Noppa(random));
-        }
-
         tekoaly = new Tekoaly(random);
+        siirrot = new Siirrot(random);
 
         Pelaaja pelaaja1 = new Pelaaja();
         Pelaaja pelaaja2 = new Pelaaja();
@@ -88,29 +83,13 @@ public class Sovelluslogiikka {
         return siirtojarjestys;
     }
 
-    /**
-     * Poistaa vanhat siirrot, heittää noppia uudestaan ja tallettaa uudet
-     * siirrot
-     */
     public void heitaNopat() {
-
-        siirrot.clear();
-
-        for (int i = 0; i < 2; i++) {
-            nopat.get(i).heita();
-            if (siirrot.contains(nopat.get(i).getArvo())) {
-                for (int j = 0; j < 3; j++) {
-                    siirrot.add(nopat.get(i).getArvo());
-                }
-            } else {
-                siirrot.add(nopat.get(i).getArvo());
-            }
-        }
+        siirrot.heitaNopat();
     }
 
     public ArrayList<Integer> haeSiirrot() {
 
-        return siirrot;
+        return siirrot.haeSiirrot();
     }
 
     public void tietokoneValitseeVarin() {
@@ -127,7 +106,7 @@ public class Sovelluslogiikka {
     public Siirto pelaaTietokone(Pelaaja tietokone) {
         Siirto siirto = new Siirto(0, 0, false, false);
         if (!this.eiVoiSiirtaa(tietokone)) {
-            siirto = tekoaly.pelaa(tietokone, pelilogiikka, siirrot);
+            siirto = tekoaly.pelaa(tietokone, pelilogiikka, siirrot.haeSiirrot());
         } else {
             siirto = new Siirto(0, 0, false, true);
         }
@@ -154,14 +133,14 @@ public class Sovelluslogiikka {
     private boolean voikoPelaajaSiirtaa(Pelaaja pelaaja, int suunta) {
         boolean voiSiirtaa = false;
         if (pelilogiikka.pelaajanNappulaMaara(Math.abs(pelaaja.getMaali() - 25), pelaaja) > 0) {
-            for (int siirto : siirrot) {
+            for (int siirto : siirrot.haeSiirrot()) {
                 if (pelilogiikka.ruutuunVoiSiirtya((Math.abs(pelaaja.getMaali() - 25) + suunta * siirto), pelaaja)) {
                     voiSiirtaa = true;
                     break;
                 }
             }
         } else {
-            for (int siirto : siirrot) {
+            for (int siirto : siirrot.haeSiirrot()) {
                 for (int ruutu : pelilogiikka.pelaajaVoiSiirtaaRuuduista(pelaaja)) {
                     if (pelilogiikka.pelaajaVoiSiirtaaRuutuihin(pelaaja, ruutu).contains(ruutu + suunta * siirto)) {
                         voiSiirtaa = true;
