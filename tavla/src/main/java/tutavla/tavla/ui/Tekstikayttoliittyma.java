@@ -89,8 +89,54 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
             if (siirrot.isEmpty() || svl.eiVoiSiirtaa(pelaaja)) {
                 break;
             }
-            // yksi siirto
+            int mista = -1;
+            int minne = -1;
+            if (!svl.eiVoiSiirtaa(pelaaja)) {
+                System.out.println("Käytettävissä olevat siirrot:");
+                System.out.println(siirrot);
+                System.out.println(pelaaja + " voi siirtää nappuloita ruuduista:");
+                System.out.println(svl.getPelilogiikka().pelaajaVoiSiirtaaRuuduista(pelaaja));
+                try {
+                    System.out.println("Mistä siirretään nappula?");
+                    mista = Integer.parseInt(lukija.nextLine());
+//                    if (svl.getPelilogiikka().pelaajaVoiSiirtaaRuuduista(pelaaja).contains(mista)) {
+//                        mista = -1;
+//                    }
+                } catch (Exception e) {
 
+                }
+                if (mista > -1) {
+                    System.out.println("Ruudusta " + mista + "voi siirtää ruutuihin:");
+                    ArrayList<Integer> kohderuudut = svl.getPelilogiikka().pelaajaVoiSiirtaaRuutuihin(pelaaja, mista);
+
+                    System.out.println(kohderuudut);
+                    System.out.println("Minne nappula siirretään?");
+                    try {
+                        minne = Integer.parseInt(lukija.nextLine());
+//                        if (!svl.getPelilogiikka().pelaajaVoiSiirtaaRuutuihin(pelaaja, mista).contains(minne)) {
+//                            minne = -1;
+//                        }
+                    } catch (Exception e) {
+
+                    }
+                }
+
+                if (minne > -1) {
+                    if (svl.getPelilogiikka().ruutuunVoiSiirtya(minne, pelaaja)) {
+                        System.out.println("Siirretään nappula ruudusta " + mista + " ruutuun " + minne);
+                        svl.getPelilogiikka().siirraNappulaa(pelaaja, mista, minne);
+                        siirrot.remove((Integer) Math.abs(mista - minne));
+                    } else {
+                        System.out.println("Siirtoa ei voi tehdä");
+                    }
+                }
+            } else {
+                System.out.println(pelaaja + " ei voi siirtää mitään!");
+                break;
+            }
+
+            System.out.println("");
+            System.out.println(svl.pelitilanne());
         }
     }
 

@@ -187,4 +187,8 @@ public class Sovelluslogiikka {
         return null;
     }
 
+    public Pelilogiikka getPelilogiikka() {
+        return pelilogiikka;
+    }
+
 }
