@@ -13,6 +13,7 @@ import tutavla.tavla.domain.Siirto;
 import tutavla.tavla.ui.Kayttoliittyma;
 
 /**
+ * Luokka sisältää logiikan pelilogiikan ja käyttöliittymän välissä.
  *
  * @author ttuotila
  */

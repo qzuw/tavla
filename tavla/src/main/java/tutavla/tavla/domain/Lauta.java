@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Luokka määrittelee pelilaudan.
  *
  * @author ttuotila
  */

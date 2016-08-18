@@ -12,6 +12,7 @@ import tutavla.tavla.domain.Siirto;
 import tutavla.tavla.logiikka.Sovelluslogiikka;
 
 /**
+ * Tekstikäyttöliittymä.
  *
  * @author ttuotila
  */

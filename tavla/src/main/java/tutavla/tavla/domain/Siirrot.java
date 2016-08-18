@@ -8,6 +8,7 @@ package tutavla.tavla.domain;
 import java.util.*;
 
 /**
+ * Luokka sisältää nopat ja pelaajan nopista käyttöönsä saamat siirrot.
  *
  * @author ttuotila
  */

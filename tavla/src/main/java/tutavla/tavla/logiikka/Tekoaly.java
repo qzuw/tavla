@@ -11,6 +11,7 @@ import tutavla.tavla.domain.Pelaaja;
 import tutavla.tavla.domain.Siirto;
 
 /**
+ * Luokka päättää miten tietokonepelaaja toimii.
  *
  * @author ttuotila
  */

@@ -6,6 +6,7 @@
 package tutavla.tavla.domain;
 
 /**
+ * Luokka määrittelee yksittäisen pelinappulan.
  *
  * @author ttuotila
  */

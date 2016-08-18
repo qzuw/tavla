@@ -8,6 +8,7 @@ package tutavla.tavla.domain;
 import java.util.Objects;
 
 /**
+ * Luokka määrittelee pelaajan tiedot.
  *
  * @author ttuotila
  */

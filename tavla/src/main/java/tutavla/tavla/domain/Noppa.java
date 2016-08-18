@@ -8,6 +8,7 @@ package tutavla.tavla.domain;
 import java.util.Random;
 
 /**
+ * Luokka määrittelee yksittäisen nopan.
  *
  * @author ttuotila
  */

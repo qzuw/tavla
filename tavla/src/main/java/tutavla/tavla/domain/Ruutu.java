@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Luokka määrittelee yksittäisen ruudun ja sen sisällön.
  *
  * @author ttuotila
  */

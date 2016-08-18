@@ -6,6 +6,7 @@
 package tutavla.tavla.domain;
 
 /**
+ * Luokka kapseloi yksittäiseen siirtoon liittyvät tiedot.
  *
  * @author ttuotila
  */
