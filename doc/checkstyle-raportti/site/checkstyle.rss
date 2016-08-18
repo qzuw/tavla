@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
     <item>
-      <title>File: 12,
-             Errors: 1,
+      <title>File: 13,
+             Errors: 0,
              Warnings: 0,
              Infos: 0
       </title>
@@ -47,34 +47,6 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#tutavla.tavla.domain.Lauta.java">tutavla/tavla/domain/Lauta.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#tutavla.tavla.ui.Kayttoliittyma.java">tutavla/tavla/ui/Kayttoliittyma.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#tutavla.tavla.Main.java">tutavla/tavla/Main.java</a>
                 </td>
                 <td>
                   0
@@ -116,21 +88,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#tutavla.tavla.domain.Ruutu.java">tutavla/tavla/domain/Ruutu.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#tutavla.tavla.domain.Pelaaja.java">tutavla/tavla/domain/Pelaaja.java</a>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.domain.Siirrot.java">tutavla/tavla/domain/Siirrot.java</a>
                 </td>
                 <td>
                   0
@@ -153,7 +111,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  1
+                  0
                 </td>
               </tr>
                           <tr>
@@ -187,6 +145,62 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#tutavla.tavla.ui.Tekstikayttoliittyma.java">tutavla/tavla/ui/Tekstikayttoliittyma.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.ui.Kayttoliittyma.java">tutavla/tavla/ui/Kayttoliittyma.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.Main.java">tutavla/tavla/Main.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.domain.Ruutu.java">tutavla/tavla/domain/Ruutu.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.domain.Pelaaja.java">tutavla/tavla/domain/Pelaaja.java</a>
                 </td>
                 <td>
                   0

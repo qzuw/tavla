@@ -55,70 +55,73 @@
 <a class="jxr_linenumber" name="L47" href="#L47">47</a>          <strong class="jxr_keyword">int</strong> lahtoruutu = 0;
 <a class="jxr_linenumber" name="L48" href="#L48">48</a>          <strong class="jxr_keyword">int</strong> kohderuutu = 0;
 <a class="jxr_linenumber" name="L49" href="#L49">49</a>          <strong class="jxr_keyword">boolean</strong> syoVastustajanNappula = false;
-<a class="jxr_linenumber" name="L50" href="#L50">50</a>  
-<a class="jxr_linenumber" name="L51" href="#L51">51</a>          <strong class="jxr_keyword">int</strong> limit = 1000;
-<a class="jxr_linenumber" name="L52" href="#L52">52</a>          <strong class="jxr_keyword">while</strong> (<strong class="jxr_keyword">true</strong>) {
-<a class="jxr_linenumber" name="L53" href="#L53">53</a>  
-<a class="jxr_linenumber" name="L54" href="#L54">54</a>              lahtoruutu = lahtoruudut.get(random.nextInt(lahtoruudut.size()));
-<a class="jxr_linenumber" name="L55" href="#L55">55</a>              ArrayList&lt;Integer&gt; kohderuudut = plk.pelaajaVoiSiirtaaRuutuihin(tietokone, lahtoruutu);
-<a class="jxr_linenumber" name="L56" href="#L56">56</a>  
-<a class="jxr_linenumber" name="L57" href="#L57">57</a>              <strong class="jxr_keyword">if</strong> (kohderuudut.size() &gt; 0) {
-<a class="jxr_linenumber" name="L58" href="#L58">58</a>                  kohderuutu = kohderuudut.get(random.nextInt(kohderuudut.size()));
-<a class="jxr_linenumber" name="L59" href="#L59">59</a>                  Integer siirto = Math.abs(kohderuutu - lahtoruutu);
-<a class="jxr_linenumber" name="L60" href="#L60">60</a>                  <strong class="jxr_keyword">if</strong> (siirrot.contains(siirto) &amp;&amp; kohderuutu != tietokone.getMaali()) {
-<a class="jxr_linenumber" name="L61" href="#L61">61</a>                      syoVastustajanNappula = syodaankoTassaVastustajanNappula(kohderuutu, tietokone, plk, syoVastustajanNappula);
-<a class="jxr_linenumber" name="L62" href="#L62">62</a>                      plk.siirraNappulaa(tietokone, lahtoruutu, kohderuutu);
-<a class="jxr_linenumber" name="L63" href="#L63">63</a>                      siirrot.remove(siirto);
-<a class="jxr_linenumber" name="L64" href="#L64">64</a>                      <strong class="jxr_keyword">break</strong>;
-<a class="jxr_linenumber" name="L65" href="#L65">65</a>                  } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (plk.nappulatKotialueella(tietokone)) {
-<a class="jxr_linenumber" name="L66" href="#L66">66</a>                      <strong class="jxr_keyword">int</strong> poistettava = -1;
-<a class="jxr_linenumber" name="L67" href="#L67">67</a>                      poistettava = nappulaSilmukkaRefaktoroiNimiMyohemmin(siirrot, siirto, plk, tietokone, lahtoruutu, kohderuutu, poistettava);
-<a class="jxr_linenumber" name="L68" href="#L68">68</a>                      <strong class="jxr_keyword">if</strong> (poistettava &gt;= 0) {
-<a class="jxr_linenumber" name="L69" href="#L69">69</a>                          syoVastustajanNappula = syodaankoTassaVastustajanNappula(kohderuutu, tietokone, plk, syoVastustajanNappula);
-<a class="jxr_linenumber" name="L70" href="#L70">70</a>                          siirrot.remove(poistettava);
-<a class="jxr_linenumber" name="L71" href="#L71">71</a>                          <strong class="jxr_keyword">break</strong>;
-<a class="jxr_linenumber" name="L72" href="#L72">72</a>                      }
-<a class="jxr_linenumber" name="L73" href="#L73">73</a>                  }
-<a class="jxr_linenumber" name="L74" href="#L74">74</a>              }
-<a class="jxr_linenumber" name="L75" href="#L75">75</a>  
-<a class="jxr_linenumber" name="L76" href="#L76">76</a>              limit--;
-<a class="jxr_linenumber" name="L77" href="#L77">77</a>              <strong class="jxr_keyword">if</strong> (limit &lt; 0) {
-<a class="jxr_linenumber" name="L78" href="#L78">78</a>                  <strong class="jxr_keyword">break</strong>;
-<a class="jxr_linenumber" name="L79" href="#L79">79</a>              }
-<a class="jxr_linenumber" name="L80" href="#L80">80</a>          }
-<a class="jxr_linenumber" name="L81" href="#L81">81</a>  
-<a class="jxr_linenumber" name="L82" href="#L82">82</a>          <a href="../../../tutavla/tavla/domain/Siirto.html">Siirto</a> s = <strong class="jxr_keyword">new</strong> <a href="../../../tutavla/tavla/domain/Siirto.html">Siirto</a>(lahtoruutu, kohderuutu, syoVastustajanNappula, false);
-<a class="jxr_linenumber" name="L83" href="#L83">83</a>  
-<a class="jxr_linenumber" name="L84" href="#L84">84</a>          <strong class="jxr_keyword">return</strong> s;
-<a class="jxr_linenumber" name="L85" href="#L85">85</a>      }
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>          <strong class="jxr_keyword">boolean</strong> siirtoOnnistui = false;
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>  
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>          <strong class="jxr_keyword">int</strong> limit = 1000;
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>          <strong class="jxr_keyword">while</strong> (<strong class="jxr_keyword">true</strong>) {
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>              lahtoruutu = lahtoruudut.get(random.nextInt(lahtoruudut.size()));
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>              ArrayList&lt;Integer&gt; kohderuudut = plk.pelaajaVoiSiirtaaRuutuihin(tietokone, lahtoruutu);
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>              <strong class="jxr_keyword">if</strong> (kohderuudut.size() &gt; 0) {
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>                  kohderuutu = kohderuudut.get(random.nextInt(kohderuudut.size()));
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>                  Integer siirto = Math.abs(kohderuutu - lahtoruutu);
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>                  <strong class="jxr_keyword">if</strong> (siirrot.contains(siirto) &amp;&amp; kohderuutu != tietokone.getMaali()) {
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>                      syoVastustajanNappula = syodaankoTassaVastustajanNappula(kohderuutu, tietokone, plk, syoVastustajanNappula);
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>                      plk.siirraNappulaa(tietokone, lahtoruutu, kohderuutu);
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>                      siirtoOnnistui = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>                      siirrot.remove(siirto);
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>                      <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>                  } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (plk.nappulatKotialueella(tietokone)) {
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>                      Integer poistettava = -1;
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>                      poistettava = nappulaSilmukkaRefaktoroiNimiMyohemmin(siirrot, siirto, plk, tietokone, lahtoruutu, kohderuutu, poistettava);
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>                      <strong class="jxr_keyword">if</strong> (poistettava &gt;= 0) {
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>                          syoVastustajanNappula = syodaankoTassaVastustajanNappula(kohderuutu, tietokone, plk, syoVastustajanNappula);
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>                          siirtoOnnistui = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>                          siirrot.remove(poistettava);
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>                          <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>                      }
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>                  }
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>              }
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>  
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>              limit--;
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>              <strong class="jxr_keyword">if</strong> (limit &lt; 0) {
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>                  <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>              }
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>          }
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>  
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>          <a href="../../../tutavla/tavla/domain/Siirto.html">Siirto</a> s = <strong class="jxr_keyword">new</strong> <a href="../../../tutavla/tavla/domain/Siirto.html">Siirto</a>(lahtoruutu, kohderuutu, syoVastustajanNappula, !siirtoOnnistui);
 <a class="jxr_linenumber" name="L86" href="#L86">86</a>  
-<a class="jxr_linenumber" name="L87" href="#L87">87</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> nappulaSilmukkaRefaktoroiNimiMyohemmin(ArrayList&lt;Integer&gt; siirrot, Integer siirto, <a href="../../../tutavla/tavla/logiikka/Pelilogiikka.html">Pelilogiikka</a> plk, <a href="../../../tutavla/tavla/domain/Pelaaja.html">Pelaaja</a> tietokone, <strong class="jxr_keyword">int</strong> lahtoruutu, <strong class="jxr_keyword">int</strong> kohderuutu, <strong class="jxr_keyword">int</strong> poistettava) {
-<a class="jxr_linenumber" name="L88" href="#L88">88</a>          <strong class="jxr_keyword">for</strong> (Integer s : siirrot) {
-<a class="jxr_linenumber" name="L89" href="#L89">89</a>              <strong class="jxr_keyword">if</strong> (s &gt; siirto) {
-<a class="jxr_linenumber" name="L90" href="#L90">90</a>                  plk.siirraNappulaa(tietokone, lahtoruutu, kohderuutu);
-<a class="jxr_linenumber" name="L91" href="#L91">91</a>                  poistettava = siirrot.indexOf(s);
-<a class="jxr_linenumber" name="L92" href="#L92">92</a>                  <strong class="jxr_keyword">break</strong>;
-<a class="jxr_linenumber" name="L93" href="#L93">93</a>              }
-<a class="jxr_linenumber" name="L94" href="#L94">94</a>          }
-<a class="jxr_linenumber" name="L95" href="#L95">95</a>          <strong class="jxr_keyword">return</strong> poistettava;
-<a class="jxr_linenumber" name="L96" href="#L96">96</a>      }
-<a class="jxr_linenumber" name="L97" href="#L97">97</a>  
-<a class="jxr_linenumber" name="L98" href="#L98">98</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> syodaankoTassaVastustajanNappula(<strong class="jxr_keyword">int</strong> kohderuutu, <a href="../../../tutavla/tavla/domain/Pelaaja.html">Pelaaja</a> tietokone, <a href="../../../tutavla/tavla/logiikka/Pelilogiikka.html">Pelilogiikka</a> plk, <strong class="jxr_keyword">boolean</strong> syoVastustajanNappula) {
-<a class="jxr_linenumber" name="L99" href="#L99">99</a>          <strong class="jxr_keyword">if</strong> (kohderuutu != tietokone.getMaali()
-<a class="jxr_linenumber" name="L100" href="#L100">100</a>                 &amp;&amp; !plk.ruutuOnTyhja(kohderuutu)
-<a class="jxr_linenumber" name="L101" href="#L101">101</a>                 &amp;&amp; plk.pelaajanNappulaMaara(kohderuutu, tietokone) == 0) {
-<a class="jxr_linenumber" name="L102" href="#L102">102</a>             syoVastustajanNappula = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L103" href="#L103">103</a>         }
-<a class="jxr_linenumber" name="L104" href="#L104">104</a>         <strong class="jxr_keyword">return</strong> syoVastustajanNappula;
-<a class="jxr_linenumber" name="L105" href="#L105">105</a>     }
-<a class="jxr_linenumber" name="L106" href="#L106">106</a> 
-<a class="jxr_linenumber" name="L107" href="#L107">107</a> <em class="jxr_comment">//    private boolean syodaankoTassaSamallaVastustajanNappula(Pelilogiikka plk, int kohderuutu, Pelaaja tietokone, boolean syoVastustajanNappula) {</em>
-<a class="jxr_linenumber" name="L108" href="#L108">108</a> <em class="jxr_comment">//        if (!plk.ruutuOnTyhja(kohderuutu) &amp;&amp; plk.pelaajanNappulaMaara(kohderuutu, tietokone) == 0) {</em>
-<a class="jxr_linenumber" name="L109" href="#L109">109</a> <em class="jxr_comment">//            syoVastustajanNappula = true;</em>
-<a class="jxr_linenumber" name="L110" href="#L110">110</a> <em class="jxr_comment">//        }</em>
-<a class="jxr_linenumber" name="L111" href="#L111">111</a> <em class="jxr_comment">//        return syoVastustajanNappula;</em>
-<a class="jxr_linenumber" name="L112" href="#L112">112</a> <em class="jxr_comment">//    }</em>
-<a class="jxr_linenumber" name="L113" href="#L113">113</a> }
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>          <strong class="jxr_keyword">return</strong> s;
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>      }
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>  
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>      <strong class="jxr_keyword">private</strong> Integer nappulaSilmukkaRefaktoroiNimiMyohemmin(ArrayList&lt;Integer&gt; siirrot, Integer siirto, <a href="../../../tutavla/tavla/logiikka/Pelilogiikka.html">Pelilogiikka</a> plk, <a href="../../../tutavla/tavla/domain/Pelaaja.html">Pelaaja</a> tietokone, <strong class="jxr_keyword">int</strong> lahtoruutu, <strong class="jxr_keyword">int</strong> kohderuutu, <strong class="jxr_keyword">int</strong> poistettava) {
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>          <strong class="jxr_keyword">for</strong> (Integer s : siirrot) {
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>              <strong class="jxr_keyword">if</strong> (s &gt; siirto) {
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>                  plk.siirraNappulaa(tietokone, lahtoruutu, kohderuutu);
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>                  poistettava = siirrot.indexOf(s);
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>                  <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>              }
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>          }
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>          <strong class="jxr_keyword">return</strong> poistettava;
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>      }
+<a class="jxr_linenumber" name="L100" href="#L100">100</a> 
+<a class="jxr_linenumber" name="L101" href="#L101">101</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> syodaankoTassaVastustajanNappula(<strong class="jxr_keyword">int</strong> kohderuutu, <a href="../../../tutavla/tavla/domain/Pelaaja.html">Pelaaja</a> tietokone, <a href="../../../tutavla/tavla/logiikka/Pelilogiikka.html">Pelilogiikka</a> plk, <strong class="jxr_keyword">boolean</strong> syoVastustajanNappula) {
+<a class="jxr_linenumber" name="L102" href="#L102">102</a>         <strong class="jxr_keyword">if</strong> (kohderuutu != tietokone.getMaali()
+<a class="jxr_linenumber" name="L103" href="#L103">103</a>                 &amp;&amp; !plk.ruutuOnTyhja(kohderuutu)
+<a class="jxr_linenumber" name="L104" href="#L104">104</a>                 &amp;&amp; plk.pelaajanNappulaMaara(kohderuutu, tietokone) == 0) {
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>             syoVastustajanNappula = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>         }
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>         <strong class="jxr_keyword">return</strong> syoVastustajanNappula;
+<a class="jxr_linenumber" name="L108" href="#L108">108</a>     }
+<a class="jxr_linenumber" name="L109" href="#L109">109</a> 
+<a class="jxr_linenumber" name="L110" href="#L110">110</a> <em class="jxr_comment">//    private boolean syodaankoTassaSamallaVastustajanNappula(Pelilogiikka plk, int kohderuutu, Pelaaja tietokone, boolean syoVastustajanNappula) {</em>
+<a class="jxr_linenumber" name="L111" href="#L111">111</a> <em class="jxr_comment">//        if (!plk.ruutuOnTyhja(kohderuutu) &amp;&amp; plk.pelaajanNappulaMaara(kohderuutu, tietokone) == 0) {</em>
+<a class="jxr_linenumber" name="L112" href="#L112">112</a> <em class="jxr_comment">//            syoVastustajanNappula = true;</em>
+<a class="jxr_linenumber" name="L113" href="#L113">113</a> <em class="jxr_comment">//        }</em>
+<a class="jxr_linenumber" name="L114" href="#L114">114</a> <em class="jxr_comment">//        return syoVastustajanNappula;</em>
+<a class="jxr_linenumber" name="L115" href="#L115">115</a> <em class="jxr_comment">//    }</em>
+<a class="jxr_linenumber" name="L116" href="#L116">116</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2016. All rights reserved.</div>
