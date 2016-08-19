@@ -24,9 +24,9 @@ public class Tekoaly {
     }
 
     /**
-     * Arpoo tietokonepelaajalle nappuloiden värin valitsemalla satunnaisesti 
+     * Arpoo tietokonepelaajalle nappuloiden värin valitsemalla satunnaisesti
      * pelaajan
-     * 
+     *
      * @param siirtojarjestys lista pelaajista
      * @return satunnaisesti valittu pelaaja
      */
@@ -36,11 +36,11 @@ public class Tekoaly {
 
     /**
      * Arpoo yhden siirron ja palauttaa sen.
-     * 
+     *
      * @param tietokone
      * @param plk
      * @param siirrot lista noppien arvoja
-     * @return 
+     * @return
      */
     public Siirto pelaa(Pelaaja tietokone, Pelilogiikka plk, ArrayList<Integer> siirrot) {
         ArrayList<Integer> lahtoruudut = plk.pelaajaVoiSiirtaaRuuduista(tietokone);
@@ -67,7 +67,7 @@ public class Tekoaly {
                     break;
                 } else if (plk.nappulatKotialueella(tietokone)) {
                     Integer poistettava = -1;
-                    poistettava = nappulaSilmukkaRefaktoroiNimiMyohemmin(siirrot, siirto, plk, tietokone, lahtoruutu, kohderuutu, poistettava);
+                    poistettava = nappulaSilmukkaRefaktoroiNimiMyohemmin(siirrot, siirto, plk, tietokone, lahtoruutu, kohderuutu);
                     if (poistettava >= 0) {
                         syoVastustajanNappula = syodaankoTassaVastustajanNappula(kohderuutu, tietokone, plk, syoVastustajanNappula);
                         siirtoOnnistui = true;
@@ -88,7 +88,8 @@ public class Tekoaly {
         return s;
     }
 
-    private Integer nappulaSilmukkaRefaktoroiNimiMyohemmin(ArrayList<Integer> siirrot, Integer siirto, Pelilogiikka plk, Pelaaja tietokone, int lahtoruutu, int kohderuutu, int poistettava) {
+    private Integer nappulaSilmukkaRefaktoroiNimiMyohemmin(ArrayList<Integer> siirrot, Integer siirto, Pelilogiikka plk, Pelaaja tietokone, int lahtoruutu, int kohderuutu) {
+        Integer poistettava = -1;
         for (Integer s : siirrot) {
             if (s > siirto) {
                 plk.siirraNappulaa(tietokone, lahtoruutu, kohderuutu);
