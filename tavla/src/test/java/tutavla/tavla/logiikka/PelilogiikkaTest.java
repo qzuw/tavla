@@ -49,6 +49,9 @@ public class PelilogiikkaTest {
         Pelaaja pelaaja2 = new Pelaaja();
         Pelilogiikka logiikka = new Pelilogiikka();
 
+        pelaaja2.setMaali(0);
+        assertEquals(pelaaja2.getMaali(), 0);
+
         logiikka.alustaPelitilanne(pelaaja1, pelaaja2);
         assertFalse(logiikka.ruutuOnTyhja(1));
         assertEquals(logiikka.ruudunNappulaMaara(1), 2);

@@ -118,7 +118,10 @@ public class RuutuTest {
         Pelaaja pelaaja = new Pelaaja();
         Pelaaja toinen = new Pelaaja();
         
+        assertEquals(ruutu.otaPelaajanNappula(pelaaja), null);
+        
         ruutu.lisaaNappula(new Nappula(pelaaja));
+        assertEquals(ruutu.otaPelaajanNappula(toinen), null);
         ruutu.lisaaNappula(new Nappula(toinen));
         
         assertEquals(ruutu.otaPelaajanNappula(toinen).getPelaaja(), toinen);

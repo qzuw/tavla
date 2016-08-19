@@ -164,14 +164,71 @@ public class SovelluslogiikkaTest {
 
         assertEquals(svl.kukaVoitti(), null);
     }
-    
+
     @Test
-    public void tietokoneVoiPelataSiirronAlussa(){
+    public void tietokoneVoiPelataSiirronAlussa() {
         Sovelluslogiikka svl = new Sovelluslogiikka();
         Pelaaja p = svl.getSiirtojarjestys().get(0);
         svl.heitaNopat();
-        
+
         assertFalse(svl.pelaaTietokone(p).eiVoiSiirtaa());
     }
 
+    @Test
+    public void tietokoneVoiPelataSiirronAlussa2() {
+        Sovelluslogiikka svl = new Sovelluslogiikka();
+        Pelaaja p = svl.getSiirtojarjestys().get(1);
+        svl.heitaNopat();
+
+        assertFalse(svl.pelaaTietokone(p).eiVoiSiirtaa());
+    }
+
+    @Test
+    public void tarkistaOnkoVoittajaa() {
+        Sovelluslogiikka svl = new Sovelluslogiikka();
+        Pelaaja p1 = svl.getSiirtojarjestys().get(0);
+        Pelaaja p2 = svl.getSiirtojarjestys().get(1);
+
+        svl.getPelilogiikka().siirraNappulaa(p1, 24, 0);
+        svl.getPelilogiikka().siirraNappulaa(p1, 24, 0);
+        svl.getPelilogiikka().siirraNappulaa(p1, 13, 0);
+        svl.getPelilogiikka().siirraNappulaa(p1, 13, 0);
+        svl.getPelilogiikka().siirraNappulaa(p1, 13, 0);
+        svl.getPelilogiikka().siirraNappulaa(p1, 13, 0);
+        svl.getPelilogiikka().siirraNappulaa(p1, 13, 0);
+        svl.getPelilogiikka().siirraNappulaa(p1, 8, 0);
+        svl.getPelilogiikka().siirraNappulaa(p1, 8, 0);
+        svl.getPelilogiikka().siirraNappulaa(p1, 8, 0);
+        svl.getPelilogiikka().siirraNappulaa(p1, 6, 0);
+        svl.getPelilogiikka().siirraNappulaa(p1, 6, 0);
+        svl.getPelilogiikka().siirraNappulaa(p1, 6, 0);
+        svl.getPelilogiikka().siirraNappulaa(p1, 6, 0);
+        assertFalse(svl.onkoJokuVoittanut());
+        svl.getPelilogiikka().siirraNappulaa(p1, 6, 0);
+        assertTrue(svl.onkoJokuVoittanut());
+
+    }
+
+    @Test
+    public void tarkistaKukaVoitti() {
+        Sovelluslogiikka svl = new Sovelluslogiikka();
+        Pelaaja p1 = svl.getSiirtojarjestys().get(0);
+
+        svl.getPelilogiikka().siirraNappulaa(p1, 24, 0);
+        svl.getPelilogiikka().siirraNappulaa(p1, 24, 0);
+        svl.getPelilogiikka().siirraNappulaa(p1, 13, 0);
+        svl.getPelilogiikka().siirraNappulaa(p1, 13, 0);
+        svl.getPelilogiikka().siirraNappulaa(p1, 13, 0);
+        svl.getPelilogiikka().siirraNappulaa(p1, 13, 0);
+        svl.getPelilogiikka().siirraNappulaa(p1, 13, 0);
+        svl.getPelilogiikka().siirraNappulaa(p1, 8, 0);
+        svl.getPelilogiikka().siirraNappulaa(p1, 8, 0);
+        svl.getPelilogiikka().siirraNappulaa(p1, 8, 0);
+        svl.getPelilogiikka().siirraNappulaa(p1, 6, 0);
+        svl.getPelilogiikka().siirraNappulaa(p1, 6, 0);
+        svl.getPelilogiikka().siirraNappulaa(p1, 6, 0);
+        svl.getPelilogiikka().siirraNappulaa(p1, 6, 0);
+        svl.getPelilogiikka().siirraNappulaa(p1, 6, 0);
+        assertEquals(svl.kukaVoitti(), p1);
+    }
 }

@@ -160,7 +160,7 @@ public class TekoalyTest {
     }
 
     @Test
-    public void testaaEttaTekoalyTekeeJotainPelatessaan4() {
+    public void tekoalyHuomaaVastustajanNappulanSyonnin() {
         Random r = new Random();
         Tekoaly t = new Tekoaly(r);
         Pelilogiikka plk = new Pelilogiikka();
@@ -197,5 +197,131 @@ public class TekoalyTest {
         Siirto s = t.pelaa(p2, plk, st.haeSiirrot());
 
         assertTrue(s.vastustajanNappulaSyoty());
+    }
+
+    @Test
+    public void tekoalyHuomaaVastustajanNappulanSyomattomyyden() {
+        Random r = new Random();
+        Tekoaly t = new Tekoaly(r);
+        Pelilogiikka plk = new Pelilogiikka();
+        Siirrot st = new Siirrot(r);
+
+        Pelaaja p1 = new Pelaaja();
+        Pelaaja p2 = new Pelaaja();
+        p1.setMusta(true);
+        p2.setMusta(false);
+
+        plk.alustaPelitilanne(p1, p2);
+
+        plk.siirraNappulaa(p2, 1, 7);
+        plk.siirraNappulaa(p2, 1, 7);
+        plk.siirraNappulaa(p1, 6, 1);
+        plk.siirraNappulaa(p1, 6, 1);
+        plk.siirraNappulaa(p1, 6, 1);
+        plk.siirraNappulaa(p1, 6, 1);
+        plk.siirraNappulaa(p1, 6, 1);
+        plk.siirraNappulaa(p1, 8, 1);
+        plk.siirraNappulaa(p1, 8, 1);
+        plk.siirraNappulaa(p1, 8, 1);
+        plk.siirraNappulaa(p1, 13, 1);
+        plk.siirraNappulaa(p1, 13, 1);
+        plk.siirraNappulaa(p1, 13, 1);
+        plk.siirraNappulaa(p1, 13, 1);
+        plk.siirraNappulaa(p1, 13, 1);
+        plk.siirraNappulaa(p1, 24, 1);
+        plk.siirraNappulaa(p1, 24, 1);
+
+        st.heitaNopat();
+
+        Siirto s = t.pelaa(p2, plk, st.haeSiirrot());
+
+        assertFalse(s.vastustajanNappulaSyoty());
+    }
+
+    @Test
+    public void kotialueelleSiirtaminen() {
+        Random r = new Random();
+        Tekoaly t = new Tekoaly(r);
+        Pelilogiikka plk = new Pelilogiikka();
+        ArrayList<Integer> st = new ArrayList<>();
+
+        Pelaaja p1 = new Pelaaja();
+        Pelaaja p2 = new Pelaaja();
+        p1.setMusta(true);
+        p2.setMusta(false);
+
+        plk.alustaPelitilanne(p1, p2);
+
+        plk.siirraNappulaa(p2, 1, 11);
+        plk.siirraNappulaa(p2, 1, 11);
+        plk.siirraNappulaa(p1, 6, 1);
+        plk.siirraNappulaa(p1, 6, 1);
+        plk.siirraNappulaa(p1, 6, 1);
+        plk.siirraNappulaa(p1, 6, 1);
+        plk.siirraNappulaa(p1, 6, 1);
+        plk.siirraNappulaa(p1, 8, 1);
+        plk.siirraNappulaa(p1, 8, 1);
+        plk.siirraNappulaa(p1, 8, 1);
+        plk.siirraNappulaa(p1, 13, 1);
+        plk.siirraNappulaa(p1, 13, 1);
+        plk.siirraNappulaa(p1, 13, 1);
+        plk.siirraNappulaa(p1, 13, 1);
+        plk.siirraNappulaa(p1, 13, 1);
+        plk.siirraNappulaa(p1, 24, 1);
+        plk.siirraNappulaa(p1, 24, 8);
+
+        st.add(2);
+
+        Siirto s = t.pelaa(p1, plk, st);
+
+        assertEquals(s.getMaali(), 6);
+    }
+
+    @Test
+    public void kotialueeltaUlosSiirtaminen() {
+        Random r = new Random();
+        Tekoaly t = new Tekoaly(r);
+        Pelilogiikka plk = new Pelilogiikka();
+        ArrayList<Integer> st = new ArrayList<>();
+
+        Pelaaja p1 = new Pelaaja();
+        Pelaaja p2 = new Pelaaja();
+        p1.setMusta(true);
+        p2.setMusta(false);
+
+        plk.alustaPelitilanne(p1, p2);
+
+        plk.siirraNappulaa(p2, 1, 11);
+        plk.siirraNappulaa(p2, 1, 11);
+        plk.siirraNappulaa(p1, 6, 1);
+        plk.siirraNappulaa(p1, 6, 1);
+        plk.siirraNappulaa(p1, 6, 1);
+        plk.siirraNappulaa(p1, 6, 1);
+        plk.siirraNappulaa(p1, 6, 1);
+        plk.siirraNappulaa(p1, 8, 1);
+        plk.siirraNappulaa(p1, 8, 1);
+        plk.siirraNappulaa(p1, 8, 1);
+        plk.siirraNappulaa(p1, 13, 1);
+        plk.siirraNappulaa(p1, 13, 1);
+        plk.siirraNappulaa(p1, 13, 1);
+        plk.siirraNappulaa(p1, 13, 1);
+        plk.siirraNappulaa(p1, 13, 1);
+        plk.siirraNappulaa(p1, 24, 1);
+        plk.siirraNappulaa(p1, 24, 1);
+
+        st.add(1);
+
+        Siirto s = t.pelaa(p1, plk, st);
+
+        assertEquals(s.getMaali(), 0);
+        assertEquals(plk.ruudunNappulaMaara(0), 1);
+
+        st.add(2);
+
+        s = t.pelaa(p1, plk, st);
+
+        assertEquals(s.getMaali(), 0);
+        assertEquals(plk.ruudunNappulaMaara(0), 2);
+
     }
 }
