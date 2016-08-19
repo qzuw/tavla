@@ -107,7 +107,7 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
                 }
                 if (mista > -1) {
                     System.out.println("Ruudusta " + mista + "voi siirtää ruutuihin:");
-                    ArrayList<Integer> kohderuudut = svl.getPelilogiikka().pelaajaVoiSiirtaaRuutuihin(pelaaja, mista);
+                    ArrayList<Integer> kohderuudut = svl.getPelilogiikka().pelaajaVoiSiirtaaRuutuihin(pelaaja, mista, siirrot);
 
                     System.out.println(kohderuudut);
                     System.out.println("Minne nappula siirretään?");

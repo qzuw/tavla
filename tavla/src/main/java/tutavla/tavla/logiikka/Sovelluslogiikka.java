@@ -141,7 +141,7 @@ public class Sovelluslogiikka {
         } else {
             for (int siirto : siirrot.haeSiirrot()) {
                 for (int ruutu : pelilogiikka.pelaajaVoiSiirtaaRuuduista(pelaaja)) {
-                    if (pelilogiikka.pelaajaVoiSiirtaaRuutuihin(pelaaja, ruutu).contains(ruutu + suunta * siirto)) {
+                    if (pelilogiikka.pelaajaVoiSiirtaaRuutuihin(pelaaja, ruutu, siirrot.haeSiirrot()).contains(ruutu + suunta * siirto)) {
                         voiSiirtaa = true;
                         break;
                     }
