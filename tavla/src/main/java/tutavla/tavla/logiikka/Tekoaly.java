@@ -55,28 +55,26 @@ public class Tekoaly {
 
             lahtoruutu = lahtoruudut.get(random.nextInt(lahtoruudut.size()));
             ArrayList<Integer> kohderuudut = plk.pelaajaVoiSiirtaaRuutuihin(tietokone, lahtoruutu, siirrot);
-            System.out.println("Kohderuudut: " + kohderuudut);
 
             if (kohderuudut.size() > 0) {
                 kohderuutu = kohderuudut.get(random.nextInt(kohderuudut.size()));
                 Integer siirto = Math.abs(kohderuutu - lahtoruutu);
-                if (plk.nappulatKotialueella(tietokone)) {
+                if (siirrot.contains(siirto) && kohderuutu != tietokone.getMaali()) {
+                    syoVastustajanNappula = syodaankoTassaVastustajanNappula(kohderuutu, tietokone, plk, syoVastustajanNappula);
+                    plk.siirraNappulaa(tietokone, lahtoruutu, kohderuutu);
+                    siirtoOnnistui = true;
+                    siirrot.remove(siirto);
+                    break;
+                } else if (plk.nappulatKotialueella(tietokone)) {
                     Integer poistettava = -1;
                     poistettava = (int) nappulaSilmukkaRefaktoroiNimiMyohemmin(siirrot, siirto, plk, tietokone, lahtoruutu, kohderuutu);
                     if (poistettava >= 0) {
                         syoVastustajanNappula = syodaankoTassaVastustajanNappula(kohderuutu, tietokone, plk, syoVastustajanNappula);
                         siirtoOnnistui = true;
                         siirrot.remove((int) poistettava);
-//                        System.out.println("poistettiin " + poistettava + " jaljella " + siirrot);
                         break;
                     }
-                } else if (siirrot.contains(siirto) && kohderuutu != tietokone.getMaali()) {
-                    syoVastustajanNappula = syodaankoTassaVastustajanNappula(kohderuutu, tietokone, plk, syoVastustajanNappula);
-                    plk.siirraNappulaa(tietokone, lahtoruutu, kohderuutu);
-                    siirtoOnnistui = true;
-                    siirrot.remove(siirto);
-                    break;
-                }
+                } 
             }
 
             limit--;
@@ -103,7 +101,7 @@ public class Tekoaly {
     private Integer nappulaSilmukkaRefaktoroiNimiMyohemmin(ArrayList<Integer> siirrot, Integer siirto, Pelilogiikka plk, Pelaaja tietokone, int lahtoruutu, int kohderuutu) {
         Integer poistettava = -1;
         for (Integer s : siirrot) {
-            if (s > siirto) {
+            if (s >= siirto) {
                 plk.siirraNappulaa(tietokone, lahtoruutu, kohderuutu);
                 poistettava = siirrot.indexOf(s);
                 break;
