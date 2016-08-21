@@ -1,8 +1,11 @@
-- pelaaja siirtää nappulaa
-- tietokoneen nappuloiden siirtelyssä on jotain mätää, viimeisen nappulan poistossa? 
-- kerro syödyt nappulat ja ulos pelatut
-- refakt pelaajaVoiSiirtaaRuutuihin -> apumetodi haeMahdollisetKohderuudut(int kerroin, int maali)
+- pelaaja siirtää nappulaa, siirron oikeellisuuden tarkistus -> logiikkaan
+- (kerro syödyt nappulat ja ulos pelatut)
+- tekoäly siirtää ulos noppaa pienemmällä siirrolla vain jos ei muuta vaihtoehtoa
 
 - javadoc
+- checkstyle
+- sekvenssi
 
 - gui
+
+- random testaus
