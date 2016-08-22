@@ -119,10 +119,4 @@ public class Tekoaly {
         return syoVastustajanNappula;
     }
 
-//    private boolean syodaankoTassaSamallaVastustajanNappula(Pelilogiikka plk, int kohderuutu, Pelaaja tietokone, boolean syoVastustajanNappula) {
-//        if (!plk.ruutuOnTyhja(kohderuutu) && plk.pelaajanNappulaMaara(kohderuutu, tietokone) == 0) {
-//            syoVastustajanNappula = true;
-//        }
-//        return syoVastustajanNappula;
-//    }
 }

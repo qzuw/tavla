@@ -115,20 +115,6 @@ public class Pelilogiikka {
         return lista;
     }
 
-//    public ArrayList<Integer> pelaajaVoiSiirtaaRuutuihin(Pelaaja pelaaja, int lahtoruutu) {
-//        ArrayList<Integer> lista = new ArrayList<>();
-//
-//        if (pelaaja.getMaali() == 0) {
-//
-//            lista = siirrettavatRuudut(lahtoruutu, -1, pelaaja);
-//
-//        } else {
-//
-//            lista = siirrettavatRuudut(lahtoruutu, 1, pelaaja);
-//        }
-//
-//        return lista;
-//    }
 
     public ArrayList<Integer> pelaajaVoiSiirtaaRuutuihin(Pelaaja pelaaja, int lahtoruutu, ArrayList<Integer> siirrot) {
         ArrayList<Integer> lista = new ArrayList<>();
@@ -145,27 +131,6 @@ public class Pelilogiikka {
         return lista;
     }
 
-//    private ArrayList<Integer> siirrettavatRuudut(int lahtoruutu, int kerroin, Pelaaja pelaaja) {
-//        ArrayList<Integer> lista = new ArrayList<>();
-//        int i = lahtoruutu;
-//        int siirto = 0;
-//        while (true) {
-//            siirto++;
-//            int kohderuutu = lahtoruutu + kerroin * siirto;
-//            if (siirto > 6) {
-//                break;
-//            } else if (kohderuutu == pelaaja.getMaali()) {
-//                if (this.nappulatKotialueella(pelaaja) && !lista.contains(kohderuutu)) {
-//                    lista.add(kohderuutu);
-//                }
-//                break;
-//            } else if (this.ruutuunVoiSiirtya(kohderuutu, pelaaja)) {
-//                lista.add(kohderuutu);
-//            }
-//        }
-//        return lista;
-//    }
-
     private ArrayList<Integer> siirrettavatRuudut(int lahtoruutu, int kerroin, Pelaaja pelaaja, ArrayList<Integer> siirrot) {
         ArrayList<Integer> lista = new ArrayList<>();
         int i = lahtoruutu;
@@ -173,7 +138,6 @@ public class Pelilogiikka {
         while (true) {
             siirto++;
             int kohderuutu = lahtoruutu + kerroin * siirto;
-//            System.out.println("lahtoruut: " + lahtoruutu + " kohderuutu: " + kohderuutu + " siirto " + siirto);
             if (siirto > 6) {
                 break;
             } else if (kohderuutu < 0 || kohderuutu > 25) {
