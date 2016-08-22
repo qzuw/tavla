@@ -1,6 +1,7 @@
 package tutavla.tavla;
 
 import tutavla.tavla.logiikka.Sovelluslogiikka;
+import tutavla.tavla.ui.GraafinenKayttoliittyma;
 import tutavla.tavla.ui.Kayttoliittyma;
 import tutavla.tavla.ui.Tekstikayttoliittyma;
 
@@ -23,7 +24,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Kayttoliittyma kali = new Tekstikayttoliittyma();
+        Kayttoliittyma kali = new GraafinenKayttoliittyma();
         kali.kaynnista();
     }
 

@@ -20,4 +20,4 @@ Päivä | Tunnit | Kuvaus
 17.08.2016 | 3 1/2 h | bugien metsästystä, refaktorointia, javadoc alku
 18.08.2016 | 2 1/2 h | bugin korjaus, refaktorointia, testejä, ihmiset voivat pelata
 19.08.2016 | 3 h | bugfix, refaktorointia, testejä
-22.08.2016 | 2 1/2 h | javadoc, checkstyle, testejä
+22.08.2016 | 3 h | javadoc, checkstyle, testejä, gui alku
