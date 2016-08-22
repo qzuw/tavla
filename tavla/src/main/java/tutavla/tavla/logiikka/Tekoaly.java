@@ -40,7 +40,7 @@ public class Tekoaly {
      * @param tietokone
      * @param plk
      * @param siirrot lista noppien arvoja
-     * @return
+     * @return palauttaa arvotun siirron
      */
     public Siirto pelaa(Pelaaja tietokone, Pelilogiikka plk, ArrayList<Integer> siirrot) {
         ArrayList<Integer> lahtoruudut = plk.pelaajaVoiSiirtaaRuuduista(tietokone);
@@ -67,7 +67,7 @@ public class Tekoaly {
                     break;
                 } else if (plk.nappulatKotialueella(tietokone)) {
                     Integer poistettava = -1;
-                    poistettava = (int) nappulaSilmukkaRefaktoroiNimiMyohemmin(siirrot, siirto, plk, tietokone, lahtoruutu, kohderuutu);
+                    poistettava = (int) selvitaPoistettavanSiirronIndeksi(siirrot, siirto, plk, tietokone, lahtoruutu, kohderuutu);
                     if (poistettava >= 0) {
                         syoVastustajanNappula = syodaankoTassaVastustajanNappula(kohderuutu, tietokone, plk, syoVastustajanNappula);
                         siirtoOnnistui = true;
@@ -98,7 +98,7 @@ public class Tekoaly {
      * @param kohderuutu
      * @return palauttaa listasta poistettavan numeron indeksin
      */
-    private Integer nappulaSilmukkaRefaktoroiNimiMyohemmin(ArrayList<Integer> siirrot, Integer siirto, Pelilogiikka plk, Pelaaja tietokone, int lahtoruutu, int kohderuutu) {
+    private Integer selvitaPoistettavanSiirronIndeksi(ArrayList<Integer> siirrot, Integer siirto, Pelilogiikka plk, Pelaaja tietokone, int lahtoruutu, int kohderuutu) {
         Integer poistettava = -1;
         for (Integer s : siirrot) {
             if (s >= siirto) {
