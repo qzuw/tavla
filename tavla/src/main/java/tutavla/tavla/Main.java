@@ -9,13 +9,17 @@ import tutavla.tavla.ui.Tekstikayttoliittyma;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 /**
- *
+ * Main-luokka.
+ * 
  * @author ttuotila@cs
  */
 public class Main {
 
     /**
+     * main-metodi.
+     * 
      * @param args the command line arguments
      */
     public static void main(String[] args) {

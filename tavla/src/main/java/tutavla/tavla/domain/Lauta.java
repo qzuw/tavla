@@ -17,6 +17,9 @@ public class Lauta {
 
     private List<Ruutu> ruudut;
 
+    /**
+     * Luodaan tyhjä Lauta-olio.
+     */
     public Lauta() {
         ruudut = new ArrayList<>();
         // 0 ja 25 erikoistapauksia
@@ -25,6 +28,13 @@ public class Lauta {
         }
     }
 
+    /**
+     * Onko tietty Ruutu tietyn Pelaajan hallussa.
+     * 
+     * @param ruutu tarkistettavan ruudun indeksi
+     * @param pelaaja tarkistettava pelaaja
+     * @return true jos ruutu on pelaajan hallussa
+     */
     public boolean ruutuPelaajalla(int ruutu, Pelaaja pelaaja) {
         boolean pelaajalla = false;
         if (!ruudut.get(ruutu).isEmpty() && ruutu != 0 && ruutu != 25) {
@@ -33,18 +43,43 @@ public class Lauta {
         return pelaajalla;
     }
 
+    /**
+     * Ruudusssa olevien nappuloiden määrä.
+     * 
+     * @param ruutu ruudun indeksi
+     * @return nappuloiden määrä
+     */
     public int nappuloitaRuudussa(int ruutu) {
         return ruudut.get(ruutu).nappuloidenMaara();
     }
 
+    /**
+     * Ruudussa olevien tietyn pelaajan nappuloiden määrä.
+     * 
+     * @param ruutu ruudun indeksi
+     * @param pelaaja tarkistettava pelaaja
+     * @return ruudussa olevien pelaajan nappuloiden määrä
+     */
     public int pelaajanNappuloitaRuudussa(int ruutu, Pelaaja pelaaja) {
         return ruudut.get(ruutu).pelaajanNappuloidenMaara(pelaaja);
     }
 
+    /**
+     * Aseta nappula ruutuun.
+     * 
+     * @param nappula asetetttava nappula
+     * @param ruutu asetettavan ruudun indeksi
+     */
     public void asetaNappula(Nappula nappula, int ruutu) {
         ruudut.get(ruutu).lisaaNappula(nappula);
     }
 
+    /**
+     * Siirrä yksi nappula ruudusta toiseen.
+     * 
+     * @param mista lähtöruudun indeksi
+     * @param minne lopetusruudun indeksi
+     */
     public void siirraNappula(int mista, int minne) {
         ruudut.get(minne).lisaaNappula(ruudut.get(mista).otaNappula());
     }

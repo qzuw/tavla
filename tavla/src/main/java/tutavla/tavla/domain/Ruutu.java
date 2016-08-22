@@ -17,16 +17,29 @@ public class Ruutu {
 
     List<Nappula> nappulat;
 
+    /**
+     * Luodaan Ruutu-olio.
+     */
     public Ruutu() {
         nappulat = new ArrayList<>();
     }
 
+    /**
+     * Lisätään ruutuun nappula.
+     * 
+     * @param nappula ruutuun lisättävä nappula
+     */
     public void lisaaNappula(Nappula nappula) {
         if (!nappulat.contains(nappula)) {
             nappulat.add(nappula);
         }
     }
 
+    /**
+     * Otetaan ruudusta nappula.
+     * 
+     * @return palautetaan otettu nappula.
+     */
     public Nappula otaNappula() {
         if (nappulat.size() < 1) {
             return null;
@@ -36,6 +49,12 @@ public class Ruutu {
         return nappula;
     }
 
+    /**
+     * Otetaan ruudusta tietyn pelaajan nappula.
+     * 
+     * @param pelaaja Pelaaja jonka nappula otetaan
+     * @return palautetaan otettu nappula
+     */
     public Nappula otaPelaajanNappula(Pelaaja pelaaja) {
         if (nappulat.size() < 1) {
             return null;
@@ -57,10 +76,21 @@ public class Ruutu {
         return nappula;
     }
 
+    /**
+     * Haetaan ruudussa olevien nappuloiden määrä.
+     * 
+     * @return nappuloiden määrä ruudussa
+     */
     public int nappuloidenMaara() {
         return nappulat.size();
     }
 
+    /**
+     * Haetaan Ruudussa olevien tietyn pelaajan nappuloiden määrä.
+     * 
+     * @param pelaaja pelaaja jonka nappuloiden määrä halutaan tietää
+     * @return pelaajan nappuloiden määrä ruudussa
+     */
     public int pelaajanNappuloidenMaara(Pelaaja pelaaja) {
         int maara = 0;
         for (Nappula nappula : nappulat) {
@@ -71,10 +101,20 @@ public class Ruutu {
         return maara;
     }
 
+    /**
+     * Onko Ruutu tyhjä?
+     * 
+     * @return true jos ruutu on tyhjä
+     */
     public boolean isEmpty() {
         return nappulat.isEmpty();
     }
 
+    /**
+     * Haetaan millä Pelaajalla on nappuloita Ruudussa.
+     * 
+     * @return pelaaja jolla on nappuloita ruudussa
+     */
     public Pelaaja getPelaaja() {
         if (nappulat.isEmpty()) {
             return null;
