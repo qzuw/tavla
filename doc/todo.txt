@@ -2,8 +2,6 @@
 - (kerro syödyt nappulat ja ulos pelatut)
 - tekoäly siirtää ulos noppaa pienemmällä siirrolla vain jos ei muuta vaihtoehtoa
 
-- javadoc
-- checkstyle
 - sekvenssi
 
 - gui
