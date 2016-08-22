@@ -19,6 +19,11 @@ public class Tekoaly {
 
     private Random random;
 
+    /**
+     * Luodaan tekoaly.
+     * 
+     * @param random random jota tekoaly kayttaa siirtojen arpomiseen
+     */
     public Tekoaly(Random random) {
         this.random = random;
     }
@@ -37,8 +42,8 @@ public class Tekoaly {
     /**
      * Arpoo yhden siirron ja palauttaa sen.
      *
-     * @param tietokone
-     * @param plk
+     * @param tietokone siirtava pelaaja
+     * @param plk pelilogiikka
      * @param siirrot lista noppien arvoja
      * @return palauttaa arvotun siirron
      */
@@ -90,12 +95,12 @@ public class Tekoaly {
 
     /**
      *
-     * @param siirrot
-     * @param siirto
-     * @param plk
-     * @param tietokone
-     * @param lahtoruutu
-     * @param kohderuutu
+     * @param siirrot siirtojen lista
+     * @param siirto poistettava siirto
+     * @param plk pelilogiikka
+     * @param tietokone siirtava pelaaja
+     * @param lahtoruutu lahtoruudun indeksi
+     * @param kohderuutu kohderuudun indeksi
      * @return palauttaa listasta poistettavan numeron indeksin
      */
     private Integer selvitaPoistettavanSiirronIndeksi(ArrayList<Integer> siirrot, Integer siirto, Pelilogiikka plk, Pelaaja tietokone, int lahtoruutu, int kohderuutu) {

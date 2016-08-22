@@ -17,6 +17,14 @@ public class Siirto {
     private final boolean syo;
     private final boolean eiVoi;
 
+    /**
+     * Luo Siirto-olion.
+     * 
+     * @param lahto siirron lähtöruudun indeksi
+     * @param maali siirron lopetusruudun indeksi
+     * @param syo syödäänkö siirrettäessä vastustajan nappula
+     * @param eiVoi epäonnistuiko siirto
+     */
     public Siirto(int lahto, int maali, boolean syo, boolean eiVoi) {
         this.lahto = lahto;
         this.maali = maali;
@@ -24,18 +32,38 @@ public class Siirto {
         this.eiVoi = eiVoi;
     }
 
+    /**
+     * Palauttaa lähtöruudun indeksin.
+     * 
+     * @return palauttaa lähtöruudun indeksin
+     */
     public int getLahto() {
         return lahto;
     }
 
+    /**
+     * Palauttaa siirron lopetusruudun indeksin.
+     * 
+     * @return palauttaa siirron lopetusruudun indeksin
+     */
     public int getMaali() {
         return maali;
     }
 
+    /**
+     * Palauttaa tiedon onko vastustajan nappula syöty siirtoa tehtäessä.
+     * 
+     * @return onko siirrettäessä syöty vastustajan nappula
+     */
     public boolean vastustajanNappulaSyoty() {
         return syo;
     }
 
+    /**
+     * Palauttaa tiedon siirron epäonnistumisesta.
+     * 
+     * @return true jos siirto ei mahdollinen
+     */
     public boolean eiVoiSiirtaa() {
         return eiVoi;
     }

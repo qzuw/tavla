@@ -18,6 +18,11 @@ public class Siirrot {
     private ArrayList<Integer> siirrot;
     private Random random;
 
+    /**
+     * Luo Siirrot-olion.
+     * 
+     * @param random arvontaan käytettavä Random
+     */
     public Siirrot(Random random) {
         siirrot = new ArrayList<>();
         nopat = new ArrayList<>();
@@ -49,6 +54,11 @@ public class Siirrot {
         }
     }
 
+    /**
+     * Palauttaa listan siirtoja.
+     * 
+     * @return lista siirtoja
+     */
     public ArrayList<Integer> haeSiirrot() {
 
         return siirrot;

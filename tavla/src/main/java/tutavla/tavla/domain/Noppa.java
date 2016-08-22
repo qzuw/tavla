@@ -17,15 +17,28 @@ public class Noppa {
     private Random random;
     private int arvo;
 
+    /**
+     * Luo Noppa-olion.
+     * 
+     * @param r Random
+     */
     public Noppa(Random r) {
         random = r;
         this.heita();
     }
 
+    /**
+     * Heitä nopalle uusi arvo.
+     */
     public void heita() {
         arvo = random.nextInt(6) + 1;
     }
 
+    /**
+     * Hae nopan tämänhetkinen arvo.
+     * 
+     * @return nopan tämänhetkinen arvo
+     */
     public int getArvo() {
         return arvo;
     }

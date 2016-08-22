@@ -14,10 +14,20 @@ public class Nappula {
 
     private Pelaaja pelaaja;
 
+    /**
+     * Luo Nappula-olion.
+     * 
+     * @param pelaaja nappulan omistava pelaaja
+     */
     public Nappula(Pelaaja pelaaja) {
         this.pelaaja = pelaaja;
     }
 
+    /**
+     * Hae nappulan omistava Pelaaja.
+     * 
+     * @return palauttaa nappulan omistajan
+     */
     public Pelaaja getPelaaja() {
         return pelaaja;
     }
