@@ -156,7 +156,8 @@ public class TekoalyTest {
 
         plk.alustaPelitilanne(p1, p2);
 
-        plk.siirraNappulaa(p1, 6, 25);
+        plk.siirraNappulaa(p1, 24, 25);
+        plk.siirraNappulaa(p1, 24, 6);
         plk.siirraNappulaa(p2, 1, 20);
         plk.siirraNappulaa(p2, 1, 20);
         plk.siirraNappulaa(p2, 12, 21);

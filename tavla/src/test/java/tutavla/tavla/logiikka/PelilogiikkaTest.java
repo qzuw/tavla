@@ -179,4 +179,28 @@ public class PelilogiikkaTest {
         assertFalse(plk.onkoPelaajaVoittanut(toinen));
         assertTrue(plk.onkoPelaajaVoittanut(pelaaja));
     }
+    
+    @Test
+    public void nappulatKotialueella(){
+        Pelaaja pelaaja = new Pelaaja();
+        Pelaaja toinen = new Pelaaja();
+        Pelilogiikka plk = new Pelilogiikka();
+        plk.alustaPelitilanne(pelaaja, toinen);
+        pelaaja.setMaali(0);
+
+        plk.siirraNappulaa(toinen, 1, 11);
+        plk.siirraNappulaa(toinen, 1, 11);
+        plk.siirraNappulaa(pelaaja, 24, 1);
+        plk.siirraNappulaa(pelaaja, 24, 1);
+        plk.siirraNappulaa(pelaaja, 13, 2);
+        plk.siirraNappulaa(pelaaja, 13, 2);
+        plk.siirraNappulaa(pelaaja, 13, 3);
+        plk.siirraNappulaa(pelaaja, 13, 4);
+        plk.siirraNappulaa(pelaaja, 13, 5);
+        plk.siirraNappulaa(pelaaja, 8, 6);
+        plk.siirraNappulaa(pelaaja, 8, 6);
+        assertFalse(plk.nappulatKotialueella(pelaaja));
+        plk.siirraNappulaa(pelaaja, 8, 6);
+        assertTrue(plk.nappulatKotialueella(pelaaja));
+    }
 }
