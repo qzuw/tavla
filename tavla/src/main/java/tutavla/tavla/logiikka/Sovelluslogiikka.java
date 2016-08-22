@@ -45,21 +45,18 @@ public class Sovelluslogiikka {
 
     /**
      * Aseta pelaajan nimi ja ihmisyys.
-     * 
+     *
      * @param pelaaja pelaajan indeksi siirtojärjestyslistassa
      * @param nimi pelaajan nimi
      */
     public void maaritaPelaaja(int pelaaja, String nimi) {
-        try {
-            siirtojarjestys.get(pelaaja).setIhminen(true);
-            siirtojarjestys.get(pelaaja).setNimi(nimi);
-        } catch (Exception e) {
-        }
+        siirtojarjestys.get(pelaaja).setIhminen(true);
+        siirtojarjestys.get(pelaaja).setNimi(nimi);
     }
 
     /**
      * Määritä siirtääkö annettu pelaaja ensimmäisenä.
-     * 
+     *
      * @param pelaajaEnsin true jos pelaaja siirtää ensin
      * @param pelaaja määritettävä pelaaja
      */
@@ -71,8 +68,9 @@ public class Sovelluslogiikka {
     }
 
     /**
-     * Määritä siirtääkö siirtojärjestyslistan annetussa indeksissä oleva pelaaja ensin.
-     * 
+     * Määritä siirtääkö siirtojärjestyslistan annetussa indeksissä oleva
+     * pelaaja ensin.
+     *
      * @param pelaajaEnsin true jos pelaaja siirtää ensin
      * @param pelaajaIndex pelaajan indeksi siirtojärjestyslistassa
      */
@@ -85,7 +83,7 @@ public class Sovelluslogiikka {
 
     /**
      * Aseta annetun pelaajan nappulat mustiksi.
-     * 
+     *
      * @param pelaaja pelaaja jonka nappulat määritellään mustiksi
      */
     public void asetaPelaajaMustaksi(Pelaaja pelaaja) {
@@ -106,7 +104,7 @@ public class Sovelluslogiikka {
 
     /**
      * Palauta lista pelaajista siirtojärjestyksessä.
-     * 
+     *
      * @return lista pelaajista siirtojärjestyksessä
      */
     public ArrayList<Pelaaja> getSiirtojarjestys() {
@@ -122,7 +120,7 @@ public class Sovelluslogiikka {
 
     /**
      * Hae noppien arvoista saatavat siirrot.
-     * 
+     *
      * @return lista kokonaislukuja jotka ovat arvotut siirrot
      */
     public ArrayList<Integer> haeSiirrot() {
@@ -195,7 +193,7 @@ public class Sovelluslogiikka {
 
     /**
      * Hae Pelilauta.
-     * 
+     *
      * @return palauttaa pelilaudan
      */
     public Lauta pelitilanne() {
@@ -236,7 +234,7 @@ public class Sovelluslogiikka {
 
     /**
      * Hae pelilogiikka.
-     * 
+     *
      * @return pelilogiikka
      */
     public Pelilogiikka getPelilogiikka() {
