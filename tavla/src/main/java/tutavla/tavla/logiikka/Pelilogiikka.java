@@ -12,7 +12,7 @@ import tutavla.tavla.domain.Noppa;
 import tutavla.tavla.domain.Pelaaja;
 
 /**
- * Luokka sisältää pelille keskeisen logiikan nappuloiden liikuttelusta yms
+ * Luokka sisältää pelille keskeisen logiikan nappuloiden liikuttelusta yms.
  *
  * @author ttuotila@cs
  */

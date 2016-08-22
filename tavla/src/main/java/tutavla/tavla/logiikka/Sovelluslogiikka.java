@@ -113,7 +113,7 @@ public class Sovelluslogiikka {
     }
 
     /**
-     * Tarkistaa voiko annettu Pelaaja siirtää mitään nappuloitaan
+     * Tarkistaa eikö annettu voi Pelaaja siirtää mitään nappuloitaan.
      *
      * @param pelaaja tarkistettava pelaaja
      * @return palauttaa true jos mitään nappuloita ei voi siirtää
@@ -156,7 +156,7 @@ public class Sovelluslogiikka {
     }
 
     /**
-     * Käy Pelaajat läpi ja tarkistaa onko joku voittanut
+     * Käy Pelaajat läpi ja tarkistaa onko joku voittanut.
      *
      * @return true jos joku on voittanut
      */
@@ -172,7 +172,7 @@ public class Sovelluslogiikka {
     }
 
     /**
-     * Palauttaa pelin voittaneen Pelaajan
+     * Palauttaa pelin voittaneen Pelaajan.
      *
      * @return pelin voittanut pelaaja
      */

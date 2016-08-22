@@ -31,7 +31,7 @@ public class Siirrot {
 
     /**
      * Poistaa vanhat siirrot, heittää noppia uudestaan ja tallettaa uudet
-     * siirrot
+     * siirrot.
      */
     public void heitaNopat() {
 

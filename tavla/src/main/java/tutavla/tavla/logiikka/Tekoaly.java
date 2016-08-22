@@ -25,7 +25,7 @@ public class Tekoaly {
 
     /**
      * Arpoo tietokonepelaajalle nappuloiden värin valitsemalla satunnaisesti
-     * pelaajan
+     * pelaajan.
      *
      * @param siirtojarjestys lista pelaajista
      * @return satunnaisesti valittu pelaaja
