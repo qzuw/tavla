@@ -24,6 +24,9 @@ public class Sovelluslogiikka {
     private Tekoaly tekoaly;
     private Siirrot siirrot;
 
+    /**
+     * Luodaan Sovelluslogiikka-olio.
+     */
     public Sovelluslogiikka() {
         siirtojarjestys = new ArrayList<>();
 
@@ -40,6 +43,12 @@ public class Sovelluslogiikka {
         pelilogiikka.alustaPelitilanne(siirtojarjestys.get(0), siirtojarjestys.get(1));
     }
 
+    /**
+     * Aseta pelaajan nimi ja ihmisyys.
+     * 
+     * @param pelaaja pelaajan indeksi siirtojärjestyslistassa
+     * @param nimi pelaajan nimi
+     */
     public void maaritaPelaaja(int pelaaja, String nimi) {
         try {
             siirtojarjestys.get(pelaaja).setIhminen(true);
@@ -48,6 +57,12 @@ public class Sovelluslogiikka {
         }
     }
 
+    /**
+     * Määritä siirtääkö annettu pelaaja ensimmäisenä.
+     * 
+     * @param pelaajaEnsin true jos pelaaja siirtää ensin
+     * @param pelaaja määritettävä pelaaja
+     */
     public void pelaajaSiirtaaEnsin(boolean pelaajaEnsin, Pelaaja pelaaja) {
         if (!(siirtojarjestys.get(0).equals(pelaaja) == pelaajaEnsin)) {
             siirtojarjestys.add(siirtojarjestys.get(0));
@@ -55,6 +70,12 @@ public class Sovelluslogiikka {
         }
     }
 
+    /**
+     * Määritä siirtääkö siirtojärjestyslistan annetussa indeksissä oleva pelaaja ensin.
+     * 
+     * @param pelaajaEnsin true jos pelaaja siirtää ensin
+     * @param pelaajaIndex pelaajan indeksi siirtojärjestyslistassa
+     */
     public void pelaajaSiirtaaEnsin(boolean pelaajaEnsin, int pelaajaIndex) {
         if ((pelaajaIndex != 0) == pelaajaEnsin) {
             siirtojarjestys.add(siirtojarjestys.get(0));
@@ -62,6 +83,11 @@ public class Sovelluslogiikka {
         }
     }
 
+    /**
+     * Aseta annetun pelaajan nappulat mustiksi.
+     * 
+     * @param pelaaja pelaaja jonka nappulat määritellään mustiksi
+     */
     public void asetaPelaajaMustaksi(Pelaaja pelaaja) {
         for (Pelaaja p : siirtojarjestys) {
             if (p.equals(pelaaja)) {
@@ -78,19 +104,35 @@ public class Sovelluslogiikka {
         siirtojarjestys.add(pelaaja2);
     }
 
+    /**
+     * Palauta lista pelaajista siirtojärjestyksessä.
+     * 
+     * @return lista pelaajista siirtojärjestyksessä
+     */
     public ArrayList<Pelaaja> getSiirtojarjestys() {
         return siirtojarjestys;
     }
 
+    /**
+     * Heitä noppia.
+     */
     public void heitaNopat() {
         siirrot.heitaNopat();
     }
 
+    /**
+     * Hae noppien arvoista saatavat siirrot.
+     * 
+     * @return lista kokonaislukuja jotka ovat arvotut siirrot
+     */
     public ArrayList<Integer> haeSiirrot() {
 
         return siirrot.haeSiirrot();
     }
 
+    /**
+     * Anna tietokoneen valita väri.
+     */
     public void tietokoneValitseeVarin() {
         this.asetaPelaajaMustaksi(tekoaly.valitseVari(siirtojarjestys));
     }
@@ -151,6 +193,11 @@ public class Sovelluslogiikka {
         return voiSiirtaa;
     }
 
+    /**
+     * Hae Pelilauta.
+     * 
+     * @return palauttaa pelilaudan
+     */
     public Lauta pelitilanne() {
         return pelilogiikka.pelitilanne();
     }
@@ -187,6 +234,11 @@ public class Sovelluslogiikka {
         return null;
     }
 
+    /**
+     * Hae pelilogiikka.
+     * 
+     * @return pelilogiikka
+     */
     public Pelilogiikka getPelilogiikka() {
         return pelilogiikka;
     }
