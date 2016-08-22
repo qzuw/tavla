@@ -20,10 +20,19 @@ public class Pelilogiikka {
 
     private Lauta lauta;
 
+    /**
+     * Luodaan uusi pelilogiikka.
+     */
     public Pelilogiikka() {
         lauta = new Lauta();
     }
 
+    /**
+     * Alusta pelilaudan tilanne asettamalla nappulat ja määrittämällä pelaajien maaliruudut.
+     * 
+     * @param pelaaja1 pelaaja 1
+     * @param pelaaja2 pelaaja 2
+     */
     public void alustaPelitilanne(Pelaaja pelaaja1, Pelaaja pelaaja2) {
         pelaaja1.setMaali(0);
         pelaaja2.setMaali(25);
@@ -37,28 +46,68 @@ public class Pelilogiikka {
         asetaNappuloitaRuutuun(pelaaja2, 5, 19);
     }
 
+    /**
+     * Aseta ruutuun tietty määrä nappuloita.
+     * 
+     * @param pelaaja nappulat omistava pelaaja
+     * @param maara nappuloiden määrä
+     * @param ruutu ruudun indeksi
+     */
     private void asetaNappuloitaRuutuun(Pelaaja pelaaja, int maara, int ruutu) {
         for (int i = 0; i < maara; i++) {
             lauta.asetaNappula(new Nappula(pelaaja), ruutu);
         }
     }
 
+    /**
+     * Hae ruudussa olevien nappuloiden määrä.
+     * 
+     * @param ruutu ruudun indeksi
+     * @return nappuloiden määrä
+     */
     public int ruudunNappulaMaara(int ruutu) {
         return lauta.nappuloitaRuudussa(ruutu);
     }
 
+    /**
+     * Onko ruutu tyhjä.
+     * 
+     * @param ruutu ruudun indeksi
+     * @return true jos ruutu on tyhjä
+     */
     public boolean ruutuOnTyhja(int ruutu) {
         return (lauta.nappuloitaRuudussa(ruutu) == 0);
     }
 
+    /**
+     * Onko ruutu pelaajan hallussa.
+     * 
+     * @param ruutu ruudun indeksi
+     * @param pelaaja tarkastettava pelaaja
+     * @return true jos ruutu on pelaajan
+     */
     public boolean ruutuOnPelaajan(int ruutu, Pelaaja pelaaja) {
         return lauta.ruutuPelaajalla(ruutu, pelaaja);
     }
 
+    /**
+     * Montako nappulaa pelaajalla on ruudussa.
+     * 
+     * @param ruutu ruudun indeksi
+     * @param pelaaja tarkastettava pelaaja
+     * @return nappuloiden määrä
+     */
     public int pelaajanNappulaMaara(int ruutu, Pelaaja pelaaja) {
         return lauta.pelaajanNappuloitaRuudussa(ruutu, pelaaja);
     }
 
+    /**
+     * Voiko pelaaja siirtää nappulansa ruutuun.
+     * 
+     * @param ruutu ruudun indeksi
+     * @param pelaaja tarkastettava pelaaja
+     * @return true jos pelaaja voi siirtää nappulansa ruutuun
+     */
     public boolean ruutuunVoiSiirtya(int ruutu, Pelaaja pelaaja) {
         if (ruutu == pelaaja.getMaali()) {
             return true;
@@ -72,6 +121,13 @@ public class Pelilogiikka {
         return false;
     }
 
+    /**
+     * Siirrä pelaajan nappula ruudusta toiseen.
+     * 
+     * @param pelaaja pelaaja jonka nappulaa siirretään
+     * @param mista lähtöruudun indeksi
+     * @param minne lopetusruudun indeksi
+     */
     public void siirraNappulaa(Pelaaja pelaaja, int mista, int minne) {
         if ((lauta.ruutuPelaajalla(mista, pelaaja) || mista == Math.abs(pelaaja.getMaali() - 25)) && this.ruutuunVoiSiirtya(minne, pelaaja)) {
             if (!lauta.ruutuPelaajalla(minne, pelaaja) && lauta.nappuloitaRuudussa(minne) == 1) {
@@ -83,10 +139,21 @@ public class Pelilogiikka {
 
     }
 
+    /**
+     * Hae pelilauta.
+     * 
+     * @return pelilauta
+     */
     public Lauta pelitilanne() {
         return lauta;
     }
 
+    /**
+     * Tarkistetaan onko annettu pelaaja voittanut pelin.
+     * 
+     * @param pelaaja tarkistettava pelaaja
+     * @return true jos pelaaja on voittanut
+     */
     public boolean onkoPelaajaVoittanut(Pelaaja pelaaja) {
 
         if (lauta.pelaajanNappuloitaRuudussa(pelaaja.getMaali(), pelaaja) == 15) {
@@ -96,6 +163,12 @@ public class Pelilogiikka {
         return false;
     }
 
+    /**
+     * Mistä ruuduista pelaaja voi siirtää.
+     * 
+     * @param pelaaja tarksitettava pelaaja
+     * @return palautetaan lista ruutujen indeksejä joihin voi siirtää
+     */
     public ArrayList<Integer> pelaajaVoiSiirtaaRuuduista(Pelaaja pelaaja) {
         ArrayList<Integer> lista = new ArrayList<>();
 
@@ -115,7 +188,14 @@ public class Pelilogiikka {
         return lista;
     }
 
-
+    /**
+     * Mihin ruutuihin pelaaja voi siirtää nappulan joka lähtee annetusta ruudusta.
+     * 
+     * @param pelaaja tarkistettava pelaaja
+     * @param lahtoruutu lähtöruudun indeksi
+     * @param siirrot lista käytettävissä olevista siirroista
+     * @return lista mahdollisista kohderuuduista
+     */
     public ArrayList<Integer> pelaajaVoiSiirtaaRuutuihin(Pelaaja pelaaja, int lahtoruutu, ArrayList<Integer> siirrot) {
         ArrayList<Integer> lista = new ArrayList<>();
 
@@ -154,6 +234,12 @@ public class Pelilogiikka {
         return lista;
     }
 
+    /**
+     * Ovatko pelaajan kaikki nappulat kotialueella.
+     * 
+     * @param pelaaja tarkistettava pelaaja
+     * @return true jos kaikki nappulat ovat pelaajan kotialueella
+     */
     public boolean nappulatKotialueella(Pelaaja pelaaja) {
         int maara = 0;
         if (pelaaja.getMaali() == 0) {
