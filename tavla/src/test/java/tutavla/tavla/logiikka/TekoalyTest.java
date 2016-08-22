@@ -61,7 +61,7 @@ public class TekoalyTest {
     }
 
     @Test
-    public void testaaEttaTekoalyTekeeJotainPelatessaan() {
+    public void testaaEttaTekoalyOsaaSiirtaaAloitustilanteessa() {
         Random r = new Random();
         Tekoaly t = new Tekoaly(r);
         Pelilogiikka plk = new Pelilogiikka();
@@ -82,7 +82,28 @@ public class TekoalyTest {
     }
 
     @Test
-    public void testaaEttaTekoalyTekeeJotainPelatessaan2() {
+    public void testaaEttaTekoalyOsaaSiirtaaAloitustilanteessa2() {
+        Random r = new Random();
+        Tekoaly t = new Tekoaly(r);
+        Pelilogiikka plk = new Pelilogiikka();
+        Siirrot st = new Siirrot(r);
+
+        Pelaaja p1 = new Pelaaja();
+        Pelaaja p2 = new Pelaaja();
+        p1.setMusta(true);
+        p2.setMusta(false);
+
+        plk.alustaPelitilanne(p1, p2);
+
+        st.heitaNopat();
+
+        Siirto s = t.pelaa(p1, plk, st.haeSiirrot());
+
+        assertFalse(s.eiVoiSiirtaa());
+    }
+
+    @Test
+    public void testaaEttaTekoalyEiVoiSiirtaa() {
         Random r = new Random();
         Tekoaly t = new Tekoaly(r);
         Pelilogiikka plk = new Pelilogiikka();
@@ -116,6 +137,40 @@ public class TekoalyTest {
         st.heitaNopat();
 
         Siirto s = t.pelaa(p2, plk, st.haeSiirrot());
+
+        assertTrue(s.eiVoiSiirtaa());
+    }
+
+    @Test
+    public void testaaEttaTekoalyEiVoiSiirtaa2() {
+        Random r = new Random();
+        Tekoaly t = new Tekoaly(r);
+        Pelilogiikka plk = new Pelilogiikka();
+        Siirrot st = new Siirrot(r);
+
+        Pelaaja p1 = new Pelaaja();
+        Pelaaja p2 = new Pelaaja();
+        p1.setMusta(true);
+        p2.setMusta(false);
+        p1.setMaali(0);
+
+        plk.alustaPelitilanne(p1, p2);
+
+        plk.siirraNappulaa(p1, 6, 25);
+        plk.siirraNappulaa(p2, 1, 20);
+        plk.siirraNappulaa(p2, 1, 20);
+        plk.siirraNappulaa(p2, 12, 21);
+        plk.siirraNappulaa(p2, 12, 21);
+        plk.siirraNappulaa(p2, 12, 22);
+        plk.siirraNappulaa(p2, 12, 22);
+        plk.siirraNappulaa(p2, 12, 23);
+        plk.siirraNappulaa(p2, 17, 23);
+        plk.siirraNappulaa(p2, 17, 24);
+        plk.siirraNappulaa(p2, 17, 24);
+
+        st.heitaNopat();
+
+        Siirto s = t.pelaa(p1, plk, st.haeSiirrot());
 
         assertTrue(s.eiVoiSiirtaa());
     }
@@ -170,21 +225,22 @@ public class TekoalyTest {
         Pelaaja p2 = new Pelaaja();
         p1.setMusta(true);
         p2.setMusta(false);
+        p2.setMaali(25);
 
         plk.alustaPelitilanne(p1, p2);
 
         plk.siirraNappulaa(p2, 1, 7);
         plk.siirraNappulaa(p2, 1, 0);
-        plk.siirraNappulaa(p1, 6, 1);
-        plk.siirraNappulaa(p1, 6, 1);
-        plk.siirraNappulaa(p1, 6, 1);
-        plk.siirraNappulaa(p1, 6, 1);
-        plk.siirraNappulaa(p1, 6, 1);
-        plk.siirraNappulaa(p1, 8, 1);
-        plk.siirraNappulaa(p1, 8, 1);
-        plk.siirraNappulaa(p1, 8, 1);
-        plk.siirraNappulaa(p1, 13, 1);
-        plk.siirraNappulaa(p1, 13, 1);
+        plk.siirraNappulaa(p1, 6, 8);
+        plk.siirraNappulaa(p1, 6, 8);
+        plk.siirraNappulaa(p1, 6, 8);
+        plk.siirraNappulaa(p1, 6, 8);
+        plk.siirraNappulaa(p1, 6, 8);
+        plk.siirraNappulaa(p1, 8, 8);
+        plk.siirraNappulaa(p1, 8, 8);
+        plk.siirraNappulaa(p1, 8, 8);
+        plk.siirraNappulaa(p1, 13, 8);
+        plk.siirraNappulaa(p1, 13, 8);
         plk.siirraNappulaa(p1, 13, 1);
         plk.siirraNappulaa(p1, 13, 6);
         plk.siirraNappulaa(p1, 13, 5);
