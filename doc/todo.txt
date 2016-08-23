@@ -4,6 +4,14 @@
 
 - sekvenssi
 
-- gui
+- gui:
+  - piirrä pelilauta
+  - piirrä pelitilanne
+  - siirtäminen
+  - kyselyt
 
 - random testaus
+
+- bugeja:
+  - kotialueella laudalta ulos siirtäminen näytetään mahdollisena siirtona vaikkei se ole
+  - suuremman siirron käyttö ulos siirtämiseen ei toimi oikein
