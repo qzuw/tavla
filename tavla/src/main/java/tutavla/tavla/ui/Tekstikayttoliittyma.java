@@ -99,9 +99,9 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
                 try {
                     System.out.println("Mistä siirretään nappula?");
                     mista = Integer.parseInt(lukija.nextLine());
-//                    if (svl.getPelilogiikka().pelaajaVoiSiirtaaRuuduista(pelaaja).contains(mista)) {
-//                        mista = -1;
-//                    }
+                    if (!svl.getPelilogiikka().pelaajaVoiSiirtaaRuuduista(pelaaja).contains(mista)) {
+                        mista = -1;
+                    }
                 } catch (Exception e) {
 
                 }
@@ -113,9 +113,9 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
                     System.out.println("Minne nappula siirretään?");
                     try {
                         minne = Integer.parseInt(lukija.nextLine());
-//                        if (!svl.getPelilogiikka().pelaajaVoiSiirtaaRuutuihin(pelaaja, mista).contains(minne)) {
-//                            minne = -1;
-//                        }
+                        if (!svl.getPelilogiikka().pelaajaVoiSiirtaaRuutuihin(pelaaja, mista, siirrot).contains(minne)) {
+                            minne = -1;
+                        }
                     } catch (Exception e) {
 
                     }
