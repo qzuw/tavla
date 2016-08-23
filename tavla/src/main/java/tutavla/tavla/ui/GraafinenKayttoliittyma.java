@@ -7,7 +7,11 @@ package tutavla.tavla.ui;
 
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.GridLayout;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
 /**
@@ -16,7 +20,8 @@ import javax.swing.WindowConstants;
  */
 public class GraafinenKayttoliittyma implements Runnable, Kayttoliittyma {
 
-    private JFrame frame;
+    private JFrame kehys;
+    private JFrame kyselyikkuna;
 
     public GraafinenKayttoliittyma() {
     }
@@ -28,23 +33,43 @@ public class GraafinenKayttoliittyma implements Runnable, Kayttoliittyma {
 
     @Override
     public void run() {
-        frame = new JFrame("Tavla");
-        frame.setPreferredSize(new Dimension(350, 320));
+        kehys = new JFrame("Tavla");
+        kehys.setPreferredSize(new Dimension(350, 320));
 
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        kehys.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        luoKomponentit(frame.getContentPane());
+        luoPelilaudanKomponentit(kehys.getContentPane());
 
-        frame.pack();
-        frame.setVisible(true);
+        kehys.pack();
+        kehys.setVisible(true);
+//
+//        kyselyikkuna = new JFrame("Pelaajat");
+//        kyselyikkuna.setPreferredSize(new Dimension(200, 100));
+//
+//        kyselyikkuna.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+//
+//        luoPelilaudanKomponentit(kyselyikkuna.getContentPane());
+//
+//        kyselyikkuna.pack();
+//        kyselyikkuna.setVisible(true);
+
     }
 
-    private void luoKomponentit(Container contentPane) {
-
+    private void luoPelilaudanKomponentit(Container container) {
+//        GridLayout layout = new GridLayout(3, 1);
+//        container.setLayout(layout);
+//
+//        JLabel nimiTeksti = new JLabel("Pelaaja 1: ");
+//        JTextField nimiKentta = new JTextField();
+//        JLabel hetuTeksti = new JLabel("Hetu: ");
+//        JTextField hetuKentta = new JTextField();
+//
+//        JButton lisaaNappi = new JButton("Lisää henkilö!");
+        container.add(new Piirtoalusta());
     }
 
     public JFrame getFrame() {
-        return frame;
+        return kehys;
     }
 
 }
