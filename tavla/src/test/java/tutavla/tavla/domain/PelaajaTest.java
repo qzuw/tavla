@@ -139,4 +139,20 @@ public class PelaajaTest {
         pelaaja.setNimi(nimi);
         assertEquals(pelaaja.getNimi(), nimi);
     }
+
+    @Test
+    public void pelaajaToString() {
+        Pelaaja pelaaja = new Pelaaja();
+        String nimi = "asdf";
+        pelaaja.setMusta(true);
+
+        assertEquals("Tietokone (musta)", pelaaja.toString());
+        pelaaja.setNimi(nimi);
+        String s = nimi + " (musta)";
+        assertEquals(s, pelaaja.toString());
+        pelaaja.setMusta(false);
+        s = nimi + " (valkoinen)";
+        assertEquals(s, pelaaja.toString());
+
+    }
 }
