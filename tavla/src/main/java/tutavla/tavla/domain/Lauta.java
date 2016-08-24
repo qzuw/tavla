@@ -95,6 +95,26 @@ public class Lauta {
     }
 
     /**
+     * Ovatko syödyt nappulat mustia.
+     *
+     * @param ruutu ruudun indeksi
+     * @return true jos ruudussa olevat syödyt nappulat ovat mustia
+     */
+    public boolean syodytNappulatMustia(int ruutu) {
+        List<Nappula> nappulat = ruudut.get(ruutu).nappulat;
+        for (Nappula nappula : nappulat) {
+            if (Math.abs(nappula.getPelaaja().getMaali() - 25) == ruutu) {
+                if (nappula.getPelaaja().isMusta()) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
      * Ulos pelattujen nappuloiden määrä.
      *
      * @param ruutu ruudun indeksi
@@ -112,7 +132,7 @@ public class Lauta {
     }
 
     /**
-     * Ovatko ulos pelattut nappulat mustia.
+     * Ovatko ulos pelatut nappulat mustia.
      *
      * @param ruutu ruudun indeksi
      * @return true jos ruudussa ulos pelatut nappulat ovat mustia
