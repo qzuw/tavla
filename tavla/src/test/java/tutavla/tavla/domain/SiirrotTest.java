@@ -18,22 +18,22 @@ import static org.junit.Assert.*;
  * @author ttuotila
  */
 public class SiirrotTest {
-    
+
     public SiirrotTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -44,14 +44,31 @@ public class SiirrotTest {
     // @Test
     // public void hello() {}
     @Test
-    public void heitaNopat(){
+    public void heitaNopat() {
         Random r = new Random();
         Siirrot s = new Siirrot(r);
-        
+
         s.heitaNopat();
         s.heitaNopat();
         s.heitaNopat();
-        
+
         assertTrue(s.haeSiirrot().size() == 2 || s.haeSiirrot().size() == 4);
+        if (s.haeSiirrot().size() == 4) {
+            assertTrue(s.haeSiirrot().get(0) == s.haeSiirrot().get(1));
+            assertTrue(s.haeSiirrot().get(0) == s.haeSiirrot().get(2));
+            assertTrue(s.haeSiirrot().get(0) == s.haeSiirrot().get(3));
+        }
     }
+
+    @Test
+    public void heitaNopatMontaKertaa() {
+        Random r = new Random();
+        Siirrot s = new Siirrot(r);
+
+        for (int i = 0; i < 100; i++) {
+            s.heitaNopat();
+            assertTrue(s.haeSiirrot().size() == 2 || s.haeSiirrot().size() == 4);
+        }
+    }
+
 }

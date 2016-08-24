@@ -173,4 +173,99 @@ public class LautaTest {
 
         assertEquals(0, ruutu.nappuloidenMaara());
     }
+
+    @Test
+    public void syotyjaNappuloita() {
+        Lauta lauta = new Lauta();
+
+        assertEquals(0, lauta.syotyjaNappuloitaRuudussa(0));
+    }
+
+    @Test
+    public void syotyjaNappuloita2() {
+        Lauta lauta = new Lauta();
+
+        assertEquals(0, lauta.syotyjaNappuloitaRuudussa(25));
+    }
+
+    @Test
+    public void syotyjaNappuloita3() {
+        Lauta lauta = new Lauta();
+        Pelaaja p = new Pelaaja();
+        Nappula n = new Nappula(p);
+        lauta.asetaNappula(n, 0);
+        p.setMaali(25);
+
+        assertEquals(1, lauta.syotyjaNappuloitaRuudussa(0));
+    }
+
+    @Test
+    public void syotyjaNappuloita4() {
+        Lauta lauta = new Lauta();
+        Pelaaja p = new Pelaaja();
+        Nappula n = new Nappula(p);
+        lauta.asetaNappula(n, 25);
+        p.setMaali(0);
+
+        assertEquals(1, lauta.syotyjaNappuloitaRuudussa(25));
+    }
+
+    @Test
+    public void syotyjaNappuloita5() {
+        Lauta lauta = new Lauta();
+        Pelaaja p = new Pelaaja();
+        Nappula n = new Nappula(p);
+        Nappula n2 = new Nappula(p);
+        lauta.asetaNappula(n, 25);
+        lauta.asetaNappula(n2, 25);
+        p.setMaali(0);
+
+        assertEquals(2, lauta.syotyjaNappuloitaRuudussa(25));
+    }
+
+    @Test
+    public void nappuloitaUlkona() {
+        Lauta lauta = new Lauta();
+        Pelaaja p = new Pelaaja();
+        Nappula n = new Nappula(p);
+        Nappula n2 = new Nappula(p);
+        lauta.asetaNappula(n, 25);
+        lauta.asetaNappula(n2, 25);
+        p.setMaali(25);
+
+        assertEquals(2, lauta.ulosPelattujaNappuloitaRuudussa(25));
+    }
+
+    @Test
+    public void nappuloitaUlkona2() {
+        Lauta lauta = new Lauta();
+        Pelaaja p = new Pelaaja();
+        Nappula n = new Nappula(p);
+        lauta.asetaNappula(n, 0);
+        p.setMaali(0);
+
+        assertEquals(1, lauta.ulosPelattujaNappuloitaRuudussa(0));
+    }
+    
+    @Test
+    public void ulkonaMustiaNappuloita(){
+        Lauta l = new Lauta();
+        Pelaaja p = new Pelaaja();
+        l.asetaNappula(new Nappula(p), 0);
+        p.setMaali(0);
+        p.setMusta(true);
+        
+        assertEquals(true, l.ulosPelattutNappulatMustia(0));
+    }
+
+    @Test
+    public void ulkonaMustiaNappuloita2(){
+        Lauta l = new Lauta();
+        Pelaaja p = new Pelaaja();
+        l.asetaNappula(new Nappula(p), 25);
+        p.setMaali(25);
+        p.setMusta(false);
+        
+        assertEquals(false, l.ulosPelattutNappulatMustia(25));
+    }
 }
