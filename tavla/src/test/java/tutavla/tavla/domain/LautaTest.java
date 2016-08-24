@@ -255,7 +255,7 @@ public class LautaTest {
         p.setMaali(0);
         p.setMusta(true);
         
-        assertEquals(true, l.ulosPelattutNappulatMustia(0));
+        assertEquals(true, l.ulosPelatutNappulatMustia(0));
     }
 
     @Test
@@ -266,6 +266,6 @@ public class LautaTest {
         p.setMaali(25);
         p.setMusta(false);
         
-        assertEquals(false, l.ulosPelattutNappulatMustia(25));
+        assertEquals(false, l.ulosPelatutNappulatMustia(25));
     }
 }

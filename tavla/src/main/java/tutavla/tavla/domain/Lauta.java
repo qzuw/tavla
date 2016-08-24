@@ -117,7 +117,7 @@ public class Lauta {
      * @param ruutu ruudun indeksi
      * @return true jos ruudussa ulos pelatut nappulat ovat mustia
      */
-    public boolean ulosPelattutNappulatMustia(int ruutu) {
+    public boolean ulosPelatutNappulatMustia(int ruutu) {
         List<Nappula> nappulat = ruudut.get(ruutu).nappulat;
         for (Nappula nappula : nappulat) {
             if (nappula.getPelaaja().getMaali() == ruutu) {
