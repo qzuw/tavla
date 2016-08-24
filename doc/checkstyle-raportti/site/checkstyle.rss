@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
     <item>
-      <title>File: 13,
+      <title>File: 16,
              Errors: 2,
              Warnings: 0,
              Infos: 0
@@ -75,6 +75,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#tutavla.tavla.domain.Noppa.java">tutavla/tavla/domain/Noppa.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.ui.PelaajaKuuntelija.java">tutavla/tavla/ui/PelaajaKuuntelija.java</a>
                 </td>
                 <td>
                   0
@@ -186,6 +200,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.ui.Piirtoalusta.java">tutavla/tavla/ui/Piirtoalusta.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#tutavla.tavla.domain.Ruutu.java">tutavla/tavla/domain/Ruutu.java</a>
                 </td>
                 <td>
@@ -215,6 +243,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#tutavla.tavla.logiikka.Tekoaly.java">tutavla/tavla/logiikka/Tekoaly.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.ui.GraafinenKayttoliittyma.java">tutavla/tavla/ui/GraafinenKayttoliittyma.java</a>
                 </td>
                 <td>
                   0
