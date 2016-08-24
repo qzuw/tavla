@@ -220,7 +220,6 @@ public class TekoalyTest {
         Random r = new Random();
         Tekoaly t = new Tekoaly(r);
         Pelilogiikka plk = new Pelilogiikka();
-        Siirrot st = new Siirrot(r);
 
         Pelaaja p1 = new Pelaaja();
         Pelaaja p2 = new Pelaaja();
@@ -232,26 +231,22 @@ public class TekoalyTest {
 
         plk.siirraNappulaa(p2, 1, 7);
         plk.siirraNappulaa(p2, 1, 0);
+        plk.siirraNappulaa(p1, 6, 5);
         plk.siirraNappulaa(p1, 6, 8);
         plk.siirraNappulaa(p1, 6, 8);
         plk.siirraNappulaa(p1, 6, 8);
         plk.siirraNappulaa(p1, 6, 8);
-        plk.siirraNappulaa(p1, 6, 8);
-        plk.siirraNappulaa(p1, 8, 8);
-        plk.siirraNappulaa(p1, 8, 8);
-        plk.siirraNappulaa(p1, 8, 8);
         plk.siirraNappulaa(p1, 13, 8);
         plk.siirraNappulaa(p1, 13, 8);
         plk.siirraNappulaa(p1, 13, 1);
         plk.siirraNappulaa(p1, 13, 6);
-        plk.siirraNappulaa(p1, 13, 5);
         plk.siirraNappulaa(p1, 24, 4);
         plk.siirraNappulaa(p1, 24, 3);
-        plk.siirraNappulaa(p1, 5, 2);
 
-        st.heitaNopat();
+        ArrayList<Integer> st = new ArrayList<>();
+        st.add(5);
 
-        Siirto s = t.pelaa(p2, plk, st.haeSiirrot());
+        Siirto s = t.pelaa(p2, plk, st);
 
         assertTrue(s.vastustajanNappulaSyoty());
     }

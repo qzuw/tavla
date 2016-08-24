@@ -77,13 +77,13 @@ public class RuutuTest {
         assertEquals(ruutu.nappuloidenMaara(), 0);
         assertEquals(ruutu.otaNappula(), null);
     }
-    
+
     @Test
     public void tarkistaPelaaja() {
         Ruutu ruutu = new Ruutu();
         Pelaaja pelaaja = new Pelaaja();
         Pelaaja toinen = new Pelaaja();
-        
+
         assertEquals(ruutu.getPelaaja(), null);
         ruutu.lisaaNappula(new Nappula(pelaaja));
         assertEquals(ruutu.getPelaaja(), pelaaja);
@@ -92,17 +92,17 @@ public class RuutuTest {
     }
 
     @Test
-    public void pelaajanNappulamaara(){
+    public void pelaajanNappulamaara() {
         Ruutu ruutu = new Ruutu();
         Pelaaja pelaaja = new Pelaaja();
         Pelaaja toinen = new Pelaaja();
-        
+
         ruutu.lisaaNappula(new Nappula(pelaaja));
         ruutu.lisaaNappula(new Nappula(pelaaja));
         ruutu.lisaaNappula(new Nappula(pelaaja));
         ruutu.lisaaNappula(new Nappula(pelaaja));
         ruutu.lisaaNappula(new Nappula(toinen));
-        
+
         assertEquals(ruutu.pelaajanNappuloidenMaara(pelaaja), 4);
         assertEquals(ruutu.pelaajanNappuloidenMaara(toinen), 1);
         ruutu.lisaaNappula(new Nappula(pelaaja));
@@ -111,32 +111,61 @@ public class RuutuTest {
         assertEquals(ruutu.pelaajanNappuloidenMaara(toinen), 2);
 
     }
-    
+
     @Test
     public void otaPelaajanNappula() {
         Ruutu ruutu = new Ruutu();
         Pelaaja pelaaja = new Pelaaja();
         Pelaaja toinen = new Pelaaja();
-        
+
         assertEquals(ruutu.otaPelaajanNappula(pelaaja), null);
-        
+
         ruutu.lisaaNappula(new Nappula(pelaaja));
         assertEquals(ruutu.otaPelaajanNappula(toinen), null);
         ruutu.lisaaNappula(new Nappula(toinen));
-        
+
         assertEquals(ruutu.otaPelaajanNappula(toinen).getPelaaja(), toinen);
         assertEquals(ruutu.nappuloidenMaara(), 1);
     }
-    
+
     @Test
     public void otaPelaajanNappulaEiOtaVaaraa() {
         Ruutu ruutu = new Ruutu();
         Pelaaja pelaaja = new Pelaaja();
         Pelaaja toinen = new Pelaaja();
-        
+
         ruutu.lisaaNappula(new Nappula(pelaaja));
-        
+
         assertEquals(ruutu.otaPelaajanNappula(toinen), null);
         assertEquals(ruutu.nappuloidenMaara(), 1);
+    }
+
+    @Test
+    public void ruutuToString() {
+        Ruutu ruutu = new Ruutu();
+
+        assertEquals("[] ", ruutu.toString());
+    }
+
+    @Test
+    public void ruutuToString2() {
+        Ruutu ruutu = new Ruutu();
+        Pelaaja pelaaja = new Pelaaja();
+        ruutu.lisaaNappula(new Nappula(pelaaja));
+        pelaaja.setMusta(true);
+
+        assertEquals("M1 ", ruutu.toString());
+    }
+
+    @Test
+    public void ruutuToString3() {
+        Ruutu ruutu = new Ruutu();
+        Pelaaja pelaaja = new Pelaaja();
+        for (int i = 0; i < 10; i++) {
+            ruutu.lisaaNappula(new Nappula(pelaaja));
+        }
+        pelaaja.setMusta(false);
+
+        assertEquals("V10", ruutu.toString());
     }
 }

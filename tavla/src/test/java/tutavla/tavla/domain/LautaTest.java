@@ -135,4 +135,42 @@ public class LautaTest {
         assertEquals(lauta.pelaajanNappuloitaRuudussa(6, pelaaja), 3);
 
     }
+
+    @Test
+    public void ruudunVari() {
+        Lauta lauta = new Lauta();
+        Pelaaja pelaaja = new Pelaaja();
+        pelaaja.setMusta(true);
+
+        lauta.asetaNappula(new Nappula(pelaaja), 1);
+        assertTrue(lauta.ruudunVariMusta(1));
+    }
+
+    @Test
+    public void ruudunVari2() {
+        Lauta lauta = new Lauta();
+        Pelaaja pelaaja = new Pelaaja();
+        pelaaja.setMusta(false);
+
+        lauta.asetaNappula(new Nappula(pelaaja), 1);
+        assertFalse(lauta.ruudunVariMusta(1));
+    }
+
+    @Test
+    public void ruudunVari3() {
+        Lauta lauta = new Lauta();
+        Pelaaja pelaaja = new Pelaaja();
+        pelaaja.setMusta(true);
+
+        assertFalse(lauta.ruudunVariMusta(1));
+    }
+
+    @Test
+    public void haeRuutu() {
+        Lauta lauta = new Lauta();
+
+        Ruutu ruutu = lauta.haeRuutu(1);
+
+        assertEquals(0, ruutu.nappuloidenMaara());
+    }
 }
