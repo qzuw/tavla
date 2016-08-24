@@ -38,6 +38,12 @@ public class Piirtoalusta extends JPanel {
         grafiikka.drawRect(15, 15, 180, 330);
         grafiikka.drawRect(225, 15, 180, 330);
 
+        lauta.siirraNappula(6, 0);
+        lauta.siirraNappula(6, 25);
+        lauta.siirraNappula(19, 0);
+        lauta.siirraNappula(19, 25);
+        
+        // pelilaudan kuviointi
         for (int i = 0; i < 13; i++) {
             if (i != 6) {
                 int[] taulukkoX = {(15 + 30 * i), (30 + 30 * i), (45 + 30 * i)};
@@ -56,6 +62,7 @@ public class Piirtoalusta extends JPanel {
             }
         }
 
+        //alarivin nappulat
         for (int i = 1; i < 13; i++) {
             if (lauta.nappuloitaRuudussa(i) > 0) {
                 for (int j = 0; j < lauta.nappuloitaRuudussa(i); j++) {
@@ -76,6 +83,7 @@ public class Piirtoalusta extends JPanel {
 
         }
 
+        // ylärivin nappulat
         for (int i = 13; i < 25; i++) {
             if (lauta.nappuloitaRuudussa(i) > 0) {
                 for (int j = 0; j < lauta.nappuloitaRuudussa(i); j++) {
@@ -96,5 +104,44 @@ public class Piirtoalusta extends JPanel {
 
         }
 
+        //Syödyt nappulat
+        if (lauta.syotyjaNappuloitaRuudussa(0) > 0) {
+            for (int i = 0; i < lauta.syotyjaNappuloitaRuudussa(0); i++) {
+                if (!lauta.ulosPelattutNappulatMustia(0)) {
+                    grafiikka.fillOval(195, (15 + i * 30), 30, 30);
+                } else {
+                    grafiikka.drawOval(195, (15 + i * 30), 30, 30);
+                }
+            }
+        }
+        if (lauta.syotyjaNappuloitaRuudussa(25) > 0) {
+            for (int i = 0; i < lauta.syotyjaNappuloitaRuudussa(25); i++) {
+                if (!lauta.ulosPelattutNappulatMustia(25)) {
+                    grafiikka.fillOval(195, (315 - i * 30), 30, 30);
+                } else {
+                    grafiikka.drawOval(195, (315 - i * 30), 30, 30);
+                }
+            }
+        }
+
+        //Ulos pelatut nappulat
+        if (lauta.ulosPelattujaNappuloitaRuudussa(0) > 0) {
+            for (int i = 0; i < lauta.syotyjaNappuloitaRuudussa(0); i++) {
+                if (lauta.ulosPelattutNappulatMustia(0)) {
+                    grafiikka.fillOval(421, (0 + i * 30), 30, 30);
+                } else {
+                    grafiikka.drawOval(421, (0 + i * 30), 30, 30);
+                }
+            }
+        }
+        if (lauta.ulosPelattujaNappuloitaRuudussa(25) > 0) {
+            for (int i = 0; i < lauta.syotyjaNappuloitaRuudussa(25); i++) {
+                if (lauta.ulosPelattutNappulatMustia(25)) {
+                    grafiikka.fillOval(421, (330 - i * 30), 30, 30);
+                } else {
+                    grafiikka.drawOval(421, (330 - i * 30), 30, 30);
+                }
+            }
+        }
     }
 }

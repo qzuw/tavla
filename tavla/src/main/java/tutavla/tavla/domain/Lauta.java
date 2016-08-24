@@ -78,6 +78,60 @@ public class Lauta {
     }
 
     /**
+     * Ruudussa olevien syötyjen nappuloiden määrä.
+     *
+     * @param ruutu ruudun indeksi
+     * @return ruudussa syötyjen nappuloiden määrä
+     */
+    public int syotyjaNappuloitaRuudussa(int ruutu) {
+        List<Nappula> nappulat = ruudut.get(ruutu).nappulat;
+        int maara = 0;
+        for (Nappula nappula : nappulat) {
+            if (Math.abs(nappula.getPelaaja().getMaali() - 25) == ruutu) {
+                maara++;
+            }
+        }
+        return maara;
+    }
+
+    /**
+     * Ulos pelattujen nappuloiden määrä.
+     *
+     * @param ruutu ruudun indeksi
+     * @return ulos pelattujen nappuloiden määrä
+     */
+    public int ulosPelattujaNappuloitaRuudussa(int ruutu) {
+        List<Nappula> nappulat = ruudut.get(ruutu).nappulat;
+        int maara = 0;
+        for (Nappula nappula : nappulat) {
+            if (nappula.getPelaaja().getMaali() == ruutu) {
+                maara++;
+            }
+        }
+        return maara;
+    }
+
+    /**
+     * Ovatko ulos pelattut nappulat mustia.
+     *
+     * @param ruutu ruudun indeksi
+     * @return true jos ruudussa ulos pelatut nappulat ovat mustia
+     */
+    public boolean ulosPelattutNappulatMustia(int ruutu) {
+        List<Nappula> nappulat = ruudut.get(ruutu).nappulat;
+        for (Nappula nappula : nappulat) {
+            if (nappula.getPelaaja().getMaali() == ruutu) {
+                if (nappula.getPelaaja().isMusta()){
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
      * Aseta nappula ruutuun.
      *
      * @param nappula asetetttava nappula

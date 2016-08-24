@@ -85,6 +85,15 @@ public class Ruutu {
         return nappulat.size();
     }
 
+//    /**
+//     * Haetaan lista ruudussa olevista nappuloista.
+//     * 
+//     * @return lista nappuloita
+//     */
+//    public List<Nappula> ruudunNappulat() {
+//        return nappulat;
+//    }
+
     /**
      * Haetaan Ruudussa olevien tietyn pelaajan nappuloiden määrä.
      * 
