@@ -38,10 +38,11 @@ public class Piirtoalusta extends JPanel {
         grafiikka.drawRect(15, 15, 180, 330);
         grafiikka.drawRect(225, 15, 180, 330);
 
-        lauta.siirraNappula(6, 0);
-        lauta.siirraNappula(6, 25);
-        lauta.siirraNappula(19, 0);
-        lauta.siirraNappula(19, 25);
+        // testaukseen
+//        lauta.siirraNappula(6, 0);
+//        lauta.siirraNappula(6, 25);
+//        lauta.siirraNappula(19, 0);
+//        lauta.siirraNappula(19, 25);
         
         // pelilaudan kuviointi
         for (int i = 0; i < 13; i++) {
