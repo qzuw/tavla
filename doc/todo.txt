@@ -5,8 +5,6 @@
 - sekvenssi
 
 - gui:
-  - piirrä pelilauta
-  - piirrä pelitilanne
   - siirtäminen
   - kyselyt
 

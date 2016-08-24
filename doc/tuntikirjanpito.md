@@ -22,4 +22,4 @@ Päivä | Tunnit | Kuvaus
 19.08.2016 | 3 h | bugfix, refaktorointia, testejä
 22.08.2016 | 3 h | javadoc, checkstyle, testejä, gui alku
 23.08.2016 | 2 h | lähinnä guin ihmettelyä
-24.08.2016 | 3 1/2 h | laudan saa piirrettyä jotenkuten, testejä
+24.08.2016 | 4 h | laudan saa piirrettyä jotenkuten, testejä
