@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import tutavla.tavla.logiikka.Sovelluslogiikka;
 
 /**
+ * Jonkinlainen kuuntelija tarvitaan, tämä on ehkä sen alku.
  *
  * @author ttuotila
  */
@@ -17,12 +18,17 @@ public class PelaajaKuuntelija implements ActionListener {
 
     Sovelluslogiikka svl;
 
+    /**
+     * Konstruktori.
+     *
+     * @param svl sovelluslogiikka
+     */
     public PelaajaKuuntelija(Sovelluslogiikka svl) {
         this.svl = svl;
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        
+
     }
 }

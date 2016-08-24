@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 import tutavla.tavla.domain.Lauta;
 
 /**
+ * Piirtoalusta joka luo pelilaudan ja piirtää pelitilanteen mukaisesti nappulat
+ * sille.
  *
  * @author ttuotila
  */
@@ -18,6 +20,11 @@ public class Piirtoalusta extends JPanel {
 
     Lauta lauta;
 
+    /**
+     * Luodaan piirtoalusta.
+     *
+     * @param pelitilanne Lauta
+     */
     public Piirtoalusta(Lauta pelitilanne) {
         super.setBackground(Color.WHITE);
         this.lauta = pelitilanne;
