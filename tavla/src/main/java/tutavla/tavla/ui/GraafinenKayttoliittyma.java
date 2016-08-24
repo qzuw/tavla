@@ -13,6 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
+import tutavla.tavla.logiikka.Sovelluslogiikka;
 
 /**
  *
@@ -22,8 +23,10 @@ public class GraafinenKayttoliittyma implements Runnable, Kayttoliittyma {
 
     private JFrame kehys;
     private JFrame kyselyikkuna;
+    private Sovelluslogiikka svl;
 
     public GraafinenKayttoliittyma() {
+        svl = new Sovelluslogiikka();
     }
 
     @Override
@@ -34,7 +37,8 @@ public class GraafinenKayttoliittyma implements Runnable, Kayttoliittyma {
     @Override
     public void run() {
         kehys = new JFrame("Tavla");
-        kehys.setPreferredSize(new Dimension(350, 320));
+        kehys.setPreferredSize(new Dimension(465, 390));
+        // kehys.setPreferredSize(new Dimension(450, 360));
 
         kehys.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,7 +46,7 @@ public class GraafinenKayttoliittyma implements Runnable, Kayttoliittyma {
 
         kehys.pack();
         kehys.setVisible(true);
-//
+
 //        kyselyikkuna = new JFrame("Pelaajat");
 //        kyselyikkuna.setPreferredSize(new Dimension(200, 100));
 //
@@ -52,7 +56,6 @@ public class GraafinenKayttoliittyma implements Runnable, Kayttoliittyma {
 //
 //        kyselyikkuna.pack();
 //        kyselyikkuna.setVisible(true);
-
     }
 
     private void luoPelilaudanKomponentit(Container container) {
@@ -65,7 +68,7 @@ public class GraafinenKayttoliittyma implements Runnable, Kayttoliittyma {
 //        JTextField hetuKentta = new JTextField();
 //
 //        JButton lisaaNappi = new JButton("Lisää henkilö!");
-        container.add(new Piirtoalusta());
+        container.add(new Piirtoalusta(svl.pelitilanne()));
     }
 
     public JFrame getFrame() {

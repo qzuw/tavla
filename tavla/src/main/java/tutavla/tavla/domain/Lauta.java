@@ -30,7 +30,7 @@ public class Lauta {
 
     /**
      * Onko tietty Ruutu tietyn Pelaajan hallussa.
-     * 
+     *
      * @param ruutu tarkistettavan ruudun indeksi
      * @param pelaaja tarkistettava pelaaja
      * @return true jos ruutu on pelaajan hallussa
@@ -44,8 +44,21 @@ public class Lauta {
     }
 
     /**
+     * Ruudun nappuloiden väri.
+     *
+     * @param ruutu tarkistettavan ruudun indeksi
+     * @return true jos nappulat mustia
+     */
+    public boolean ruudunVariMusta(int ruutu) {
+        if (!(ruudut.get(ruutu).nappuloidenMaara() > 0)) {
+            return false;
+        }
+        return ruudut.get(ruutu).nappulat.get(0).getPelaaja().isMusta();
+    }
+
+    /**
      * Ruudusssa olevien nappuloiden määrä.
-     * 
+     *
      * @param ruutu ruudun indeksi
      * @return nappuloiden määrä
      */
@@ -55,7 +68,7 @@ public class Lauta {
 
     /**
      * Ruudussa olevien tietyn pelaajan nappuloiden määrä.
-     * 
+     *
      * @param ruutu ruudun indeksi
      * @param pelaaja tarkistettava pelaaja
      * @return ruudussa olevien pelaajan nappuloiden määrä
@@ -66,7 +79,7 @@ public class Lauta {
 
     /**
      * Aseta nappula ruutuun.
-     * 
+     *
      * @param nappula asetetttava nappula
      * @param ruutu asetettavan ruudun indeksi
      */
@@ -76,7 +89,7 @@ public class Lauta {
 
     /**
      * Siirrä yksi nappula ruudusta toiseen.
-     * 
+     *
      * @param mista lähtöruudun indeksi
      * @param minne lopetusruudun indeksi
      */

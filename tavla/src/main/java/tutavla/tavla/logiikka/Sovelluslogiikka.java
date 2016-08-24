@@ -34,7 +34,9 @@ public class Sovelluslogiikka {
         siirrot = new Siirrot(random);
 
         Pelaaja pelaaja1 = new Pelaaja();
+        pelaaja1.setMusta(true);
         Pelaaja pelaaja2 = new Pelaaja();
+        pelaaja2.setMusta(false);
         this.setSiirtojarjestys(pelaaja1, pelaaja2);
 
         pelilogiikka = new Pelilogiikka();
