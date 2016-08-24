@@ -57,7 +57,7 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
         ArrayList<Pelaaja> pelaajat = svl.getSiirtojarjestys();
 
         System.out.println("Kierros alkaa");
-        System.out.println(svl.pelitilanne());
+        System.out.println(lautaToString());
         System.out.println("");
 
         for (Pelaaja pelaaja : pelaajat) {
@@ -77,7 +77,7 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
             }
 
             svl.heitaNopat();
-            System.out.println(svl.pelitilanne());
+            System.out.println(lautaToString());
 
         }
     }
@@ -136,7 +136,7 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
             }
 
             System.out.println("");
-            System.out.println(svl.pelitilanne());
+            System.out.println(lautaToString());
         }
     }
 
@@ -275,6 +275,36 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
             }
         }
         return pelaajamaara;
+    }
+
+    public String lautaToString() {
+        String s = "";
+        for (int i = 13; i <= 24; i++) {
+            s += i + "  ";
+        }
+
+        s += "\n";
+
+        for (int i = 13; i <= 24; i++) {
+            s += svl.pelitilanne().haeRuutu(i) + " ";
+        }
+
+        s += "\n";
+        s += "\n";
+
+        for (int i = 12; i >= 1; i--) {
+            s += svl.pelitilanne().haeRuutu(i) + " ";
+        }
+        s += "\n";
+        for (int i = 12; i >= 1; i--) {
+            s += i + "  ";
+            if (i < 10) {
+                s += " ";
+            }
+        }
+        s += "\n";
+
+        return s;
     }
 
 }
