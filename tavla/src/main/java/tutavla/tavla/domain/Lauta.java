@@ -121,7 +121,7 @@ public class Lauta {
         List<Nappula> nappulat = ruudut.get(ruutu).nappulat;
         for (Nappula nappula : nappulat) {
             if (nappula.getPelaaja().getMaali() == ruutu) {
-                if (nappula.getPelaaja().isMusta()){
+                if (nappula.getPelaaja().isMusta()) {
                     return true;
                 } else {
                     return false;
