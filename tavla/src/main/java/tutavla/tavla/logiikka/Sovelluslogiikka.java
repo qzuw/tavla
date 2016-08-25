@@ -148,6 +148,40 @@ public class Sovelluslogiikka {
     }
 
     /**
+     * Haetaan mahdolliset kohderuudut pelaajan siirrolle.
+     *
+     * @param pelaaja pelaaja jonka siirtovuoro
+     * @param lahtoruutu lähtöruudun indeksi
+     * @return lista mahdollisia kohderuutuja
+     */
+    public ArrayList<Integer> pelaajaVoiSiirtaaRuutuihin(Pelaaja pelaaja, int lahtoruutu) {
+        return pelilogiikka.pelaajaVoiSiirtaaRuutuihin(pelaaja, lahtoruutu, siirrot.haeSiirrot());
+    }
+
+    /**
+     * Haetaan mahdolliset lähtöruudut pelaajan siirrolle.
+     *
+     * @param pelaaja pelaaja jonka vuoro siirtää
+     * @return lista mahdollisia lähtöruutuja
+     */
+    public ArrayList<Integer> pelaajaVoiSiirtaaRuuduista(Pelaaja pelaaja) {
+        return pelilogiikka.pelaajaVoiSiirtaaRuuduista(pelaaja);
+    }
+
+    /**
+     * Siirretään pelaajan nappulaa.
+     *
+     * @param pelaaja pelaaja jonka nappulaa siirretään
+     * @param mista lähtöruudun indeksi
+     * @param minne kohderuudun indeksi
+     */
+    public void siirraNappulaa(Pelaaja pelaaja, int mista, int minne) {
+        pelilogiikka.siirraNappulaa(pelaaja, mista, minne);
+        // tässä alla on bugi: jos kaikki nappulat ovat kotialueella, peli ei oikeasti toimi aivan näin
+        siirrot.haeSiirrot().remove((Integer) Math.abs(mista - minne));
+    }
+
+    /**
      * Tarkistaa eikö annettu voi Pelaaja siirtää mitään nappuloitaan.
      *
      * @param pelaaja tarkistettava pelaaja
