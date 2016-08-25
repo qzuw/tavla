@@ -23,3 +23,4 @@ Päivä | Tunnit | Kuvaus
 22.08.2016 | 3 h | javadoc, checkstyle, testejä, gui alku
 23.08.2016 | 2 h | lähinnä guin ihmettelyä
 24.08.2016 | 5 h | laudan saa piirrettyä jotenkuten, testejä
+25.08.2016 | 1 1/2 h | sekvenssikaaviot
