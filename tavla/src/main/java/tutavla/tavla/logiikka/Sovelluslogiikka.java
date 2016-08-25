@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tutavla.tavla.logiikka;
 
 import java.util.*;
@@ -125,7 +120,6 @@ public class Sovelluslogiikka {
      * @return lista kokonaislukuja jotka ovat arvotut siirrot
      */
     public ArrayList<Integer> haeSiirrot() {
-
         return siirrot.haeSiirrot();
     }
 
