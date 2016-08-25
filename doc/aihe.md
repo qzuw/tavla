@@ -31,10 +31,10 @@ Peli loppuu kun toinen pelaaja on siirtänyt kaikki omat nappulansa ulos laudalt
 
 ## Sekvenssikaaviot
 
-![Sekvenssikaavio](https://github.com/qzuw/tavla/blob/master/doc/siirto-sekvenssik.png)
+![Sekvenssikaavio siirto](https://github.com/qzuw/tavla/blob/master/doc/siirto-sekvenssik.png)
 
-Ensimmäinen sekvenssikaavio kuvaa käyttöliittymän ja eri logiikoiden (aiottua) vuorovaikutusta. (Koodi ei siis tällä hetkellä täysin vastaa tätä, vaan käyttöliittymässä on hieman toimintalogiikkaa joka kuuluisi sovelluslogiikkaan.)
+Ensimmäinen sekvenssikaavio kuvaa käyttöliittymän ja eri logiikoiden vuorovaikutusta.
 
-![Sekvenssikaavio](https://github.com/qzuw/tavla/blob/master/doc/heitaNopat-sekvenssik.png)
+![Sekvenssikaavio nopat](https://github.com/qzuw/tavla/blob/master/doc/heitaNopat-sekvenssik.png)
 
 Toinen sekvenssikaavio kuvaa noppien heittämistä. GetArvo()n paluuarvoa ei ole merkitty koska Siirrot ottaa sen talteen mutta ei tässä yhteydessä palauta sitä edelleen.
