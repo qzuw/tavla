@@ -28,3 +28,11 @@ Peli loppuu kun toinen pelaaja on siirtänyt kaikki omat nappulansa ulos laudalt
 ## Luokkakaavio
 
 ![Luokkakaavio](https://github.com/qzuw/tavla/blob/master/doc/tavla-luokkakaavio.png)
+
+## Sekvenssikaaviot
+
+![Sekvenssikaavio](https://github.com/qzuw/tavla/blob/master/doc/siirto-sekvenssik.png)
+Ensimmäinen sekvenssikaavio kuvaa käyttöliittymän ja eri logiikoiden (aiottua) vuorovaikutusta. (Koodi ei siis tällä hetkellä täysin vastaa tätä, vaan käyttöliittymässä on hieman toimintalogiikkaa joka kuuluisi sovelluslogiikkaan.)
+
+![Sekvenssikaavio](https://github.com/qzuw/tavla/blob/master/doc/heitaNopat-sekvenssik.png)
+Toinen sekvenssikaavio kuvaa noppien heittämistä. GetArvo()n paluuarvoa ei ole merkitty koska Siirrot ottaa sen talteen mutta ei tässä yhteydessä palauta sitä edelleen.
