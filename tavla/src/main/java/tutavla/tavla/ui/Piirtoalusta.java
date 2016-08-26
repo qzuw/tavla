@@ -25,7 +25,7 @@ public class Piirtoalusta extends JPanel {
     /**
      * Luodaan piirtoalusta.
      *
-     * @param pelitilanne Lauta
+     * @param svl pelin Sovelluslogiikka
      */
     public Piirtoalusta(Sovelluslogiikka svl) {
         super.setBackground(Color.WHITE);

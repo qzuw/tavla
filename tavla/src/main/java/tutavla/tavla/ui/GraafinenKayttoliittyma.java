@@ -5,12 +5,14 @@
  */
 package tutavla.tavla.ui;
 
+import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import tutavla.tavla.logiikka.Sovelluslogiikka;
@@ -37,12 +39,12 @@ public class GraafinenKayttoliittyma implements Runnable, Kayttoliittyma {
     @Override
     public void run() {
         kehys = new JFrame("Tavla");
-        kehys.setPreferredSize(new Dimension(465, 390));
+        kehys.setPreferredSize(new Dimension(465, 420));
         // kehys.setPreferredSize(new Dimension(450, 360));
 
         kehys.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        luoPelilaudanKomponentit(kehys.getContentPane());
+        luoKomponentit(kehys.getContentPane());
 
         kehys.pack();
         kehys.setVisible(true);
@@ -58,6 +60,36 @@ public class GraafinenKayttoliittyma implements Runnable, Kayttoliittyma {
 //        kyselyikkuna.setVisible(true);
     }
 
+    private void luoKomponentit(Container container) {
+        BorderLayout layout = new BorderLayout(2, 1);
+        container.setLayout(layout);
+
+        container.add(new Piirtoalusta(svl));
+        container.add(luoInfoikkuna(), BorderLayout.NORTH);
+        container.add(luoPalauteikkuna(), BorderLayout.SOUTH);
+
+        // tapahtumankuuntelija
+//        luoPelilaudanKomponentit(kehys.getContentPane());
+    }
+
+    private JPanel luoInfoikkuna() {
+        JPanel panel = new JPanel(new GridLayout(1, 2));
+        JLabel pelaaja = new JLabel(svl.getVuorossaOlevaPelaaja().toString());
+        JLabel siirrot = new JLabel("Siirrot: " + svl.haeSiirrot().toString());
+        panel.add(pelaaja);
+        panel.add(siirrot);
+
+        return panel;
+    }
+
+    private JPanel luoPalauteikkuna() {
+        JPanel panel = new JPanel(new GridLayout(1, 1));
+        JLabel terveiset = new JLabel("Palautetta toiminnasta tänne.");
+        panel.add(terveiset);
+
+        return panel;
+    }
+
     private void luoPelilaudanKomponentit(Container container) {
 //        GridLayout layout = new GridLayout(3, 1);
 //        container.setLayout(layout);
@@ -68,6 +100,7 @@ public class GraafinenKayttoliittyma implements Runnable, Kayttoliittyma {
 //        JTextField hetuKentta = new JTextField();
 //
 //        JButton lisaaNappi = new JButton("Lisää henkilö!");
+//        container.add(kehys)
         container.add(new Piirtoalusta(svl));
     }
 
