@@ -168,43 +168,44 @@ public class SovelluslogiikkaTest {
     @Test
     public void tietokoneVoiPelataSiirronAlussa() {
         Sovelluslogiikka svl = new Sovelluslogiikka();
-        Pelaaja p = svl.getSiirtojarjestys().get(0);
         svl.heitaNopat();
 
-        assertFalse(svl.pelaaTietokone(p).eiVoiSiirtaa());
+        assertFalse(svl.pelaaTietokone().eiVoiSiirtaa());
     }
 
     @Test
     public void tietokoneVoiPelataSiirronAlussa2() {
         Sovelluslogiikka svl = new Sovelluslogiikka();
-        Pelaaja p = svl.getSiirtojarjestys().get(1);
+        svl.vaihdaVuoroa();
         svl.heitaNopat();
 
-        assertFalse(svl.pelaaTietokone(p).eiVoiSiirtaa());
+        assertFalse(svl.pelaaTietokone().eiVoiSiirtaa());
     }
 
     @Test
     public void tarkistaOnkoVoittajaa() {
         Sovelluslogiikka svl = new Sovelluslogiikka();
-        Pelaaja p1 = svl.getSiirtojarjestys().get(0);
-        Pelaaja p2 = svl.getSiirtojarjestys().get(1);
 
-        svl.getPelilogiikka().siirraNappulaa(p1, 24, 0);
-        svl.getPelilogiikka().siirraNappulaa(p1, 24, 0);
-        svl.getPelilogiikka().siirraNappulaa(p1, 13, 0);
-        svl.getPelilogiikka().siirraNappulaa(p1, 13, 0);
-        svl.getPelilogiikka().siirraNappulaa(p1, 13, 0);
-        svl.getPelilogiikka().siirraNappulaa(p1, 13, 0);
-        svl.getPelilogiikka().siirraNappulaa(p1, 13, 0);
-        svl.getPelilogiikka().siirraNappulaa(p1, 8, 0);
-        svl.getPelilogiikka().siirraNappulaa(p1, 8, 0);
-        svl.getPelilogiikka().siirraNappulaa(p1, 8, 0);
-        svl.getPelilogiikka().siirraNappulaa(p1, 6, 0);
-        svl.getPelilogiikka().siirraNappulaa(p1, 6, 0);
-        svl.getPelilogiikka().siirraNappulaa(p1, 6, 0);
-        svl.getPelilogiikka().siirraNappulaa(p1, 6, 0);
+        svl.asetaLahtoruutu(24);
+        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(13);
+        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(8);
+        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(6);
+        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(0);
         assertFalse(svl.onkoJokuVoittanut());
-        svl.getPelilogiikka().siirraNappulaa(p1, 6, 0);
+        svl.siirraNappulaa(0);
         assertTrue(svl.onkoJokuVoittanut());
 
     }
@@ -212,113 +213,130 @@ public class SovelluslogiikkaTest {
     @Test
     public void tarkistaKukaVoitti() {
         Sovelluslogiikka svl = new Sovelluslogiikka();
-        Pelaaja p1 = svl.getSiirtojarjestys().get(0);
+        Pelaaja p = svl.getVuorossaOlevaPelaaja();
 
-        svl.getPelilogiikka().siirraNappulaa(p1, 24, 0);
-        svl.getPelilogiikka().siirraNappulaa(p1, 24, 0);
-        svl.getPelilogiikka().siirraNappulaa(p1, 13, 0);
-        svl.getPelilogiikka().siirraNappulaa(p1, 13, 0);
-        svl.getPelilogiikka().siirraNappulaa(p1, 13, 0);
-        svl.getPelilogiikka().siirraNappulaa(p1, 13, 0);
-        svl.getPelilogiikka().siirraNappulaa(p1, 13, 0);
-        svl.getPelilogiikka().siirraNappulaa(p1, 8, 0);
-        svl.getPelilogiikka().siirraNappulaa(p1, 8, 0);
-        svl.getPelilogiikka().siirraNappulaa(p1, 8, 0);
-        svl.getPelilogiikka().siirraNappulaa(p1, 6, 0);
-        svl.getPelilogiikka().siirraNappulaa(p1, 6, 0);
-        svl.getPelilogiikka().siirraNappulaa(p1, 6, 0);
-        svl.getPelilogiikka().siirraNappulaa(p1, 6, 0);
-        svl.getPelilogiikka().siirraNappulaa(p1, 6, 0);
-        assertEquals(svl.kukaVoitti(), p1);
+        svl.asetaLahtoruutu(24);
+        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(13);
+        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(8);
+        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(6);
+        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(0);
+        assertEquals(svl.kukaVoitti(), p);
     }
 
     @Test
     public void eiVoiSiirtaa() {
         Sovelluslogiikka svl = new Sovelluslogiikka();
-        Pelaaja p1 = svl.getSiirtojarjestys().get(0);
-        Pelaaja p2 = svl.getSiirtojarjestys().get(1);
         svl.heitaNopat();
 
-        svl.pelitilanne().siirraNappula(24, 25);
-        svl.pelitilanne().siirraNappula(24, 18);
-        svl.pelitilanne().siirraNappula(1, 20);
-        svl.pelitilanne().siirraNappula(1, 20);
-        svl.pelitilanne().siirraNappula(12, 21);
-        svl.pelitilanne().siirraNappula(12, 21);
-        svl.pelitilanne().siirraNappula(12, 22);
-        svl.pelitilanne().siirraNappula(12, 22);
-        svl.pelitilanne().siirraNappula(12, 23);
-        svl.pelitilanne().siirraNappula(17, 23);
-        svl.pelitilanne().siirraNappula(17, 24);
-        svl.pelitilanne().siirraNappula(17, 24);
+        svl.asetaLahtoruutu(24);
+        svl.siirraNappulaa(25);
+        svl.siirraNappulaa(18);
+        svl.vaihdaVuoroa();
+        svl.asetaLahtoruutu(1);
+        svl.siirraNappulaa(20);
+        svl.siirraNappulaa(20);
+        svl.asetaLahtoruutu(12);
+        svl.siirraNappulaa(21);
+        svl.siirraNappulaa(21);
+        svl.siirraNappulaa(22);
+        svl.siirraNappulaa(22);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(17);
+        svl.siirraNappulaa(23);
+        svl.siirraNappulaa(24);
+        svl.siirraNappulaa(24);
+        svl.vaihdaVuoroa();
 
-        assertTrue(svl.eiVoiSiirtaa(p1));
+        assertTrue(svl.eiVoiSiirtaa());
     }
 
     @Test
     public void eiVoiSiirtaa2() {
         Sovelluslogiikka svl = new Sovelluslogiikka();
-        Pelaaja p1 = svl.getSiirtojarjestys().get(0);
-        Pelaaja p2 = svl.getSiirtojarjestys().get(1);
         svl.heitaNopat();
 
-        svl.pelitilanne().siirraNappula(1, 0);
-        svl.pelitilanne().siirraNappula(1, 0);
-        svl.pelitilanne().siirraNappula(6, 5);
-        svl.pelitilanne().siirraNappula(6, 5);
-        svl.pelitilanne().siirraNappula(6, 4);
-        svl.pelitilanne().siirraNappula(13, 4);
-        svl.pelitilanne().siirraNappula(13, 3);
-        svl.pelitilanne().siirraNappula(13, 3);
-        svl.pelitilanne().siirraNappula(13, 2);
-        svl.pelitilanne().siirraNappula(13, 2);
-        svl.pelitilanne().siirraNappula(8, 1);
-        svl.pelitilanne().siirraNappula(8, 1);
+        svl.vaihdaVuoroa();
+        svl.asetaLahtoruutu(1);
+        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(0);
+        svl.vaihdaVuoroa();
+        svl.asetaLahtoruutu(6);
+        svl.siirraNappulaa(5);
+        svl.siirraNappulaa(5);
+        svl.siirraNappulaa(4);
+        svl.asetaLahtoruutu(13);
+        svl.siirraNappulaa(4);
+        svl.siirraNappulaa(3);
+        svl.siirraNappulaa(3);
+        svl.siirraNappulaa(2);
+        svl.siirraNappulaa(2);
+        svl.asetaLahtoruutu(8);
+        svl.siirraNappulaa(1);
+        svl.siirraNappulaa(1);
+        svl.vaihdaVuoroa();
 
-        assertTrue(svl.eiVoiSiirtaa(p2));
+        assertTrue(svl.eiVoiSiirtaa());
     }
 
     @Test
     public void voiSiirtaa() {
         Sovelluslogiikka svl = new Sovelluslogiikka();
-        Pelaaja p1 = svl.getSiirtojarjestys().get(0);
-        Pelaaja p2 = svl.getSiirtojarjestys().get(1);
         svl.heitaNopat();
-        p2.setMusta(false);
 
-        svl.pelitilanne().siirraNappula(24, 25);
-        svl.pelitilanne().siirraNappula(24, 6);
-        svl.pelitilanne().siirraNappula(1, 20);
-        svl.pelitilanne().siirraNappula(12, 21);
-        svl.pelitilanne().siirraNappula(12, 22);
-        svl.pelitilanne().siirraNappula(12, 23);
-        svl.pelitilanne().siirraNappula(17, 24);
-        svl.pelitilanne().siirraNappula(19, 17);
-        svl.pelitilanne().siirraNappula(19, 17);
-        svl.pelitilanne().siirraNappula(19, 17);
-        svl.pelitilanne().siirraNappula(19, 17);
+        svl.asetaLahtoruutu(24);
+        svl.siirraNappulaa(25);
+        svl.siirraNappulaa(6);
+        svl.vaihdaVuoroa();
+        svl.asetaLahtoruutu(1);
+        svl.siirraNappulaa(20);
+        svl.asetaLahtoruutu(12);
+        svl.siirraNappulaa(21);
+        svl.siirraNappulaa(22);
+        svl.siirraNappulaa(23);
+        svl.siirraNappulaa(24);
+        svl.asetaLahtoruutu(19);
+        svl.siirraNappulaa(17);
+        svl.siirraNappulaa(17);
+        svl.siirraNappulaa(17);
+        svl.siirraNappulaa(17);
+        svl.vaihdaVuoroa();
 
-        assertFalse(svl.eiVoiSiirtaa(p1));
+        assertFalse(svl.eiVoiSiirtaa());
     }
 
     @Test
     public void voiSiirtaa2() {
         Sovelluslogiikka svl = new Sovelluslogiikka();
-        Pelaaja p1 = svl.getSiirtojarjestys().get(0);
-        Pelaaja p2 = svl.getSiirtojarjestys().get(1);
         svl.heitaNopat();
-        p2.setMusta(false);
 
-        svl.pelitilanne().siirraNappula(1, 0);
-        svl.pelitilanne().siirraNappula(1, 0);
-        svl.pelitilanne().siirraNappula(6, 5);
-        svl.pelitilanne().siirraNappula(6, 8);
-        svl.pelitilanne().siirraNappula(6, 8);
-        svl.pelitilanne().siirraNappula(6, 4);
-        svl.pelitilanne().siirraNappula(13, 3);
-        svl.pelitilanne().siirraNappula(13, 2);
-        svl.pelitilanne().siirraNappula(8, 1);
+        svl.vaihdaVuoroa();
+        svl.asetaLahtoruutu(1);
+        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(0);
+        svl.vaihdaVuoroa();
+        svl.asetaLahtoruutu(6);
+        svl.siirraNappulaa(5);
+        svl.siirraNappulaa(4);
+        svl.siirraNappulaa(3);
+        svl.siirraNappulaa(2);
+        svl.asetaLahtoruutu(13);
+        svl.siirraNappulaa(1);
+        svl.vaihdaVuoroa();
 
-        assertFalse(svl.eiVoiSiirtaa(p2));
+        assertFalse(svl.eiVoiSiirtaa());
     }
 }

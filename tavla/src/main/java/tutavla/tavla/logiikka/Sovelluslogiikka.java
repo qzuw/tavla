@@ -122,10 +122,10 @@ public class Sovelluslogiikka {
         }
     }
 
-    public Pelaaja getVuorossaOlevaPelaaja(){
+    public Pelaaja getVuorossaOlevaPelaaja() {
         return siirtojarjestys.get(vuoro);
     }
-    
+
     /**
      * Heitä noppia.
      */
@@ -168,18 +168,18 @@ public class Sovelluslogiikka {
 
     /**
      * Aseta pelaajan siirron lähtoruutu.
-     * 
+     *
      * @param lahtoruutu lähtöruudun indeksi
      * @return true jos pelaajalla on ruudussa siirrettävissä oleva nappula
      */
-    public boolean asetaLahtoruutu(int lahtoruutu){
-        if (pelilogiikka.pelaajaVoiSiirtaaRuuduista(siirtojarjestys.get(vuoro)).contains((Integer) lahtoruutu)){
+    public boolean asetaLahtoruutu(int lahtoruutu) {
+        if (pelilogiikka.pelaajaVoiSiirtaaRuuduista(siirtojarjestys.get(vuoro)).contains((Integer) lahtoruutu)) {
             this.lahtoruutu = lahtoruutu;
             return true;
         }
         return false;
     }
-    
+
     /**
      * Haetaan mahdolliset kohderuudut pelaajan siirrolle.
      *
