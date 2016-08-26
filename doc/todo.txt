@@ -1,6 +1,10 @@
 - pelaaja siirtää nappulaa, siirron oikeellisuuden tarkistus -> logiikkaan
 - (kerro syödyt nappulat ja ulos pelatut)
 - tekoäly siirtää ulos noppaa pienemmällä siirrolla vain jos ei muuta vaihtoehtoa
+- asetaLahtoruutu()
+- siirra(Integer siirto)
+(- asetaVuorossaOlevaPelaaja())
+- vaihdaPelivuoroa()
 
 - sekvenssi
 
