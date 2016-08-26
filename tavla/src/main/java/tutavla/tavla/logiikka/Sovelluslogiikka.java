@@ -18,6 +18,7 @@ public class Sovelluslogiikka {
     private Tekoaly tekoaly;
     private Siirrot siirrot;
     private int vuoro;
+    private int lahtoruutu;
 
     /**
      * Luodaan Sovelluslogiikka-olio.
@@ -29,6 +30,7 @@ public class Sovelluslogiikka {
         tekoaly = new Tekoaly(random);
         siirrot = new Siirrot(random);
         vuoro = 0;
+        lahtoruutu = -1;
 
         Pelaaja pelaaja1 = new Pelaaja();
         pelaaja1.setMusta(true);
@@ -165,12 +167,25 @@ public class Sovelluslogiikka {
     }
 
     /**
+     * Aseta pelaajan siirron lähtoruutu.
+     * 
+     * @param lahtoruutu lähtöruudun indeksi
+     * @return true jos pelaajalla on ruudussa siirrettävissä oleva nappula
+     */
+    public boolean asetaLahtoruutu(int lahtoruutu){
+        if (pelilogiikka.pelaajaVoiSiirtaaRuuduista(siirtojarjestys.get(vuoro)).contains((Integer) lahtoruutu)){
+            this.lahtoruutu = lahtoruutu;
+            return true;
+        }
+        return false;
+    }
+    
+    /**
      * Haetaan mahdolliset kohderuudut pelaajan siirrolle.
      *
-     * @param lahtoruutu lähtöruudun indeksi
      * @return lista mahdollisia kohderuutuja
      */
-    public ArrayList<Integer> pelaajaVoiSiirtaaRuutuihin(int lahtoruutu) {
+    public ArrayList<Integer> pelaajaVoiSiirtaaRuutuihin() {
         return pelilogiikka.pelaajaVoiSiirtaaRuutuihin(siirtojarjestys.get(vuoro), lahtoruutu, siirrot.haeSiirrot());
     }
 
@@ -186,13 +201,12 @@ public class Sovelluslogiikka {
     /**
      * Siirretään pelaajan nappulaa.
      *
-     * @param mista lähtöruudun indeksi
      * @param minne kohderuudun indeksi
      */
-    public void siirraNappulaa(int mista, int minne) {
-        pelilogiikka.siirraNappulaa(siirtojarjestys.get(vuoro), mista, minne);
+    public void siirraNappulaa(int minne) {
+        pelilogiikka.siirraNappulaa(siirtojarjestys.get(vuoro), lahtoruutu, minne);
         // tässä alla on bugi: jos kaikki nappulat ovat kotialueella, peli ei oikeasti toimi aivan näin
-        siirrot.haeSiirrot().remove((Integer) Math.abs(mista - minne));
+        siirrot.haeSiirrot().remove((Integer) Math.abs(lahtoruutu - minne));
     }
 
     /**

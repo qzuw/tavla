@@ -54,8 +54,6 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
     }
 
     private void pelaaKierros() {
-        ArrayList<Pelaaja> pelaajat = svl.getSiirtojarjestys();
-
         System.out.println("Kierros alkaa");
         System.out.println(lautaToString());
         System.out.println("");
@@ -109,14 +107,15 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
 
                 }
                 if (mista > -1) {
+                    svl.asetaLahtoruutu(mista);
                     System.out.println("Ruudusta " + mista + "voi siirtää ruutuihin:");
-                    ArrayList<Integer> kohderuudut = svl.pelaajaVoiSiirtaaRuutuihin(mista);
+                    ArrayList<Integer> kohderuudut = svl.pelaajaVoiSiirtaaRuutuihin();
 
                     System.out.println(kohderuudut);
                     System.out.println("Minne nappula siirretään?");
                     try {
                         minne = Integer.parseInt(lukija.nextLine());
-                        if (!svl.pelaajaVoiSiirtaaRuutuihin(mista).contains(minne)) {
+                        if (!svl.pelaajaVoiSiirtaaRuutuihin().contains(minne)) {
                             minne = -1;
                         }
                     } catch (Exception e) {
@@ -127,7 +126,7 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
                 if (minne > -1) {
                     if (svl.getPelilogiikka().ruutuunVoiSiirtya(minne, pelaaja)) {
                         System.out.println("Siirretään nappula ruudusta " + mista + " ruutuun " + minne);
-                        svl.siirraNappulaa(mista, minne);
+                        svl.siirraNappulaa(minne);
                     } else {
                         System.out.println("Siirtoa ei voi tehdä");
                     }
