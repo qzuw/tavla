@@ -39,16 +39,19 @@ public class GraafinenKayttoliittyma implements Runnable, Kayttoliittyma {
     @Override
     public void run() {
         kehys = new JFrame("Tavla");
-        kehys.setPreferredSize(new Dimension(465, 420));
+        kehys.setPreferredSize(new Dimension(470, 425));
         // kehys.setPreferredSize(new Dimension(450, 360));
 
         kehys.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        svl.heitaNopat();
 
         luoKomponentit(kehys.getContentPane());
 
         kehys.pack();
         kehys.setVisible(true);
 
+//        kehys.update(kehys.getComponent(0).getGraphics());
 //        kyselyikkuna = new JFrame("Pelaajat");
 //        kyselyikkuna.setPreferredSize(new Dimension(200, 100));
 //
