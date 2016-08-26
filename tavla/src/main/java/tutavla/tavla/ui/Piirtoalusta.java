@@ -48,6 +48,22 @@ public class Piirtoalusta extends JPanel {
 //        lauta.siirraNappula(19, 25);
 //        svl.vaihdaVuoroa();
 //        svl.asetaLahtoruutu(0);
+//        lauta.siirraNappula(8, 0);
+//        lauta.siirraNappula(8, 0);
+//        lauta.siirraNappula(8, 0);
+//        lauta.siirraNappula(6, 0);
+//        lauta.siirraNappula(6, 0);
+//        lauta.siirraNappula(6, 0);
+//        lauta.siirraNappula(6, 0);
+//        lauta.siirraNappula(6, 0);
+//        lauta.siirraNappula(17, 0);
+//        lauta.siirraNappula(17, 0);
+//        lauta.siirraNappula(17, 0);
+//        lauta.siirraNappula(19, 0);
+//        lauta.siirraNappula(19, 0);
+//        lauta.siirraNappula(19, 0);
+//        lauta.siirraNappula(19, 0);
+//        lauta.siirraNappula(19, 0);
 
         // pelilaudan kuviointi
         for (int i = 0; i < 13; i++) {
@@ -72,23 +88,45 @@ public class Piirtoalusta extends JPanel {
         for (int i = 1; i < 13; i++) {
             if (lauta.nappuloitaRuudussa(i) > 0) {
                 for (int j = 0; j < lauta.nappuloitaRuudussa(i); j++) {
+                    int y = 315;
+                    if (j > 4) {
+                        y = 470;
+                    } else if (j > 9) {
+                        y = 625;
+                    }
                     if (i > 6) {
                         if (lauta.ruudunVariMusta(i)) {
-                            grafiikka.fillOval((375 - i * 30), (315 - j * 30), 30, 30);
+                            grafiikka.setColor(Color.BLACK);
+                            grafiikka.fillOval((375 - i * 30), (y - j * 30), 30, 30);
+                            grafiikka.setColor(Color.WHITE);
+                            grafiikka.drawOval((375 - i * 30), (y - j * 30), 30, 30);
                         } else {
-                            grafiikka.drawOval((375 - i * 30), (315 - j * 30), 30, 30);
+                            grafiikka.setColor(Color.WHITE);
+                            grafiikka.fillOval((375 - i * 30), (y - j * 30), 30, 30);
+                            grafiikka.setColor(Color.BLACK);
+                            grafiikka.drawOval((375 - i * 30), (y - j * 30), 30, 30);
                         }
                         if (svl.getLahtoruutu() == i && j + 1 == lauta.nappuloitaRuudussa(i)) {
-                            grafiikka.drawOval((373 - i * 30), (313 - j * 30), 34, 34);
+                            grafiikka.setColor(Color.RED);
+                            grafiikka.drawOval((373 - i * 30), ((y - 2) - j * 30), 34, 34);
+                            grafiikka.setColor(Color.BLACK);
                         }
                     } else {
                         if (lauta.ruudunVariMusta(i)) {
-                            grafiikka.fillOval((405 - i * 30), (315 - j * 30), 30, 30);
+                            grafiikka.setColor(Color.BLACK);
+                            grafiikka.fillOval((405 - i * 30), (y - j * 30), 30, 30);
+                            grafiikka.setColor(Color.WHITE);
+                            grafiikka.drawOval((405 - i * 30), (y - j * 30), 30, 30);
                         } else {
-                            grafiikka.drawOval((405 - i * 30), (315 - j * 30), 30, 30);
+                            grafiikka.setColor(Color.WHITE);
+                            grafiikka.fillOval((405 - i * 30), (y - j * 30), 30, 30);
+                            grafiikka.setColor(Color.BLACK);
+                            grafiikka.drawOval((405 - i * 30), (y - j * 30), 30, 30);
                         }
                         if (svl.getLahtoruutu() == i && j + 1 == lauta.nappuloitaRuudussa(i)) {
-                            grafiikka.drawOval((403 - i * 30), (313 - j * 30), 34, 34);
+                            grafiikka.setColor(Color.RED);
+                            grafiikka.drawOval((403 - i * 30), ((y - 2) - j * 30), 34, 34);
+                            grafiikka.setColor(Color.BLACK);
                         }
                     }
 
@@ -102,24 +140,45 @@ public class Piirtoalusta extends JPanel {
         for (int i = 13; i < 25; i++) {
             if (lauta.nappuloitaRuudussa(i) > 0) {
                 for (int j = 0; j < lauta.nappuloitaRuudussa(i); j++) {
+                    int y = 15;
+                    if (j > 4) {
+                        y = -140;
+                    } else if (j > 9) {
+                        y = -295;
+                    }
                     if (i > 18) {
                         if (lauta.ruudunVariMusta(i)) {
-                            grafiikka.fillOval((15 + (i - 12) * 30), (15 + j * 30), 30, 30);
+                            grafiikka.setColor(Color.BLACK);
+                            grafiikka.fillOval((15 + (i - 12) * 30), (y + j * 30), 30, 30);
+                            grafiikka.setColor(Color.WHITE);
+                            grafiikka.drawOval((15 + (i - 12) * 30), (y + j * 30), 30, 30);
                         } else {
-                            grafiikka.drawOval((15 + (i - 12) * 30), (15 + j * 30), 30, 30);
+                            grafiikka.setColor(Color.WHITE);
+                            grafiikka.fillOval((15 + (i - 12) * 30), (y + j * 30), 30, 30);
+                            grafiikka.setColor(Color.BLACK);
+                            grafiikka.drawOval((15 + (i - 12) * 30), (y + j * 30), 30, 30);
                         }
                         if (svl.getLahtoruutu() == i && j + 1 == lauta.nappuloitaRuudussa(i)) {
-                            grafiikka.drawOval((13 + (i - 12) * 30), (13 + j * 30), 34, 34);
+                            grafiikka.setColor(Color.RED);
+                            grafiikka.drawOval((13 + (i - 12) * 30), ((y - 2) + j * 30), 34, 34);
+                            grafiikka.setColor(Color.BLACK);
                         }
                     } else {
                         if (lauta.ruudunVariMusta(i)) {
-                            grafiikka.fillOval((15 + (i - 13) * 30), (15 + j * 30), 30, 30);
-
+                            grafiikka.setColor(Color.BLACK);
+                            grafiikka.fillOval((15 + (i - 13) * 30), (y + j * 30), 30, 30);
+                            grafiikka.setColor(Color.WHITE);
+                            grafiikka.drawOval((15 + (i - 13) * 30), (y + j * 30), 30, 30);
                         } else {
-                            grafiikka.drawOval((15 + (i - 13) * 30), (15 + j * 30), 30, 30);
+                            grafiikka.setColor(Color.WHITE);
+                            grafiikka.fillOval((15 + (i - 13) * 30), (y + j * 30), 30, 30);
+                            grafiikka.setColor(Color.BLACK);
+                            grafiikka.drawOval((15 + (i - 13) * 30), (y + j * 30), 30, 30);
                         }
                         if (svl.getLahtoruutu() == i && j + 1 == lauta.nappuloitaRuudussa(i)) {
-                            grafiikka.drawOval((13 + (i - 13) * 30), (13 + j * 30), 34, 34);
+                            grafiikka.setColor(Color.RED);
+                            grafiikka.drawOval((13 + (i - 13) * 30), ((y - 2) + j * 30), 34, 34);
+                            grafiikka.setColor(Color.BLACK);
                         }
                     }
 
@@ -131,25 +190,53 @@ public class Piirtoalusta extends JPanel {
         // Syödyt nappulat
         if (lauta.syotyjaNappuloitaRuudussa(0) > 0) {
             for (int i = 0; i < lauta.syotyjaNappuloitaRuudussa(0); i++) {
+                int y = 15;
+                if (i > 4) {
+                    y = -140;
+                } else if (i > 9) {
+                    y = -295;
+                }
                 if (lauta.syodytNappulatMustia(0)) {
-                    grafiikka.fillOval(195, (15 + i * 30), 30, 30);
+                    grafiikka.setColor(Color.BLACK);
+                    grafiikka.fillOval(195, (y + i * 30), 30, 30);
+                    grafiikka.setColor(Color.WHITE);
+                    grafiikka.drawOval(195, (y + i * 30), 30, 30);
                 } else {
-                    grafiikka.drawOval(195, (15 + i * 30), 30, 30);
+                    grafiikka.setColor(Color.WHITE);
+                    grafiikka.fillOval(195, (y + i * 30), 30, 30);
+                    grafiikka.setColor(Color.BLACK);
+                    grafiikka.drawOval(195, (y + i * 30), 30, 30);
                 }
                 if (svl.getLahtoruutu() == 0 && i + 1 == lauta.syotyjaNappuloitaRuudussa(0)) {
-                    grafiikka.drawOval(193, (13 + i * 30), 34, 34);
+                    grafiikka.setColor(Color.RED);
+                    grafiikka.drawOval(193, ((y - 2) + i * 30), 34, 34);
+                    grafiikka.setColor(Color.BLACK);
                 }
             }
         }
         if (lauta.syotyjaNappuloitaRuudussa(25) > 0) {
             for (int i = 0; i < lauta.syotyjaNappuloitaRuudussa(25); i++) {
+                int y = 315;
+                if (i > 4) {
+                    y = 470;
+                } else if (i > 9) {
+                    y = 625;
+                }
                 if (lauta.syodytNappulatMustia(25)) {
-                    grafiikka.fillOval(195, (315 - i * 30), 30, 30);
+                    grafiikka.setColor(Color.BLACK);
+                    grafiikka.fillOval(195, (y - i * 30), 30, 30);
+                    grafiikka.setColor(Color.WHITE);
+                    grafiikka.drawOval(195, (y - i * 30), 30, 30);
                 } else {
-                    grafiikka.drawOval(195, (315 - i * 30), 30, 30);
+                    grafiikka.setColor(Color.WHITE);
+                    grafiikka.fillOval(195, (y - i * 30), 30, 30);
+                    grafiikka.setColor(Color.BLACK);
+                    grafiikka.drawOval(195, (y - i * 30), 30, 30);
                 }
                 if (svl.getLahtoruutu() == 25 && i + 1 == lauta.syotyjaNappuloitaRuudussa(25)) {
-                    grafiikka.drawOval(193, (313 + i * 30), 34, 34);
+                    grafiikka.setColor(Color.RED);
+                    grafiikka.drawOval(193, ((y - 2) + i * 30), 34, 34);
+                    grafiikka.setColor(Color.BLACK);
                 }
             }
         }
@@ -157,21 +244,46 @@ public class Piirtoalusta extends JPanel {
         //Ulos pelatut nappulat
         if (lauta.ulosPelattujaNappuloitaRuudussa(0) > 0) {
             for (int i = 0; i < lauta.ulosPelattujaNappuloitaRuudussa(0); i++) {
+                int y = 325;
+                if (i > 4) {
+                    y = 480;
+                } else if (i > 9) {
+                    y = 635;
+                }
                 if (lauta.ulosPelatutNappulatMustia(0)) {
-                    grafiikka.fillOval(421, (330 - i * 30), 30, 30);
+                    grafiikka.setColor(Color.BLACK);
+                    grafiikka.fillOval(421, (y - i * 30), 30, 30);
+                    grafiikka.setColor(Color.WHITE);
+                    grafiikka.drawOval(421, (y - i * 30), 30, 30);
                 } else {
-                    grafiikka.drawOval(421, (330 - i * 30), 30, 30);
+                    grafiikka.setColor(Color.WHITE);
+                    grafiikka.fillOval(421, (y - i * 30), 30, 30);
+                    grafiikka.setColor(Color.BLACK);
+                    grafiikka.drawOval(421, (y - i * 30), 30, 30);
                 }
             }
         }
         if (lauta.ulosPelattujaNappuloitaRuudussa(25) > 0) {
             for (int i = 0; i < lauta.ulosPelattujaNappuloitaRuudussa(25); i++) {
+                int y = 5;
+                if (i > 4) {
+                    y = -150;
+                } else if (i > 9) {
+                    y = -305;
+                }
                 if (lauta.ulosPelatutNappulatMustia(25)) {
-                    grafiikka.fillOval(421, (0 + i * 30), 30, 30);
+                    grafiikka.setColor(Color.BLACK);
+                    grafiikka.fillOval(421, (y + i * 30), 30, 30);
+                    grafiikka.setColor(Color.WHITE);
+                    grafiikka.drawOval(421, (y + i * 30), 30, 30);
                 } else {
-                    grafiikka.drawOval(421, (0 + i * 30), 30, 30);
+                    grafiikka.setColor(Color.WHITE);
+                    grafiikka.fillOval(421, (y + i * 30), 30, 30);
+                    grafiikka.setColor(Color.BLACK);
+                    grafiikka.drawOval(421, (y + i * 30), 30, 30);
                 }
             }
         }
+        grafiikka.setColor(Color.BLACK);
     }
 }
