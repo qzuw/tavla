@@ -60,13 +60,15 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
         System.out.println(lautaToString());
         System.out.println("");
 
-        for (Pelaaja pelaaja : pelaajat) {
+        for (int i = 0; i<2; i++) {
 
             if (svl.onkoJokuVoittanut()) {
                 System.out.println("Peli on päättynyt!");
                 break;
             }
 
+            Pelaaja pelaaja = svl.getVuorossaOlevaPelaaja();
+            
             System.out.println("Pelaajan " + pelaaja + " vuoro");
             System.out.println("Pelaajan siirrot ovat " + svl.haeSiirrot());
 
@@ -78,6 +80,7 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
 
             svl.heitaNopat();
             System.out.println(lautaToString());
+            svl.vaihdaVuoroa();
 
         }
     }
@@ -86,20 +89,20 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
         ArrayList<Integer> siirrot;
         while (true) {
             siirrot = svl.haeSiirrot();
-            if (siirrot.isEmpty() || svl.eiVoiSiirtaa(pelaaja)) {
+            if (siirrot.isEmpty() || svl.eiVoiSiirtaa()) {
                 break;
             }
             int mista = -1;
             int minne = -1;
-            if (!svl.eiVoiSiirtaa(pelaaja)) {
+            if (!svl.eiVoiSiirtaa()) {
                 System.out.println("Käytettävissä olevat siirrot:");
                 System.out.println(siirrot);
                 System.out.println(pelaaja + " voi siirtää nappuloita ruuduista:");
-                System.out.println(svl.pelaajaVoiSiirtaaRuuduista(pelaaja));
+                System.out.println(svl.pelaajaVoiSiirtaaRuuduista());
                 try {
                     System.out.println("Mistä siirretään nappula?");
                     mista = Integer.parseInt(lukija.nextLine());
-                    if (!svl.pelaajaVoiSiirtaaRuuduista(pelaaja).contains(mista)) {
+                    if (!svl.pelaajaVoiSiirtaaRuuduista().contains(mista)) {
                         mista = -1;
                     }
                 } catch (Exception e) {
@@ -107,13 +110,13 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
                 }
                 if (mista > -1) {
                     System.out.println("Ruudusta " + mista + "voi siirtää ruutuihin:");
-                    ArrayList<Integer> kohderuudut = svl.pelaajaVoiSiirtaaRuutuihin(pelaaja, mista);
+                    ArrayList<Integer> kohderuudut = svl.pelaajaVoiSiirtaaRuutuihin(mista);
 
                     System.out.println(kohderuudut);
                     System.out.println("Minne nappula siirretään?");
                     try {
                         minne = Integer.parseInt(lukija.nextLine());
-                        if (!svl.pelaajaVoiSiirtaaRuutuihin(pelaaja, mista).contains(minne)) {
+                        if (!svl.pelaajaVoiSiirtaaRuutuihin(mista).contains(minne)) {
                             minne = -1;
                         }
                     } catch (Exception e) {
@@ -124,7 +127,7 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
                 if (minne > -1) {
                     if (svl.getPelilogiikka().ruutuunVoiSiirtya(minne, pelaaja)) {
                         System.out.println("Siirretään nappula ruudusta " + mista + " ruutuun " + minne);
-                        svl.siirraNappulaa(pelaaja, mista, minne);
+                        svl.siirraNappulaa(mista, minne);
                     } else {
                         System.out.println("Siirtoa ei voi tehdä");
                     }
@@ -143,10 +146,10 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
         ArrayList<Integer> siirrot;
         while (true) {
             siirrot = svl.haeSiirrot();
-            if (siirrot.isEmpty() || svl.eiVoiSiirtaa(pelaaja)) {
+            if (siirrot.isEmpty() || svl.eiVoiSiirtaa()) {
                 break;
             }
-            Siirto siirto = svl.pelaaTietokone(pelaaja);
+            Siirto siirto = svl.pelaaTietokone();
             if (siirto.eiVoiSiirtaa()) {
                 System.out.println(pelaaja + " ei voi siirtää!");
             } else {
