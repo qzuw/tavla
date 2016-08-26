@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 import tutavla.tavla.domain.Lauta;
+import tutavla.tavla.logiikka.Sovelluslogiikka;
 
 /**
  * Piirtoalusta joka luo pelilaudan ja piirtää pelitilanteen mukaisesti nappulat
@@ -19,15 +20,17 @@ import tutavla.tavla.domain.Lauta;
 public class Piirtoalusta extends JPanel {
 
     Lauta lauta;
+    Sovelluslogiikka svl;
 
     /**
      * Luodaan piirtoalusta.
      *
      * @param pelitilanne Lauta
      */
-    public Piirtoalusta(Lauta pelitilanne) {
+    public Piirtoalusta(Sovelluslogiikka svl) {
         super.setBackground(Color.WHITE);
-        this.lauta = pelitilanne;
+        this.lauta = svl.pelitilanne();
+        this.svl = svl;
     }
 
     @Override
@@ -43,6 +46,8 @@ public class Piirtoalusta extends JPanel {
 //        lauta.siirraNappula(6, 25);
 //        lauta.siirraNappula(19, 0);
 //        lauta.siirraNappula(19, 25);
+//        svl.vaihdaVuoroa();
+//        svl.asetaLahtoruutu(0);
 
         // pelilaudan kuviointi
         for (int i = 0; i < 13; i++) {
@@ -73,10 +78,18 @@ public class Piirtoalusta extends JPanel {
                         } else {
                             grafiikka.drawOval((375 - i * 30), (315 - j * 30), 30, 30);
                         }
-                    } else if (lauta.ruudunVariMusta(i)) {
-                        grafiikka.fillOval((405 - i * 30), (315 - j * 30), 30, 30);
+                        if (svl.getLahtoruutu() == i && j + 1 == lauta.nappuloitaRuudussa(i)) {
+                            grafiikka.drawOval((373 - i * 30), (313 - j * 30), 34, 34);
+                        }
                     } else {
-                        grafiikka.drawOval((405 - i * 30), (315 - j * 30), 30, 30);
+                        if (lauta.ruudunVariMusta(i)) {
+                            grafiikka.fillOval((405 - i * 30), (315 - j * 30), 30, 30);
+                        } else {
+                            grafiikka.drawOval((405 - i * 30), (315 - j * 30), 30, 30);
+                        }
+                        if (svl.getLahtoruutu() == i && j + 1 == lauta.nappuloitaRuudussa(i)) {
+                            grafiikka.drawOval((403 - i * 30), (313 - j * 30), 34, 34);
+                        }
                     }
 
                 }
@@ -84,7 +97,8 @@ public class Piirtoalusta extends JPanel {
 
         }
 
-        // ylärivin nappulat
+        // ylärivin nappulat, silmukan voisi yhdistää ylläolevaan jos olisi tosi
+        // fiksu eikä menisi sekaisin numeroista.
         for (int i = 13; i < 25; i++) {
             if (lauta.nappuloitaRuudussa(i) > 0) {
                 for (int j = 0; j < lauta.nappuloitaRuudussa(i); j++) {
@@ -94,10 +108,19 @@ public class Piirtoalusta extends JPanel {
                         } else {
                             grafiikka.drawOval((15 + (i - 12) * 30), (15 + j * 30), 30, 30);
                         }
-                    } else if (lauta.ruudunVariMusta(i)) {
-                        grafiikka.fillOval((15 + (i - 13) * 30), (15 + j * 30), 30, 30);
+                        if (svl.getLahtoruutu() == i && j + 1 == lauta.nappuloitaRuudussa(i)) {
+                            grafiikka.drawOval((13 + (i - 12) * 30), (13 + j * 30), 34, 34);
+                        }
                     } else {
-                        grafiikka.drawOval((15 + (i - 13) * 30), (15 + j * 30), 30, 30);
+                        if (lauta.ruudunVariMusta(i)) {
+                            grafiikka.fillOval((15 + (i - 13) * 30), (15 + j * 30), 30, 30);
+
+                        } else {
+                            grafiikka.drawOval((15 + (i - 13) * 30), (15 + j * 30), 30, 30);
+                        }
+                        if (svl.getLahtoruutu() == i && j + 1 == lauta.nappuloitaRuudussa(i)) {
+                            grafiikka.drawOval((13 + (i - 13) * 30), (13 + j * 30), 34, 34);
+                        }
                     }
 
                 }
@@ -113,6 +136,9 @@ public class Piirtoalusta extends JPanel {
                 } else {
                     grafiikka.drawOval(195, (15 + i * 30), 30, 30);
                 }
+                if (svl.getLahtoruutu() == 0 && i + 1 == lauta.syotyjaNappuloitaRuudussa(0)) {
+                    grafiikka.drawOval(193, (13 + i * 30), 34, 34);
+                }
             }
         }
         if (lauta.syotyjaNappuloitaRuudussa(25) > 0) {
@@ -121,6 +147,9 @@ public class Piirtoalusta extends JPanel {
                     grafiikka.fillOval(195, (315 - i * 30), 30, 30);
                 } else {
                     grafiikka.drawOval(195, (315 - i * 30), 30, 30);
+                }
+                if (svl.getLahtoruutu() == 25 && i + 1 == lauta.syotyjaNappuloitaRuudussa(25)) {
+                    grafiikka.drawOval(193, (313 + i * 30), 34, 34);
                 }
             }
         }

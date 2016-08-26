@@ -181,6 +181,15 @@ public class Sovelluslogiikka {
     }
 
     /**
+     * Haetaan asetettu lähtöruutu.
+     *
+     * @return lähtöruudun indeksi
+     */
+    public int getLahtoruutu() {
+        return lahtoruutu;
+    }
+
+    /**
      * Haetaan mahdolliset kohderuudut pelaajan siirrolle.
      *
      * @return lista mahdollisia kohderuutuja
@@ -207,6 +216,7 @@ public class Sovelluslogiikka {
         pelilogiikka.siirraNappulaa(siirtojarjestys.get(vuoro), lahtoruutu, minne);
         // tässä alla on bugi: jos kaikki nappulat ovat kotialueella, peli ei oikeasti toimi aivan näin
         siirrot.haeSiirrot().remove((Integer) Math.abs(lahtoruutu - minne));
+        lahtoruutu = -1;
     }
 
     /**

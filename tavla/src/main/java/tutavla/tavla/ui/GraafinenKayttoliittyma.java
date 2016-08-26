@@ -68,7 +68,7 @@ public class GraafinenKayttoliittyma implements Runnable, Kayttoliittyma {
 //        JTextField hetuKentta = new JTextField();
 //
 //        JButton lisaaNappi = new JButton("Lisää henkilö!");
-        container.add(new Piirtoalusta(svl.pelitilanne()));
+        container.add(new Piirtoalusta(svl));
     }
 
     public JFrame getFrame() {
