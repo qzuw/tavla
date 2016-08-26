@@ -24,4 +24,4 @@ Päivä | Tunnit | Kuvaus
 23.08.2016 | 2 h | lähinnä guin ihmettelyä
 24.08.2016 | 5 h | laudan saa piirrettyä jotenkuten, testejä
 25.08.2016 | 2 h | sekvenssikaaviot, yms
-26.08.2016 | 2 1/2 h | refaktorointia, gui
+26.08.2016 | 3 h | refaktorointia, gui
