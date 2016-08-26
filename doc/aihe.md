@@ -29,6 +29,10 @@ Peli loppuu kun toinen pelaaja on siirtänyt kaikki omat nappulansa ulos laudalt
 
 ![Luokkakaavio](https://github.com/qzuw/tavla/blob/master/doc/tavla-luokkakaavio.png)
 
+## Rakennekuvaus
+
+todo
+
 ## Sekvenssikaaviot
 
 ![Sekvenssikaavio siirto](https://github.com/qzuw/tavla/blob/master/doc/siirto-sekvenssik.png)
