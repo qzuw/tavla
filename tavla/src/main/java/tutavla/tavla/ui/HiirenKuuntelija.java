@@ -45,6 +45,15 @@ public class HiirenKuuntelija implements MouseListener {
                 svl.asetaLahtoruutu(ruutu);
             } else if (!svl.eiVoiSiirtaa() && svl.pelaajaVoiSiirtaaRuutuihin().contains(ruutu)) {
                 svl.siirraNappulaa(ruutu);
+                terveiset.setText("Siirrettiin nappulaa.");
+                siirrot.setText(svl.haeSiirrot().toString());
+                if (svl.haeSiirrot().isEmpty()) {
+                    terveiset.setText("Kaikki siirrot on käytetty, vuoro vaihtuu!");
+                    svl.vaihdaVuoroa();
+                    pelaaja.setText(svl.getVuorossaOlevaPelaaja().toString());
+                    svl.heitaNopat();
+                    siirrot.setText(svl.haeSiirrot().toString());
+                }
             } else {
                 svl.nollaaLahtoruutu();
             }
