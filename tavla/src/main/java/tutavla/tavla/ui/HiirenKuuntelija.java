@@ -66,13 +66,19 @@ public class HiirenKuuntelija implements MouseListener {
         // alarivi: y: 195-345
         int ruutu = -1;
 
-        if (y >= 15 && y <= 165) {
+        if (y >= 0 && y <= 165 && x >= 420 && svl.getVuorossaOlevaPelaaja().getMaali() == 25) {
+            ruutu = 25;
+        } else if (y >= 196 && y <= 360 && x >= 420 && svl.getVuorossaOlevaPelaaja().getMaali() == 0) {
+            ruutu = 0;
+        } else if (y >= 15 && y <= 165) {
             if (x >= 15 && x <= 195) {
                 // 13-18
                 ruutu = (x - 15) / 30 + 13;
             } else if (x >= 225 && x <= 405) {
                 // 19-24
                 ruutu = (x - 225) / 30 + 19;
+            } else if (x >= 195 && x <= 225 && svl.getVuorossaOlevaPelaaja().getMaali() == 25) {
+                ruutu = 0;
             }
         } else if (y >= 195 && y <= 345) {
             if (x >= 15 && x <= 195) {
@@ -82,8 +88,11 @@ public class HiirenKuuntelija implements MouseListener {
             } else if (x >= 225 && x <= 405) {
                 // 1-6
                 ruutu = 6 - (x - 225) / 30;
+            } else if (x >= 195 && x <= 225 && svl.getVuorossaOlevaPelaaja().getMaali() == 0) {
+                ruutu = 25;
             }
         }
+
         return ruutu;
     }
 
