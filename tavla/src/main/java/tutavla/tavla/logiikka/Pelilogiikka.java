@@ -28,8 +28,9 @@ public class Pelilogiikka {
     }
 
     /**
-     * Alusta pelilaudan tilanne asettamalla nappulat ja määrittämällä pelaajien maaliruudut.
-     * 
+     * Alusta pelilaudan tilanne asettamalla nappulat ja määrittämällä pelaajien
+     * maaliruudut.
+     *
      * @param pelaaja1 pelaaja 1
      * @param pelaaja2 pelaaja 2
      */
@@ -48,7 +49,7 @@ public class Pelilogiikka {
 
     /**
      * Aseta ruutuun tietty määrä nappuloita.
-     * 
+     *
      * @param pelaaja nappulat omistava pelaaja
      * @param maara nappuloiden määrä
      * @param ruutu ruudun indeksi
@@ -61,7 +62,7 @@ public class Pelilogiikka {
 
     /**
      * Hae ruudussa olevien nappuloiden määrä.
-     * 
+     *
      * @param ruutu ruudun indeksi
      * @return nappuloiden määrä
      */
@@ -71,7 +72,7 @@ public class Pelilogiikka {
 
     /**
      * Onko ruutu tyhjä.
-     * 
+     *
      * @param ruutu ruudun indeksi
      * @return true jos ruutu on tyhjä
      */
@@ -81,7 +82,7 @@ public class Pelilogiikka {
 
     /**
      * Onko ruutu pelaajan hallussa.
-     * 
+     *
      * @param ruutu ruudun indeksi
      * @param pelaaja tarkastettava pelaaja
      * @return true jos ruutu on pelaajan
@@ -92,7 +93,7 @@ public class Pelilogiikka {
 
     /**
      * Montako nappulaa pelaajalla on ruudussa.
-     * 
+     *
      * @param ruutu ruudun indeksi
      * @param pelaaja tarkastettava pelaaja
      * @return nappuloiden määrä
@@ -103,7 +104,7 @@ public class Pelilogiikka {
 
     /**
      * Voiko pelaaja siirtää nappulansa ruutuun.
-     * 
+     *
      * @param ruutu ruudun indeksi
      * @param pelaaja tarkastettava pelaaja
      * @return true jos pelaaja voi siirtää nappulansa ruutuun
@@ -123,7 +124,7 @@ public class Pelilogiikka {
 
     /**
      * Siirrä pelaajan nappula ruudusta toiseen.
-     * 
+     *
      * @param pelaaja pelaaja jonka nappulaa siirretään
      * @param mista lähtöruudun indeksi
      * @param minne lopetusruudun indeksi
@@ -141,7 +142,7 @@ public class Pelilogiikka {
 
     /**
      * Hae pelilauta.
-     * 
+     *
      * @return pelilauta
      */
     public Lauta pelitilanne() {
@@ -150,7 +151,7 @@ public class Pelilogiikka {
 
     /**
      * Tarkistetaan onko annettu pelaaja voittanut pelin.
-     * 
+     *
      * @param pelaaja tarkistettava pelaaja
      * @return true jos pelaaja on voittanut
      */
@@ -165,7 +166,7 @@ public class Pelilogiikka {
 
     /**
      * Mistä ruuduista pelaaja voi siirtää.
-     * 
+     *
      * @param pelaaja tarksitettava pelaaja
      * @return palautetaan lista ruutujen indeksejä joihin voi siirtää
      */
@@ -189,8 +190,9 @@ public class Pelilogiikka {
     }
 
     /**
-     * Mihin ruutuihin pelaaja voi siirtää nappulan joka lähtee annetusta ruudusta.
-     * 
+     * Mihin ruutuihin pelaaja voi siirtää nappulan joka lähtee annetusta
+     * ruudusta.
+     *
      * @param pelaaja tarkistettava pelaaja
      * @param lahtoruutu lähtöruudun indeksi
      * @param siirrot lista käytettävissä olevista siirroista
@@ -221,14 +223,18 @@ public class Pelilogiikka {
             if (siirto > 6) {
                 break;
             } else if (kohderuutu < 0 || kohderuutu > 25) {
-                continue;
-            } else if (kohderuutu == pelaaja.getMaali()) {
-                if (this.nappulatKotialueella(pelaaja) && !lista.contains(kohderuutu)) {
-                    lista.add(kohderuutu);
-                }
                 break;
             } else if (this.ruutuunVoiSiirtya(kohderuutu, pelaaja) && siirrot.contains(siirto)) {
                 lista.add(kohderuutu);
+            } else if (kohderuutu == pelaaja.getMaali()) {
+                if (nappulatKotialueella(pelaaja) && !lista.contains(kohderuutu)) {
+                    for (Integer s : siirrot) {
+                        if (s >= siirto) {
+                            lista.add(kohderuutu);
+                        }
+                    }
+                }
+                break;
             }
         }
         return lista;
@@ -236,7 +242,7 @@ public class Pelilogiikka {
 
     /**
      * Ovatko pelaajan kaikki nappulat kotialueella.
-     * 
+     *
      * @param pelaaja tarkistettava pelaaja
      * @return true jos kaikki nappulat ovat pelaajan kotialueella
      */

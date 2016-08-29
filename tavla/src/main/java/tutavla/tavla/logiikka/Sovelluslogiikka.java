@@ -224,6 +224,14 @@ public class Sovelluslogiikka {
         // tässä alla on bugi: jos kaikki nappulat ovat kotialueella, peli ei oikeasti toimi aivan näin
         if (siirrot.haeSiirrot().contains((Integer) Math.abs(lahtoruutu - minne))) {
             siirrot.haeSiirrot().remove((Integer) Math.abs(lahtoruutu - minne));
+        } else if (pelilogiikka.nappulatKotialueella(siirtojarjestys.get(vuoro))) {
+            int poistettava = -1;
+            for (int siirto : siirrot.haeSiirrot()) {
+                if (siirto >= Math.abs(lahtoruutu - minne)) {
+                    poistettava = siirto;
+                }
+            }
+            siirrot.haeSiirrot().remove((Integer) poistettava);
         }
         lahtoruutu = -1;
     }
@@ -260,6 +268,18 @@ public class Sovelluslogiikka {
                     if (pelilogiikka.pelaajaVoiSiirtaaRuutuihin(pelaaja, ruutu, siirrot.haeSiirrot()).contains(ruutu + suunta * siirto)) {
                         voiSiirtaa = true;
                         break;
+                    }
+                }
+            }
+            if (pelilogiikka.nappulatKotialueella(pelaaja)) {
+                for (int ruutu : pelilogiikka.pelaajaVoiSiirtaaRuuduista(pelaaja)) {
+                    for (int kohderuutu : pelilogiikka.pelaajaVoiSiirtaaRuutuihin(pelaaja, ruutu, siirrot.haeSiirrot())) {
+                        for (int siirto : siirrot.haeSiirrot()) {
+                            if (siirto >= ((Integer) Math.abs(ruutu - kohderuutu))) {
+                                voiSiirtaa = true;
+                                break;
+                            }
+                        }
                     }
                 }
             }
