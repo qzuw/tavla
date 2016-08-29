@@ -36,7 +36,6 @@ public class HiirenKuuntelija implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-//        System.out.println("huhuu!" + e.getPoint().toString());
 
         int ruutu = selvitaRuutu(e.getX(), e.getY());
 
