@@ -208,10 +208,10 @@ public class Piirtoalusta extends JPanel {
         if (lauta.ulosPelattujaNappuloitaRuudussa(0) > 0) {
             for (int i = 0; i < lauta.ulosPelattujaNappuloitaRuudussa(0); i++) {
                 int y = 325;
-                if (i > 4) {
-                    y = 480;
-                } else if (i > 9) {
+                if (i > 9) {
                     y = 635;
+                } else if (i > 4) {
+                    y = 480;
                 }
                 if (lauta.ulosPelatutNappulatMustia(0)) {
                     piirraMustaNappula(grafiikka, 421, (y - i * 30));
@@ -223,10 +223,10 @@ public class Piirtoalusta extends JPanel {
         if (lauta.ulosPelattujaNappuloitaRuudussa(25) > 0) {
             for (int i = 0; i < lauta.ulosPelattujaNappuloitaRuudussa(25); i++) {
                 int y = 5;
-                if (i > 4) {
-                    y = -150;
-                } else if (i > 9) {
+                if (i > 9) {
                     y = -305;
+                } else if (i > 4) {
+                    y = -150;
                 }
                 if (lauta.ulosPelatutNappulatMustia(25)) {
                     piirraMustaNappula(grafiikka, 421, (y + i * 30));
