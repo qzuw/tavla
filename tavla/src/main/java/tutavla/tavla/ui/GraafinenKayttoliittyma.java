@@ -26,6 +26,9 @@ public class GraafinenKayttoliittyma implements Runnable, Kayttoliittyma {
     private JFrame kehys;
     private JFrame kyselyikkuna;
     private Sovelluslogiikka svl;
+    JLabel siirrot;
+    JLabel pelaaja;
+    JLabel terveiset;
 
     public GraafinenKayttoliittyma() {
         svl = new Sovelluslogiikka();
@@ -67,11 +70,15 @@ public class GraafinenKayttoliittyma implements Runnable, Kayttoliittyma {
         BorderLayout layout = new BorderLayout(2, 1);
         container.setLayout(layout);
 
-        container.add(new Piirtoalusta(svl));
+        Piirtoalusta piirtoalusta = new Piirtoalusta(svl);
         container.add(luoInfoikkuna(), BorderLayout.NORTH);
         container.add(luoPalauteikkuna(), BorderLayout.SOUTH);
+        piirtoalusta.addMouseListener(new HiirenKuuntelija(svl, piirtoalusta, siirrot, pelaaja, terveiset));
+        container.add(piirtoalusta);
 
         // tapahtumankuuntelija
+        
+        
 //        luoPelilaudanKomponentit(kehys.getContentPane());
     }
 
