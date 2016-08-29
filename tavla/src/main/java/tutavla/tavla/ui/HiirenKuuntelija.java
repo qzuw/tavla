@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import tutavla.tavla.logiikka.Sovelluslogiikka;
 
 /**
+ * Kuunnellaan hiirtä.
  *
  * @author ttuotila
  */
@@ -22,6 +23,15 @@ public class HiirenKuuntelija implements MouseListener {
     JLabel pelaaja;
     JLabel terveiset;
 
+    /**
+     * Luodaan Hiirenkuuntelija.
+     *
+     * @param svl Sovelluslogiikka
+     * @param pa Piirtoalusta
+     * @param siirrot JLabel jossa kerrotaan siirrot
+     * @param pelaaja JLabel jossa näytetään pelaajan nimi
+     * @param terveiset JLabel palautteen antamiseen pelaajalla
+     */
     public HiirenKuuntelija(Sovelluslogiikka svl, Piirtoalusta pa, JLabel siirrot, JLabel pelaaja, JLabel terveiset) {
         this.pa = pa;
         this.svl = svl;
