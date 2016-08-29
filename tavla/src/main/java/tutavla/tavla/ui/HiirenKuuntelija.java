@@ -18,10 +18,9 @@ public class HiirenKuuntelija implements MouseListener {
 
     Sovelluslogiikka svl;
     Piirtoalusta pa;
-        JLabel siirrot;
+    JLabel siirrot;
     JLabel pelaaja;
     JLabel terveiset;
-
 
     public HiirenKuuntelija(Sovelluslogiikka svl, Piirtoalusta pa, JLabel siirrot, JLabel pelaaja, JLabel terveiset) {
         this.pa = pa;
@@ -44,13 +43,12 @@ public class HiirenKuuntelija implements MouseListener {
         if (ruutu > -1) {
             if (svl.getLahtoruutu() == -1) {
                 svl.asetaLahtoruutu(ruutu);
-                pa.repaint();
             } else if (!svl.eiVoiSiirtaa() && svl.pelaajaVoiSiirtaaRuutuihin().contains(ruutu)) {
                 svl.siirraNappulaa(ruutu);
-                pa.repaint();
             } else {
-                // svl.setLahtoruutu
+                svl.nollaaLahtoruutu();
             }
+            pa.repaint();
         }
     }
 

@@ -181,6 +181,13 @@ public class Sovelluslogiikka {
     }
 
     /**
+     * Nollaa pelaajan siirron lähtöruudun.
+     */
+    public void nollaaLahtoruutu() {
+        lahtoruutu = -1;
+    }
+
+    /**
      * Haetaan asetettu lähtöruutu.
      *
      * @return lähtöruudun indeksi
