@@ -12,5 +12,4 @@
 - poista PelaajaKuuntelija
 
 - bugeja:
-  - syötyjen nappuloiden paluu laudalle ei oikein, ks pelilogiikka 138
   - svl testaus, siirry takaisin käsittelemään lautaa suoraan, paitsi assert
