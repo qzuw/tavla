@@ -9,7 +9,5 @@
 - tekoäly interface
 - tekoäly pelaa()
 - svl refaktoroi siirtojen käsittely metodeiksi siirtoihin (poistaminen, tarkistus)
-- poista PelaajaKuuntelija
 
 - bugeja:
-  - svl testaus, siirry takaisin käsittelemään lautaa suoraan, paitsi assert
