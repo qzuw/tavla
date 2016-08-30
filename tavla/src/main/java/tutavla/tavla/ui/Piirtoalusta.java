@@ -38,10 +38,9 @@ public class Piirtoalusta extends JPanel {
         super.paintComponent(grafiikka);
 
         piirraLauta(grafiikka);
-
+        asetaNappulatRuutuihin(grafiikka);
         asetaSyodytNappulat(grafiikka, 0, -1);
         asetaSyodytNappulat(grafiikka, 25, 1);
-
         asetaUlosPelatutNappulat(grafiikka);
         grafiikka.setColor(Color.BLACK);
     }
@@ -81,8 +80,6 @@ public class Piirtoalusta extends JPanel {
     }
 
     private void asetaSyodytNappulat(Graphics grafiikka, int ruutu, int suunta) {
-        asetaNappulatRuutuihin(grafiikka);
-
         // Syödyt nappulat 0, -1 -- 25 , 1
         if (lauta.syotyjaNappuloitaRuudussa(ruutu) > 0) {
             int y = 165 + suunta * 150;
