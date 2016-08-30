@@ -135,7 +135,7 @@ public class Pelilogiikka {
                 // tässä syödään vastustajan nappula
                 lauta.siirraNappula(minne, pelaaja.getMaali());
             }
-            lauta.siirraNappula(mista, minne);
+            lauta.siirraPelaajanNappula(mista, minne, pelaaja);
         }
 
     }

@@ -172,6 +172,17 @@ public class Lauta {
     }
 
     /**
+     * Siirrä pelaajan nappula ruudusta toiseen.
+     *
+     * @param mista lähtöruudun indeksi
+     * @param minne lopetusruudun indeksi
+     * @param pelaaja nappulaa siirtävä pelaaja
+     */
+    public void siirraPelaajanNappula(int mista, int minne, Pelaaja pelaaja) {
+        ruudut.get(minne).lisaaNappula(ruudut.get(mista).otaPelaajanNappula(pelaaja));
+    }
+
+    /**
      * Hae pelilaudan ruutu indeksillä.
      *
      * @param ruutu ruudun indeksi
