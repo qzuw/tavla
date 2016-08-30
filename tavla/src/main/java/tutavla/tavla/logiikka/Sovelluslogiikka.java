@@ -220,20 +220,22 @@ public class Sovelluslogiikka {
      * @param minne kohderuudun indeksi
      */
     public void siirraNappulaa(int minne) {
-        pelilogiikka.siirraNappulaa(siirtojarjestys.get(vuoro), lahtoruutu, minne);
-        // tässä alla on bugi: jos kaikki nappulat ovat kotialueella, peli ei oikeasti toimi aivan näin
-        if (siirrot.haeSiirrot().contains((Integer) Math.abs(lahtoruutu - minne))) {
-            siirrot.haeSiirrot().remove((Integer) Math.abs(lahtoruutu - minne));
-        } else if (pelilogiikka.nappulatKotialueella(siirtojarjestys.get(vuoro))) {
-            int poistettava = -1;
-            for (int siirto : siirrot.haeSiirrot()) {
-                if (siirto >= Math.abs(lahtoruutu - minne)) {
-                    poistettava = siirto;
+        if (lahtoruutu > -1) {
+            pelilogiikka.siirraNappulaa(siirtojarjestys.get(vuoro), lahtoruutu, minne);
+            // tässä alla on bugi: jos kaikki nappulat ovat kotialueella, peli ei oikeasti toimi aivan näin
+            if (siirrot.haeSiirrot().contains((Integer) Math.abs(lahtoruutu - minne))) {
+                siirrot.haeSiirrot().remove((Integer) Math.abs(lahtoruutu - minne));
+            } else if (pelilogiikka.nappulatKotialueella(siirtojarjestys.get(vuoro))) {
+                int poistettava = -1;
+                for (int siirto : siirrot.haeSiirrot()) {
+                    if (siirto >= Math.abs(lahtoruutu - minne)) {
+                        poistettava = siirto;
+                    }
                 }
+                siirrot.haeSiirrot().remove((Integer) poistettava);
             }
-            siirrot.haeSiirrot().remove((Integer) poistettava);
+            lahtoruutu = -1;
         }
-        lahtoruutu = -1;
     }
 
     /**
@@ -257,6 +259,7 @@ public class Sovelluslogiikka {
         Pelaaja pelaaja = siirtojarjestys.get(vuoro);
         if (pelilogiikka.pelaajanNappulaMaara(Math.abs(pelaaja.getMaali() - 25), pelaaja) > 0) {
             for (int siirto : siirrot.haeSiirrot()) {
+                //System.out.println("siirto " + siirto);
                 if (pelilogiikka.ruutuunVoiSiirtya((Math.abs(pelaaja.getMaali() - 25) + suunta * siirto), pelaaja)) {
                     voiSiirtaa = true;
                     break;
@@ -264,7 +267,9 @@ public class Sovelluslogiikka {
             }
         } else {
             for (int siirto : siirrot.haeSiirrot()) {
+                //System.out.println("else siirto " + siirto);
                 for (int ruutu : pelilogiikka.pelaajaVoiSiirtaaRuuduista(pelaaja)) {
+                    //System.out.println("else ruutu " + ruutu);
                     if (pelilogiikka.pelaajaVoiSiirtaaRuutuihin(pelaaja, ruutu, siirrot.haeSiirrot()).contains(ruutu + suunta * siirto)) {
                         voiSiirtaa = true;
                         break;
