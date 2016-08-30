@@ -10,3 +10,5 @@
 - svl refaktoroi siirtojen käsittely metodeiksi siirtoihin (poistaminen, tarkistus)
 
 - bugeja:
+
+- muokkaa gitignore sallimaan jar
