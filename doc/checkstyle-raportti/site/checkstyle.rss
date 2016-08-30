@@ -26,7 +26,7 @@ under the License.
     <copyright>&#169;2016</copyright>
     <item>
       <title>File: 16,
-             Errors: 2,
+             Errors: 3,
              Warnings: 0,
              Infos: 0
       </title>
@@ -75,20 +75,6 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#tutavla.tavla.domain.Noppa.java">tutavla/tavla/domain/Noppa.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#tutavla.tavla.ui.PelaajaKuuntelija.java">tutavla/tavla/ui/PelaajaKuuntelija.java</a>
                 </td>
                 <td>
                   0
@@ -186,6 +172,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.ui.HiirenKuuntelija.java">tutavla/tavla/ui/HiirenKuuntelija.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#tutavla.tavla.Main.java">tutavla/tavla/Main.java</a>
                 </td>
                 <td>
@@ -209,7 +209,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
               </tr>
                           <tr>
