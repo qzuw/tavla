@@ -37,173 +37,15 @@ public class Piirtoalusta extends JPanel {
     protected void paintComponent(Graphics grafiikka) {
         super.paintComponent(grafiikka);
 
-        grafiikka.drawRect(0, 0, 420, 360);
-        grafiikka.drawRect(15, 15, 180, 330);
-        grafiikka.drawRect(225, 15, 180, 330);
+        piirraLauta(grafiikka);
 
-        // testaukseen
-//        lauta.siirraNappula(6, 0);
-//        lauta.siirraNappula(6, 25);
-//        lauta.siirraNappula(19, 0);
-//        lauta.siirraNappula(19, 25);
-//        svl.vaihdaVuoroa();
-//        svl.asetaLahtoruutu(0);
-//        lauta.siirraNappula(8, 0);
-//        lauta.siirraNappula(8, 0);
-//        lauta.siirraNappula(8, 0);
-//        lauta.siirraNappula(6, 0);
-//        lauta.siirraNappula(6, 0);
-//        lauta.siirraNappula(6, 0);
-//        lauta.siirraNappula(6, 0);
-//        lauta.siirraNappula(6, 0);
-//        lauta.siirraNappula(17, 0);
-//        lauta.siirraNappula(17, 0);
-//        lauta.siirraNappula(17, 0);
-//        lauta.siirraNappula(19, 0);
-//        lauta.siirraNappula(19, 0);
-//        lauta.siirraNappula(19, 0);
-//        lauta.siirraNappula(19, 0);
-//        lauta.siirraNappula(19, 0);
-        // pelilaudan kuviointi
-        for (int i = 0; i < 13; i++) {
-            if (i != 6) {
-                int[] taulukkoX = {(15 + 30 * i), (30 + 30 * i), (45 + 30 * i)};
-                int[] taulukkoY = {15, 165, 15};
-                int[] taulukkoX2 = {(15 + 30 * i), (30 + 30 * i), (45 + 30 * i)};
-                int[] taulukkoY2 = {345, 195, 345};
+        asetaSyodytNappulat(grafiikka);
 
-                if ((i % 2 == 0 && i < 6) || (i % 2 == 1 && i > 6)) {
-                    grafiikka.fillPolygon(taulukkoX, taulukkoY, 3);
-                    grafiikka.drawPolygon(taulukkoX2, taulukkoY2, 3);
-                } else {
-                    grafiikka.drawPolygon(taulukkoX, taulukkoY, 3);
-                    grafiikka.fillPolygon(taulukkoX2, taulukkoY2, 3);
-                }
+        asetaUlosPelatutNappulat(grafiikka);
+        grafiikka.setColor(Color.BLACK);
+    }
 
-            }
-        }
-
-        //alarivin nappulat
-        for (int i = 1; i < 13; i++) {
-            if (lauta.nappuloitaRuudussa(i) > 0) {
-                for (int j = 0; j < lauta.nappuloitaRuudussa(i); j++) {
-                    int y = 315;
-                    if (j > 4) {
-                        y = 470;
-                    } else if (j > 9) {
-                        y = 625;
-                    }
-                    if (i > 6) {
-                        if (lauta.ruudunVariMusta(i)) {
-                            piirraMustaNappula(grafiikka, (375 - i * 30), (y - j * 30));
-                        } else {
-                            piirraValkoinenNappula(grafiikka, (375 - i * 30), (y - j * 30));
-                        }
-                        if (svl.getLahtoruutu() == i && j + 1 == lauta.nappuloitaRuudussa(i)) {
-                            grafiikka.setColor(Color.RED);
-                            grafiikka.drawOval((373 - i * 30), ((y - 2) - j * 30), 34, 34);
-                            grafiikka.setColor(Color.BLACK);
-                        }
-                    } else {
-                        if (lauta.ruudunVariMusta(i)) {
-                            piirraMustaNappula(grafiikka, (405 - i * 30), (y - j * 30));
-                        } else {
-                            piirraValkoinenNappula(grafiikka, (405 - i * 30), (y - j * 30));
-                        }
-                        if (svl.getLahtoruutu() == i && j + 1 == lauta.nappuloitaRuudussa(i)) {
-                            grafiikka.setColor(Color.RED);
-                            grafiikka.drawOval((403 - i * 30), ((y - 2) - j * 30), 34, 34);
-                            grafiikka.setColor(Color.BLACK);
-                        }
-                    }
-
-                }
-            }
-
-        }
-
-        // ylärivin nappulat, silmukan voisi yhdistää ylläolevaan jos olisi tosi
-        // fiksu eikä menisi sekaisin numeroista.
-        for (int i = 13; i < 25; i++) {
-            if (lauta.nappuloitaRuudussa(i) > 0) {
-                for (int j = 0; j < lauta.nappuloitaRuudussa(i); j++) {
-                    int y = 15;
-                    if (j > 4) {
-                        y = -140;
-                    } else if (j > 9) {
-                        y = -295;
-                    }
-                    if (i > 18) {
-                        if (lauta.ruudunVariMusta(i)) {
-                            piirraMustaNappula(grafiikka, (15 + (i - 12) * 30), (y + j * 30));
-                        } else {
-                            piirraValkoinenNappula(grafiikka, (15 + (i - 12) * 30), (y + j * 30));
-                        }
-                        if (svl.getLahtoruutu() == i && j + 1 == lauta.nappuloitaRuudussa(i)) {
-                            grafiikka.setColor(Color.RED);
-                            grafiikka.drawOval((13 + (i - 12) * 30), ((y - 2) + j * 30), 34, 34);
-                            grafiikka.setColor(Color.BLACK);
-                        }
-                    } else {
-                        if (lauta.ruudunVariMusta(i)) {
-                            piirraMustaNappula(grafiikka, (15 + (i - 13) * 30), (y + j * 30));
-                        } else {
-                            piirraValkoinenNappula(grafiikka, (15 + (i - 13) * 30), (y + j * 30));
-                        }
-                        if (svl.getLahtoruutu() == i && j + 1 == lauta.nappuloitaRuudussa(i)) {
-                            grafiikka.setColor(Color.RED);
-                            grafiikka.drawOval((13 + (i - 13) * 30), ((y - 2) + j * 30), 34, 34);
-                            grafiikka.setColor(Color.BLACK);
-                        }
-                    }
-
-                }
-            }
-
-        }
-
-        // Syödyt nappulat
-        if (lauta.syotyjaNappuloitaRuudussa(0) > 0) {
-            for (int i = 0; i < lauta.syotyjaNappuloitaRuudussa(0); i++) {
-                int y = 15;
-                if (i > 4) {
-                    y = -140;
-                } else if (i > 9) {
-                    y = -295;
-                }
-                if (lauta.syodytNappulatMustia(0)) {
-                    piirraMustaNappula(grafiikka, 195, (y + i * 30));
-                } else {
-                    piirraValkoinenNappula(grafiikka, 195, (y + i * 30));
-                }
-                if (svl.getLahtoruutu() == 0 && i + 1 == lauta.syotyjaNappuloitaRuudussa(0)) {
-                    grafiikka.setColor(Color.RED);
-                    grafiikka.drawOval(193, ((y - 2) + i * 30), 34, 34);
-                    grafiikka.setColor(Color.BLACK);
-                }
-            }
-        }
-        if (lauta.syotyjaNappuloitaRuudussa(25) > 0) {
-            for (int i = 0; i < lauta.syotyjaNappuloitaRuudussa(25); i++) {
-                int y = 315;
-                if (i > 4) {
-                    y = 470;
-                } else if (i > 9) {
-                    y = 625;
-                }
-                if (lauta.syodytNappulatMustia(25)) {
-                    piirraMustaNappula(grafiikka, 195, (y - i * 30));
-                } else {
-                    piirraValkoinenNappula(grafiikka, 195, (y - i * 30));
-                }
-                if (svl.getLahtoruutu() == 25 && i + 1 == lauta.syotyjaNappuloitaRuudussa(25)) {
-                    grafiikka.setColor(Color.RED);
-                    grafiikka.drawOval(193, ((y - 2) + i * 30), 34, 34);
-                    grafiikka.setColor(Color.BLACK);
-                }
-            }
-        }
-
+    private void asetaUlosPelatutNappulat(Graphics grafiikka) {
         //Ulos pelatut nappulat
         if (lauta.ulosPelattujaNappuloitaRuudussa(0) > 0) {
             for (int i = 0; i < lauta.ulosPelattujaNappuloitaRuudussa(0); i++) {
@@ -235,7 +77,142 @@ public class Piirtoalusta extends JPanel {
                 }
             }
         }
+    }
+
+    private void asetaSyodytNappulat(Graphics grafiikka) {
+        asetaNappulatRuutuihin(grafiikka);
+
+        // Syödyt nappulat
+        if (lauta.syotyjaNappuloitaRuudussa(0) > 0) {
+            for (int i = 0; i < lauta.syotyjaNappuloitaRuudussa(0); i++) {
+                int y = 15;
+                if (i > 4) {
+                    y = -140;
+                } else if (i > 9) {
+                    y = -295;
+                }
+                if (lauta.syodytNappulatMustia(0)) {
+                    piirraMustaNappula(grafiikka, 195, (y + i * 30));
+                } else {
+                    piirraValkoinenNappula(grafiikka, 195, (y + i * 30));
+                }
+                if (svl.getLahtoruutu() == 0 && i + 1 == lauta.syotyjaNappuloitaRuudussa(0)) {
+                    ympyroiNappula(grafiikka, 193, ((y - 2) + i * 30));
+                }
+            }
+        }
+        if (lauta.syotyjaNappuloitaRuudussa(25) > 0) {
+            for (int i = 0; i < lauta.syotyjaNappuloitaRuudussa(25); i++) {
+                int y = 315;
+                if (i > 4) {
+                    y = 470;
+                } else if (i > 9) {
+                    y = 625;
+                }
+                if (lauta.syodytNappulatMustia(25)) {
+                    piirraMustaNappula(grafiikka, 195, (y - i * 30));
+                } else {
+                    piirraValkoinenNappula(grafiikka, 195, (y - i * 30));
+                }
+                if (svl.getLahtoruutu() == 25 && i + 1 == lauta.syotyjaNappuloitaRuudussa(25)) {
+                    ympyroiNappula(grafiikka, 193, ((y - 2) + i * 30));
+                }
+            }
+        }
+    }
+
+    private void asetaNappulatRuutuihin(Graphics grafiikka) {
+        for (int i = 1; i < 13; i++) {
+            if (lauta.nappuloitaRuudussa(i) > 0) {
+                for (int j = 0; j < lauta.nappuloitaRuudussa(i); j++) {
+                    int y = 315;
+                    if (j > 4) {
+                        y = 470;
+                    } else if (j > 9) {
+                        y = 625;
+                    }
+                    if (i > 6) {
+                        if (lauta.ruudunVariMusta(i)) {
+                            piirraMustaNappula(grafiikka, (375 - i * 30), (y - j * 30));
+                        } else {
+                            piirraValkoinenNappula(grafiikka, (375 - i * 30), (y - j * 30));
+                        }
+                        if (svl.getLahtoruutu() == i && j + 1 == lauta.nappuloitaRuudussa(i)) {
+                            ympyroiNappula(grafiikka, (373 - i * 30), ((y - 2) - j * 30));
+                        }
+                    } else {
+                        if (lauta.ruudunVariMusta(i)) {
+                            piirraMustaNappula(grafiikka, (405 - i * 30), (y - j * 30));
+                        } else {
+                            piirraValkoinenNappula(grafiikka, (405 - i * 30), (y - j * 30));
+                        }
+                        if (svl.getLahtoruutu() == i && j + 1 == lauta.nappuloitaRuudussa(i)) {
+                            ympyroiNappula(grafiikka, (403 - i * 30), ((y - 2) - j * 30));
+                        }
+                    }
+                }
+            }
+            int i2 = i + 12;
+            if (lauta.nappuloitaRuudussa(i2) > 0) {
+                for (int j = 0; j < lauta.nappuloitaRuudussa(i2); j++) {
+                    int y = 15;
+                    if (j > 4) {
+                        y = -140;
+                    } else if (j > 9) {
+                        y = -295;
+                    }
+                    if (i2 > 18) {
+                        if (lauta.ruudunVariMusta(i2)) {
+                            piirraMustaNappula(grafiikka, (15 + (i2 - 12) * 30), (y + j * 30));
+                        } else {
+                            piirraValkoinenNappula(grafiikka, (15 + (i2 - 12) * 30), (y + j * 30));
+                        }
+                        if (svl.getLahtoruutu() == i2 && j + 1 == lauta.nappuloitaRuudussa(i2)) {
+                            ympyroiNappula(grafiikka, (13 + (i2 - 12) * 30), ((y - 2) + j * 30));
+                        }
+                    } else {
+                        if (lauta.ruudunVariMusta(i2)) {
+                            piirraMustaNappula(grafiikka, (15 + (i2 - 13) * 30), (y + j * 30));
+                        } else {
+                            piirraValkoinenNappula(grafiikka, (15 + (i2 - 13) * 30), (y + j * 30));
+                        }
+                        if (svl.getLahtoruutu() == i2 && j + 1 == lauta.nappuloitaRuudussa(i2)) {
+                            ympyroiNappula(grafiikka, (13 + (i2 - 13) * 30), ((y - 2) + j * 30));
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private void ympyroiNappula(Graphics grafiikka, int x, int y) {
+        grafiikka.setColor(Color.RED);
+        grafiikka.drawOval(x, y, 34, 34);
         grafiikka.setColor(Color.BLACK);
+    }
+
+    private void piirraLauta(Graphics grafiikka) {
+        grafiikka.drawRect(0, 0, 420, 360);
+        grafiikka.drawRect(15, 15, 180, 330);
+        grafiikka.drawRect(225, 15, 180, 330);
+
+        // pelilaudan kuviointi
+        for (int i = 0; i < 13; i++) {
+            if (i != 6) {
+                int[] taulukkoX = {(15 + 30 * i), (30 + 30 * i), (45 + 30 * i)};
+                int[] taulukkoY = {15, 165, 15};
+                int[] taulukkoX2 = {(15 + 30 * i), (30 + 30 * i), (45 + 30 * i)};
+                int[] taulukkoY2 = {345, 195, 345};
+
+                if ((i % 2 == 0 && i < 6) || (i % 2 == 1 && i > 6)) {
+                    grafiikka.fillPolygon(taulukkoX, taulukkoY, 3);
+                    grafiikka.drawPolygon(taulukkoX2, taulukkoY2, 3);
+                } else {
+                    grafiikka.drawPolygon(taulukkoX, taulukkoY, 3);
+                    grafiikka.fillPolygon(taulukkoX2, taulukkoY2, 3);
+                }
+            }
+        }
     }
 
     private void piirraMustaNappula(Graphics grafiikka, int x, int y) {
