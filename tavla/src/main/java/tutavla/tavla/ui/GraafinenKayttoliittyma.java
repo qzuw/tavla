@@ -26,9 +26,9 @@ public class GraafinenKayttoliittyma implements Runnable, Kayttoliittyma {
     private JFrame kehys;
     private JFrame kyselyikkuna;
     private Sovelluslogiikka svl;
-    JLabel siirrot;
-    JLabel pelaaja;
-    JLabel terveiset;
+    private JLabel siirrot;
+    private JLabel pelaaja;
+    private JLabel terveiset;
 
     public GraafinenKayttoliittyma() {
         svl = new Sovelluslogiikka();
@@ -43,7 +43,6 @@ public class GraafinenKayttoliittyma implements Runnable, Kayttoliittyma {
     public void run() {
         kehys = new JFrame("Tavla");
         kehys.setPreferredSize(new Dimension(470, 425));
-        // kehys.setPreferredSize(new Dimension(450, 360));
 
         kehys.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,16 +53,15 @@ public class GraafinenKayttoliittyma implements Runnable, Kayttoliittyma {
         kehys.pack();
         kehys.setVisible(true);
 
-//        kehys.update(kehys.getComponent(0).getGraphics());
-//        kyselyikkuna = new JFrame("Pelaajat");
-//        kyselyikkuna.setPreferredSize(new Dimension(200, 100));
-//
-//        kyselyikkuna.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-//
-//        luoPelilaudanKomponentit(kyselyikkuna.getContentPane());
-//
-//        kyselyikkuna.pack();
-//        kyselyikkuna.setVisible(true);
+        kyselyikkuna = new JFrame("Tavla");
+        kyselyikkuna.setPreferredSize(new Dimension(250, 150));
+
+        kyselyikkuna.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        luoKyselyikkuna(kyselyikkuna.getContentPane());
+
+        kyselyikkuna.pack();
+        kyselyikkuna.setVisible(true);
     }
 
     private void luoKomponentit(Container container) {
@@ -76,10 +74,6 @@ public class GraafinenKayttoliittyma implements Runnable, Kayttoliittyma {
         piirtoalusta.addMouseListener(new HiirenKuuntelija(svl, piirtoalusta, siirrot, pelaaja, terveiset));
         container.add(piirtoalusta);
 
-        // tapahtumankuuntelija
-        
-        
-//        luoPelilaudanKomponentit(kehys.getContentPane());
     }
 
     private JPanel luoInfoikkuna() {
@@ -100,16 +94,26 @@ public class GraafinenKayttoliittyma implements Runnable, Kayttoliittyma {
         return panel;
     }
 
+    private void luoKyselyikkuna(Container container) {
+        GridLayout layout = new GridLayout(3, 1);
+        container.setLayout(layout);
+        
+        JLabel kysymysTeksti = new JLabel("Montako pelaajaa? (0-2)");
+        JTextField vastausKentta = new JTextField();
+        JButton vastaaNappi = new JButton("OK");
+        container.add(kysymysTeksti);
+        container.add(vastausKentta);
+        container.add(vastaaNappi);
+        
+        KyselyKuuntelija kyselykuuntelija = new KyselyKuuntelija(kyselyikkuna, svl, kysymysTeksti, vastausKentta);
+        vastaaNappi.addActionListener(kyselykuuntelija);
+    }
+
     private void luoPelilaudanKomponentit(Container container) {
-//        GridLayout layout = new GridLayout(3, 1);
-//        container.setLayout(layout);
 //
-//        JLabel nimiTeksti = new JLabel("Pelaaja 1: ");
-//        JTextField nimiKentta = new JTextField();
 //        JLabel hetuTeksti = new JLabel("Hetu: ");
 //        JTextField hetuKentta = new JTextField();
 //
-//        JButton lisaaNappi = new JButton("Lisää henkilö!");
 //        container.add(kehys)
         container.add(new Piirtoalusta(svl));
     }
