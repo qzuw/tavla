@@ -15,7 +15,7 @@ public class Sovelluslogiikka {
 
     private Pelilogiikka pelilogiikka;
     private ArrayList<Pelaaja> siirtojarjestys;
-    private Tekoaly tekoaly;
+    private RandomTekoaly tekoaly;
     private Siirrot siirrot;
     private int vuoro;
     private int lahtoruutu;
@@ -27,7 +27,7 @@ public class Sovelluslogiikka {
         siirtojarjestys = new ArrayList<>();
 
         Random random = new Random();
-        tekoaly = new Tekoaly(random);
+        tekoaly = new RandomTekoaly(random);
         siirrot = new Siirrot(random);
         vuoro = 0;
         lahtoruutu = -1;
