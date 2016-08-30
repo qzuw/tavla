@@ -1,15 +1,16 @@
 - pelaaja siirtää nappulaa, siirron oikeellisuuden tarkistus -> logiikkaan
 - (kerro syödyt nappulat ja ulos pelatut)
-- tekoäly siirtää ulos noppaa pienemmällä siirrolla vain jos ei muuta vaihtoehtoa
-
-- sekvenssi
+- tekoäly siirtää ulos noppaa pienemmällä siirrolla vain jos ei muuta vaihtoehtoa (kierrätä tekoäly uin kautta svl?)
 
 - gui:
-  - siirtäminen
   - kyselyt
 
 - random testaus
+- tekoäly interface
+- tekoäly pelaa()
+- svl refaktoroi siirtojen käsittely metodeiksi siirtoihin (poistaminen, tarkistus)
+- poista PelaajaKuuntelija
 
 - bugeja:
-  - kotialueella laudalta ulos siirtäminen näytetään mahdollisena siirtona vaikkei se ole
-  - suuremman siirron käyttö ulos siirtämiseen ei toimi oikein
+  - syötyjen nappuloiden paluu laudalle ei oikein, ks pelilogiikka 138
+  - svl testaus, siirry takaisin käsittelemään lautaa suoraan, paitsi assert
