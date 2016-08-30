@@ -6,7 +6,6 @@
   - kyselyt
 
 - random testaus
-- tekoäly interface
 - tekoäly pelaa()
 - svl refaktoroi siirtojen käsittely metodeiksi siirtoihin (poistaminen, tarkistus)
 
