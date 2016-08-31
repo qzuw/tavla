@@ -52,35 +52,47 @@ public class HiirenKuuntelija implements MouseListener {
         if (guilg.pelaajaOnIhminen()) {
             int ruutu = selvitaRuutu(e.getX(), e.getY());
 
-            if (ruutu > -1) {
-                if (svl.getLahtoruutu() == -1) {
-                    svl.asetaLahtoruutu(ruutu);
-                } else if (!svl.eiVoiSiirtaa() && svl.pelaajaVoiSiirtaaRuutuihin().contains(ruutu)) {
-                    svl.siirraNappulaa(ruutu);
-                    terveiset.setText("Siirrettiin nappulaa.");
-                    siirrot.setText(svl.haeSiirrot().toString());
-                    if (svl.haeSiirrot().isEmpty()) {
-                        terveiset.setText("Kaikki siirrot on käytetty, vuoro vaihtuu!");
-                        svl.vaihdaVuoroa();
-                        pelaaja.setText(svl.getVuorossaOlevaPelaaja().toString());
-                        svl.heitaNopat();
-                        siirrot.setText(svl.haeSiirrot().toString());
-                    }
-                } else {
-                    svl.nollaaLahtoruutu();
-                }
-                if (svl.onkoJokuVoittanut()) {
-                    terveiset.setText("Pelaaja " + svl.kukaVoitti() + " on voittanut!");
-                } else if (svl.eiVoiSiirtaa()) {
-                    terveiset.setText("Pelaaja " + svl.getVuorossaOlevaPelaaja() + " ei voi siirtää, vuoro vaihtuu!");
-                    svl.nollaaLahtoruutu();
-                    svl.vaihdaVuoroa();
-                    pelaaja.setText(svl.getVuorossaOlevaPelaaja().toString());
-                    svl.heitaNopat();
-                    siirrot.setText(svl.haeSiirrot().toString());
-                }
-                pa.repaint();
+            toimintaKunRuutuaOnKlikattu(ruutu);
+        }
+    }
+
+    private void toimintaKunRuutuaOnKlikattu(int ruutu) {
+        if (ruutu > -1) {
+            nappulanSiirtaminen(ruutu);
+            if (svl.onkoJokuVoittanut()) {
+                terveiset.setText("Pelaaja " + svl.kukaVoitti() + " on voittanut!");
+            } else if (svl.eiVoiSiirtaa()) {
+                terveiset.setText("Pelaaja " + svl.getVuorossaOlevaPelaaja() + " ei voi siirtää, vuoro vaihtuu!");
+                svl.nollaaLahtoruutu();
+                svl.vaihdaVuoroa();
+                pelaaja.setText(svl.getVuorossaOlevaPelaaja().toString());
+                svl.heitaNopat();
+                siirrot.setText(svl.haeSiirrot().toString());
             }
+            pa.repaint();
+        }
+    }
+
+    private void nappulanSiirtaminen(int ruutu) {
+        if (svl.getLahtoruutu() == -1) {
+            svl.asetaLahtoruutu(ruutu);
+        } else if (!svl.eiVoiSiirtaa() && svl.pelaajaVoiSiirtaaRuutuihin().contains(ruutu)) {
+            svl.siirraNappulaa(ruutu);
+            terveiset.setText("Siirrettiin nappulaa.");
+            siirrot.setText(svl.haeSiirrot().toString());
+            vuoronVaihtuminen();
+        } else {
+            svl.nollaaLahtoruutu();
+        }
+    }
+
+    private void vuoronVaihtuminen() {
+        if (svl.haeSiirrot().isEmpty()) {
+            terveiset.setText("Kaikki siirrot on käytetty, vuoro vaihtuu!");
+            svl.vaihdaVuoroa();
+            pelaaja.setText(svl.getVuorossaOlevaPelaaja().toString());
+            svl.heitaNopat();
+            siirrot.setText(svl.haeSiirrot().toString());
         }
     }
 

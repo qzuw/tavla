@@ -95,6 +95,11 @@ public class GUILogiikka {
         return kysyttavaPelaaja;
     }
 
+    /**
+     * Määritellään pelaajan nimi.
+     * 
+     * @param nimi nimi pelaajalle
+     */
     public void asetaPelaajanNimi(String nimi) {
         svl.getSiirtojarjestys().get(kysyttavaPelaaja - 1).setNimi(nimi);
         svl.getSiirtojarjestys().get(kysyttavaPelaaja - 1).setIhminen(true);
@@ -104,10 +109,20 @@ public class GUILogiikka {
         tyhjennaVastaus = true;
     }
 
+    /**
+     * Tarkistetaan pitääkö vastauskenttä tyhjentää.
+     * 
+     * @return true jos vastauskenttä pitää tyhjentää
+     */
     public boolean isTyhjennaVastaus() {
         return tyhjennaVastaus;
     }
 
+    /**
+     * Asetetaan vastauskenttä tyhjennettäväksi.
+     * 
+     * @param tyhjennaVastaus true jos vastauskenttä pitää tyhjentää
+     */
     public void setTyhjennaVastaus(boolean tyhjennaVastaus) {
         this.tyhjennaVastaus = tyhjennaVastaus;
     }
@@ -130,6 +145,9 @@ public class GUILogiikka {
         this.pa = pa;
     }
 
+    /**
+     * Päivitetään piirtoalusta.
+     */
     public void piirraPiirtoalusta() {
         pa.repaint();
     }
