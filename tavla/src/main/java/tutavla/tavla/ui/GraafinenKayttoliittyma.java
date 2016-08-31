@@ -113,11 +113,6 @@ public class GraafinenKayttoliittyma implements Runnable, Kayttoliittyma {
     }
     
     private void luoPelilaudanKomponentit(Container container) {
-//
-//        JLabel hetuTeksti = new JLabel("Hetu: ");
-//        JTextField hetuKentta = new JTextField();
-//
-//        container.add(kehys)
         container.add(new Piirtoalusta(svl));
     }
     

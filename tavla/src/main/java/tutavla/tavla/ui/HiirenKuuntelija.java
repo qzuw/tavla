@@ -49,7 +49,7 @@ public class HiirenKuuntelija implements MouseListener {
     @Override
     public void mousePressed(MouseEvent e) {
 
-        if (guilg.isPelaajaOnIhminen()) {
+        if (guilg.pelaajaOnIhminen()) {
             int ruutu = selvitaRuutu(e.getX(), e.getY());
 
             if (ruutu > -1) {

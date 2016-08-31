@@ -38,27 +38,38 @@ public class KyselyKuuntelija implements ActionListener {
         this.vastausKentta = vastausKentta;
         this.guilg = guilg;
         this.kyselyikkuna = kyselyikkuna;
+        kyselyikkuna.setVisible(true);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (kysymysTeksti.getText().equals("Montako pelaajaa? (0-2)")) {
+        if (guilg.getPelaajamaara() < 0) {
             try {
                 int maara = Integer.parseInt(vastausKentta.getText());
-                if (maara == 0) {
-                    kyselyikkuna.setVisible(false);
-                } else if (maara == 1) {
-//                    Pelaaja p = svl.getVuorossaOlevaPelaaja();
-//                    p.setIhminen(true);
-                    kysymysTeksti.setText("Pelaajan nimi?");
-                    vastausKentta.setText("");
-                } else if (maara == 2) {
-                    kysymysTeksti.setText("Ensimmäisen pelaajan nimi?");
-                    vastausKentta.setText("");
+                if (maara >= 0 && maara <= 2) {
+                    guilg.setPelaajamaara(maara);
                 }
             } catch (Exception ex) {
             }
+        } else if (guilg.kysyttavanPelaajanNro() > 0) {
+            String nimi = vastausKentta.getText();
+            guilg.asetaPelaajanNimi(nimi);
+            System.out.println(guilg.getPelaajamaara() + " " + guilg.kysyttavanPelaajanNro());
+            if (guilg.getPelaajamaara() <= guilg.kysyttavanPelaajanNro() - 1) {
+                kyselyikkuna.setVisible(false);
+                guilg.piirraPiirtoalusta();
+            }
         }
+
+        if (guilg.isTyhjennaVastaus()) {
+            guilg.setTyhjennaVastaus(false);
+            vastausKentta.setText("");
+        }
+
+        if (guilg.getPelaajamaara() == 0) {
+            kyselyikkuna.setVisible(false);
+        }
+        kysymysTeksti.setText(guilg.getKyselyteksti());
     }
 
 }
