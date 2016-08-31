@@ -27,3 +27,4 @@ Päivä | Tunnit | Kuvaus
 26.08.2016 | 3 h | refaktorointia, gui
 29.08.2016 | 4 h | gui, hieman refaktorointia, logiikan hiomista
 30.08.2016 | 4 h | refaktorointia, rikkonaisten testien korjaus, bugfixing, gui-tuherrusta
+31.08.2016 | 4 h | gui, refaktorointia, lisää testejä

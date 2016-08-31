@@ -1,16 +1,16 @@
-muista kysyä pajassa html javadoc
 
 - pelaaja siirtää nappulaa, siirron oikeellisuuden tarkistus -> logiikkaan
 - (kerro syödyt nappulat ja ulos pelatut)
 - tekoäly siirtää ulos noppaa pienemmällä siirrolla vain jos ei muuta vaihtoehtoa (kierrätä tekoäly uin kautta svl?)
 
 - gui:
-  - kyselyt
+  - tekoäly pelaamaan
 
 - random testaus
-- tekoäly pelaa()
+- tekoäly pelaa() refaktorointi
 - svl refaktoroi siirtojen käsittely metodeiksi siirtoihin (poistaminen, tarkistus)
 
 - bugeja:
 
 - muokkaa gitignore sallimaan jar
+- doc
