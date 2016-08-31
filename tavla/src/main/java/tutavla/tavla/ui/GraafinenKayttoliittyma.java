@@ -61,7 +61,7 @@ public class GraafinenKayttoliittyma implements Runnable, Kayttoliittyma {
         luoKyselyikkuna(kyselyikkuna.getContentPane());
 
         kyselyikkuna.pack();
-        kyselyikkuna.setVisible(true);
+//        kyselyikkuna.setVisible(true);
     }
 
     private void luoKomponentit(Container container) {

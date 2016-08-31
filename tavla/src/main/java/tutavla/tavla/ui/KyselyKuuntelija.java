@@ -14,7 +14,8 @@ import tutavla.tavla.domain.Pelaaja;
 import tutavla.tavla.logiikka.Sovelluslogiikka;
 
 /**
- *
+ * Kyselykuuntelija kuuntelee kyselyikkunan syötettä.
+ * 
  * @author ttuotila
  */
 public class KyselyKuuntelija implements ActionListener {
@@ -24,6 +25,14 @@ public class KyselyKuuntelija implements ActionListener {
     private Sovelluslogiikka svl;
     private JFrame kyselyikkuna;
 
+    /**
+     * Konstruktori.
+     * 
+     * @param kyselyikkuna tarkkailtava ikkuna
+     * @param svl sovelluslogiikka
+     * @param kysymysTeksti ikkunan teksti
+     * @param vastausKentta käyttäjän vastaus ikkunassa
+     */
     public KyselyKuuntelija(JFrame kyselyikkuna, Sovelluslogiikka svl, JLabel kysymysTeksti, JTextField vastausKentta) {
         this.kysymysTeksti = kysymysTeksti;
         this.vastausKentta = vastausKentta;
