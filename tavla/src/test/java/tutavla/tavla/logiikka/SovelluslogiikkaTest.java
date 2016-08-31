@@ -394,4 +394,234 @@ public class SovelluslogiikkaTest {
 
         assertFalse(svl.eiVoiSiirtaa());
     }
+
+    @Test
+    public void asetaLahtoruutuPaluuarvo() {
+        Sovelluslogiikka svl = new Sovelluslogiikka();
+        svl.heitaNopat();
+
+        assertFalse(svl.asetaLahtoruutu(2));
+    }
+
+    @Test
+    public void asetaLahtoruutuPaluuarvo2() {
+        Sovelluslogiikka svl = new Sovelluslogiikka();
+        svl.heitaNopat();
+
+        assertTrue(svl.asetaLahtoruutu(6));
+    }
+
+    @Test
+    public void haeLahtoruutu() {
+        Sovelluslogiikka svl = new Sovelluslogiikka();
+        svl.heitaNopat();
+
+        svl.asetaLahtoruutu(6);
+        assertEquals(6, svl.getLahtoruutu());
+    }
+
+    @Test
+    public void nollaaLahtoruutu() {
+        Sovelluslogiikka svl = new Sovelluslogiikka();
+        svl.heitaNopat();
+
+        svl.asetaLahtoruutu(6);
+        svl.nollaaLahtoruutu();
+        assertEquals(-1, svl.getLahtoruutu());
+    }
+
+    @Test
+    public void siirrotKotialueella() {
+        Sovelluslogiikka svl = new Sovelluslogiikka();
+
+        svl.vaihdaVuoroa();
+        svl.asetaLahtoruutu(1);
+        svl.siirraNappulaa(2);
+        svl.asetaLahtoruutu(1);
+        svl.siirraNappulaa(2);
+        svl.vaihdaVuoroa();
+        svl.asetaLahtoruutu(24);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(24);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(13);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(13);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(13);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(13);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(13);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(8);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(8);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(8);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(6);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(6);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(6);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(6);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(6);
+        svl.heitaNopat();
+        assertFalse(svl.eiVoiSiirtaa());
+    }
+
+    @Test
+    public void siirrotKotialueella2() {
+        Sovelluslogiikka svl = new Sovelluslogiikka();
+
+        svl.vaihdaVuoroa();
+        svl.asetaLahtoruutu(1);
+        svl.siirraNappulaa(2);
+        svl.asetaLahtoruutu(1);
+        svl.siirraNappulaa(2);
+        svl.vaihdaVuoroa();
+        svl.asetaLahtoruutu(24);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(24);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(13);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(13);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(13);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(13);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(13);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(8);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(8);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(8);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(6);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(6);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(6);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(6);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(6);
+        svl.siirraNappulaa(1);
+        svl.heitaNopat();
+        svl.asetaLahtoruutu(1);
+        svl.siirraNappulaa(0);
+
+        assertTrue((svl.haeSiirrot().size() == 1 || svl.haeSiirrot().size() == 3));
+    }
+
+    @Test
+    public void aloitusvarit() {
+        Sovelluslogiikka svl = new Sovelluslogiikka();
+
+        assertTrue(svl.getSiirtojarjestys().get(0).isMusta());
+    }
+
+    @Test
+    public void aloitusvarit2() {
+        Sovelluslogiikka svl = new Sovelluslogiikka();
+
+        assertFalse(svl.getSiirtojarjestys().get(1).isMusta());
+    }
+
+    @Test
+    public void voikoSiirtaa() {
+        Sovelluslogiikka svl = new Sovelluslogiikka();
+        Pelaaja p = svl.getVuorossaOlevaPelaaja();
+
+        svl.vaihdaVuoroa();
+        svl.asetaLahtoruutu(1);
+        svl.siirraNappulaa(7);
+        svl.siirraNappulaa(7);
+
+        svl.vaihdaVuoroa();
+        svl.asetaLahtoruutu(24);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(24);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(13);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(13);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(13);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(13);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(13);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(8);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(8);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(8);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(6);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(6);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(6);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(6);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(6);
+        svl.siirraNappulaa(0);
+        svl.heitaNopat();
+        p.setMaali(25);
+        assertFalse(svl.eiVoiSiirtaa());
+    }
+
+    @Test
+    public void voikoSiirtaa2() {
+        Sovelluslogiikka svl = new Sovelluslogiikka();
+        Pelaaja p = svl.getVuorossaOlevaPelaaja();
+
+        svl.vaihdaVuoroa();
+        svl.asetaLahtoruutu(1);
+        svl.siirraNappulaa(7);
+        svl.siirraNappulaa(7);
+
+        svl.vaihdaVuoroa();
+        svl.asetaLahtoruutu(24);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(24);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(13);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(13);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(13);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(13);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(13);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(8);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(8);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(8);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(6);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(6);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(6);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(6);
+        svl.siirraNappulaa(0);
+        svl.asetaLahtoruutu(6);
+        svl.siirraNappulaa(0);
+        svl.heitaNopat();
+        assertTrue(svl.eiVoiSiirtaa());
+    }
 }

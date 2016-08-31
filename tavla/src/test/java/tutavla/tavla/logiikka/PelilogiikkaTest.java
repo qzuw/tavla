@@ -179,9 +179,9 @@ public class PelilogiikkaTest {
         assertFalse(plk.onkoPelaajaVoittanut(toinen));
         assertTrue(plk.onkoPelaajaVoittanut(pelaaja));
     }
-    
+
     @Test
-    public void nappulatKotialueella(){
+    public void nappulatKotialueella() {
         Pelaaja pelaaja = new Pelaaja();
         Pelaaja toinen = new Pelaaja();
         Pelilogiikka plk = new Pelilogiikka();
@@ -203,4 +203,62 @@ public class PelilogiikkaTest {
         plk.siirraNappulaa(pelaaja, 8, 6);
         assertTrue(plk.nappulatKotialueella(pelaaja));
     }
+
+    @Test
+    public void nappulatKotialueella2() {
+        Pelaaja pelaaja = new Pelaaja();
+        Pelaaja toinen = new Pelaaja();
+        Pelilogiikka plk = new Pelilogiikka();
+        plk.alustaPelitilanne(pelaaja, toinen);
+        pelaaja.setMaali(0);
+
+        plk.siirraNappulaa(pelaaja, 24, 2);
+        plk.siirraNappulaa(pelaaja, 24, 2);
+        plk.siirraNappulaa(toinen, 1, 24);
+        plk.siirraNappulaa(toinen, 1, 24);
+        plk.siirraNappulaa(toinen, 17, 24);
+        plk.siirraNappulaa(toinen, 17, 24);
+        plk.siirraNappulaa(toinen, 17, 24);
+        plk.siirraNappulaa(toinen, 12, 25);
+        plk.siirraNappulaa(toinen, 12, 24);
+        plk.siirraNappulaa(toinen, 12, 24);
+        plk.siirraNappulaa(toinen, 12, 24);
+        assertFalse(plk.nappulatKotialueella(toinen));
+        plk.siirraNappulaa(toinen, 12, 22);
+        assertTrue(plk.nappulatKotialueella(toinen));
+    }
+    @Test
+    public void syominenLaudallePalatessa() {
+        Pelaaja pelaaja = new Pelaaja();
+        Pelaaja toinen = new Pelaaja();
+        Pelilogiikka plk = new Pelilogiikka();
+        plk.alustaPelitilanne(pelaaja, toinen);
+
+        plk.siirraNappulaa(toinen, 1, 2);
+        plk.siirraNappulaa(pelaaja, 24, 23);
+        plk.siirraNappulaa(pelaaja, 6, 2);
+        plk.siirraNappulaa(toinen, 0, 2);
+
+        assertEquals(1, plk.pelaajanNappulaMaara(25, pelaaja));
+    }
+
+    @Test
+    public void syominenLaudallePalatessa2() {
+        Pelaaja pelaaja = new Pelaaja();
+        Pelaaja toinen = new Pelaaja();
+        Pelilogiikka plk = new Pelilogiikka();
+        plk.alustaPelitilanne(pelaaja, toinen);
+
+        plk.siirraNappulaa(toinen, 1, 2);
+        plk.siirraNappulaa(toinen, 19, 20);
+        plk.siirraNappulaa(toinen, 19, 21);
+        plk.siirraNappulaa(toinen, 19, 22);
+        plk.siirraNappulaa(pelaaja, 24, 23);
+        plk.siirraNappulaa(pelaaja, 6, 2);
+        plk.siirraNappulaa(toinen, 0, 2);
+        plk.siirraNappulaa(pelaaja, 25, 22);
+
+        assertEquals(1, plk.pelaajanNappulaMaara(0, toinen));
+    }
+
 }

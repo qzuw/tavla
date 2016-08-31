@@ -246,26 +246,66 @@ public class LautaTest {
 
         assertEquals(1, lauta.ulosPelattujaNappuloitaRuudussa(0));
     }
-    
+
     @Test
-    public void ulkonaMustiaNappuloita(){
+    public void ulkonaMustiaNappuloita() {
         Lauta l = new Lauta();
         Pelaaja p = new Pelaaja();
         l.asetaNappula(new Nappula(p), 0);
         p.setMaali(0);
         p.setMusta(true);
-        
+
         assertEquals(true, l.ulosPelatutNappulatMustia(0));
     }
 
     @Test
-    public void ulkonaMustiaNappuloita2(){
+    public void ulkonaMustiaNappuloita2() {
         Lauta l = new Lauta();
         Pelaaja p = new Pelaaja();
         l.asetaNappula(new Nappula(p), 25);
         p.setMaali(25);
         p.setMusta(false);
-        
+
         assertEquals(false, l.ulosPelatutNappulatMustia(25));
+    }
+
+    @Test
+    public void syodytNappulatMustia() {
+        Lauta l = new Lauta();
+        Pelaaja p = new Pelaaja();
+        l.asetaNappula(new Nappula(p), 25);
+        p.setMaali(0);
+        p.setMusta(false);
+
+        assertFalse(l.syodytNappulatMustia(25));
+    }
+
+    @Test
+    public void syodytNappulatMustia2() {
+        Lauta l = new Lauta();
+        Pelaaja p = new Pelaaja();
+        l.asetaNappula(new Nappula(p), 25);
+        p.setMaali(0);
+        p.setMusta(true);
+
+        assertTrue(l.syodytNappulatMustia(25));
+    }
+
+    @Test
+    public void syodytNappulatMustia3() {
+        Lauta l = new Lauta();
+        Pelaaja p = new Pelaaja();
+        l.asetaNappula(new Nappula(p), 0);
+        p.setMaali(25);
+        p.setMusta(true);
+
+        assertTrue(l.syodytNappulatMustia(0));
+    }
+
+    @Test
+    public void syodytNappulatMustia4() {
+        Lauta l = new Lauta();
+
+        assertFalse(l.syodytNappulatMustia(0));
     }
 }
