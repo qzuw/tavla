@@ -104,9 +104,9 @@ public class GUILogiikka {
         svl.getSiirtojarjestys().get(kysyttavaPelaaja - 1).setNimi(nimi);
         svl.getSiirtojarjestys().get(kysyttavaPelaaja - 1).setIhminen(true);
         kysyttavaPelaaja++;
-        System.out.println("kys pel" + this.kysyttavaPelaaja);
         kyselyteksti = "Pelaajan " + kysyttavaPelaaja + " nimi?";
         tyhjennaVastaus = true;
+        this.pelaajaOnIhminen = true;
     }
 
     /**

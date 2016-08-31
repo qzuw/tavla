@@ -54,7 +54,6 @@ public class KyselyKuuntelija implements ActionListener {
         } else if (guilg.kysyttavanPelaajanNro() > 0) {
             String nimi = vastausKentta.getText();
             guilg.asetaPelaajanNimi(nimi);
-            System.out.println(guilg.getPelaajamaara() + " " + guilg.kysyttavanPelaajanNro());
             if (guilg.getPelaajamaara() <= guilg.kysyttavanPelaajanNro() - 1) {
                 kyselyikkuna.setVisible(false);
                 guilg.piirraPiirtoalusta();
