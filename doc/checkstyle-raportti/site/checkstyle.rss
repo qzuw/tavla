@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
     <item>
-      <title>File: 16,
-             Errors: 3,
+      <title>File: 19,
+             Errors: 2,
              Warnings: 0,
              Infos: 0
       </title>
@@ -209,7 +209,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  1
+                  0
                 </td>
               </tr>
                           <tr>
@@ -229,6 +229,48 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#tutavla.tavla.domain.Pelaaja.java">tutavla/tavla/domain/Pelaaja.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.logiikka.RandomTekoaly.java">tutavla/tavla/logiikka/RandomTekoaly.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.ui.KyselyKuuntelija.java">tutavla/tavla/ui/KyselyKuuntelija.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.ui.GUILogiikka.java">tutavla/tavla/ui/GUILogiikka.java</a>
                 </td>
                 <td>
                   0
