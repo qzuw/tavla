@@ -18,6 +18,7 @@ import tutavla.tavla.logiikka.Sovelluslogiikka;
 public class HiirenKuuntelija implements MouseListener {
 
     Sovelluslogiikka svl;
+    GUILogiikka guilg;
     Piirtoalusta pa;
     JLabel siirrot;
     JLabel pelaaja;
@@ -26,15 +27,16 @@ public class HiirenKuuntelija implements MouseListener {
     /**
      * Luodaan Hiirenkuuntelija.
      *
-     * @param svl Sovelluslogiikka
+     * @param guilg GUILogiikka
      * @param pa Piirtoalusta
      * @param siirrot JLabel jossa kerrotaan siirrot
      * @param pelaaja JLabel jossa näytetään pelaajan nimi
      * @param terveiset JLabel palautteen antamiseen pelaajalla
      */
-    public HiirenKuuntelija(Sovelluslogiikka svl, Piirtoalusta pa, JLabel siirrot, JLabel pelaaja, JLabel terveiset) {
+    public HiirenKuuntelija(GUILogiikka guilg, Piirtoalusta pa, JLabel siirrot, JLabel pelaaja, JLabel terveiset) {
         this.pa = pa;
-        this.svl = svl;
+        this.svl = guilg.getSovelluslogiikka();
+        this.guilg = guilg;
         this.siirrot = siirrot;
         this.pelaaja = pelaaja;
         this.terveiset = terveiset;
@@ -47,36 +49,38 @@ public class HiirenKuuntelija implements MouseListener {
     @Override
     public void mousePressed(MouseEvent e) {
 
-        int ruutu = selvitaRuutu(e.getX(), e.getY());
+        if (guilg.isPelaajaOnIhminen()) {
+            int ruutu = selvitaRuutu(e.getX(), e.getY());
 
-        if (ruutu > -1) {
-            if (svl.getLahtoruutu() == -1) {
-                svl.asetaLahtoruutu(ruutu);
-            } else if (!svl.eiVoiSiirtaa() && svl.pelaajaVoiSiirtaaRuutuihin().contains(ruutu)) {
-                svl.siirraNappulaa(ruutu);
-                terveiset.setText("Siirrettiin nappulaa.");
-                siirrot.setText(svl.haeSiirrot().toString());
-                if (svl.haeSiirrot().isEmpty()) {
-                    terveiset.setText("Kaikki siirrot on käytetty, vuoro vaihtuu!");
+            if (ruutu > -1) {
+                if (svl.getLahtoruutu() == -1) {
+                    svl.asetaLahtoruutu(ruutu);
+                } else if (!svl.eiVoiSiirtaa() && svl.pelaajaVoiSiirtaaRuutuihin().contains(ruutu)) {
+                    svl.siirraNappulaa(ruutu);
+                    terveiset.setText("Siirrettiin nappulaa.");
+                    siirrot.setText(svl.haeSiirrot().toString());
+                    if (svl.haeSiirrot().isEmpty()) {
+                        terveiset.setText("Kaikki siirrot on käytetty, vuoro vaihtuu!");
+                        svl.vaihdaVuoroa();
+                        pelaaja.setText(svl.getVuorossaOlevaPelaaja().toString());
+                        svl.heitaNopat();
+                        siirrot.setText(svl.haeSiirrot().toString());
+                    }
+                } else {
+                    svl.nollaaLahtoruutu();
+                }
+                if (svl.onkoJokuVoittanut()) {
+                    terveiset.setText("Pelaaja " + svl.kukaVoitti() + " on voittanut!");
+                } else if (svl.eiVoiSiirtaa()) {
+                    terveiset.setText("Pelaaja " + svl.getVuorossaOlevaPelaaja() + " ei voi siirtää, vuoro vaihtuu!");
+                    svl.nollaaLahtoruutu();
                     svl.vaihdaVuoroa();
                     pelaaja.setText(svl.getVuorossaOlevaPelaaja().toString());
                     svl.heitaNopat();
                     siirrot.setText(svl.haeSiirrot().toString());
                 }
-            } else {
-                svl.nollaaLahtoruutu();
+                pa.repaint();
             }
-            if (svl.onkoJokuVoittanut()) {
-                terveiset.setText("Pelaaja " + svl.kukaVoitti() + " on voittanut!");
-            } else if (svl.eiVoiSiirtaa()) {
-                terveiset.setText("Pelaaja " + svl.getVuorossaOlevaPelaaja() + " ei voi siirtää, vuoro vaihtuu!");
-                svl.nollaaLahtoruutu();
-                svl.vaihdaVuoroa();
-                pelaaja.setText(svl.getVuorossaOlevaPelaaja().toString());
-                svl.heitaNopat();
-                siirrot.setText(svl.haeSiirrot().toString());
-            }
-            pa.repaint();
         }
     }
 

@@ -15,28 +15,28 @@ import tutavla.tavla.logiikka.Sovelluslogiikka;
 
 /**
  * Kyselykuuntelija kuuntelee kyselyikkunan syötettä.
- * 
+ *
  * @author ttuotila
  */
 public class KyselyKuuntelija implements ActionListener {
 
     private JLabel kysymysTeksti;
     private JTextField vastausKentta;
-    private Sovelluslogiikka svl;
+    private GUILogiikka guilg;
     private JFrame kyselyikkuna;
 
     /**
      * Konstruktori.
-     * 
+     *
      * @param kyselyikkuna tarkkailtava ikkuna
-     * @param svl sovelluslogiikka
+     * @param guilg GUILogiikka
      * @param kysymysTeksti ikkunan teksti
      * @param vastausKentta käyttäjän vastaus ikkunassa
      */
-    public KyselyKuuntelija(JFrame kyselyikkuna, Sovelluslogiikka svl, JLabel kysymysTeksti, JTextField vastausKentta) {
+    public KyselyKuuntelija(JFrame kyselyikkuna, GUILogiikka guilg, JLabel kysymysTeksti, JTextField vastausKentta) {
         this.kysymysTeksti = kysymysTeksti;
         this.vastausKentta = vastausKentta;
-        this.svl = svl;
+        this.guilg = guilg;
         this.kyselyikkuna = kyselyikkuna;
     }
 
@@ -48,8 +48,8 @@ public class KyselyKuuntelija implements ActionListener {
                 if (maara == 0) {
                     kyselyikkuna.setVisible(false);
                 } else if (maara == 1) {
-                    Pelaaja p = svl.getVuorossaOlevaPelaaja();
-                    p.setIhminen(true);
+//                    Pelaaja p = svl.getVuorossaOlevaPelaaja();
+//                    p.setIhminen(true);
                     kysymysTeksti.setText("Pelaajan nimi?");
                     vastausKentta.setText("");
                 } else if (maara == 2) {
