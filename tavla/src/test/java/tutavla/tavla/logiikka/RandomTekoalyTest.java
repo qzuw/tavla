@@ -364,7 +364,6 @@ public class RandomTekoalyTest {
         svl.asetaSiirrot(st);
 
         Siirto s = svl.pelaaTietokone();
-//        Siirto s = t.pelaa(p1, plk, st);
 
         assertEquals(0, s.haeMaali());
         assertEquals(1, plk.ruudunNappulaMaara(0));
@@ -374,10 +373,111 @@ public class RandomTekoalyTest {
         svl.asetaSiirrot(st);
 
         s = svl.pelaaTietokone();
-//        s = t.pelaa(p1, plk, st);
 
         assertEquals(0, s.haeMaali());
         assertEquals(2, plk.ruudunNappulaMaara(0));
 
+    }
+
+    @Test
+    public void kotialueeltaUlosSiirtaminen2() {
+        Sovelluslogiikka svl = new Sovelluslogiikka();
+        Pelilogiikka plk = svl.haePelilogiikka();
+        ArrayList<Integer> st = new ArrayList<>();
+        svl.heitaNopat();
+
+        Pelaaja p1 = svl.haeSiirtojarjestys().get(0);
+        Pelaaja p2 = svl.haeSiirtojarjestys().get(1);
+        p1.asetaMustaksi(true);
+        p2.asetaMustaksi(false);
+
+        plk.siirraNappulaa(p2, 12, 2);
+        plk.siirraNappulaa(p2, 12, 2);
+        plk.siirraNappulaa(p2, 12, 3);
+        plk.siirraNappulaa(p2, 12, 3);
+        plk.siirraNappulaa(p2, 12, 4);
+        plk.siirraNappulaa(p2, 17, 4);
+        plk.siirraNappulaa(p2, 17, 5);
+        plk.siirraNappulaa(p2, 17, 5);
+        plk.siirraNappulaa(p1, 8, 6);
+        plk.siirraNappulaa(p1, 8, 6);
+        plk.siirraNappulaa(p1, 8, 6);
+        plk.siirraNappulaa(p1, 13, 6);
+        plk.siirraNappulaa(p1, 13, 6);
+        plk.siirraNappulaa(p1, 13, 6);
+        plk.siirraNappulaa(p1, 13, 6);
+        plk.siirraNappulaa(p1, 13, 6);
+        plk.siirraNappulaa(p1, 24, 6);
+        plk.siirraNappulaa(p1, 24, 6);
+
+        st.add(1);
+        svl.asetaSiirrot(st);
+
+        Siirto s = svl.pelaaTietokone();
+
+        assertTrue(s.eiVoiSiirtaa());
+
+        st.clear();
+        st.add(5);
+        svl.asetaSiirrot(st);
+
+        s = svl.pelaaTietokone();
+
+        assertTrue(s.eiVoiSiirtaa());
+
+        st.clear();
+        st.add(6);
+        svl.asetaSiirrot(st);
+
+        s = svl.pelaaTietokone();
+
+        assertFalse(s.eiVoiSiirtaa());
+        assertEquals(0, s.haeMaali());
+    }
+
+    @Test
+    public void kotialueeltaUlosSiirtaminen3() {
+        Sovelluslogiikka svl = new Sovelluslogiikka();
+        Pelilogiikka plk = svl.haePelilogiikka();
+        ArrayList<Integer> st = new ArrayList<>();
+        svl.heitaNopat();
+
+        Pelaaja p1 = svl.haeSiirtojarjestys().get(0);
+        Pelaaja p2 = svl.haeSiirtojarjestys().get(1);
+        p1.asetaMustaksi(true);
+        p2.asetaMustaksi(false);
+
+        plk.siirraNappulaa(p2, 12, 2);
+        plk.siirraNappulaa(p2, 12, 2);
+        plk.siirraNappulaa(p2, 12, 3);
+        plk.siirraNappulaa(p2, 12, 3);
+        plk.siirraNappulaa(p2, 12, 4);
+        plk.siirraNappulaa(p2, 17, 4);
+        plk.siirraNappulaa(p2, 17, 6);
+        plk.siirraNappulaa(p2, 17, 6);
+        plk.siirraNappulaa(p1, 6, 5);
+        plk.siirraNappulaa(p1, 6, 5);
+        plk.siirraNappulaa(p1, 6, 5);
+        plk.siirraNappulaa(p1, 6, 5);
+        plk.siirraNappulaa(p1, 6, 5);
+        plk.siirraNappulaa(p1, 8, 5);
+        plk.siirraNappulaa(p1, 8, 5);
+        plk.siirraNappulaa(p1, 8, 5);
+        plk.siirraNappulaa(p1, 13, 5);
+        plk.siirraNappulaa(p1, 13, 5);
+        plk.siirraNappulaa(p1, 13, 5);
+        plk.siirraNappulaa(p1, 13, 5);
+        plk.siirraNappulaa(p1, 13, 5);
+        plk.siirraNappulaa(p1, 24, 5);
+        plk.siirraNappulaa(p1, 24, 5);
+
+        st.clear();
+        st.add(6);
+        svl.asetaSiirrot(st);
+
+        Siirto s = svl.pelaaTietokone();
+
+        assertFalse(s.eiVoiSiirtaa());
+        assertEquals(0, s.haeMaali());
     }
 }
