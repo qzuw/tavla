@@ -175,6 +175,8 @@ public class Sovelluslogiikka {
         Siirto siirto = new Siirto(0, 0, false, false);
         if (!this.eiVoiSiirtaa()) {
             siirto = tekoaly.pelaa(tietokone, pelilogiikka, siirrot.haeSiirrot());
+            this.asetaLahtoruutu(siirto.getLahto());
+            this.siirraNappulaa(siirto.getMaali());
         } else {
             siirto = new Siirto(0, 0, false, true);
         }

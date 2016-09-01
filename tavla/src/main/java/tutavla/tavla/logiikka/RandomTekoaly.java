@@ -68,9 +68,9 @@ public class RandomTekoaly implements Tekoaly {
                 Integer siirto = Math.abs(kohderuutu - lahtoruutu);
                 if (siirrot.contains(siirto) && kohderuutu != tietokone.getMaali()) {
                     syoVastustajanNappula = syodaankoTassaVastustajanNappula(kohderuutu, tietokone, plk, syoVastustajanNappula);
-                    plk.siirraNappulaa(tietokone, lahtoruutu, kohderuutu);
+//                    plk.siirraNappulaa(tietokone, lahtoruutu, kohderuutu);
                     siirtoOnnistui = true;
-                    siirrot.remove(siirto);
+//                    siirrot.remove(siirto);
                     break;
                 } else if (plk.nappulatKotialueella(tietokone)) {
                     Integer poistettava = -1;
@@ -78,7 +78,7 @@ public class RandomTekoaly implements Tekoaly {
                     if (poistettava >= 0) {
                         syoVastustajanNappula = syodaankoTassaVastustajanNappula(kohderuutu, tietokone, plk, syoVastustajanNappula);
                         siirtoOnnistui = true;
-                        siirrot.remove((int) poistettava);
+//                        siirrot.remove((int) poistettava);
                         break;
                     }
                 }
@@ -109,7 +109,7 @@ public class RandomTekoaly implements Tekoaly {
         Integer poistettava = -1;
         for (Integer s : siirrot) {
             if (s >= siirto) {
-                plk.siirraNappulaa(tietokone, lahtoruutu, kohderuutu);
+//                plk.siirraNappulaa(tietokone, lahtoruutu, kohderuutu);
                 poistettava = siirrot.indexOf(s);
                 break;
             }

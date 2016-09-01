@@ -332,16 +332,15 @@ public class RandomTekoalyTest {
     @Test
     public void kotialueeltaUlosSiirtaminen() {
         Random r = new Random();
-        RandomTekoaly t = new RandomTekoaly(r);
-        Pelilogiikka plk = new Pelilogiikka();
+        Sovelluslogiikka svl = new Sovelluslogiikka();
+        Pelilogiikka plk = svl.getPelilogiikka();
         ArrayList<Integer> st = new ArrayList<>();
+        svl.heitaNopat();
 
-        Pelaaja p1 = new Pelaaja();
-        Pelaaja p2 = new Pelaaja();
+        Pelaaja p1 = svl.getSiirtojarjestys().get(0);
+        Pelaaja p2 = svl.getSiirtojarjestys().get(1);
         p1.setMusta(true);
         p2.setMusta(false);
-
-        plk.alustaPelitilanne(p1, p2);
 
         plk.siirraNappulaa(p2, 1, 11);
         plk.siirraNappulaa(p2, 1, 11);
@@ -362,18 +361,23 @@ public class RandomTekoalyTest {
         plk.siirraNappulaa(p1, 24, 1);
 
         st.add(1);
+        svl.asetaSiirrot(st);
 
-        Siirto s = t.pelaa(p1, plk, st);
+        Siirto s = svl.pelaaTietokone();
+//        Siirto s = t.pelaa(p1, plk, st);
 
-        assertEquals(s.getMaali(), 0);
-        assertEquals(plk.ruudunNappulaMaara(0), 1);
+        assertEquals(0, s.getMaali());
+        assertEquals(1, plk.ruudunNappulaMaara(0));
 
+        st.clear();
         st.add(2);
+        svl.asetaSiirrot(st);
 
-        s = t.pelaa(p1, plk, st);
+        s = svl.pelaaTietokone();
+//        s = t.pelaa(p1, plk, st);
 
-        assertEquals(s.getMaali(), 0);
-        assertEquals(plk.ruudunNappulaMaara(0), 2);
+        assertEquals(0, s.getMaali());
+        assertEquals(2, plk.ruudunNappulaMaara(0));
 
     }
 }
