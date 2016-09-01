@@ -61,7 +61,7 @@
 <a class="jxr_linenumber" name="L53" href="#L53">53</a>          <strong class="jxr_keyword">if</strong> (!(ruudut.get(ruutu).nappuloidenMaara() &gt; 0)) {
 <a class="jxr_linenumber" name="L54" href="#L54">54</a>              <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L55" href="#L55">55</a>          }
-<a class="jxr_linenumber" name="L56" href="#L56">56</a>          <strong class="jxr_keyword">return</strong> ruudut.get(ruutu).nappulat.get(0).getPelaaja().isMusta();
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>          <strong class="jxr_keyword">return</strong> ruudut.get(ruutu).nappulat.get(0).haePelaaja().onkoMusta();
 <a class="jxr_linenumber" name="L57" href="#L57">57</a>      }
 <a class="jxr_linenumber" name="L58" href="#L58">58</a>  
 <a class="jxr_linenumber" name="L59" href="#L59">59</a>      <em class="jxr_javadoccomment">/**</em>
@@ -95,7 +95,7 @@
 <a class="jxr_linenumber" name="L87" href="#L87">87</a>          List&lt;Nappula&gt; nappulat = ruudut.get(ruutu).nappulat;
 <a class="jxr_linenumber" name="L88" href="#L88">88</a>          <strong class="jxr_keyword">int</strong> maara = 0;
 <a class="jxr_linenumber" name="L89" href="#L89">89</a>          <strong class="jxr_keyword">for</strong> (Nappula nappula : nappulat) {
-<a class="jxr_linenumber" name="L90" href="#L90">90</a>              <strong class="jxr_keyword">if</strong> (Math.abs(nappula.getPelaaja().getMaali() - 25) == ruutu) {
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>              <strong class="jxr_keyword">if</strong> (Math.abs(nappula.haePelaaja().haeMaali() - 25) == ruutu) {
 <a class="jxr_linenumber" name="L91" href="#L91">91</a>                  maara++;
 <a class="jxr_linenumber" name="L92" href="#L92">92</a>              }
 <a class="jxr_linenumber" name="L93" href="#L93">93</a>          }
@@ -111,8 +111,8 @@
 <a class="jxr_linenumber" name="L103" href="#L103">103</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> syodytNappulatMustia(<strong class="jxr_keyword">int</strong> ruutu) {
 <a class="jxr_linenumber" name="L104" href="#L104">104</a>         List&lt;Nappula&gt; nappulat = ruudut.get(ruutu).nappulat;
 <a class="jxr_linenumber" name="L105" href="#L105">105</a>         <strong class="jxr_keyword">for</strong> (Nappula nappula : nappulat) {
-<a class="jxr_linenumber" name="L106" href="#L106">106</a>             <strong class="jxr_keyword">if</strong> (Math.abs(nappula.getPelaaja().getMaali() - 25) == ruutu) {
-<a class="jxr_linenumber" name="L107" href="#L107">107</a>                 <strong class="jxr_keyword">if</strong> (nappula.getPelaaja().isMusta()) {
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>             <strong class="jxr_keyword">if</strong> (Math.abs(nappula.haePelaaja().haeMaali() - 25) == ruutu) {
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>                 <strong class="jxr_keyword">if</strong> (nappula.haePelaaja().onkoMusta()) {
 <a class="jxr_linenumber" name="L108" href="#L108">108</a>                     <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L109" href="#L109">109</a>                 } <strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="L110" href="#L110">110</a>                     <strong class="jxr_keyword">return</strong> false;
@@ -132,7 +132,7 @@
 <a class="jxr_linenumber" name="L124" href="#L124">124</a>         List&lt;Nappula&gt; nappulat = ruudut.get(ruutu).nappulat;
 <a class="jxr_linenumber" name="L125" href="#L125">125</a>         <strong class="jxr_keyword">int</strong> maara = 0;
 <a class="jxr_linenumber" name="L126" href="#L126">126</a>         <strong class="jxr_keyword">for</strong> (Nappula nappula : nappulat) {
-<a class="jxr_linenumber" name="L127" href="#L127">127</a>             <strong class="jxr_keyword">if</strong> (nappula.getPelaaja().getMaali() == ruutu) {
+<a class="jxr_linenumber" name="L127" href="#L127">127</a>             <strong class="jxr_keyword">if</strong> (nappula.haePelaaja().haeMaali() == ruutu) {
 <a class="jxr_linenumber" name="L128" href="#L128">128</a>                 maara++;
 <a class="jxr_linenumber" name="L129" href="#L129">129</a>             }
 <a class="jxr_linenumber" name="L130" href="#L130">130</a>         }
@@ -148,8 +148,8 @@
 <a class="jxr_linenumber" name="L140" href="#L140">140</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> ulosPelatutNappulatMustia(<strong class="jxr_keyword">int</strong> ruutu) {
 <a class="jxr_linenumber" name="L141" href="#L141">141</a>         List&lt;Nappula&gt; nappulat = ruudut.get(ruutu).nappulat;
 <a class="jxr_linenumber" name="L142" href="#L142">142</a>         <strong class="jxr_keyword">for</strong> (Nappula nappula : nappulat) {
-<a class="jxr_linenumber" name="L143" href="#L143">143</a>             <strong class="jxr_keyword">if</strong> (nappula.getPelaaja().getMaali() == ruutu) {
-<a class="jxr_linenumber" name="L144" href="#L144">144</a>                 <strong class="jxr_keyword">if</strong> (nappula.getPelaaja().isMusta()) {
+<a class="jxr_linenumber" name="L143" href="#L143">143</a>             <strong class="jxr_keyword">if</strong> (nappula.haePelaaja().haeMaali() == ruutu) {
+<a class="jxr_linenumber" name="L144" href="#L144">144</a>                 <strong class="jxr_keyword">if</strong> (nappula.haePelaaja().onkoMusta()) {
 <a class="jxr_linenumber" name="L145" href="#L145">145</a>                     <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L146" href="#L146">146</a>                 } <strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="L147" href="#L147">147</a>                     <strong class="jxr_keyword">return</strong> false;

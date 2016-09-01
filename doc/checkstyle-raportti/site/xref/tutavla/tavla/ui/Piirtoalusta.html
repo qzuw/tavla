@@ -28,17 +28,17 @@
 <a class="jxr_linenumber" name="L20" href="#L20">20</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../tutavla/tavla/ui/Piirtoalusta.html">Piirtoalusta</a> <strong class="jxr_keyword">extends</strong> JPanel {
 <a class="jxr_linenumber" name="L21" href="#L21">21</a>  
 <a class="jxr_linenumber" name="L22" href="#L22">22</a>      <a href="../../../tutavla/tavla/domain/Lauta.html">Lauta</a> lauta;
-<a class="jxr_linenumber" name="L23" href="#L23">23</a>      <a href="../../../tutavla/tavla/logiikka/Sovelluslogiikka.html">Sovelluslogiikka</a> svl;
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>      <a href="../../../tutavla/tavla/logiikka/Sovelluslogiikka.html">Sovelluslogiikka</a> sovelluslogiikka;
 <a class="jxr_linenumber" name="L24" href="#L24">24</a>  
 <a class="jxr_linenumber" name="L25" href="#L25">25</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_javadoccomment">     * Luodaan piirtoalusta.</em>
 <a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_javadoccomment">     * @param svl pelin Sovelluslogiikka</em>
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_javadoccomment">     * @param sovelluslogiikka pelin Sovelluslogiikka</em>
 <a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L30" href="#L30">30</a>      <strong class="jxr_keyword">public</strong> <a href="../../../tutavla/tavla/ui/Piirtoalusta.html">Piirtoalusta</a>(<a href="../../../tutavla/tavla/logiikka/Sovelluslogiikka.html">Sovelluslogiikka</a> svl) {
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>      <strong class="jxr_keyword">public</strong> <a href="../../../tutavla/tavla/ui/Piirtoalusta.html">Piirtoalusta</a>(<a href="../../../tutavla/tavla/logiikka/Sovelluslogiikka.html">Sovelluslogiikka</a> sovelluslogiikka) {
 <a class="jxr_linenumber" name="L31" href="#L31">31</a>          <strong class="jxr_keyword">super</strong>.setBackground(Color.WHITE);
-<a class="jxr_linenumber" name="L32" href="#L32">32</a>          <strong class="jxr_keyword">this</strong>.lauta = svl.pelitilanne();
-<a class="jxr_linenumber" name="L33" href="#L33">33</a>          <strong class="jxr_keyword">this</strong>.svl = svl;
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>          <strong class="jxr_keyword">this</strong>.lauta = sovelluslogiikka.pelitilanne();
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>          <strong class="jxr_keyword">this</strong>.sovelluslogiikka = sovelluslogiikka;
 <a class="jxr_linenumber" name="L34" href="#L34">34</a>      }
 <a class="jxr_linenumber" name="L35" href="#L35">35</a>  
 <a class="jxr_linenumber" name="L36" href="#L36">36</a>      @Override
@@ -88,7 +88,7 @@
 <a class="jxr_linenumber" name="L80" href="#L80">80</a>                  } <strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="L81" href="#L81">81</a>                      piirraValkoinenNappula(grafiikka, 195, (y - suunta * i * 30));
 <a class="jxr_linenumber" name="L82" href="#L82">82</a>                  }
-<a class="jxr_linenumber" name="L83" href="#L83">83</a>                  <strong class="jxr_keyword">if</strong> (svl.getLahtoruutu() == ruutu &amp;&amp; i + 1 == lauta.syotyjaNappuloitaRuudussa(ruutu)) {
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>                  <strong class="jxr_keyword">if</strong> (sovelluslogiikka.haeLahtoruutu() == ruutu &amp;&amp; i + 1 == lauta.syotyjaNappuloitaRuudussa(ruutu)) {
 <a class="jxr_linenumber" name="L84" href="#L84">84</a>                      ympyroiNappula(grafiikka, 193, ((y + suunta * 2 - 2 - suunta * 2) - suunta * i * 30));
 <a class="jxr_linenumber" name="L85" href="#L85">85</a>                  }
 <a class="jxr_linenumber" name="L86" href="#L86">86</a>              }
@@ -111,7 +111,7 @@
 <a class="jxr_linenumber" name="L103" href="#L103">103</a>                         } <strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="L104" href="#L104">104</a>                             piirraValkoinenNappula(grafiikka, (375 - i * 30), (y - j * 30));
 <a class="jxr_linenumber" name="L105" href="#L105">105</a>                         }
-<a class="jxr_linenumber" name="L106" href="#L106">106</a>                         <strong class="jxr_keyword">if</strong> (svl.getLahtoruutu() == i &amp;&amp; j + 1 == lauta.nappuloitaRuudussa(i)) {
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>                         <strong class="jxr_keyword">if</strong> (sovelluslogiikka.haeLahtoruutu() == i &amp;&amp; j + 1 == lauta.nappuloitaRuudussa(i)) {
 <a class="jxr_linenumber" name="L107" href="#L107">107</a>                             ympyroiNappula(grafiikka, (373 - i * 30), ((y - 2) - j * 30));
 <a class="jxr_linenumber" name="L108" href="#L108">108</a>                         }
 <a class="jxr_linenumber" name="L109" href="#L109">109</a>                     } <strong class="jxr_keyword">else</strong> {
@@ -120,7 +120,7 @@
 <a class="jxr_linenumber" name="L112" href="#L112">112</a>                         } <strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="L113" href="#L113">113</a>                             piirraValkoinenNappula(grafiikka, (405 - i * 30), (y - j * 30));
 <a class="jxr_linenumber" name="L114" href="#L114">114</a>                         }
-<a class="jxr_linenumber" name="L115" href="#L115">115</a>                         <strong class="jxr_keyword">if</strong> (svl.getLahtoruutu() == i &amp;&amp; j + 1 == lauta.nappuloitaRuudussa(i)) {
+<a class="jxr_linenumber" name="L115" href="#L115">115</a>                         <strong class="jxr_keyword">if</strong> (sovelluslogiikka.haeLahtoruutu() == i &amp;&amp; j + 1 == lauta.nappuloitaRuudussa(i)) {
 <a class="jxr_linenumber" name="L116" href="#L116">116</a>                             ympyroiNappula(grafiikka, (403 - i * 30), ((y - 2) - j * 30));
 <a class="jxr_linenumber" name="L117" href="#L117">117</a>                         }
 <a class="jxr_linenumber" name="L118" href="#L118">118</a>                     }
@@ -141,7 +141,7 @@
 <a class="jxr_linenumber" name="L133" href="#L133">133</a>                         } <strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="L134" href="#L134">134</a>                             piirraValkoinenNappula(grafiikka, (15 + (i2 - 12) * 30), (y + j * 30));
 <a class="jxr_linenumber" name="L135" href="#L135">135</a>                         }
-<a class="jxr_linenumber" name="L136" href="#L136">136</a>                         <strong class="jxr_keyword">if</strong> (svl.getLahtoruutu() == i2 &amp;&amp; j + 1 == lauta.nappuloitaRuudussa(i2)) {
+<a class="jxr_linenumber" name="L136" href="#L136">136</a>                         <strong class="jxr_keyword">if</strong> (sovelluslogiikka.haeLahtoruutu() == i2 &amp;&amp; j + 1 == lauta.nappuloitaRuudussa(i2)) {
 <a class="jxr_linenumber" name="L137" href="#L137">137</a>                             ympyroiNappula(grafiikka, (13 + (i2 - 12) * 30), ((y - 2) + j * 30));
 <a class="jxr_linenumber" name="L138" href="#L138">138</a>                         }
 <a class="jxr_linenumber" name="L139" href="#L139">139</a>                     } <strong class="jxr_keyword">else</strong> {
@@ -150,7 +150,7 @@
 <a class="jxr_linenumber" name="L142" href="#L142">142</a>                         } <strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="L143" href="#L143">143</a>                             piirraValkoinenNappula(grafiikka, (15 + (i2 - 13) * 30), (y + j * 30));
 <a class="jxr_linenumber" name="L144" href="#L144">144</a>                         }
-<a class="jxr_linenumber" name="L145" href="#L145">145</a>                         <strong class="jxr_keyword">if</strong> (svl.getLahtoruutu() == i2 &amp;&amp; j + 1 == lauta.nappuloitaRuudussa(i2)) {
+<a class="jxr_linenumber" name="L145" href="#L145">145</a>                         <strong class="jxr_keyword">if</strong> (sovelluslogiikka.haeLahtoruutu() == i2 &amp;&amp; j + 1 == lauta.nappuloitaRuudussa(i2)) {
 <a class="jxr_linenumber" name="L146" href="#L146">146</a>                             ympyroiNappula(grafiikka, (13 + (i2 - 13) * 30), ((y - 2) + j * 30));
 <a class="jxr_linenumber" name="L147" href="#L147">147</a>                         }
 <a class="jxr_linenumber" name="L148" href="#L148">148</a>                     }
