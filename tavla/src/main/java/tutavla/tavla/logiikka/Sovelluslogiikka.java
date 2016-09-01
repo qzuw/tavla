@@ -96,7 +96,13 @@ public class Sovelluslogiikka {
         }
     }
 
-    private void setSiirtojarjestys(Pelaaja pelaaja1, Pelaaja pelaaja2) {
+    /**
+     * Asetetaan siirtojärjestys.
+     * 
+     * @param pelaaja1 ensimmäisenä siirtävä pelaaja
+     * @param pelaaja2 toisena siirtävä pelaaja
+     */
+    public void setSiirtojarjestys(Pelaaja pelaaja1, Pelaaja pelaaja2) {
         siirtojarjestys.clear();
         siirtojarjestys.add(pelaaja1);
         siirtojarjestys.add(pelaaja2);

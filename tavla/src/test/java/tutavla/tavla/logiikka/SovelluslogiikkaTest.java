@@ -6,6 +6,7 @@
 package tutavla.tavla.logiikka;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -74,6 +75,16 @@ public class SovelluslogiikkaTest {
 
         assertTrue(svl.getSiirtojarjestys().get(1).isMusta());
         assertFalse(svl.getSiirtojarjestys().get(0).isMusta());
+    }
+
+    @Test
+    public void setSiirtojarjestys() {
+        Sovelluslogiikka svl = new Sovelluslogiikka();
+        Pelaaja p1 = svl.getSiirtojarjestys().get(0);
+        Pelaaja p2 = svl.getSiirtojarjestys().get(1);
+
+        svl.setSiirtojarjestys(p2, p1);
+        assertEquals(2, svl.getSiirtojarjestys().size());
     }
 
     @Test
@@ -623,5 +634,21 @@ public class SovelluslogiikkaTest {
         svl.siirraNappulaa(0);
         svl.heitaNopat();
         assertTrue(svl.eiVoiSiirtaa());
+    }
+
+    @Test
+    public void voiSiirtaaRuuduista() {
+        Sovelluslogiikka svl = new Sovelluslogiikka();
+        Pelaaja p = svl.getVuorossaOlevaPelaaja();
+        svl.heitaNopat();
+
+        boolean tulos = true;
+
+        ArrayList<Integer> l = new ArrayList<>(Arrays.asList(24, 13, 6, 8));
+
+        if (!svl.pelaajaVoiSiirtaaRuuduista().containsAll(l)) {
+            tulos = false;
+        }
+        assertTrue(tulos);
     }
 }
