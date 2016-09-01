@@ -82,7 +82,7 @@ public class GUILogiikka {
 
     /**
      * Hae teksti vuoronvaihtoikkunaa varten.
-     * 
+     *
      * @return teksti joka vuoronvaihtoikkunan tulisi näyttää
      */
     public String haeVuoroteksti() {
@@ -170,8 +170,9 @@ public class GUILogiikka {
     }
 
     /**
-     * Lisää käyttöliittymän siirroista ja vuorossa olevasta pelaajasta kertovat elementit GUILogiikkaan.
-     * 
+     * Lisää käyttöliittymän siirroista ja vuorossa olevasta pelaajasta kertovat
+     * elementit GUILogiikkaan.
+     *
      * @param siirrot siirroista kertova JLabel
      * @param pelaaja vuorossa olevasta pelaajasta kertova JLabel
      */
@@ -272,7 +273,6 @@ public class GUILogiikka {
         }
 
         if (!onkoPeliKaynnissa && !lopetetaan) {
-            // System.out.println("sadf" + onkoPeliKaynnissa + " " + svl.haeSiirrot());
             int noppa1 = sovelluslogiikka.haeSiirrot().get(0);
             int noppa2 = sovelluslogiikka.haeSiirrot().get(1);
             vuoroteksti = sovelluslogiikka.haeSiirtojarjestys().get(0) + " heitti " + noppa1 + " ja " + sovelluslogiikka.haeSiirtojarjestys().get(1) + " heitti " + noppa2 + ".";
@@ -300,9 +300,9 @@ public class GUILogiikka {
             }
         } else if (!lopetetaan) {
             vuoroteksti = "Vuoro vaihtuu.";
+
             sovelluslogiikka.vaihdaVuoroa();
             sovelluslogiikka.nollaaLahtoruutu();
-//            this.vuoroikkuna.setVisible(true);
             if (sovelluslogiikka.haeVuorossaOlevaPelaaja().onkoIhminen()) {
                 this.pelaajaOnIhminen = true;
             } else {
