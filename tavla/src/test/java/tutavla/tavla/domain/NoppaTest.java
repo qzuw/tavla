@@ -51,7 +51,7 @@ public class NoppaTest {
 
         for (int i = 0; i < 60; i++) {
             noppa.heita();
-            int luku = noppa.getArvo();
+            int luku = noppa.haeArvo();
             assertTrue(luku >= 1);
         }
     }
@@ -63,7 +63,7 @@ public class NoppaTest {
 
         for (int i = 0; i < 60; i++) {
             noppa.heita();
-            int luku = noppa.getArvo();
+            int luku = noppa.haeArvo();
             assertTrue(luku <= 6);
         }
     }
@@ -72,7 +72,7 @@ public class NoppaTest {
     public void konstruktoriLuoArvon(){
         Random r = new Random();
         Noppa noppa = new Noppa(r);
-        assertTrue(noppa.getArvo()<7);
-        assertTrue(noppa.getArvo()>0);
+        assertTrue(noppa.haeArvo()<7);
+        assertTrue(noppa.haeArvo()>0);
     }
 }

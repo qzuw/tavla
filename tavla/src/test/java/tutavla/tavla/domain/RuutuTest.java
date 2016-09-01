@@ -124,7 +124,7 @@ public class RuutuTest {
         assertEquals(ruutu.otaPelaajanNappula(toinen), null);
         ruutu.lisaaNappula(new Nappula(toinen));
 
-        assertEquals(ruutu.otaPelaajanNappula(toinen).getPelaaja(), toinen);
+        assertEquals(ruutu.otaPelaajanNappula(toinen).haePelaaja(), toinen);
         assertEquals(ruutu.nappuloidenMaara(), 1);
     }
 
@@ -152,7 +152,7 @@ public class RuutuTest {
         Ruutu ruutu = new Ruutu();
         Pelaaja pelaaja = new Pelaaja();
         ruutu.lisaaNappula(new Nappula(pelaaja));
-        pelaaja.setMusta(true);
+        pelaaja.asetaMustaksi(true);
 
         assertEquals("M1 ", ruutu.toString());
     }
@@ -164,7 +164,7 @@ public class RuutuTest {
         for (int i = 0; i < 10; i++) {
             ruutu.lisaaNappula(new Nappula(pelaaja));
         }
-        pelaaja.setMusta(false);
+        pelaaja.asetaMustaksi(false);
 
         assertEquals("V10", ruutu.toString());
     }

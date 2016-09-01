@@ -18,10 +18,10 @@ import tutavla.tavla.logiikka.Sovelluslogiikka;
  */
 public class GUILogiikka {
 
-    private Sovelluslogiikka svl;
+    private Sovelluslogiikka sovelluslogiikka;
     private int pelaajamaara;
     private boolean pelaajaOnIhminen;
-    private Piirtoalusta pa;
+    private Piirtoalusta piirtoalusta;
     private int kysyttavaPelaaja;
     private String kyselyteksti;
     private String vuoroteksti;
@@ -41,7 +41,7 @@ public class GUILogiikka {
      * @param svl sovelluslogiikka
      */
     public GUILogiikka(Sovelluslogiikka svl) {
-        this.svl = svl;
+        this.sovelluslogiikka = svl;
         pelaajaOnIhminen = false;
         pelaajamaara = -1;
         kysyttavaPelaaja = 0;
@@ -58,8 +58,8 @@ public class GUILogiikka {
      *
      * @return sovelluslogiikka
      */
-    public Sovelluslogiikka getSovelluslogiikka() {
-        return svl;
+    public Sovelluslogiikka haeSovelluslogiikka() {
+        return sovelluslogiikka;
     }
 
     /**
@@ -76,11 +76,11 @@ public class GUILogiikka {
      *
      * @return teksti kyselyikkunalle
      */
-    public String getKyselyteksti() {
+    public String haeKyselyteksti() {
         return kyselyteksti;
     }
 
-    public String getVuoroteksti() {
+    public String haeVuoroteksti() {
         return vuoroteksti;
     }
 
@@ -89,7 +89,7 @@ public class GUILogiikka {
      *
      * @return pelaajien määrä
      */
-    public int getPelaajamaara() {
+    public int haePelaajamaara() {
         return pelaajamaara;
     }
 
@@ -98,7 +98,7 @@ public class GUILogiikka {
      *
      * @param pelaajamaara pelaajien määrä
      */
-    public void setPelaajamaara(int pelaajamaara) {
+    public void asetaPelaajamaara(int pelaajamaara) {
         this.pelaajamaara = pelaajamaara;
         kysyttavaPelaaja++;
         kyselyteksti = "Pelaajan 1 nimi?";
@@ -120,8 +120,8 @@ public class GUILogiikka {
      * @param nimi nimi pelaajalle
      */
     public void asetaPelaajanNimi(String nimi) {
-        svl.getSiirtojarjestys().get(kysyttavaPelaaja - 1).setNimi(nimi);
-        svl.getSiirtojarjestys().get(kysyttavaPelaaja - 1).setIhminen(true);
+        sovelluslogiikka.haeSiirtojarjestys().get(kysyttavaPelaaja - 1).asetaNimi(nimi);
+        sovelluslogiikka.haeSiirtojarjestys().get(kysyttavaPelaaja - 1).asetaIhmiseksi(true);
         kysyttavaPelaaja++;
         kyselyteksti = "Pelaajan " + kysyttavaPelaaja + " nimi?";
         tyhjennaVastaus = true;
@@ -133,7 +133,7 @@ public class GUILogiikka {
      *
      * @return true jos vastauskenttä pitää tyhjentää
      */
-    public boolean isTyhjennaVastaus() {
+    public boolean tyhjennetaankoVastaus() {
         return tyhjennaVastaus;
     }
 
@@ -142,7 +142,7 @@ public class GUILogiikka {
      *
      * @param tyhjennaVastaus true jos vastauskenttä pitää tyhjentää
      */
-    public void setTyhjennaVastaus(boolean tyhjennaVastaus) {
+    public void asetaTyhjennaVastaus(boolean tyhjennaVastaus) {
         this.tyhjennaVastaus = tyhjennaVastaus;
     }
 
@@ -161,7 +161,7 @@ public class GUILogiikka {
      * @param pa piirtoalusta
      */
     public void lisaaPiirtoalusta(Piirtoalusta pa) {
-        this.pa = pa;
+        this.piirtoalusta = pa;
     }
 
     /**
@@ -176,8 +176,8 @@ public class GUILogiikka {
     }
 
     private void paivitaSiirrotJaPelaaja() {
-        pelaaja.setText(svl.getVuorossaOlevaPelaaja().toString());
-        siirrot.setText("Siirrot: " + svl.haeSiirrot());
+        pelaaja.setText(sovelluslogiikka.haeVuorossaOlevaPelaaja().toString());
+        siirrot.setText("Siirrot: " + sovelluslogiikka.haeSiirrot());
     }
 
     /**
@@ -216,7 +216,7 @@ public class GUILogiikka {
      * Päivitetään piirtoalusta.
      */
     public void piirraPiirtoalusta() {
-        pa.repaint();
+        piirtoalusta.repaint();
     }
 
     /**
@@ -253,7 +253,7 @@ public class GUILogiikka {
      * Käynnistetään peli.
      */
     public void kaynnistaPeli() {
-        pelaajaOnIhminen = svl.getVuorossaOlevaPelaaja().isIhminen();
+        pelaajaOnIhminen = sovelluslogiikka.haeVuorossaOlevaPelaaja().onkoIhminen();
         paivitaSiirrotJaPelaaja();
         kehys.revalidate();
     }
@@ -262,50 +262,50 @@ public class GUILogiikka {
      * Pelivuoro vaihtuu.
      */
     public void vuoroVaihtuu() {
-        if (svl.onkoJokuVoittanut()) {
+        if (sovelluslogiikka.onkoJokuVoittanut()) {
             voitto();
         }
 
         if (!onkoPeliKaynnissa && !lopetetaan) {
             // System.out.println("sadf" + onkoPeliKaynnissa + " " + svl.haeSiirrot());
-            int noppa1 = svl.haeSiirrot().get(0);
-            int noppa2 = svl.haeSiirrot().get(1);
-            vuoroteksti = svl.getSiirtojarjestys().get(0) + " heitti " + noppa1 + " ja " + svl.getSiirtojarjestys().get(1) + " heitti " + noppa2 + ".";
+            int noppa1 = sovelluslogiikka.haeSiirrot().get(0);
+            int noppa2 = sovelluslogiikka.haeSiirrot().get(1);
+            vuoroteksti = sovelluslogiikka.haeSiirtojarjestys().get(0) + " heitti " + noppa1 + " ja " + sovelluslogiikka.haeSiirtojarjestys().get(1) + " heitti " + noppa2 + ".";
             if (noppa1 > noppa2) {
-                svl.pelaajaSiirtaaEnsin(true, 0);
-                vuoroteksti += " " + svl.getVuorossaOlevaPelaaja().toString() + " liikkuu ensin.";
+                sovelluslogiikka.pelaajaSiirtaaEnsin(true, 0);
+                vuoroteksti += " " + sovelluslogiikka.haeVuorossaOlevaPelaaja().toString() + " liikkuu ensin.";
                 this.onkoPeliKaynnissa = true;
-                if (svl.getVuorossaOlevaPelaaja().isIhminen()) {
+                if (sovelluslogiikka.haeVuorossaOlevaPelaaja().onkoIhminen()) {
                     this.pelaajaOnIhminen = true;
                 } else {
                     this.pelaajaOnIhminen = false;
                 }
             } else if (noppa1 < noppa2) {
-                svl.pelaajaSiirtaaEnsin(true, 1);
-                vuoroteksti += " " + svl.getVuorossaOlevaPelaaja().toString() + " liikkuu ensin.";
+                sovelluslogiikka.pelaajaSiirtaaEnsin(true, 1);
+                vuoroteksti += " " + sovelluslogiikka.haeVuorossaOlevaPelaaja().toString() + " liikkuu ensin.";
                 this.onkoPeliKaynnissa = true;
-                if (svl.getVuorossaOlevaPelaaja().isIhminen()) {
+                if (sovelluslogiikka.haeVuorossaOlevaPelaaja().onkoIhminen()) {
                     this.pelaajaOnIhminen = true;
                 } else {
                     this.pelaajaOnIhminen = false;
                 }
             } else {
                 vuoroteksti += " Heitetään noppaa uudestaan.";
-                svl.heitaNopat();
+                sovelluslogiikka.heitaNopat();
             }
         } else if (!lopetetaan) {
             vuoroteksti = "Vuoro vaihtuu.";
-            svl.vaihdaVuoroa();
-            svl.nollaaLahtoruutu();
+            sovelluslogiikka.vaihdaVuoroa();
+            sovelluslogiikka.nollaaLahtoruutu();
 //            this.vuoroikkuna.setVisible(true);
-            if (svl.getVuorossaOlevaPelaaja().isIhminen()) {
+            if (sovelluslogiikka.haeVuorossaOlevaPelaaja().onkoIhminen()) {
                 this.pelaajaOnIhminen = true;
             } else {
                 this.pelaajaOnIhminen = false;
             }
-            svl.heitaNopat();
+            sovelluslogiikka.heitaNopat();
         }
-        if (svl.onkoJokuVoittanut()) {
+        if (sovelluslogiikka.onkoJokuVoittanut()) {
             voitto();
         }
 
@@ -321,13 +321,13 @@ public class GUILogiikka {
         if (lopetetaan) {
             lopeta();
         }
-        while (!svl.eiVoiSiirtaa() && svl.haeSiirrot().size() > 0) {
-            svl.pelaaTietokone();
+        while (!sovelluslogiikka.eiVoiSiirtaa() && sovelluslogiikka.haeSiirrot().size() > 0) {
+            sovelluslogiikka.pelaaTietokone();
             paivitaSiirrotJaPelaaja();
             kehys.revalidate();
-            pa.repaint();
+            piirtoalusta.repaint();
         }
-        if (svl.onkoJokuVoittanut()) {
+        if (sovelluslogiikka.onkoJokuVoittanut()) {
             voitto();
         }
         paivitaSiirrotJaPelaaja();
@@ -348,7 +348,7 @@ public class GUILogiikka {
      * Heitetään noppia.
      */
     public void heitaNoppaa() {
-        svl.heitaNopat();
+        sovelluslogiikka.heitaNopat();
         paivitaSiirrotJaPelaaja();
     }
 
@@ -356,7 +356,7 @@ public class GUILogiikka {
      * Ilmoitetaan voitosta.
      */
     public void voitto() {
-        vuoroteksti = svl.kukaVoitti().toString() + " on voittanut!";
+        vuoroteksti = sovelluslogiikka.kukaVoitti().toString() + " on voittanut!";
         this.vuoroikkuna.setVisible(true);
         onkoPeliKaynnissa = false;
         lopetetaan = true;

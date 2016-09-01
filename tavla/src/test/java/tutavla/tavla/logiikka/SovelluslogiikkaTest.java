@@ -50,85 +50,85 @@ public class SovelluslogiikkaTest {
     @Test
     public void maaritaPelaaja() {
         Sovelluslogiikka svl = new Sovelluslogiikka();
-        ArrayList<Pelaaja> jarjestys = svl.getSiirtojarjestys();
+        ArrayList<Pelaaja> jarjestys = svl.haeSiirtojarjestys();
 
         String s = "asdf";
 
-        assertEquals(svl.getSiirtojarjestys().get(0).getNimi(), "Tietokone");
+        assertEquals(svl.haeSiirtojarjestys().get(0).haeNimi(), "Tietokone");
         svl.maaritaPelaaja(0, s);
-        assertEquals(svl.getSiirtojarjestys().get(0).getNimi(), s);
-        assertTrue(svl.getSiirtojarjestys().get(0).isIhminen());
+        assertEquals(svl.haeSiirtojarjestys().get(0).haeNimi(), s);
+        assertTrue(svl.haeSiirtojarjestys().get(0).onkoIhminen());
     }
 
     @Test
     public void asetaVari() {
         Sovelluslogiikka svl = new Sovelluslogiikka();
-        Pelaaja p = svl.getSiirtojarjestys().get(0);
-        Pelaaja p2 = svl.getSiirtojarjestys().get(1);
+        Pelaaja p = svl.haeSiirtojarjestys().get(0);
+        Pelaaja p2 = svl.haeSiirtojarjestys().get(1);
 
         svl.asetaPelaajaMustaksi(p);
 
-        assertTrue(svl.getSiirtojarjestys().get(0).isMusta());
-        assertFalse(svl.getSiirtojarjestys().get(1).isMusta());
+        assertTrue(svl.haeSiirtojarjestys().get(0).onkoMusta());
+        assertFalse(svl.haeSiirtojarjestys().get(1).onkoMusta());
 
         svl.asetaPelaajaMustaksi(p2);
 
-        assertTrue(svl.getSiirtojarjestys().get(1).isMusta());
-        assertFalse(svl.getSiirtojarjestys().get(0).isMusta());
+        assertTrue(svl.haeSiirtojarjestys().get(1).onkoMusta());
+        assertFalse(svl.haeSiirtojarjestys().get(0).onkoMusta());
     }
 
     @Test
     public void setSiirtojarjestys() {
         Sovelluslogiikka svl = new Sovelluslogiikka();
-        Pelaaja p1 = svl.getSiirtojarjestys().get(0);
-        Pelaaja p2 = svl.getSiirtojarjestys().get(1);
+        Pelaaja p1 = svl.haeSiirtojarjestys().get(0);
+        Pelaaja p2 = svl.haeSiirtojarjestys().get(1);
 
-        svl.setSiirtojarjestys(p2, p1);
-        assertEquals(2, svl.getSiirtojarjestys().size());
+        svl.asetaSiirtojarjestys(p2, p1);
+        assertEquals(2, svl.haeSiirtojarjestys().size());
     }
 
     @Test
     public void muutaSiirtojarjestys() {
         Sovelluslogiikka svl = new Sovelluslogiikka();
-        Pelaaja p1 = svl.getSiirtojarjestys().get(0);
-        Pelaaja p2 = svl.getSiirtojarjestys().get(1);
+        Pelaaja p1 = svl.haeSiirtojarjestys().get(0);
+        Pelaaja p2 = svl.haeSiirtojarjestys().get(1);
 
-        assertEquals(svl.getSiirtojarjestys().get(0), p1);
-        assertEquals(svl.getSiirtojarjestys().get(1), p2);
+        assertEquals(svl.haeSiirtojarjestys().get(0), p1);
+        assertEquals(svl.haeSiirtojarjestys().get(1), p2);
         svl.pelaajaSiirtaaEnsin(true, p2);
-        assertEquals(svl.getSiirtojarjestys().get(1), p1);
-        assertEquals(svl.getSiirtojarjestys().get(0), p2);
+        assertEquals(svl.haeSiirtojarjestys().get(1), p1);
+        assertEquals(svl.haeSiirtojarjestys().get(0), p2);
         svl.pelaajaSiirtaaEnsin(false, p2);
-        assertEquals(svl.getSiirtojarjestys().get(0), p1);
-        assertEquals(svl.getSiirtojarjestys().get(1), p2);
+        assertEquals(svl.haeSiirtojarjestys().get(0), p1);
+        assertEquals(svl.haeSiirtojarjestys().get(1), p2);
 
     }
 
     @Test
     public void muutaSiirtojarjestysIndeksilla1() {
         Sovelluslogiikka svl = new Sovelluslogiikka();
-        Pelaaja p1 = svl.getSiirtojarjestys().get(0);
-        Pelaaja p2 = svl.getSiirtojarjestys().get(1);
+        Pelaaja p1 = svl.haeSiirtojarjestys().get(0);
+        Pelaaja p2 = svl.haeSiirtojarjestys().get(1);
 
-        assertEquals(svl.getSiirtojarjestys().get(0), p1);
-        assertEquals(svl.getSiirtojarjestys().get(1), p2);
+        assertEquals(svl.haeSiirtojarjestys().get(0), p1);
+        assertEquals(svl.haeSiirtojarjestys().get(1), p2);
         svl.pelaajaSiirtaaEnsin(true, 1);
-        assertEquals(svl.getSiirtojarjestys().get(1), p1);
-        assertEquals(svl.getSiirtojarjestys().get(0), p2);
+        assertEquals(svl.haeSiirtojarjestys().get(1), p1);
+        assertEquals(svl.haeSiirtojarjestys().get(0), p2);
 
     }
 
     @Test
     public void muutaSiirtojarjestysIndeksilla2() {
         Sovelluslogiikka svl = new Sovelluslogiikka();
-        Pelaaja p1 = svl.getSiirtojarjestys().get(0);
-        Pelaaja p2 = svl.getSiirtojarjestys().get(1);
+        Pelaaja p1 = svl.haeSiirtojarjestys().get(0);
+        Pelaaja p2 = svl.haeSiirtojarjestys().get(1);
 
-        assertEquals(svl.getSiirtojarjestys().get(0), p1);
-        assertEquals(svl.getSiirtojarjestys().get(1), p2);
+        assertEquals(svl.haeSiirtojarjestys().get(0), p1);
+        assertEquals(svl.haeSiirtojarjestys().get(1), p2);
         svl.pelaajaSiirtaaEnsin(false, 0);
-        assertEquals(svl.getSiirtojarjestys().get(0), p2);
-        assertEquals(svl.getSiirtojarjestys().get(1), p1);
+        assertEquals(svl.haeSiirtojarjestys().get(0), p2);
+        assertEquals(svl.haeSiirtojarjestys().get(1), p1);
 
     }
 
@@ -136,7 +136,7 @@ public class SovelluslogiikkaTest {
     public void kaynnistaTest() {
         Sovelluslogiikka svl = new Sovelluslogiikka();
 
-        ArrayList<Pelaaja> jarjestys = svl.getSiirtojarjestys();
+        ArrayList<Pelaaja> jarjestys = svl.haeSiirtojarjestys();
 
         // ei tätä voi oikein testata järkevästi
         assertTrue(jarjestys.size() == 2);
@@ -146,9 +146,9 @@ public class SovelluslogiikkaTest {
 //    public void siirtojarjestysTest(){
 //        Sovelluslogiikka svl = new Sovelluslogiikka();
 //        
-//        ArrayList<Pelaaja> jarjestys = svl.getSiirtojarjestys();
+//        ArrayList<Pelaaja> jarjestys = svl.haeSiirtojarjestys();
 //        
-//        svl.setSiirtojarjestys(jarjestys.get(0), jarjestys.get(1));
+//        svl.asetaSiirtojarjestys(jarjestys.get(0), jarjestys.get(1));
 //
 //        
 //        assertTrue(jarjestys.size() == 2);
@@ -241,7 +241,7 @@ public class SovelluslogiikkaTest {
     @Test
     public void tarkistaKukaVoitti() {
         Sovelluslogiikka svl = new Sovelluslogiikka();
-        Pelaaja p = svl.getVuorossaOlevaPelaaja();
+        Pelaaja p = svl.haeVuorossaOlevaPelaaja();
 
         svl.asetaLahtoruutu(24);
         svl.siirraNappulaa(2);
@@ -438,7 +438,7 @@ public class SovelluslogiikkaTest {
         svl.heitaNopat();
 
         svl.asetaLahtoruutu(6);
-        assertEquals(6, svl.getLahtoruutu());
+        assertEquals(6, svl.haeLahtoruutu());
     }
 
     @Test
@@ -448,7 +448,7 @@ public class SovelluslogiikkaTest {
 
         svl.asetaLahtoruutu(6);
         svl.nollaaLahtoruutu();
-        assertEquals(-1, svl.getLahtoruutu());
+        assertEquals(-1, svl.haeLahtoruutu());
     }
 
     @Test
@@ -545,14 +545,14 @@ public class SovelluslogiikkaTest {
     public void aloitusvarit() {
         Sovelluslogiikka svl = new Sovelluslogiikka();
 
-        assertTrue(svl.getSiirtojarjestys().get(0).isMusta());
+        assertTrue(svl.haeSiirtojarjestys().get(0).onkoMusta());
     }
 
     @Test
     public void aloitusvarit2() {
         Sovelluslogiikka svl = new Sovelluslogiikka();
 
-        assertFalse(svl.getSiirtojarjestys().get(1).isMusta());
+        assertFalse(svl.haeSiirtojarjestys().get(1).onkoMusta());
     }
 
     @Test
@@ -601,14 +601,14 @@ public class SovelluslogiikkaTest {
             svl.siirraNappulaa(0);
         }
         svl.heitaNopat();
-        svl.getVuorossaOlevaPelaaja().setMaali(25);
+        svl.haeVuorossaOlevaPelaaja().asetaMaali(25);
         assertFalse(svl.eiVoiSiirtaa());
     }
 
     @Test
     public void voikoSiirtaa2() {
         Sovelluslogiikka svl = new Sovelluslogiikka();
-        Pelaaja p = svl.getVuorossaOlevaPelaaja();
+        Pelaaja p = svl.haeVuorossaOlevaPelaaja();
 
         svl.vaihdaVuoroa();
         svl.asetaLahtoruutu(1);
@@ -657,7 +657,7 @@ public class SovelluslogiikkaTest {
     @Test
     public void voiSiirtaaRuuduista() {
         Sovelluslogiikka svl = new Sovelluslogiikka();
-        Pelaaja p = svl.getVuorossaOlevaPelaaja();
+        Pelaaja p = svl.haeVuorossaOlevaPelaaja();
         svl.heitaNopat();
 
         ArrayList<Integer> l = new ArrayList<>(Arrays.asList(24, 13, 6, 8));
@@ -668,7 +668,7 @@ public class SovelluslogiikkaTest {
     @Test
     public void voiSiirtaaRuutuihin() {
         Sovelluslogiikka svl = new Sovelluslogiikka();
-        Pelaaja p = svl.getVuorossaOlevaPelaaja();
+        Pelaaja p = svl.haeVuorossaOlevaPelaaja();
         svl.heitaNopat();
 
         svl.asetaLahtoruutu(24);

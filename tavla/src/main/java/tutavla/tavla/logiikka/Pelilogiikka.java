@@ -35,8 +35,8 @@ public class Pelilogiikka {
      * @param pelaaja2 pelaaja 2
      */
     public void alustaPelitilanne(Pelaaja pelaaja1, Pelaaja pelaaja2) {
-        pelaaja1.setMaali(0);
-        pelaaja2.setMaali(25);
+        pelaaja1.asetaMaali(0);
+        pelaaja2.asetaMaali(25);
         asetaNappuloitaRuutuun(pelaaja1, 2, 24);
         asetaNappuloitaRuutuun(pelaaja1, 5, 13);
         asetaNappuloitaRuutuun(pelaaja1, 3, 8);
@@ -110,7 +110,7 @@ public class Pelilogiikka {
      * @return true jos pelaaja voi siirtää nappulansa ruutuun
      */
     public boolean ruutuunVoiSiirtya(int ruutu, Pelaaja pelaaja) {
-        if (ruutu == pelaaja.getMaali() && nappulatKotialueella(pelaaja)) {
+        if (ruutu == pelaaja.haeMaali() && nappulatKotialueella(pelaaja)) {
             return true;
         }
         if (this.ruudunNappulaMaara(ruutu) < 2) {
@@ -130,10 +130,10 @@ public class Pelilogiikka {
      * @param minne lopetusruudun indeksi
      */
     public void siirraNappulaa(Pelaaja pelaaja, int mista, int minne) {
-        if ((lauta.ruutuPelaajalla(mista, pelaaja) || mista == Math.abs(pelaaja.getMaali() - 25)) && this.ruutuunVoiSiirtya(minne, pelaaja)) {
+        if ((lauta.ruutuPelaajalla(mista, pelaaja) || mista == Math.abs(pelaaja.haeMaali() - 25)) && this.ruutuunVoiSiirtya(minne, pelaaja)) {
             if (!lauta.ruutuPelaajalla(minne, pelaaja) && lauta.nappuloitaRuudussa(minne) == 1) {
                 // tässä syödään vastustajan nappula
-                lauta.siirraNappula(minne, pelaaja.getMaali());
+                lauta.siirraNappula(minne, pelaaja.haeMaali());
             }
             lauta.siirraPelaajanNappula(mista, minne, pelaaja);
         }
@@ -157,7 +157,7 @@ public class Pelilogiikka {
      */
     public boolean onkoPelaajaVoittanut(Pelaaja pelaaja) {
 
-        if (lauta.pelaajanNappuloitaRuudussa(pelaaja.getMaali(), pelaaja) == 15) {
+        if (lauta.pelaajanNappuloitaRuudussa(pelaaja.haeMaali(), pelaaja) == 15) {
             return true;
         }
 
@@ -173,7 +173,7 @@ public class Pelilogiikka {
     public ArrayList<Integer> pelaajaVoiSiirtaaRuuduista(Pelaaja pelaaja) {
         ArrayList<Integer> lista = new ArrayList<>();
 
-        int syotyjenNappuloidenRuutu = Math.abs(pelaaja.getMaali() - 25);
+        int syotyjenNappuloidenRuutu = Math.abs(pelaaja.haeMaali() - 25);
 
         if (lauta.pelaajanNappuloitaRuudussa(syotyjenNappuloidenRuutu, pelaaja) > 0) {
             lista.add(syotyjenNappuloidenRuutu);
@@ -201,7 +201,7 @@ public class Pelilogiikka {
     public ArrayList<Integer> pelaajaVoiSiirtaaRuutuihin(Pelaaja pelaaja, int lahtoruutu, ArrayList<Integer> siirrot) {
         ArrayList<Integer> lista = new ArrayList<>();
 
-        if (pelaaja.getMaali() == 0) {
+        if (pelaaja.haeMaali() == 0) {
             lista = siirrettavatRuudut(lahtoruutu, -1, pelaaja, siirrot);
         } else {
             lista = siirrettavatRuudut(lahtoruutu, 1, pelaaja, siirrot);
@@ -223,7 +223,7 @@ public class Pelilogiikka {
                 break;
             } else if (this.ruutuunVoiSiirtya(kohderuutu, pelaaja) && siirrot.contains(siirto)) {
                 lista.add(kohderuutu);
-            } else if (kohderuutu == pelaaja.getMaali()) {
+            } else if (kohderuutu == pelaaja.haeMaali()) {
                 if (nappulatKotialueella(pelaaja) && !lista.contains(kohderuutu)) {
                     for (Integer s : siirrot) {
                         if (s >= siirto) {
@@ -245,7 +245,7 @@ public class Pelilogiikka {
      */
     public boolean nappulatKotialueella(Pelaaja pelaaja) {
         int maara = 0;
-        if (pelaaja.getMaali() == 0) {
+        if (pelaaja.haeMaali() == 0) {
             for (int i = 0; i < 7; i++) {
                 maara += lauta.pelaajanNappuloitaRuudussa(i, pelaaja);
             }

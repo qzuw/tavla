@@ -65,12 +65,12 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
                 break;
             }
 
-            Pelaaja pelaaja = svl.getVuorossaOlevaPelaaja();
+            Pelaaja pelaaja = svl.haeVuorossaOlevaPelaaja();
             
             System.out.println("Pelaajan " + pelaaja + " vuoro");
             System.out.println("Pelaajan siirrot ovat " + svl.haeSiirrot());
 
-            if (pelaaja.isIhminen()) {
+            if (pelaaja.onkoIhminen()) {
                 pelaajaSiirtaa(pelaaja);
             } else {
                 tietokoneSiirtaa(pelaaja);
@@ -124,7 +124,7 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
                 }
 
                 if (minne > -1) {
-                    if (svl.getPelilogiikka().ruutuunVoiSiirtya(minne, pelaaja)) {
+                    if (svl.haePelilogiikka().ruutuunVoiSiirtya(minne, pelaaja)) {
                         System.out.println("Siirretään nappula ruudusta " + mista + " ruutuun " + minne);
                         svl.siirraNappulaa(minne);
                     } else {
@@ -152,16 +152,16 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
             if (siirto.eiVoiSiirtaa()) {
                 System.out.println(pelaaja + " ei voi siirtää!");
             } else {
-                System.out.println(pelaaja.getNimi() + " siirtää ruudusta " + siirto.getLahto() + " ruutuun " + siirto.getMaali());
+                System.out.println(pelaaja.haeNimi() + " siirtää ruudusta " + siirto.haeLahto() + " ruutuun " + siirto.haeMaali());
                 if (siirto.vastustajanNappulaSyoty()) {
-                    System.out.println(pelaaja.getNimi() + " syö vastustajan nappulan!");
+                    System.out.println(pelaaja.haeNimi() + " syö vastustajan nappulan!");
                 }
             }
         }
     }
 
     private void valitseVari() {
-        ArrayList<Pelaaja> pelaajat = svl.getSiirtojarjestys();
+        ArrayList<Pelaaja> pelaajat = svl.haeSiirtojarjestys();
 
         boolean variValittu = false;
 
@@ -169,7 +169,7 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
             Pelaaja pelaaja1 = pelaajat.get(0);
             Pelaaja pelaaja2 = pelaajat.get(1);
 
-            if (pelaaja1.isIhminen()) {
+            if (pelaaja1.onkoIhminen()) {
                 System.out.println(pelaaja1 + ", haluatko valkoiset vai mustat nappulat?");
                 String nappulat = lukija.nextLine().toLowerCase();
 
@@ -211,7 +211,7 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
             } else {
                 svl.tietokoneValitseeVarin();
                 System.out.print(pelaaja1 + " valitsee ");
-                if (pelaaja1.isMusta()) {
+                if (pelaaja1.onkoMusta()) {
                     System.out.print("mustat nappulat!");
                 } else {
                     System.out.print("valkoiset nappulat!");
@@ -228,7 +228,7 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
         ArrayList<Pelaaja> pelaajat;
         while (true) {
             siirrot = svl.haeSiirrot();
-            pelaajat = svl.getSiirtojarjestys();
+            pelaajat = svl.haeSiirtojarjestys();
             for (int i = 0; i < 2; i++) {
                 System.out.println(pelaajat.get(i) + "  heitti " + siirrot.get(i));
             }
@@ -261,8 +261,8 @@ public class Tekstikayttoliittyma implements Kayttoliittyma {
             // whitespacen voisi karsia mutta sitten tarvitaan silmukka
             svl.maaritaPelaaja(i, nimi);
             // tai
-//            svl.getSiirtojarjestys().get(i).setNimi(nimi);
-//            svl.getSiirtojarjestys().get(i).setIhminen(true);
+//            svl.haeSiirtojarjestys().get(i).asetaNimi(nimi);
+//            svl.haeSiirtojarjestys().get(i).asetaIhmiseksi(true);
         }
     }
 

@@ -66,7 +66,7 @@ public class RandomTekoaly implements Tekoaly {
             if (kohderuudut.size() > 0) {
                 kohderuutu = kohderuudut.get(random.nextInt(kohderuudut.size()));
                 Integer siirto = Math.abs(kohderuutu - lahtoruutu);
-                if (siirrot.contains(siirto) && kohderuutu != tietokone.getMaali()) {
+                if (siirrot.contains(siirto) && kohderuutu != tietokone.haeMaali()) {
                     syoVastustajanNappula = syodaankoTassaVastustajanNappula(kohderuutu, tietokone, plk, syoVastustajanNappula);
 //                    plk.siirraNappulaa(tietokone, lahtoruutu, kohderuutu);
                     siirtoOnnistui = true;
@@ -118,7 +118,7 @@ public class RandomTekoaly implements Tekoaly {
     }
 
     private boolean syodaankoTassaVastustajanNappula(int kohderuutu, Pelaaja tietokone, Pelilogiikka plk, boolean syoVastustajanNappula) {
-        if (kohderuutu != tietokone.getMaali()
+        if (kohderuutu != tietokone.haeMaali()
                 && !plk.ruutuOnTyhja(kohderuutu)
                 && plk.pelaajanNappulaMaara(kohderuutu, tietokone) == 0) {
             syoVastustajanNappula = true;

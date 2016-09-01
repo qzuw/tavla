@@ -140,7 +140,7 @@ public class LautaTest {
     public void ruudunVari() {
         Lauta lauta = new Lauta();
         Pelaaja pelaaja = new Pelaaja();
-        pelaaja.setMusta(true);
+        pelaaja.asetaMustaksi(true);
 
         lauta.asetaNappula(new Nappula(pelaaja), 1);
         assertTrue(lauta.ruudunVariMusta(1));
@@ -150,7 +150,7 @@ public class LautaTest {
     public void ruudunVari2() {
         Lauta lauta = new Lauta();
         Pelaaja pelaaja = new Pelaaja();
-        pelaaja.setMusta(false);
+        pelaaja.asetaMustaksi(false);
 
         lauta.asetaNappula(new Nappula(pelaaja), 1);
         assertFalse(lauta.ruudunVariMusta(1));
@@ -160,7 +160,7 @@ public class LautaTest {
     public void ruudunVari3() {
         Lauta lauta = new Lauta();
         Pelaaja pelaaja = new Pelaaja();
-        pelaaja.setMusta(true);
+        pelaaja.asetaMustaksi(true);
 
         assertFalse(lauta.ruudunVariMusta(1));
     }
@@ -194,7 +194,7 @@ public class LautaTest {
         Pelaaja p = new Pelaaja();
         Nappula n = new Nappula(p);
         lauta.asetaNappula(n, 0);
-        p.setMaali(25);
+        p.asetaMaali(25);
 
         assertEquals(1, lauta.syotyjaNappuloitaRuudussa(0));
     }
@@ -205,7 +205,7 @@ public class LautaTest {
         Pelaaja p = new Pelaaja();
         Nappula n = new Nappula(p);
         lauta.asetaNappula(n, 25);
-        p.setMaali(0);
+        p.asetaMaali(0);
 
         assertEquals(1, lauta.syotyjaNappuloitaRuudussa(25));
     }
@@ -218,7 +218,7 @@ public class LautaTest {
         Nappula n2 = new Nappula(p);
         lauta.asetaNappula(n, 25);
         lauta.asetaNappula(n2, 25);
-        p.setMaali(0);
+        p.asetaMaali(0);
 
         assertEquals(2, lauta.syotyjaNappuloitaRuudussa(25));
     }
@@ -231,7 +231,7 @@ public class LautaTest {
         Nappula n2 = new Nappula(p);
         lauta.asetaNappula(n, 25);
         lauta.asetaNappula(n2, 25);
-        p.setMaali(25);
+        p.asetaMaali(25);
 
         assertEquals(2, lauta.ulosPelattujaNappuloitaRuudussa(25));
     }
@@ -242,7 +242,7 @@ public class LautaTest {
         Pelaaja p = new Pelaaja();
         Nappula n = new Nappula(p);
         lauta.asetaNappula(n, 0);
-        p.setMaali(0);
+        p.asetaMaali(0);
 
         assertEquals(1, lauta.ulosPelattujaNappuloitaRuudussa(0));
     }
@@ -252,8 +252,8 @@ public class LautaTest {
         Lauta l = new Lauta();
         Pelaaja p = new Pelaaja();
         l.asetaNappula(new Nappula(p), 0);
-        p.setMaali(0);
-        p.setMusta(true);
+        p.asetaMaali(0);
+        p.asetaMustaksi(true);
 
         assertEquals(true, l.ulosPelatutNappulatMustia(0));
     }
@@ -263,8 +263,8 @@ public class LautaTest {
         Lauta l = new Lauta();
         Pelaaja p = new Pelaaja();
         l.asetaNappula(new Nappula(p), 25);
-        p.setMaali(25);
-        p.setMusta(false);
+        p.asetaMaali(25);
+        p.asetaMustaksi(false);
 
         assertEquals(false, l.ulosPelatutNappulatMustia(25));
     }
@@ -274,8 +274,8 @@ public class LautaTest {
         Lauta l = new Lauta();
         Pelaaja p = new Pelaaja();
         l.asetaNappula(new Nappula(p), 25);
-        p.setMaali(0);
-        p.setMusta(false);
+        p.asetaMaali(0);
+        p.asetaMustaksi(false);
 
         assertFalse(l.syodytNappulatMustia(25));
     }
@@ -285,8 +285,8 @@ public class LautaTest {
         Lauta l = new Lauta();
         Pelaaja p = new Pelaaja();
         l.asetaNappula(new Nappula(p), 25);
-        p.setMaali(0);
-        p.setMusta(true);
+        p.asetaMaali(0);
+        p.asetaMustaksi(true);
 
         assertTrue(l.syodytNappulatMustia(25));
     }
@@ -296,8 +296,8 @@ public class LautaTest {
         Lauta l = new Lauta();
         Pelaaja p = new Pelaaja();
         l.asetaNappula(new Nappula(p), 0);
-        p.setMaali(25);
-        p.setMusta(true);
+        p.asetaMaali(25);
+        p.asetaMustaksi(true);
 
         assertTrue(l.syodytNappulatMustia(0));
     }

@@ -62,7 +62,7 @@ public class Ruutu {
 
         int poistettava = -1;
         for (int i = 0; i < nappulat.size(); i++) {
-            if (nappulat.get(i).getPelaaja().equals(pelaaja)) {
+            if (nappulat.get(i).haePelaaja().equals(pelaaja)) {
                 poistettava = i;
                 break;
             }
@@ -103,7 +103,7 @@ public class Ruutu {
     public int pelaajanNappuloidenMaara(Pelaaja pelaaja) {
         int maara = 0;
         for (Nappula nappula : nappulat) {
-            if (nappula.getPelaaja().equals(pelaaja)) {
+            if (nappula.haePelaaja().equals(pelaaja)) {
                 maara++;
             }
         }
@@ -128,7 +128,7 @@ public class Ruutu {
         if (nappulat.isEmpty()) {
             return null;
         }
-        return nappulat.get(0).getPelaaja();
+        return nappulat.get(0).haePelaaja();
     }
 
     @Override
@@ -136,7 +136,7 @@ public class Ruutu {
         String s = "[] ";
 
         if (!this.isEmpty()) {
-            if (this.nappulat.get(0).getPelaaja().isMusta()) {
+            if (this.nappulat.get(0).haePelaaja().onkoMusta()) {
                 s = "M";
             } else {
                 s = "V";

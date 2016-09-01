@@ -47,7 +47,7 @@ public class PelaajaTest {
     public void pelaajallaOnNimi() {
         Pelaaja pelaaja = new Pelaaja("asdf");
 
-        String nimi = pelaaja.getNimi();
+        String nimi = pelaaja.haeNimi();
 
         assertEquals("asdf", nimi);
     }
@@ -55,7 +55,7 @@ public class PelaajaTest {
     @Test
     public void tietokoneOnTietokone() {
         Pelaaja pelaaja = new Pelaaja();
-        boolean onkoTietokone = !pelaaja.isIhminen();
+        boolean onkoTietokone = !pelaaja.onkoIhminen();
 
         assertTrue(onkoTietokone);
     }
@@ -63,7 +63,7 @@ public class PelaajaTest {
     @Test
     public void ihminenOnIhminen() {
         Pelaaja pelaaja = new Pelaaja("asdf");
-        boolean onkoTietokone = !pelaaja.isIhminen();
+        boolean onkoTietokone = !pelaaja.onkoIhminen();
 
         assertFalse(onkoTietokone);
     }
@@ -96,38 +96,38 @@ public class PelaajaTest {
     public void pelaajanMaaliToimiiOikein() {
         Pelaaja pelaaja = new Pelaaja();
 
-        pelaaja.setMaali(0);
-        assertEquals(pelaaja.getMaali(), 0);
-        pelaaja.setMaali(5);
-        assertEquals(pelaaja.getMaali(), 0);
-        pelaaja.setMaali(25);
-        assertEquals(pelaaja.getMaali(), 25);
-        pelaaja.setMaali(40);
-        assertEquals(pelaaja.getMaali(), 25);
-        pelaaja.setMaali(0);
-        pelaaja.setMaali(40);
-        assertEquals(pelaaja.getMaali(), 0);
+        pelaaja.asetaMaali(0);
+        assertEquals(pelaaja.haeMaali(), 0);
+        pelaaja.asetaMaali(5);
+        assertEquals(pelaaja.haeMaali(), 0);
+        pelaaja.asetaMaali(25);
+        assertEquals(pelaaja.haeMaali(), 25);
+        pelaaja.asetaMaali(40);
+        assertEquals(pelaaja.haeMaali(), 25);
+        pelaaja.asetaMaali(0);
+        pelaaja.asetaMaali(40);
+        assertEquals(pelaaja.haeMaali(), 0);
     }
 
     @Test
     public void onkoMusta() {
         Pelaaja pelaaja = new Pelaaja();
 
-        pelaaja.setMusta(true);
-        assertTrue(pelaaja.isMusta());
-        pelaaja.setMusta(false);
-        assertFalse(pelaaja.isMusta());
+        pelaaja.asetaMustaksi(true);
+        assertTrue(pelaaja.onkoMusta());
+        pelaaja.asetaMustaksi(false);
+        assertFalse(pelaaja.onkoMusta());
     }
 
     @Test
     public void pelaajaMuuttuuKoneeksiJaTakaisin() {
         Pelaaja pelaaja = new Pelaaja("asdf");
 
-        assertTrue(pelaaja.isIhminen());
-        pelaaja.setIhminen(false);
-        assertFalse(pelaaja.isIhminen());
-        pelaaja.setIhminen(true);
-        assertTrue(pelaaja.isIhminen());
+        assertTrue(pelaaja.onkoIhminen());
+        pelaaja.asetaIhmiseksi(false);
+        assertFalse(pelaaja.onkoIhminen());
+        pelaaja.asetaIhmiseksi(true);
+        assertTrue(pelaaja.onkoIhminen());
     }
 
     @Test
@@ -135,22 +135,22 @@ public class PelaajaTest {
         Pelaaja pelaaja = new Pelaaja();
         String nimi = "asdf";
 
-        assertEquals(pelaaja.getNimi(), "Tietokone");
-        pelaaja.setNimi(nimi);
-        assertEquals(pelaaja.getNimi(), nimi);
+        assertEquals(pelaaja.haeNimi(), "Tietokone");
+        pelaaja.asetaNimi(nimi);
+        assertEquals(pelaaja.haeNimi(), nimi);
     }
 
     @Test
     public void pelaajaToString() {
         Pelaaja pelaaja = new Pelaaja();
         String nimi = "asdf";
-        pelaaja.setMusta(true);
+        pelaaja.asetaMustaksi(true);
 
         assertEquals("Tietokone (musta)", pelaaja.toString());
-        pelaaja.setNimi(nimi);
+        pelaaja.asetaNimi(nimi);
         String s = nimi + " (musta)";
         assertEquals(s, pelaaja.toString());
-        pelaaja.setMusta(false);
+        pelaaja.asetaMustaksi(false);
         s = nimi + " (valkoinen)";
         assertEquals(s, pelaaja.toString());
 

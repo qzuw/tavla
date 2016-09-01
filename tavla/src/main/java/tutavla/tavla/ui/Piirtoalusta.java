@@ -20,17 +20,17 @@ import tutavla.tavla.logiikka.Sovelluslogiikka;
 public class Piirtoalusta extends JPanel {
 
     Lauta lauta;
-    Sovelluslogiikka svl;
+    Sovelluslogiikka sovelluslogiikka;
 
     /**
      * Luodaan piirtoalusta.
      *
-     * @param svl pelin Sovelluslogiikka
+     * @param sovelluslogiikka pelin Sovelluslogiikka
      */
-    public Piirtoalusta(Sovelluslogiikka svl) {
+    public Piirtoalusta(Sovelluslogiikka sovelluslogiikka) {
         super.setBackground(Color.WHITE);
-        this.lauta = svl.pelitilanne();
-        this.svl = svl;
+        this.lauta = sovelluslogiikka.pelitilanne();
+        this.sovelluslogiikka = sovelluslogiikka;
     }
 
     @Override
@@ -80,7 +80,7 @@ public class Piirtoalusta extends JPanel {
                 } else {
                     piirraValkoinenNappula(grafiikka, 195, (y - suunta * i * 30));
                 }
-                if (svl.getLahtoruutu() == ruutu && i + 1 == lauta.syotyjaNappuloitaRuudussa(ruutu)) {
+                if (sovelluslogiikka.haeLahtoruutu() == ruutu && i + 1 == lauta.syotyjaNappuloitaRuudussa(ruutu)) {
                     ympyroiNappula(grafiikka, 193, ((y + suunta * 2 - 2 - suunta * 2) - suunta * i * 30));
                 }
             }
@@ -103,7 +103,7 @@ public class Piirtoalusta extends JPanel {
                         } else {
                             piirraValkoinenNappula(grafiikka, (375 - i * 30), (y - j * 30));
                         }
-                        if (svl.getLahtoruutu() == i && j + 1 == lauta.nappuloitaRuudussa(i)) {
+                        if (sovelluslogiikka.haeLahtoruutu() == i && j + 1 == lauta.nappuloitaRuudussa(i)) {
                             ympyroiNappula(grafiikka, (373 - i * 30), ((y - 2) - j * 30));
                         }
                     } else {
@@ -112,7 +112,7 @@ public class Piirtoalusta extends JPanel {
                         } else {
                             piirraValkoinenNappula(grafiikka, (405 - i * 30), (y - j * 30));
                         }
-                        if (svl.getLahtoruutu() == i && j + 1 == lauta.nappuloitaRuudussa(i)) {
+                        if (sovelluslogiikka.haeLahtoruutu() == i && j + 1 == lauta.nappuloitaRuudussa(i)) {
                             ympyroiNappula(grafiikka, (403 - i * 30), ((y - 2) - j * 30));
                         }
                     }
@@ -133,7 +133,7 @@ public class Piirtoalusta extends JPanel {
                         } else {
                             piirraValkoinenNappula(grafiikka, (15 + (i2 - 12) * 30), (y + j * 30));
                         }
-                        if (svl.getLahtoruutu() == i2 && j + 1 == lauta.nappuloitaRuudussa(i2)) {
+                        if (sovelluslogiikka.haeLahtoruutu() == i2 && j + 1 == lauta.nappuloitaRuudussa(i2)) {
                             ympyroiNappula(grafiikka, (13 + (i2 - 12) * 30), ((y - 2) + j * 30));
                         }
                     } else {
@@ -142,7 +142,7 @@ public class Piirtoalusta extends JPanel {
                         } else {
                             piirraValkoinenNappula(grafiikka, (15 + (i2 - 13) * 30), (y + j * 30));
                         }
-                        if (svl.getLahtoruutu() == i2 && j + 1 == lauta.nappuloitaRuudussa(i2)) {
+                        if (sovelluslogiikka.haeLahtoruutu() == i2 && j + 1 == lauta.nappuloitaRuudussa(i2)) {
                             ympyroiNappula(grafiikka, (13 + (i2 - 13) * 30), ((y - 2) + j * 30));
                         }
                     }

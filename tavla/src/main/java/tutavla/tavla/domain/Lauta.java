@@ -53,7 +53,7 @@ public class Lauta {
         if (!(ruudut.get(ruutu).nappuloidenMaara() > 0)) {
             return false;
         }
-        return ruudut.get(ruutu).nappulat.get(0).getPelaaja().isMusta();
+        return ruudut.get(ruutu).nappulat.get(0).haePelaaja().onkoMusta();
     }
 
     /**
@@ -87,7 +87,7 @@ public class Lauta {
         List<Nappula> nappulat = ruudut.get(ruutu).nappulat;
         int maara = 0;
         for (Nappula nappula : nappulat) {
-            if (Math.abs(nappula.getPelaaja().getMaali() - 25) == ruutu) {
+            if (Math.abs(nappula.haePelaaja().haeMaali() - 25) == ruutu) {
                 maara++;
             }
         }
@@ -103,8 +103,8 @@ public class Lauta {
     public boolean syodytNappulatMustia(int ruutu) {
         List<Nappula> nappulat = ruudut.get(ruutu).nappulat;
         for (Nappula nappula : nappulat) {
-            if (Math.abs(nappula.getPelaaja().getMaali() - 25) == ruutu) {
-                if (nappula.getPelaaja().isMusta()) {
+            if (Math.abs(nappula.haePelaaja().haeMaali() - 25) == ruutu) {
+                if (nappula.haePelaaja().onkoMusta()) {
                     return true;
                 } else {
                     return false;
@@ -124,7 +124,7 @@ public class Lauta {
         List<Nappula> nappulat = ruudut.get(ruutu).nappulat;
         int maara = 0;
         for (Nappula nappula : nappulat) {
-            if (nappula.getPelaaja().getMaali() == ruutu) {
+            if (nappula.haePelaaja().haeMaali() == ruutu) {
                 maara++;
             }
         }
@@ -140,8 +140,8 @@ public class Lauta {
     public boolean ulosPelatutNappulatMustia(int ruutu) {
         List<Nappula> nappulat = ruudut.get(ruutu).nappulat;
         for (Nappula nappula : nappulat) {
-            if (nappula.getPelaaja().getMaali() == ruutu) {
-                if (nappula.getPelaaja().isMusta()) {
+            if (nappula.haePelaaja().haeMaali() == ruutu) {
+                if (nappula.haePelaaja().onkoMusta()) {
                     return true;
                 } else {
                     return false;

@@ -21,38 +21,37 @@ import tutavla.tavla.logiikka.Sovelluslogiikka;
 public class VuoroKuuntelija implements ActionListener {
 
     private JLabel vuoroTeksti;
-    private GUILogiikka guilg;
+    private GUILogiikka guilogiikka;
     private JFrame vuoroikkuna;
 
     /**
      * Konstruktori.
      *
      * @param vuoroikkuna tarkkailtava ikkuna
-     * @param guilg GUILogiikka
+     * @param guilogiikka GUILogiikka
      * @param vuoroTeksti ikkunan teksti
      */
-    public VuoroKuuntelija(JFrame vuoroikkuna, GUILogiikka guilg, JLabel vuoroTeksti) {
+    public VuoroKuuntelija(JFrame vuoroikkuna, GUILogiikka guilogiikka, JLabel vuoroTeksti) {
         this.vuoroTeksti = vuoroTeksti;
-        this.guilg = guilg;
+        this.guilogiikka = guilogiikka;
         this.vuoroikkuna = vuoroikkuna;
         vuoroikkuna.setVisible(true);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (guilg.lopetetaanko()) {
-            guilg.lopeta();
+        if (guilogiikka.lopetetaanko()) {
+            guilogiikka.lopeta();
         }
-        if (guilg.onkoPeliKaynnissa()) {
-            guilg.vuoroNakyvyys(false);
+        if (guilogiikka.onkoPeliKaynnissa()) {
+            guilogiikka.vuoroNakyvyys(false);
         }
-//tähän väliin toimintaa
-        guilg.heitaNoppaa();
-        guilg.vuoroVaihtuu();
-        if (!guilg.pelaajaOnIhminen()) {
-            guilg.pelaaTietokone();
+        guilogiikka.heitaNoppaa();
+        guilogiikka.vuoroVaihtuu();
+        if (!guilogiikka.pelaajaOnIhminen()) {
+            guilogiikka.pelaaTietokone();
         }
-        vuoroTeksti.setText(guilg.getVuoroteksti());
+        vuoroTeksti.setText(guilogiikka.haeVuoroteksti());
 
     }
 

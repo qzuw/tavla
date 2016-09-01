@@ -39,7 +39,7 @@ public class Noppa {
      * 
      * @return nopan tämänhetkinen arvo
      */
-    public int getArvo() {
+    public int haeArvo() {
         return arvo;
     }
 

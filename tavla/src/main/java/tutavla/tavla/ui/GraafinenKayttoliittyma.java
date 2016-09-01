@@ -26,15 +26,15 @@ public class GraafinenKayttoliittyma implements Runnable, Kayttoliittyma {
     private JFrame kehys;
     private JFrame kyselyikkuna;
     private JFrame vuoroikkuna;
-    private Sovelluslogiikka svl;
-    private GUILogiikka guilg;
+    private Sovelluslogiikka sovelluslogiikka;
+    private GUILogiikka guilogiikka;
     private JLabel siirrot;
     private JLabel pelaaja;
     private JLabel terveiset;
 
     public GraafinenKayttoliittyma() {
-        svl = new Sovelluslogiikka();
-        guilg = new GUILogiikka(svl);
+        sovelluslogiikka = new Sovelluslogiikka();
+        guilogiikka = new GUILogiikka(sovelluslogiikka);
     }
 
     @Override
@@ -49,13 +49,12 @@ public class GraafinenKayttoliittyma implements Runnable, Kayttoliittyma {
 
         kehys.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        svl.heitaNopat();
+        sovelluslogiikka.heitaNopat();
 
         luoKomponentit(kehys.getContentPane());
 
         kehys.pack();
-//        kehys.setVisible(true);
-        guilg.lisaaKehys(kehys);
+        guilogiikka.lisaaKehys(kehys);
 
         kyselyikkuna = new JFrame("Tavla");
         kyselyikkuna.setPreferredSize(new Dimension(250, 150));
@@ -65,40 +64,39 @@ public class GraafinenKayttoliittyma implements Runnable, Kayttoliittyma {
         luoKyselyikkuna(kyselyikkuna.getContentPane());
 
         kyselyikkuna.pack();
-//        kyselyikkuna.setVisible(true);
-        guilg.lisaaKyselyikkuna(kyselyikkuna);
+        guilogiikka.lisaaKyselyikkuna(kyselyikkuna);
 
         vuoroikkuna = new JFrame("Tavla");
-        vuoroikkuna.setPreferredSize(new Dimension(250, 150));
+        vuoroikkuna.setPreferredSize(new Dimension(500, 150));
 
         vuoroikkuna.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         luoVuoroikkuna(vuoroikkuna.getContentPane());
 
         vuoroikkuna.pack();
-        guilg.lisaaVuoroikkuna(vuoroikkuna);
+        guilogiikka.lisaaVuoroikkuna(vuoroikkuna);
     }
 
     private void luoKomponentit(Container container) {
         BorderLayout layout = new BorderLayout(2, 1);
         container.setLayout(layout);
 
-        Piirtoalusta piirtoalusta = new Piirtoalusta(svl);
+        Piirtoalusta piirtoalusta = new Piirtoalusta(sovelluslogiikka);
         container.add(luoInfoikkuna(), BorderLayout.NORTH);
         container.add(luoPalauteikkuna(), BorderLayout.SOUTH);
-        piirtoalusta.addMouseListener(new HiirenKuuntelija(guilg, piirtoalusta, siirrot, pelaaja, terveiset));
+        piirtoalusta.addMouseListener(new HiirenKuuntelija(guilogiikka, piirtoalusta, siirrot, pelaaja, terveiset));
         container.add(piirtoalusta);
-        guilg.lisaaPiirtoalusta(piirtoalusta);
+        guilogiikka.lisaaPiirtoalusta(piirtoalusta);
 
     }
 
     private JPanel luoInfoikkuna() {
         JPanel panel = new JPanel(new GridLayout(1, 2));
-        pelaaja = new JLabel(svl.getVuorossaOlevaPelaaja().toString());
-        siirrot = new JLabel("Siirrot: " + svl.haeSiirrot().toString());
+        pelaaja = new JLabel(sovelluslogiikka.haeVuorossaOlevaPelaaja().toString());
+        siirrot = new JLabel("Siirrot: " + sovelluslogiikka.haeSiirrot().toString());
         panel.add(pelaaja);
         panel.add(siirrot);
-        guilg.lisaaSiirrotJaPelaaja(siirrot, pelaaja);
+        guilogiikka.lisaaSiirrotJaPelaaja(siirrot, pelaaja);
 
         return panel;
     }
@@ -122,7 +120,7 @@ public class GraafinenKayttoliittyma implements Runnable, Kayttoliittyma {
         container.add(vastausKentta);
         container.add(vastaaNappi);
 
-        KyselyKuuntelija kyselykuuntelija = new KyselyKuuntelija(kyselyikkuna, guilg, kysymysTeksti, vastausKentta);
+        KyselyKuuntelija kyselykuuntelija = new KyselyKuuntelija(kyselyikkuna, guilogiikka, kysymysTeksti, vastausKentta);
         vastaaNappi.addActionListener(kyselykuuntelija);
     }
 
@@ -135,12 +133,12 @@ public class GraafinenKayttoliittyma implements Runnable, Kayttoliittyma {
         container.add(vuoroTeksti);
         container.add(okNappi);
 
-        VuoroKuuntelija vuorokuuntelija = new VuoroKuuntelija(vuoroikkuna, guilg, vuoroTeksti);
+        VuoroKuuntelija vuorokuuntelija = new VuoroKuuntelija(vuoroikkuna, guilogiikka, vuoroTeksti);
         okNappi.addActionListener(vuorokuuntelija);
     }
 
     private void luoPelilaudanKomponentit(Container container) {
-        container.add(new Piirtoalusta(svl));
+        container.add(new Piirtoalusta(sovelluslogiikka));
     }
 
     public JFrame getFrame() {

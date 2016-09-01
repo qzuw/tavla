@@ -46,7 +46,7 @@ public class Pelaaja {
      * 
      * @return pelaajan nimi
      */
-    public String getNimi() {
+    public String haeNimi() {
         return nimi;
     }
 
@@ -55,7 +55,7 @@ public class Pelaaja {
      * 
      * @return true jos pelaaja on ihminen
      */
-    public boolean isIhminen() {
+    public boolean onkoIhminen() {
         return ihminen;
     }
 
@@ -64,7 +64,7 @@ public class Pelaaja {
      * 
      * @return true jos pelaajan nappulat ovat mustia
      */
-    public boolean isMusta() {
+    public boolean onkoMusta() {
         return musta;
     }
 
@@ -73,7 +73,7 @@ public class Pelaaja {
      * 
      * @return maaliruudun indeksi
      */
-    public int getMaali() {
+    public int haeMaali() {
         return maali;
     }
 
@@ -82,7 +82,7 @@ public class Pelaaja {
      * 
      * @param nimi pelaajan nimi
      */
-    public void setNimi(String nimi) {
+    public void asetaNimi(String nimi) {
         this.nimi = nimi;
     }
 
@@ -91,7 +91,7 @@ public class Pelaaja {
      * 
      * @param ihminen true jos pelaaja on ihminen
      */
-    public void setIhminen(boolean ihminen) {
+    public void asetaIhmiseksi(boolean ihminen) {
         this.ihminen = ihminen;
     }
 
@@ -100,7 +100,7 @@ public class Pelaaja {
      * 
      * @param musta true jos pelaaja on musta
      */
-    public void setMusta(boolean musta) {
+    public void asetaMustaksi(boolean musta) {
         this.musta = musta;
     }
 
@@ -109,7 +109,7 @@ public class Pelaaja {
      * 
      * @param maali maaliruudun indeksi, joko 0 tai 25
      */
-    public void setMaali(int maali) {
+    public void asetaMaali(int maali) {
         if (maali == 0 || maali == 25) {
             this.maali = maali;
         }

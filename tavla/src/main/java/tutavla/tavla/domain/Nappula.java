@@ -28,7 +28,7 @@ public class Nappula {
      * 
      * @return palauttaa nappulan omistajan
      */
-    public Pelaaja getPelaaja() {
+    public Pelaaja haePelaaja() {
         return pelaaja;
     }
 

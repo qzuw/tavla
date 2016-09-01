@@ -37,7 +37,7 @@ public class Siirto {
      * 
      * @return palauttaa lähtöruudun indeksin
      */
-    public int getLahto() {
+    public int haeLahto() {
         return lahto;
     }
 
@@ -46,7 +46,7 @@ public class Siirto {
      * 
      * @return palauttaa siirron lopetusruudun indeksin
      */
-    public int getMaali() {
+    public int haeMaali() {
         return maali;
     }
 

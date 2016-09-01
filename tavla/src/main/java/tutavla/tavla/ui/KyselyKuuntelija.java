@@ -22,57 +22,57 @@ public class KyselyKuuntelija implements ActionListener {
 
     private JLabel kysymysTeksti;
     private JTextField vastausKentta;
-    private GUILogiikka guilg;
+    private GUILogiikka guilogiikka;
     private JFrame kyselyikkuna;
 
     /**
      * Konstruktori.
      *
      * @param kyselyikkuna tarkkailtava ikkuna
-     * @param guilg GUILogiikka
+     * @param guilogiikka GUILogiikka
      * @param kysymysTeksti ikkunan teksti
      * @param vastausKentta käyttäjän vastaus ikkunassa
      */
-    public KyselyKuuntelija(JFrame kyselyikkuna, GUILogiikka guilg, JLabel kysymysTeksti, JTextField vastausKentta) {
+    public KyselyKuuntelija(JFrame kyselyikkuna, GUILogiikka guilogiikka, JLabel kysymysTeksti, JTextField vastausKentta) {
         this.kysymysTeksti = kysymysTeksti;
         this.vastausKentta = vastausKentta;
-        this.guilg = guilg;
+        this.guilogiikka = guilogiikka;
         this.kyselyikkuna = kyselyikkuna;
         kyselyikkuna.setVisible(true);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (guilg.getPelaajamaara() < 0) {
+        if (guilogiikka.haePelaajamaara() < 0) {
             try {
                 int maara = Integer.parseInt(vastausKentta.getText());
                 if (maara >= 0 && maara <= 2) {
-                    guilg.setPelaajamaara(maara);
+                    guilogiikka.asetaPelaajamaara(maara);
                 }
             } catch (Exception ex) {
             }
-        } else if (guilg.kysyttavanPelaajanNro() > 0) {
+        } else if (guilogiikka.kysyttavanPelaajanNro() > 0) {
             String nimi = vastausKentta.getText();
-            guilg.asetaPelaajanNimi(nimi);
-            if (guilg.getPelaajamaara() <= guilg.kysyttavanPelaajanNro() - 1) {
+            guilogiikka.asetaPelaajanNimi(nimi);
+            if (guilogiikka.haePelaajamaara() <= guilogiikka.kysyttavanPelaajanNro() - 1) {
                 kyselyikkuna.setVisible(false);
-                guilg.kyselyikkunanNakyvyys(false);
-                guilg.kehyksenNakyvyys(true);
-                guilg.vuoroNakyvyys(true);
+                guilogiikka.kyselyikkunanNakyvyys(false);
+                guilogiikka.kehyksenNakyvyys(true);
+                guilogiikka.vuoroNakyvyys(true);
             }
         }
 
-        if (guilg.isTyhjennaVastaus()) {
-            guilg.setTyhjennaVastaus(false);
+        if (guilogiikka.tyhjennetaankoVastaus()) {
+            guilogiikka.asetaTyhjennaVastaus(false);
             vastausKentta.setText("");
         }
 
-        if (guilg.getPelaajamaara() == 0) {
-            guilg.kyselyikkunanNakyvyys(false);
-            guilg.kehyksenNakyvyys(true);
-            guilg.vuoroNakyvyys(true);
+        if (guilogiikka.haePelaajamaara() == 0) {
+            guilogiikka.kyselyikkunanNakyvyys(false);
+            guilogiikka.kehyksenNakyvyys(true);
+            guilogiikka.vuoroNakyvyys(true);
         }
-        kysymysTeksti.setText(guilg.getKyselyteksti());
+        kysymysTeksti.setText(guilogiikka.haeKyselyteksti());
     }
 
 }

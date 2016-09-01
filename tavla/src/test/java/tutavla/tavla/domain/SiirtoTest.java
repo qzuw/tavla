@@ -46,14 +46,14 @@ public class SiirtoTest {
     public void siirtoSisaltaaLahtoruudun() {
         Siirto s = new Siirto(3, 4, false, false);
 
-        assertEquals(s.getLahto(), 3);
+        assertEquals(s.haeLahto(), 3);
     }
 
     @Test
     public void siirtoSisaltaaMaaliruudun() {
         Siirto s = new Siirto(3, 4, false, false);
 
-        assertEquals(s.getMaali(), 4);
+        assertEquals(s.haeMaali(), 4);
     }
 
     @Test

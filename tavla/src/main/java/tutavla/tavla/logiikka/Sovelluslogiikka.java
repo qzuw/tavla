@@ -33,10 +33,10 @@ public class Sovelluslogiikka {
         lahtoruutu = -1;
 
         Pelaaja pelaaja1 = new Pelaaja();
-        pelaaja1.setMusta(true);
+        pelaaja1.asetaMustaksi(true);
         Pelaaja pelaaja2 = new Pelaaja();
-        pelaaja2.setMusta(false);
-        this.setSiirtojarjestys(pelaaja1, pelaaja2);
+        pelaaja2.asetaMustaksi(false);
+        this.asetaSiirtojarjestys(pelaaja1, pelaaja2);
 
         pelilogiikka = new Pelilogiikka();
 
@@ -50,8 +50,8 @@ public class Sovelluslogiikka {
      * @param nimi pelaajan nimi
      */
     public void maaritaPelaaja(int pelaaja, String nimi) {
-        siirtojarjestys.get(pelaaja).setIhminen(true);
-        siirtojarjestys.get(pelaaja).setNimi(nimi);
+        siirtojarjestys.get(pelaaja).asetaIhmiseksi(true);
+        siirtojarjestys.get(pelaaja).asetaNimi(nimi);
     }
 
     /**
@@ -89,9 +89,9 @@ public class Sovelluslogiikka {
     public void asetaPelaajaMustaksi(Pelaaja pelaaja) {
         for (Pelaaja p : siirtojarjestys) {
             if (p.equals(pelaaja)) {
-                p.setMusta(true);
+                p.asetaMustaksi(true);
             } else {
-                p.setMusta(false);
+                p.asetaMustaksi(false);
             }
         }
     }
@@ -102,7 +102,7 @@ public class Sovelluslogiikka {
      * @param pelaaja1 ensimmäisenä siirtävä pelaaja
      * @param pelaaja2 toisena siirtävä pelaaja
      */
-    public void setSiirtojarjestys(Pelaaja pelaaja1, Pelaaja pelaaja2) {
+    public void asetaSiirtojarjestys(Pelaaja pelaaja1, Pelaaja pelaaja2) {
         siirtojarjestys.clear();
         siirtojarjestys.add(pelaaja1);
         siirtojarjestys.add(pelaaja2);
@@ -113,7 +113,7 @@ public class Sovelluslogiikka {
      *
      * @return lista pelaajista siirtojärjestyksessä
      */
-    public ArrayList<Pelaaja> getSiirtojarjestys() {
+    public ArrayList<Pelaaja> haeSiirtojarjestys() {
         return siirtojarjestys;
     }
 
@@ -128,7 +128,12 @@ public class Sovelluslogiikka {
         }
     }
 
-    public Pelaaja getVuorossaOlevaPelaaja() {
+    /**
+     * Hae vuorossa oleva pelaaja.
+     * 
+     * @return pelaaja jonka vuoro on
+     */
+    public Pelaaja haeVuorossaOlevaPelaaja() {
         return siirtojarjestys.get(vuoro);
     }
 
@@ -175,8 +180,8 @@ public class Sovelluslogiikka {
         Siirto siirto = new Siirto(0, 0, false, false);
         if (!this.eiVoiSiirtaa()) {
             siirto = tekoaly.pelaa(tietokone, pelilogiikka, siirrot.haeSiirrot());
-            this.asetaLahtoruutu(siirto.getLahto());
-            this.siirraNappulaa(siirto.getMaali());
+            this.asetaLahtoruutu(siirto.haeLahto());
+            this.siirraNappulaa(siirto.haeMaali());
         } else {
             siirto = new Siirto(0, 0, false, true);
         }
@@ -209,7 +214,7 @@ public class Sovelluslogiikka {
      *
      * @return lähtöruudun indeksi
      */
-    public int getLahtoruutu() {
+    public int haeLahtoruutu() {
         return lahtoruutu;
     }
 
@@ -262,7 +267,7 @@ public class Sovelluslogiikka {
     public boolean eiVoiSiirtaa() {
         boolean voiSiirtaa = false;
         Pelaaja pelaaja = siirtojarjestys.get(vuoro);
-        if (pelaaja.getMaali() == 0) {
+        if (pelaaja.haeMaali() == 0) {
             voiSiirtaa = voikoPelaajaSiirtaa(-1);
         } else {
             voiSiirtaa = voikoPelaajaSiirtaa(1);
@@ -273,19 +278,17 @@ public class Sovelluslogiikka {
     private boolean voikoPelaajaSiirtaa(int suunta) {
         boolean voiSiirtaa = false;
         Pelaaja pelaaja = siirtojarjestys.get(vuoro);
-        if (pelilogiikka.pelaajanNappulaMaara(Math.abs(pelaaja.getMaali() - 25), pelaaja) > 0) {
+        if (pelilogiikka.pelaajanNappulaMaara(Math.abs(pelaaja.haeMaali() - 25), pelaaja) > 0) {
             for (int siirto : siirrot.haeSiirrot()) {
                 //System.out.println("siirto " + siirto);
-                if (pelilogiikka.ruutuunVoiSiirtya((Math.abs(pelaaja.getMaali() - 25) + suunta * siirto), pelaaja)) {
+                if (pelilogiikka.ruutuunVoiSiirtya((Math.abs(pelaaja.haeMaali() - 25) + suunta * siirto), pelaaja)) {
                     voiSiirtaa = true;
                     break;
                 }
             }
         } else {
             for (int siirto : siirrot.haeSiirrot()) {
-                //System.out.println("else siirto " + siirto);
                 for (int ruutu : pelilogiikka.pelaajaVoiSiirtaaRuuduista(pelaaja)) {
-                    //System.out.println("else ruutu " + ruutu);
                     if (pelilogiikka.pelaajaVoiSiirtaaRuutuihin(pelaaja, ruutu, siirrot.haeSiirrot()).contains(ruutu + suunta * siirto)) {
                         voiSiirtaa = true;
                         break;
@@ -354,7 +357,7 @@ public class Sovelluslogiikka {
      *
      * @return pelilogiikka
      */
-    public Pelilogiikka getPelilogiikka() {
+    public Pelilogiikka haePelilogiikka() {
         return pelilogiikka;
     }
 
