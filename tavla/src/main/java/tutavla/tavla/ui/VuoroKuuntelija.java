@@ -43,13 +43,17 @@ public class VuoroKuuntelija implements ActionListener {
         if (guilg.lopetetaanko()) {
             guilg.lopeta();
         }
-        if (guilg.onkoPeliKaynnissa() && guilg.pelaajaOnIhminen()) {
+        if (guilg.onkoPeliKaynnissa()) {
             guilg.vuoroNakyvyys(false);
         }
 //tähän väliin toimintaa
+        guilg.heitaNoppaa();
         guilg.vuoroVaihtuu();
+        if (!guilg.pelaajaOnIhminen()) {
+            guilg.pelaaTietokone();
+        }
         vuoroTeksti.setText(guilg.getVuoroteksti());
-        
+
     }
 
 }

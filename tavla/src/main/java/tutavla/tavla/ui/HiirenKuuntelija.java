@@ -64,8 +64,10 @@ public class HiirenKuuntelija implements MouseListener {
                 guilg.voitto();
             } else if (svl.eiVoiSiirtaa()) {
                 terveiset.setText("Pelaaja " + svl.getVuorossaOlevaPelaaja() + " ei voi siirtää, vuoro vaihtuu!");
-                svl.nollaaLahtoruutu();
+//                svl.nollaaLahtoruutu();
+//                svl.vaihdaVuoroa();
                 guilg.vuoroVaihtuu();
+                guilg.vuoroNakyvyys(true);
                 pelaaja.setText(svl.getVuorossaOlevaPelaaja().toString());
                 siirrot.setText(svl.haeSiirrot().toString());
             }
@@ -90,6 +92,13 @@ public class HiirenKuuntelija implements MouseListener {
         if (svl.haeSiirrot().isEmpty()) {
             terveiset.setText("Kaikki siirrot on käytetty, vuoro vaihtuu!");
             guilg.vuoroVaihtuu();
+            guilg.vuoroNakyvyys(true);
+            pelaaja.setText(svl.getVuorossaOlevaPelaaja().toString());
+            siirrot.setText(svl.haeSiirrot().toString());
+        } else if (svl.eiVoiSiirtaa()) {
+            terveiset.setText(svl.getVuorossaOlevaPelaaja() + " ei voi siirtää, vuoro vaihtuu!");
+            guilg.vuoroVaihtuu();
+            guilg.vuoroNakyvyys(true);
             pelaaja.setText(svl.getVuorossaOlevaPelaaja().toString());
             siirrot.setText(svl.haeSiirrot().toString());
         }
