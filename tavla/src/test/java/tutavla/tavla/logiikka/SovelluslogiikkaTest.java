@@ -711,4 +711,217 @@ public class SovelluslogiikkaTest {
 
         assertTrue(svl.haeSiirrot().isEmpty());
     }
+
+    @Test
+    public void siirra2() {
+        Sovelluslogiikka svl = new Sovelluslogiikka();
+        svl.heitaNopat();
+        ArrayList<Integer> s = new ArrayList<>(Arrays.asList(2));
+
+        svl.vaihdaVuoroa();
+        svl.asetaLahtoruutu(1);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(1);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(12);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(12);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(12);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(12);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(12);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(19);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(19);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(19);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(19);
+        svl.siirraNappulaa(23);
+        svl.heitaNopat();
+        svl.asetaSiirrot(s);
+        svl.asetaLahtoruutu(23);
+        svl.siirraNappulaa(25);
+
+        assertTrue(svl.haeSiirrot().isEmpty());
+    }
+    @Test
+    public void siirra3() {
+        Sovelluslogiikka svl = new Sovelluslogiikka();
+        svl.heitaNopat();
+        ArrayList<Integer> s = new ArrayList<>(Arrays.asList(3));
+
+        svl.vaihdaVuoroa();
+        svl.asetaLahtoruutu(1);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(1);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(12);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(12);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(12);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(12);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(12);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(19);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(19);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(19);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(19);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(19);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(17);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(17);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(17);
+        svl.siirraNappulaa(23);
+        svl.heitaNopat();
+        svl.asetaSiirrot(s);
+        svl.asetaLahtoruutu(23);
+        svl.siirraNappulaa(25);
+
+        assertTrue(svl.haeSiirrot().isEmpty());
+    }
+    @Test
+    public void voikoSiirtaa3() {
+        Sovelluslogiikka svl = new Sovelluslogiikka();
+        svl.heitaNopat();
+        ArrayList<Integer> s = new ArrayList<>(Arrays.asList(3));
+
+        svl.vaihdaVuoroa();
+        svl.asetaLahtoruutu(1);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(1);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(12);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(12);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(12);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(12);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(12);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(19);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(19);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(19);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(19);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(19);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(17);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(17);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(17);
+        svl.siirraNappulaa(23);
+        svl.heitaNopat();
+        svl.asetaSiirrot(s);
+
+        assertFalse(svl.eiVoiSiirtaa());
+    }
+    @Test
+    public void voikoSiirtaa4() {
+        Sovelluslogiikka svl = new Sovelluslogiikka();
+        svl.heitaNopat();
+        ArrayList<Integer> s = new ArrayList<>(Arrays.asList(2));
+
+        svl.vaihdaVuoroa();
+        svl.asetaLahtoruutu(1);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(1);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(12);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(12);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(12);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(12);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(12);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(19);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(19);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(19);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(19);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(19);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(17);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(17);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(17);
+        svl.siirraNappulaa(4);
+        svl.heitaNopat();
+        svl.asetaSiirrot(s);
+
+//        for (int i = 0; i < 25; i++) {
+//            System.out.println(svl.pelitilanne().haeRuutu(i));
+//        }
+        assertTrue(svl.eiVoiSiirtaa());
+    }
+    @Test
+    public void voikoSiirtaa5() {
+        Sovelluslogiikka svl = new Sovelluslogiikka();
+        svl.heitaNopat();
+        ArrayList<Integer> s = new ArrayList<>(Arrays.asList(1));
+
+        svl.vaihdaVuoroa();
+        svl.asetaLahtoruutu(1);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(1);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(12);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(12);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(12);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(12);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(12);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(19);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(19);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(19);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(19);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(19);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(17);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(17);
+        svl.siirraNappulaa(23);
+        svl.asetaLahtoruutu(17);
+        svl.siirraNappulaa(5);
+        svl.heitaNopat();
+        svl.asetaSiirrot(s);
+
+//        for (int i = 0; i < 25; i++) {
+//            System.out.println(svl.pelitilanne().haeRuutu(i));
+//        }
+        assertTrue(svl.eiVoiSiirtaa());
+    }
 }

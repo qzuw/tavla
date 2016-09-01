@@ -110,7 +110,7 @@ public class Pelilogiikka {
      * @return true jos pelaaja voi siirtää nappulansa ruutuun
      */
     public boolean ruutuunVoiSiirtya(int ruutu, Pelaaja pelaaja) {
-        if (ruutu == pelaaja.getMaali()) {
+        if (ruutu == pelaaja.getMaali() && nappulatKotialueella(pelaaja)) {
             return true;
         }
         if (this.ruudunNappulaMaara(ruutu) < 2) {
@@ -202,11 +202,8 @@ public class Pelilogiikka {
         ArrayList<Integer> lista = new ArrayList<>();
 
         if (pelaaja.getMaali() == 0) {
-
             lista = siirrettavatRuudut(lahtoruutu, -1, pelaaja, siirrot);
-
         } else {
-
             lista = siirrettavatRuudut(lahtoruutu, 1, pelaaja, siirrot);
         }
 
