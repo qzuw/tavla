@@ -56,7 +56,9 @@ public class KyselyKuuntelija implements ActionListener {
             guilg.asetaPelaajanNimi(nimi);
             if (guilg.getPelaajamaara() <= guilg.kysyttavanPelaajanNro() - 1) {
                 kyselyikkuna.setVisible(false);
-                guilg.piirraPiirtoalusta();
+                guilg.kyselyikkunanNakyvyys(false);
+                guilg.kehyksenNakyvyys(true);
+                guilg.vuoroNakyvyys(true);
             }
         }
 
@@ -66,7 +68,9 @@ public class KyselyKuuntelija implements ActionListener {
         }
 
         if (guilg.getPelaajamaara() == 0) {
-            kyselyikkuna.setVisible(false);
+            guilg.kyselyikkunanNakyvyys(false);
+            guilg.kehyksenNakyvyys(true);
+            guilg.vuoroNakyvyys(true);
         }
         kysymysTeksti.setText(guilg.getKyselyteksti());
     }

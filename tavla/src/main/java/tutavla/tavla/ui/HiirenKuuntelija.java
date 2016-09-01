@@ -61,12 +61,12 @@ public class HiirenKuuntelija implements MouseListener {
             nappulanSiirtaminen(ruutu);
             if (svl.onkoJokuVoittanut()) {
                 terveiset.setText("Pelaaja " + svl.kukaVoitti() + " on voittanut!");
+                guilg.voitto();
             } else if (svl.eiVoiSiirtaa()) {
                 terveiset.setText("Pelaaja " + svl.getVuorossaOlevaPelaaja() + " ei voi siirtää, vuoro vaihtuu!");
                 svl.nollaaLahtoruutu();
-                svl.vaihdaVuoroa();
+                guilg.vuoroVaihtuu();
                 pelaaja.setText(svl.getVuorossaOlevaPelaaja().toString());
-                svl.heitaNopat();
                 siirrot.setText(svl.haeSiirrot().toString());
             }
             pa.repaint();
@@ -89,9 +89,8 @@ public class HiirenKuuntelija implements MouseListener {
     private void vuoronVaihtuminen() {
         if (svl.haeSiirrot().isEmpty()) {
             terveiset.setText("Kaikki siirrot on käytetty, vuoro vaihtuu!");
-            svl.vaihdaVuoroa();
+            guilg.vuoroVaihtuu();
             pelaaja.setText(svl.getVuorossaOlevaPelaaja().toString());
-            svl.heitaNopat();
             siirrot.setText(svl.haeSiirrot().toString());
         }
     }

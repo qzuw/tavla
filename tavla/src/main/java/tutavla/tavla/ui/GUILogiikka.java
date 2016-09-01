@@ -5,6 +5,7 @@
  */
 package tutavla.tavla.ui;
 
+import javax.swing.JFrame;
 import tutavla.tavla.logiikka.Sovelluslogiikka;
 
 /**
@@ -20,8 +21,14 @@ public class GUILogiikka {
     private Piirtoalusta pa;
     private int kysyttavaPelaaja;
     private String kyselyteksti;
+    private String vuoroteksti;
     private boolean naytaKyselyikkuna;
     private boolean tyhjennaVastaus;
+    private JFrame kehys;
+    private JFrame kyselyikkuna;
+    private JFrame vuoroikkuna;
+    private boolean onkoPeliKaynnissa;
+    private boolean lopetetaan;
 
     /**
      * Konstruktori.
@@ -34,8 +41,11 @@ public class GUILogiikka {
         pelaajamaara = -1;
         kysyttavaPelaaja = 0;
         kyselyteksti = "Montako pelaajaa? (0-2)";
+        vuoroteksti = "Peli alkaa.";
         naytaKyselyikkuna = true;
         tyhjennaVastaus = false;
+        onkoPeliKaynnissa = false;
+        lopetetaan = false;
     }
 
     /**
@@ -63,6 +73,10 @@ public class GUILogiikka {
      */
     public String getKyselyteksti() {
         return kyselyteksti;
+    }
+
+    public String getVuoroteksti() {
+        return vuoroteksti;
     }
 
     /**
@@ -146,10 +160,114 @@ public class GUILogiikka {
     }
 
     /**
+     * Lisätään luokalle kehys.
+     *
+     * @param kehys piirtoalustan kehys
+     */
+    public void lisaaKehys(JFrame kehys) {
+        this.kehys = kehys;
+        kehys.setVisible(true);
+        kehys.setVisible(false);
+    }
+
+    /**
+     * Lisätään luokalle kyselyikkuna.
+     *
+     * @param kyselyikkuna ikkuna kyselyitä varten
+     */
+    public void lisaaKyselyikkuna(JFrame kyselyikkuna) {
+        this.kyselyikkuna = kyselyikkuna;
+        kyselyikkuna.setVisible(true);
+    }
+
+    /**
+     * Lisätään luokalle vuoroikkuna.
+     *
+     * @param vuoroikkuna ikkuna vuoron vaihtumisesta ilmoittamiseen
+     */
+    public void lisaaVuoroikkuna(JFrame vuoroikkuna) {
+        this.vuoroikkuna = vuoroikkuna;
+        vuoroikkuna.setVisible(true);
+        vuoroikkuna.setVisible(false);
+    }
+
+    /**
      * Päivitetään piirtoalusta.
      */
     public void piirraPiirtoalusta() {
         pa.repaint();
     }
 
+    public void kehyksenNakyvyys(boolean naytetaanko) {
+        kehys.repaint();
+        kehys.setVisible(naytetaanko);
+    }
+
+    public void kyselyikkunanNakyvyys(boolean naytetaanko) {
+        kyselyikkuna.setVisible(naytetaanko);
+    }
+
+    public void vuoroNakyvyys(boolean naytetaanko) {
+        vuoroikkuna.setVisible(naytetaanko);
+    }
+
+    public void kaynnistaPeli() {
+        svl.heitaNopat();
+        pelaajaOnIhminen= svl.getVuorossaOlevaPelaaja().isIhminen();
+    }
+
+    public void vuoroVaihtuu() {
+        if (!onkoPeliKaynnissa) {
+            // System.out.println("sadf" + onkoPeliKaynnissa + " " + svl.haeSiirrot());
+            int noppa1 = svl.haeSiirrot().get(0);
+            int noppa2 = svl.haeSiirrot().get(1);
+            vuoroteksti = svl.getSiirtojarjestys().get(0) + " heitti " + noppa1 + " ja " + svl.getSiirtojarjestys().get(1) + " heitti " + noppa2 + ".";
+            if (noppa1 > noppa2) {
+                svl.pelaajaSiirtaaEnsin(true, 0);
+                vuoroteksti += " " + svl.getVuorossaOlevaPelaaja().toString() + " liikkuu ensin.";
+                this.onkoPeliKaynnissa = true;
+            } else if (noppa1 < noppa2) {
+                svl.pelaajaSiirtaaEnsin(true, 1);
+                vuoroteksti += " " + svl.getVuorossaOlevaPelaaja().toString() + " liikkuu ensin.";
+                this.onkoPeliKaynnissa = true;
+            } else {
+                vuoroteksti += " Heitetään noppaa uudestaan.";
+            }
+        } else {
+            vuoroteksti = "Vuoro vaihtuu.";
+            svl.vaihdaVuoroa();
+            this.vuoroteksti = "Vuoro vaihtuu.";
+            this.vuoroikkuna.setVisible(true);
+            svl.heitaNopat();
+            if (svl.getVuorossaOlevaPelaaja().isIhminen()) {
+                this.pelaajaOnIhminen = true;
+            } else {
+                this.pelaajaOnIhminen = false;
+            }
+        }
+
+    }
+
+    public boolean onkoPeliKaynnissa() {
+        return onkoPeliKaynnissa;
+    }
+
+    public void heitaNoppaa() {
+        svl.heitaNopat();
+    }
+
+    public void voitto() {
+        vuoroteksti = svl.kukaVoitti().toString() + " on voittanut!";
+        this.vuoroikkuna.setVisible(true);
+        onkoPeliKaynnissa = false;
+        lopetetaan = true;
+    }
+
+    public boolean lopetetaanko() {
+        return this.lopetetaan;
+    }
+
+    public void lopeta() {
+        System.exit(0);
+    }
 }
