@@ -46,7 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#tutavla.tavla.domain.Lauta.java">tutavla/tavla/domain/Lauta.java</a>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.logiikka.Sovelluslogiikka.java">tutavla/tavla/logiikka/Sovelluslogiikka.java</a>
                 </td>
                 <td>
                   0
@@ -55,7 +55,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
               </tr>
                           <tr>
@@ -74,7 +74,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#tutavla.tavla.domain.Noppa.java">tutavla/tavla/domain/Noppa.java</a>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.domain.Pelaaja.java">tutavla/tavla/domain/Pelaaja.java</a>
                 </td>
                 <td>
                   0
@@ -88,7 +88,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#tutavla.tavla.domain.Siirrot.java">tutavla/tavla/domain/Siirrot.java</a>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.domain.Lauta.java">tutavla/tavla/domain/Lauta.java</a>
                 </td>
                 <td>
                   0
@@ -102,7 +102,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#tutavla.tavla.logiikka.Sovelluslogiikka.java">tutavla/tavla/logiikka/Sovelluslogiikka.java</a>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.ui.GraafinenKayttoliittyma.java">tutavla/tavla/ui/GraafinenKayttoliittyma.java</a>
                 </td>
                 <td>
                   0
@@ -111,12 +111,40 @@ under the License.
                   0
                 </td>
                 <td>
-                  1
+                  0
                 </td>
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#tutavla.tavla.domain.Nappula.java">tutavla/tavla/domain/Nappula.java</a>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.ui.HiirenKuuntelija.java">tutavla/tavla/ui/HiirenKuuntelija.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.ui.VuoroKuuntelija.java">tutavla/tavla/ui/VuoroKuuntelija.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.ui.Piirtoalusta.java">tutavla/tavla/ui/Piirtoalusta.java</a>
                 </td>
                 <td>
                   0
@@ -158,105 +186,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#tutavla.tavla.ui.Kayttoliittyma.java">tutavla/tavla/ui/Kayttoliittyma.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#tutavla.tavla.ui.HiirenKuuntelija.java">tutavla/tavla/ui/HiirenKuuntelija.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#tutavla.tavla.Main.java">tutavla/tavla/Main.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#tutavla.tavla.ui.Piirtoalusta.java">tutavla/tavla/ui/Piirtoalusta.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#tutavla.tavla.domain.Ruutu.java">tutavla/tavla/domain/Ruutu.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#tutavla.tavla.domain.Pelaaja.java">tutavla/tavla/domain/Pelaaja.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#tutavla.tavla.logiikka.RandomTekoaly.java">tutavla/tavla/logiikka/RandomTekoaly.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#tutavla.tavla.ui.VuoroKuuntelija.java">tutavla/tavla/ui/VuoroKuuntelija.java</a>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.logiikka.Tekoaly.java">tutavla/tavla/logiikka/Tekoaly.java</a>
                 </td>
                 <td>
                   0
@@ -284,6 +214,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.logiikka.RandomTekoaly.java">tutavla/tavla/logiikka/RandomTekoaly.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#tutavla.tavla.ui.GUILogiikka.java">tutavla/tavla/ui/GUILogiikka.java</a>
                 </td>
                 <td>
@@ -298,7 +242,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#tutavla.tavla.logiikka.Tekoaly.java">tutavla/tavla/logiikka/Tekoaly.java</a>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.domain.Ruutu.java">tutavla/tavla/domain/Ruutu.java</a>
                 </td>
                 <td>
                   0
@@ -312,7 +256,63 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#tutavla.tavla.ui.GraafinenKayttoliittyma.java">tutavla/tavla/ui/GraafinenKayttoliittyma.java</a>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.domain.Nappula.java">tutavla/tavla/domain/Nappula.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.ui.Kayttoliittyma.java">tutavla/tavla/ui/Kayttoliittyma.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.domain.Siirrot.java">tutavla/tavla/domain/Siirrot.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.Main.java">tutavla/tavla/Main.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#tutavla.tavla.domain.Noppa.java">tutavla/tavla/domain/Noppa.java</a>
                 </td>
                 <td>
                   0

@@ -90,7 +90,7 @@
 <a class="jxr_linenumber" name="L82" href="#L82">82</a>  
 <a class="jxr_linenumber" name="L83" href="#L83">83</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L84" href="#L84">84</a>  <em class="jxr_javadoccomment">     * Hae teksti vuoronvaihtoikkunaa varten.</em>
-<a class="jxr_linenumber" name="L85" href="#L85">85</a>  <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>  <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L86" href="#L86">86</a>  <em class="jxr_javadoccomment">     * @return teksti joka vuoronvaihtoikkunan tulisi näyttää</em>
 <a class="jxr_linenumber" name="L87" href="#L87">87</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L88" href="#L88">88</a>      <strong class="jxr_keyword">public</strong> String haeVuoroteksti() {
@@ -178,109 +178,109 @@
 <a class="jxr_linenumber" name="L170" href="#L170">170</a>     }
 <a class="jxr_linenumber" name="L171" href="#L171">171</a> 
 <a class="jxr_linenumber" name="L172" href="#L172">172</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L173" href="#L173">173</a> <em class="jxr_javadoccomment">     * Lisää käyttöliittymän siirroista ja vuorossa olevasta pelaajasta kertovat elementit GUILogiikkaan.</em>
-<a class="jxr_linenumber" name="L174" href="#L174">174</a> <em class="jxr_javadoccomment">     * </em>
-<a class="jxr_linenumber" name="L175" href="#L175">175</a> <em class="jxr_javadoccomment">     * @param siirrot siirroista kertova JLabel</em>
-<a class="jxr_linenumber" name="L176" href="#L176">176</a> <em class="jxr_javadoccomment">     * @param pelaaja vuorossa olevasta pelaajasta kertova JLabel</em>
-<a class="jxr_linenumber" name="L177" href="#L177">177</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L178" href="#L178">178</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> lisaaSiirrotJaPelaaja(JLabel siirrot, JLabel pelaaja) {
-<a class="jxr_linenumber" name="L179" href="#L179">179</a>         <strong class="jxr_keyword">this</strong>.siirrot = siirrot;
-<a class="jxr_linenumber" name="L180" href="#L180">180</a>         <strong class="jxr_keyword">this</strong>.pelaaja = pelaaja;
-<a class="jxr_linenumber" name="L181" href="#L181">181</a>     }
-<a class="jxr_linenumber" name="L182" href="#L182">182</a> 
-<a class="jxr_linenumber" name="L183" href="#L183">183</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> paivitaSiirrotJaPelaaja() {
-<a class="jxr_linenumber" name="L184" href="#L184">184</a>         pelaaja.setText(sovelluslogiikka.haeVuorossaOlevaPelaaja().toString());
-<a class="jxr_linenumber" name="L185" href="#L185">185</a>         siirrot.setText(<span class="jxr_string">"Siirrot: "</span> + sovelluslogiikka.haeSiirrot());
-<a class="jxr_linenumber" name="L186" href="#L186">186</a>     }
-<a class="jxr_linenumber" name="L187" href="#L187">187</a> 
-<a class="jxr_linenumber" name="L188" href="#L188">188</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L189" href="#L189">189</a> <em class="jxr_javadoccomment">     * Lisätään luokalle kehys.</em>
-<a class="jxr_linenumber" name="L190" href="#L190">190</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L191" href="#L191">191</a> <em class="jxr_javadoccomment">     * @param kehys piirtoalustan kehys</em>
-<a class="jxr_linenumber" name="L192" href="#L192">192</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L193" href="#L193">193</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> lisaaKehys(JFrame kehys) {
-<a class="jxr_linenumber" name="L194" href="#L194">194</a>         <strong class="jxr_keyword">this</strong>.kehys = kehys;
-<a class="jxr_linenumber" name="L195" href="#L195">195</a>         kehys.setVisible(<strong class="jxr_keyword">true</strong>);
-<a class="jxr_linenumber" name="L196" href="#L196">196</a>         kehys.setVisible(false);
-<a class="jxr_linenumber" name="L197" href="#L197">197</a>     }
-<a class="jxr_linenumber" name="L198" href="#L198">198</a> 
-<a class="jxr_linenumber" name="L199" href="#L199">199</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L200" href="#L200">200</a> <em class="jxr_javadoccomment">     * Lisätään luokalle kyselyikkuna.</em>
-<a class="jxr_linenumber" name="L201" href="#L201">201</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L202" href="#L202">202</a> <em class="jxr_javadoccomment">     * @param kyselyikkuna ikkuna kyselyitä varten</em>
-<a class="jxr_linenumber" name="L203" href="#L203">203</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L204" href="#L204">204</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> lisaaKyselyikkuna(JFrame kyselyikkuna) {
-<a class="jxr_linenumber" name="L205" href="#L205">205</a>         <strong class="jxr_keyword">this</strong>.kyselyikkuna = kyselyikkuna;
-<a class="jxr_linenumber" name="L206" href="#L206">206</a>         kyselyikkuna.setVisible(<strong class="jxr_keyword">true</strong>);
-<a class="jxr_linenumber" name="L207" href="#L207">207</a>     }
-<a class="jxr_linenumber" name="L208" href="#L208">208</a> 
-<a class="jxr_linenumber" name="L209" href="#L209">209</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L210" href="#L210">210</a> <em class="jxr_javadoccomment">     * Lisätään luokalle vuoroikkuna.</em>
-<a class="jxr_linenumber" name="L211" href="#L211">211</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L212" href="#L212">212</a> <em class="jxr_javadoccomment">     * @param vuoroikkuna ikkuna vuoron vaihtumisesta ilmoittamiseen</em>
-<a class="jxr_linenumber" name="L213" href="#L213">213</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L214" href="#L214">214</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> lisaaVuoroikkuna(JFrame vuoroikkuna) {
-<a class="jxr_linenumber" name="L215" href="#L215">215</a>         <strong class="jxr_keyword">this</strong>.vuoroikkuna = vuoroikkuna;
-<a class="jxr_linenumber" name="L216" href="#L216">216</a>         vuoroikkuna.setVisible(<strong class="jxr_keyword">true</strong>);
-<a class="jxr_linenumber" name="L217" href="#L217">217</a>         vuoroikkuna.setVisible(false);
-<a class="jxr_linenumber" name="L218" href="#L218">218</a>     }
-<a class="jxr_linenumber" name="L219" href="#L219">219</a> 
-<a class="jxr_linenumber" name="L220" href="#L220">220</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L221" href="#L221">221</a> <em class="jxr_javadoccomment">     * Päivitetään piirtoalusta.</em>
-<a class="jxr_linenumber" name="L222" href="#L222">222</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L223" href="#L223">223</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> piirraPiirtoalusta() {
-<a class="jxr_linenumber" name="L224" href="#L224">224</a>         piirtoalusta.repaint();
-<a class="jxr_linenumber" name="L225" href="#L225">225</a>     }
-<a class="jxr_linenumber" name="L226" href="#L226">226</a> 
-<a class="jxr_linenumber" name="L227" href="#L227">227</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L228" href="#L228">228</a> <em class="jxr_javadoccomment">     * Asetetaan kehyksen näkyvyys.</em>
-<a class="jxr_linenumber" name="L229" href="#L229">229</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L230" href="#L230">230</a> <em class="jxr_javadoccomment">     * @param naytetaanko true jos kehys halutaan näkyväksi</em>
-<a class="jxr_linenumber" name="L231" href="#L231">231</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L232" href="#L232">232</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> kehyksenNakyvyys(<strong class="jxr_keyword">boolean</strong> naytetaanko) {
-<a class="jxr_linenumber" name="L233" href="#L233">233</a>         paivitaSiirrotJaPelaaja();
-<a class="jxr_linenumber" name="L234" href="#L234">234</a>         kehys.repaint();
-<a class="jxr_linenumber" name="L235" href="#L235">235</a>         kehys.revalidate();
-<a class="jxr_linenumber" name="L236" href="#L236">236</a>         kehys.setVisible(naytetaanko);
-<a class="jxr_linenumber" name="L237" href="#L237">237</a>     }
-<a class="jxr_linenumber" name="L238" href="#L238">238</a> 
-<a class="jxr_linenumber" name="L239" href="#L239">239</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L240" href="#L240">240</a> <em class="jxr_javadoccomment">     * Asetetaan kyselyikkunan näkyvyys.</em>
-<a class="jxr_linenumber" name="L241" href="#L241">241</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L242" href="#L242">242</a> <em class="jxr_javadoccomment">     * @param naytetaanko true jos kyselyikkuna halutaan näkyväksi</em>
-<a class="jxr_linenumber" name="L243" href="#L243">243</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L244" href="#L244">244</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> kyselyikkunanNakyvyys(<strong class="jxr_keyword">boolean</strong> naytetaanko) {
-<a class="jxr_linenumber" name="L245" href="#L245">245</a>         kyselyikkuna.setVisible(naytetaanko);
-<a class="jxr_linenumber" name="L246" href="#L246">246</a>     }
-<a class="jxr_linenumber" name="L247" href="#L247">247</a> 
-<a class="jxr_linenumber" name="L248" href="#L248">248</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L249" href="#L249">249</a> <em class="jxr_javadoccomment">     * Asetetaan vuoroikkunan näkyvyys.</em>
-<a class="jxr_linenumber" name="L250" href="#L250">250</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L251" href="#L251">251</a> <em class="jxr_javadoccomment">     * @param naytetaanko true jos vuoroikkuna halutaan näkyväksi</em>
-<a class="jxr_linenumber" name="L252" href="#L252">252</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L253" href="#L253">253</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> vuoroNakyvyys(<strong class="jxr_keyword">boolean</strong> naytetaanko) {
-<a class="jxr_linenumber" name="L254" href="#L254">254</a>         vuoroikkuna.setVisible(naytetaanko);
-<a class="jxr_linenumber" name="L255" href="#L255">255</a>     }
-<a class="jxr_linenumber" name="L256" href="#L256">256</a> 
-<a class="jxr_linenumber" name="L257" href="#L257">257</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L258" href="#L258">258</a> <em class="jxr_javadoccomment">     * Käynnistetään peli.</em>
-<a class="jxr_linenumber" name="L259" href="#L259">259</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L260" href="#L260">260</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> kaynnistaPeli() {
-<a class="jxr_linenumber" name="L261" href="#L261">261</a>         pelaajaOnIhminen = sovelluslogiikka.haeVuorossaOlevaPelaaja().onkoIhminen();
-<a class="jxr_linenumber" name="L262" href="#L262">262</a>         paivitaSiirrotJaPelaaja();
-<a class="jxr_linenumber" name="L263" href="#L263">263</a>         kehys.revalidate();
-<a class="jxr_linenumber" name="L264" href="#L264">264</a>     }
-<a class="jxr_linenumber" name="L265" href="#L265">265</a> 
-<a class="jxr_linenumber" name="L266" href="#L266">266</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L267" href="#L267">267</a> <em class="jxr_javadoccomment">     * Pelivuoro vaihtuu.</em>
-<a class="jxr_linenumber" name="L268" href="#L268">268</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L269" href="#L269">269</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> vuoroVaihtuu() {
-<a class="jxr_linenumber" name="L270" href="#L270">270</a>         <strong class="jxr_keyword">if</strong> (sovelluslogiikka.onkoJokuVoittanut()) {
-<a class="jxr_linenumber" name="L271" href="#L271">271</a>             voitto();
-<a class="jxr_linenumber" name="L272" href="#L272">272</a>         }
-<a class="jxr_linenumber" name="L273" href="#L273">273</a> 
-<a class="jxr_linenumber" name="L274" href="#L274">274</a>         <strong class="jxr_keyword">if</strong> (!onkoPeliKaynnissa &amp;&amp; !lopetetaan) {
-<a class="jxr_linenumber" name="L275" href="#L275">275</a>             <em class="jxr_comment">// System.out.println("sadf" + onkoPeliKaynnissa + " " + svl.haeSiirrot());</em>
+<a class="jxr_linenumber" name="L173" href="#L173">173</a> <em class="jxr_javadoccomment">     * Lisää käyttöliittymän siirroista ja vuorossa olevasta pelaajasta kertovat</em>
+<a class="jxr_linenumber" name="L174" href="#L174">174</a> <em class="jxr_javadoccomment">     * elementit GUILogiikkaan.</em>
+<a class="jxr_linenumber" name="L175" href="#L175">175</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L176" href="#L176">176</a> <em class="jxr_javadoccomment">     * @param siirrot siirroista kertova JLabel</em>
+<a class="jxr_linenumber" name="L177" href="#L177">177</a> <em class="jxr_javadoccomment">     * @param pelaaja vuorossa olevasta pelaajasta kertova JLabel</em>
+<a class="jxr_linenumber" name="L178" href="#L178">178</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L179" href="#L179">179</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> lisaaSiirrotJaPelaaja(JLabel siirrot, JLabel pelaaja) {
+<a class="jxr_linenumber" name="L180" href="#L180">180</a>         <strong class="jxr_keyword">this</strong>.siirrot = siirrot;
+<a class="jxr_linenumber" name="L181" href="#L181">181</a>         <strong class="jxr_keyword">this</strong>.pelaaja = pelaaja;
+<a class="jxr_linenumber" name="L182" href="#L182">182</a>     }
+<a class="jxr_linenumber" name="L183" href="#L183">183</a> 
+<a class="jxr_linenumber" name="L184" href="#L184">184</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> paivitaSiirrotJaPelaaja() {
+<a class="jxr_linenumber" name="L185" href="#L185">185</a>         pelaaja.setText(sovelluslogiikka.haeVuorossaOlevaPelaaja().toString());
+<a class="jxr_linenumber" name="L186" href="#L186">186</a>         siirrot.setText(<span class="jxr_string">"Siirrot: "</span> + sovelluslogiikka.haeSiirrot());
+<a class="jxr_linenumber" name="L187" href="#L187">187</a>     }
+<a class="jxr_linenumber" name="L188" href="#L188">188</a> 
+<a class="jxr_linenumber" name="L189" href="#L189">189</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L190" href="#L190">190</a> <em class="jxr_javadoccomment">     * Lisätään luokalle kehys.</em>
+<a class="jxr_linenumber" name="L191" href="#L191">191</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L192" href="#L192">192</a> <em class="jxr_javadoccomment">     * @param kehys piirtoalustan kehys</em>
+<a class="jxr_linenumber" name="L193" href="#L193">193</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L194" href="#L194">194</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> lisaaKehys(JFrame kehys) {
+<a class="jxr_linenumber" name="L195" href="#L195">195</a>         <strong class="jxr_keyword">this</strong>.kehys = kehys;
+<a class="jxr_linenumber" name="L196" href="#L196">196</a>         kehys.setVisible(<strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L197" href="#L197">197</a>         kehys.setVisible(false);
+<a class="jxr_linenumber" name="L198" href="#L198">198</a>     }
+<a class="jxr_linenumber" name="L199" href="#L199">199</a> 
+<a class="jxr_linenumber" name="L200" href="#L200">200</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L201" href="#L201">201</a> <em class="jxr_javadoccomment">     * Lisätään luokalle kyselyikkuna.</em>
+<a class="jxr_linenumber" name="L202" href="#L202">202</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L203" href="#L203">203</a> <em class="jxr_javadoccomment">     * @param kyselyikkuna ikkuna kyselyitä varten</em>
+<a class="jxr_linenumber" name="L204" href="#L204">204</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L205" href="#L205">205</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> lisaaKyselyikkuna(JFrame kyselyikkuna) {
+<a class="jxr_linenumber" name="L206" href="#L206">206</a>         <strong class="jxr_keyword">this</strong>.kyselyikkuna = kyselyikkuna;
+<a class="jxr_linenumber" name="L207" href="#L207">207</a>         kyselyikkuna.setVisible(<strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L208" href="#L208">208</a>     }
+<a class="jxr_linenumber" name="L209" href="#L209">209</a> 
+<a class="jxr_linenumber" name="L210" href="#L210">210</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L211" href="#L211">211</a> <em class="jxr_javadoccomment">     * Lisätään luokalle vuoroikkuna.</em>
+<a class="jxr_linenumber" name="L212" href="#L212">212</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L213" href="#L213">213</a> <em class="jxr_javadoccomment">     * @param vuoroikkuna ikkuna vuoron vaihtumisesta ilmoittamiseen</em>
+<a class="jxr_linenumber" name="L214" href="#L214">214</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L215" href="#L215">215</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> lisaaVuoroikkuna(JFrame vuoroikkuna) {
+<a class="jxr_linenumber" name="L216" href="#L216">216</a>         <strong class="jxr_keyword">this</strong>.vuoroikkuna = vuoroikkuna;
+<a class="jxr_linenumber" name="L217" href="#L217">217</a>         vuoroikkuna.setVisible(<strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L218" href="#L218">218</a>         vuoroikkuna.setVisible(false);
+<a class="jxr_linenumber" name="L219" href="#L219">219</a>     }
+<a class="jxr_linenumber" name="L220" href="#L220">220</a> 
+<a class="jxr_linenumber" name="L221" href="#L221">221</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L222" href="#L222">222</a> <em class="jxr_javadoccomment">     * Päivitetään piirtoalusta.</em>
+<a class="jxr_linenumber" name="L223" href="#L223">223</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L224" href="#L224">224</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> piirraPiirtoalusta() {
+<a class="jxr_linenumber" name="L225" href="#L225">225</a>         piirtoalusta.repaint();
+<a class="jxr_linenumber" name="L226" href="#L226">226</a>     }
+<a class="jxr_linenumber" name="L227" href="#L227">227</a> 
+<a class="jxr_linenumber" name="L228" href="#L228">228</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L229" href="#L229">229</a> <em class="jxr_javadoccomment">     * Asetetaan kehyksen näkyvyys.</em>
+<a class="jxr_linenumber" name="L230" href="#L230">230</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L231" href="#L231">231</a> <em class="jxr_javadoccomment">     * @param naytetaanko true jos kehys halutaan näkyväksi</em>
+<a class="jxr_linenumber" name="L232" href="#L232">232</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L233" href="#L233">233</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> kehyksenNakyvyys(<strong class="jxr_keyword">boolean</strong> naytetaanko) {
+<a class="jxr_linenumber" name="L234" href="#L234">234</a>         paivitaSiirrotJaPelaaja();
+<a class="jxr_linenumber" name="L235" href="#L235">235</a>         kehys.repaint();
+<a class="jxr_linenumber" name="L236" href="#L236">236</a>         kehys.revalidate();
+<a class="jxr_linenumber" name="L237" href="#L237">237</a>         kehys.setVisible(naytetaanko);
+<a class="jxr_linenumber" name="L238" href="#L238">238</a>     }
+<a class="jxr_linenumber" name="L239" href="#L239">239</a> 
+<a class="jxr_linenumber" name="L240" href="#L240">240</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L241" href="#L241">241</a> <em class="jxr_javadoccomment">     * Asetetaan kyselyikkunan näkyvyys.</em>
+<a class="jxr_linenumber" name="L242" href="#L242">242</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L243" href="#L243">243</a> <em class="jxr_javadoccomment">     * @param naytetaanko true jos kyselyikkuna halutaan näkyväksi</em>
+<a class="jxr_linenumber" name="L244" href="#L244">244</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L245" href="#L245">245</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> kyselyikkunanNakyvyys(<strong class="jxr_keyword">boolean</strong> naytetaanko) {
+<a class="jxr_linenumber" name="L246" href="#L246">246</a>         kyselyikkuna.setVisible(naytetaanko);
+<a class="jxr_linenumber" name="L247" href="#L247">247</a>     }
+<a class="jxr_linenumber" name="L248" href="#L248">248</a> 
+<a class="jxr_linenumber" name="L249" href="#L249">249</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L250" href="#L250">250</a> <em class="jxr_javadoccomment">     * Asetetaan vuoroikkunan näkyvyys.</em>
+<a class="jxr_linenumber" name="L251" href="#L251">251</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L252" href="#L252">252</a> <em class="jxr_javadoccomment">     * @param naytetaanko true jos vuoroikkuna halutaan näkyväksi</em>
+<a class="jxr_linenumber" name="L253" href="#L253">253</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L254" href="#L254">254</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> vuoroNakyvyys(<strong class="jxr_keyword">boolean</strong> naytetaanko) {
+<a class="jxr_linenumber" name="L255" href="#L255">255</a>         vuoroikkuna.setVisible(naytetaanko);
+<a class="jxr_linenumber" name="L256" href="#L256">256</a>     }
+<a class="jxr_linenumber" name="L257" href="#L257">257</a> 
+<a class="jxr_linenumber" name="L258" href="#L258">258</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L259" href="#L259">259</a> <em class="jxr_javadoccomment">     * Käynnistetään peli.</em>
+<a class="jxr_linenumber" name="L260" href="#L260">260</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L261" href="#L261">261</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> kaynnistaPeli() {
+<a class="jxr_linenumber" name="L262" href="#L262">262</a>         pelaajaOnIhminen = sovelluslogiikka.haeVuorossaOlevaPelaaja().onkoIhminen();
+<a class="jxr_linenumber" name="L263" href="#L263">263</a>         paivitaSiirrotJaPelaaja();
+<a class="jxr_linenumber" name="L264" href="#L264">264</a>         kehys.revalidate();
+<a class="jxr_linenumber" name="L265" href="#L265">265</a>     }
+<a class="jxr_linenumber" name="L266" href="#L266">266</a> 
+<a class="jxr_linenumber" name="L267" href="#L267">267</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L268" href="#L268">268</a> <em class="jxr_javadoccomment">     * Pelivuoro vaihtuu.</em>
+<a class="jxr_linenumber" name="L269" href="#L269">269</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L270" href="#L270">270</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> vuoroVaihtuu() {
+<a class="jxr_linenumber" name="L271" href="#L271">271</a>         <strong class="jxr_keyword">if</strong> (sovelluslogiikka.onkoJokuVoittanut()) {
+<a class="jxr_linenumber" name="L272" href="#L272">272</a>             voitto();
+<a class="jxr_linenumber" name="L273" href="#L273">273</a>         }
+<a class="jxr_linenumber" name="L274" href="#L274">274</a> 
+<a class="jxr_linenumber" name="L275" href="#L275">275</a>         <strong class="jxr_keyword">if</strong> (!onkoPeliKaynnissa &amp;&amp; !lopetetaan) {
 <a class="jxr_linenumber" name="L276" href="#L276">276</a>             <strong class="jxr_keyword">int</strong> noppa1 = sovelluslogiikka.haeSiirrot().get(0);
 <a class="jxr_linenumber" name="L277" href="#L277">277</a>             <strong class="jxr_keyword">int</strong> noppa2 = sovelluslogiikka.haeSiirrot().get(1);
 <a class="jxr_linenumber" name="L278" href="#L278">278</a>             vuoroteksti = sovelluslogiikka.haeSiirtojarjestys().get(0) + <span class="jxr_string">" heitti "</span> + noppa1 + <span class="jxr_string">" ja "</span> + sovelluslogiikka.haeSiirtojarjestys().get(1) + <span class="jxr_string">" heitti "</span> + noppa2 + <span class="jxr_string">"."</span>;
@@ -308,9 +308,9 @@
 <a class="jxr_linenumber" name="L300" href="#L300">300</a>             }
 <a class="jxr_linenumber" name="L301" href="#L301">301</a>         } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (!lopetetaan) {
 <a class="jxr_linenumber" name="L302" href="#L302">302</a>             vuoroteksti = <span class="jxr_string">"Vuoro vaihtuu."</span>;
-<a class="jxr_linenumber" name="L303" href="#L303">303</a>             sovelluslogiikka.vaihdaVuoroa();
-<a class="jxr_linenumber" name="L304" href="#L304">304</a>             sovelluslogiikka.nollaaLahtoruutu();
-<a class="jxr_linenumber" name="L305" href="#L305">305</a> <em class="jxr_comment">//            this.vuoroikkuna.setVisible(true);</em>
+<a class="jxr_linenumber" name="L303" href="#L303">303</a> 
+<a class="jxr_linenumber" name="L304" href="#L304">304</a>             sovelluslogiikka.vaihdaVuoroa();
+<a class="jxr_linenumber" name="L305" href="#L305">305</a>             sovelluslogiikka.nollaaLahtoruutu();
 <a class="jxr_linenumber" name="L306" href="#L306">306</a>             <strong class="jxr_keyword">if</strong> (sovelluslogiikka.haeVuorossaOlevaPelaaja().onkoIhminen()) {
 <a class="jxr_linenumber" name="L307" href="#L307">307</a>                 <strong class="jxr_keyword">this</strong>.pelaajaOnIhminen = <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L308" href="#L308">308</a>             } <strong class="jxr_keyword">else</strong> {
