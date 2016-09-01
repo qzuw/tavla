@@ -287,7 +287,7 @@ public class GUILogiikka {
                 vuoroteksti += " Heitetään noppaa uudestaan.";
                 svl.heitaNopat();
             }
-        } else {
+        } else if (!lopetetaan) {
             vuoroteksti = "Vuoro vaihtuu.";
             svl.vaihdaVuoroa();
             svl.nollaaLahtoruutu();
