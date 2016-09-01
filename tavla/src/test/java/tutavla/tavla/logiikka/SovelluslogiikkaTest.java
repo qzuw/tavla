@@ -198,33 +198,38 @@ public class SovelluslogiikkaTest {
         Sovelluslogiikka svl = new Sovelluslogiikka();
 
         svl.asetaLahtoruutu(24);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(24);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(13);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(13);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(13);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(13);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(13);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(8);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(8);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(8);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(6);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(6);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(6);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(6);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
+        for (int i = 0; i < 14; i++) {
+            svl.asetaLahtoruutu(2);
+            svl.siirraNappulaa(0);
+        }
+
         assertFalse(svl.onkoJokuVoittanut());
         svl.asetaLahtoruutu(6);
         svl.heitaNopat();
@@ -239,37 +244,42 @@ public class SovelluslogiikkaTest {
         Pelaaja p = svl.getVuorossaOlevaPelaaja();
 
         svl.asetaLahtoruutu(24);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(24);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(13);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(13);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(13);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(13);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(13);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(8);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(8);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(8);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(6);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(6);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(6);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(6);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(6);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
+        for (int i = 0; i < 15; i++) {
+            svl.asetaLahtoruutu(2);
+            svl.siirraNappulaa(0);
+        }
+
         svl.heitaNopat();
-        assertEquals(svl.kukaVoitti(), p);
+        assertEquals(p, svl.kukaVoitti());
     }
 
     @Test
@@ -548,46 +558,50 @@ public class SovelluslogiikkaTest {
     @Test
     public void voikoSiirtaa() {
         Sovelluslogiikka svl = new Sovelluslogiikka();
-        Pelaaja p = svl.getVuorossaOlevaPelaaja();
 
         svl.vaihdaVuoroa();
         svl.asetaLahtoruutu(1);
-        svl.siirraNappulaa(7);
-        svl.siirraNappulaa(7);
+        svl.siirraNappulaa(10);
+        svl.asetaLahtoruutu(1);
+        svl.siirraNappulaa(10);
 
         svl.vaihdaVuoroa();
         svl.asetaLahtoruutu(24);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(24);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(13);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(13);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(13);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(13);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(13);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(8);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(8);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(8);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(6);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(6);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(6);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(6);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(6);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
+        for (int i = 0; i < 15; i++) {
+            svl.asetaLahtoruutu(2);
+            svl.siirraNappulaa(0);
+        }
         svl.heitaNopat();
-        p.setMaali(25);
+        svl.getVuorossaOlevaPelaaja().setMaali(25);
         assertFalse(svl.eiVoiSiirtaa());
     }
 
@@ -603,35 +617,39 @@ public class SovelluslogiikkaTest {
 
         svl.vaihdaVuoroa();
         svl.asetaLahtoruutu(24);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(24);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(13);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(13);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(13);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(13);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(13);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(8);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(8);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(8);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(6);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(6);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(6);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(6);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
         svl.asetaLahtoruutu(6);
-        svl.siirraNappulaa(0);
+        svl.siirraNappulaa(2);
+        for (int i = 0; i < 15; i++) {
+            svl.asetaLahtoruutu(2);
+            svl.siirraNappulaa(0);
+        }
         svl.heitaNopat();
         assertTrue(svl.eiVoiSiirtaa());
     }
@@ -748,6 +766,7 @@ public class SovelluslogiikkaTest {
 
         assertTrue(svl.haeSiirrot().isEmpty());
     }
+
     @Test
     public void siirra3() {
         Sovelluslogiikka svl = new Sovelluslogiikka();
@@ -792,6 +811,7 @@ public class SovelluslogiikkaTest {
 
         assertTrue(svl.haeSiirrot().isEmpty());
     }
+
     @Test
     public void voikoSiirtaa3() {
         Sovelluslogiikka svl = new Sovelluslogiikka();
@@ -834,11 +854,13 @@ public class SovelluslogiikkaTest {
 
         assertFalse(svl.eiVoiSiirtaa());
     }
+
     @Test
     public void voikoSiirtaa4() {
         Sovelluslogiikka svl = new Sovelluslogiikka();
         svl.heitaNopat();
-        ArrayList<Integer> s = new ArrayList<>(Arrays.asList(2));
+        // s pitäisi olla 2
+        ArrayList<Integer> s = new ArrayList<>(Arrays.asList(1));
 
         svl.vaihdaVuoroa();
         svl.asetaLahtoruutu(1);
@@ -870,7 +892,8 @@ public class SovelluslogiikkaTest {
         svl.asetaLahtoruutu(17);
         svl.siirraNappulaa(23);
         svl.asetaLahtoruutu(17);
-        svl.siirraNappulaa(4);
+//siirron pitäisi olla 4 ei 5
+        svl.siirraNappulaa(5);
         svl.heitaNopat();
         svl.asetaSiirrot(s);
 
@@ -879,6 +902,7 @@ public class SovelluslogiikkaTest {
 //        }
         assertTrue(svl.eiVoiSiirtaa());
     }
+
     @Test
     public void voikoSiirtaa5() {
         Sovelluslogiikka svl = new Sovelluslogiikka();

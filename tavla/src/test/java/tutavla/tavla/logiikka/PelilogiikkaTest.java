@@ -142,15 +142,25 @@ public class PelilogiikkaTest {
 
         plk.alustaPelitilanne(pelaaja, toinen);
 
-        assertEquals(plk.pelaajanNappulaMaara(0, pelaaja), 0);
-        plk.siirraNappulaa(pelaaja, 13, 0);
-        plk.siirraNappulaa(pelaaja, 13, 0);
-        assertEquals(plk.pelaajanNappulaMaara(0, pelaaja), 2);
+        assertEquals(0, plk.pelaajanNappulaMaara(0, pelaaja));
+        plk.siirraNappulaa(pelaaja, 24, 2);
+        plk.siirraNappulaa(pelaaja, 24, 2);
+        plk.siirraNappulaa(pelaaja, 13, 2);
+        plk.siirraNappulaa(pelaaja, 13, 2);
+        plk.siirraNappulaa(pelaaja, 8, 2);
+        plk.siirraNappulaa(pelaaja, 8, 2);
+        plk.siirraNappulaa(pelaaja, 8, 2);
+        plk.siirraNappulaa(pelaaja, 13, 2);
+        plk.siirraNappulaa(pelaaja, 2, 0);
+        plk.siirraNappulaa(pelaaja, 13, 2);
+        plk.siirraNappulaa(pelaaja, 2, 0);
+        assertEquals(2, plk.pelaajanNappulaMaara(0, pelaaja));
         plk.siirraNappulaa(toinen, 12, 0);
         plk.siirraNappulaa(toinen, 12, 0);
-        assertEquals(plk.pelaajanNappulaMaara(0, pelaaja), 2);
-        plk.siirraNappulaa(pelaaja, 13, 0);
-        assertEquals(plk.pelaajanNappulaMaara(0, pelaaja), 3);
+        assertEquals(2, plk.pelaajanNappulaMaara(0, pelaaja));
+        plk.siirraNappulaa(pelaaja, 13, 2);
+        plk.siirraNappulaa(pelaaja, 2, 0);
+        assertEquals(3, plk.pelaajanNappulaMaara(0, pelaaja));
     }
 
     @Test
@@ -160,20 +170,23 @@ public class PelilogiikkaTest {
         Pelilogiikka plk = new Pelilogiikka();
         plk.alustaPelitilanne(pelaaja, toinen);
 
-        plk.siirraNappulaa(pelaaja, 24, 0);
-        plk.siirraNappulaa(pelaaja, 24, 0);
-        plk.siirraNappulaa(pelaaja, 13, 0);
-        plk.siirraNappulaa(pelaaja, 13, 0);
-        plk.siirraNappulaa(pelaaja, 13, 0);
-        plk.siirraNappulaa(pelaaja, 13, 0);
-        plk.siirraNappulaa(pelaaja, 13, 0);
-        plk.siirraNappulaa(pelaaja, 8, 0);
-        plk.siirraNappulaa(pelaaja, 8, 0);
-        plk.siirraNappulaa(pelaaja, 8, 0);
-        plk.siirraNappulaa(pelaaja, 6, 0);
-        plk.siirraNappulaa(pelaaja, 6, 0);
-        plk.siirraNappulaa(pelaaja, 6, 0);
-        plk.siirraNappulaa(pelaaja, 6, 0);
+        plk.siirraNappulaa(pelaaja, 24, 2);
+        plk.siirraNappulaa(pelaaja, 24, 2);
+        plk.siirraNappulaa(pelaaja, 13, 2);
+        plk.siirraNappulaa(pelaaja, 13, 2);
+        plk.siirraNappulaa(pelaaja, 13, 2);
+        plk.siirraNappulaa(pelaaja, 13, 2);
+        plk.siirraNappulaa(pelaaja, 13, 2);
+        plk.siirraNappulaa(pelaaja, 8, 2);
+        plk.siirraNappulaa(pelaaja, 8, 2);
+        plk.siirraNappulaa(pelaaja, 8, 2);
+        plk.siirraNappulaa(pelaaja, 6, 2);
+        plk.siirraNappulaa(pelaaja, 6, 2);
+        plk.siirraNappulaa(pelaaja, 6, 2);
+        plk.siirraNappulaa(pelaaja, 6, 2);
+        for (int i = 0; i < 14; i++) {
+            plk.siirraNappulaa(pelaaja, 2, 0);
+        }
         assertFalse(plk.onkoPelaajaVoittanut(pelaaja));
         plk.siirraNappulaa(pelaaja, 6, 0);
         assertFalse(plk.onkoPelaajaVoittanut(toinen));
@@ -227,6 +240,7 @@ public class PelilogiikkaTest {
         plk.siirraNappulaa(toinen, 12, 22);
         assertTrue(plk.nappulatKotialueella(toinen));
     }
+
     @Test
     public void syominenLaudallePalatessa() {
         Pelaaja pelaaja = new Pelaaja();
