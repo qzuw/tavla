@@ -10,3 +10,4 @@ Backgammon-pelin variantti
 - [Luokkakaavio](https://github.com/qzuw/tavla/blob/master/doc/tavla-luokkakaavio.png)
 - [pit-raportti](https://htmlpreview.github.io/?https://github.com/qzuw/tavla/blob/master/doc/pit-raportti/201609012210/index.html)
 - [checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/qzuw/tavla/blob/master/doc/checkstyle-raportti/site/checkstyle.html)
+- [javadoc](https://htmlpreview.github.io/?https://github.com/qzuw/tavla/blob/master/doc/apidocs/index.html) (mielenkiinnosta kokeilen toimiiko, tämähän ei ollut missään vaatimuksissa)
