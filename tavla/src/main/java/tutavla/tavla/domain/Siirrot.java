@@ -20,7 +20,7 @@ public class Siirrot {
 
     /**
      * Luo Siirrot-olion.
-     * 
+     *
      * @param random arvontaan käytettavä Random
      */
     public Siirrot(Random random) {
@@ -56,7 +56,7 @@ public class Siirrot {
 
     /**
      * Palauttaa listan siirtoja.
-     * 
+     *
      * @return lista siirtoja
      */
     public ArrayList<Integer> haeSiirrot() {
@@ -66,10 +66,10 @@ public class Siirrot {
 
     /**
      * Määrittelee käytettävissä olevat siirrot.
-     * 
+     *
      * @param siirrot lista numeroita
      */
-    public void asetaSiirrot(ArrayList<Integer> siirrot){
+    public void asetaSiirrot(ArrayList<Integer> siirrot) {
         this.siirrot = siirrot;
     }
 }

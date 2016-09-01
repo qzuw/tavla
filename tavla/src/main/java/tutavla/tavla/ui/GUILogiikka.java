@@ -97,7 +97,7 @@ public class GUILogiikka {
 
     /**
      * Määritellään pelaajan nimi.
-     * 
+     *
      * @param nimi nimi pelaajalle
      */
     public void asetaPelaajanNimi(String nimi) {
@@ -111,7 +111,7 @@ public class GUILogiikka {
 
     /**
      * Tarkistetaan pitääkö vastauskenttä tyhjentää.
-     * 
+     *
      * @return true jos vastauskenttä pitää tyhjentää
      */
     public boolean isTyhjennaVastaus() {
@@ -120,7 +120,7 @@ public class GUILogiikka {
 
     /**
      * Asetetaan vastauskenttä tyhjennettäväksi.
-     * 
+     *
      * @param tyhjennaVastaus true jos vastauskenttä pitää tyhjentää
      */
     public void setTyhjennaVastaus(boolean tyhjennaVastaus) {

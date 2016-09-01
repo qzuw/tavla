@@ -98,7 +98,7 @@ public class Sovelluslogiikka {
 
     /**
      * Asetetaan siirtojärjestys.
-     * 
+     *
      * @param pelaaja1 ensimmäisenä siirtävä pelaaja
      * @param pelaaja2 toisena siirtävä pelaaja
      */
@@ -150,13 +150,13 @@ public class Sovelluslogiikka {
 
     /**
      * Asetetaan siirrot.
-     * 
+     *
      * @param s siirroiksi asetettavat luvut
      */
     public void asetaSiirrot(ArrayList<Integer> s) {
         siirrot.asetaSiirrot(s);
     }
-    
+
     /**
      * Anna tietokoneen valita väri.
      */
