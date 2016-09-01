@@ -198,24 +198,45 @@ public class GUILogiikka {
         pa.repaint();
     }
 
+    /**
+     * Asetetaan kehyksen näkyvyys.
+     * 
+     * @param naytetaanko true jos kehys halutaan näkyväksi
+     */
     public void kehyksenNakyvyys(boolean naytetaanko) {
         kehys.repaint();
         kehys.setVisible(naytetaanko);
     }
 
+    /**
+     * Asetetaan kyselyikkunan näkyvyys.
+     * 
+     * @param naytetaanko true jos kyselyikkuna halutaan näkyväksi
+     */
     public void kyselyikkunanNakyvyys(boolean naytetaanko) {
         kyselyikkuna.setVisible(naytetaanko);
     }
 
+    /**
+     * Asetetaan vuoroikkunan näkyvyys.
+     * 
+     * @param naytetaanko true jos vuoroikkuna halutaan näkyväksi
+     */
     public void vuoroNakyvyys(boolean naytetaanko) {
         vuoroikkuna.setVisible(naytetaanko);
     }
 
+    /**
+     * Käynnistetään peli.
+     */
     public void kaynnistaPeli() {
         svl.heitaNopat();
-        pelaajaOnIhminen= svl.getVuorossaOlevaPelaaja().isIhminen();
+        pelaajaOnIhminen = svl.getVuorossaOlevaPelaaja().isIhminen();
     }
 
+    /**
+     * Pelivuoro vaihtuu.
+     */
     public void vuoroVaihtuu() {
         if (!onkoPeliKaynnissa) {
             // System.out.println("sadf" + onkoPeliKaynnissa + " " + svl.haeSiirrot());
@@ -248,14 +269,24 @@ public class GUILogiikka {
 
     }
 
+    /**
+     * Onko peli käynnissä.
+     * @return true jos peli on käynnistetty aiemmin
+     */
     public boolean onkoPeliKaynnissa() {
         return onkoPeliKaynnissa;
     }
 
+    /**
+     * Heitetään noppia.
+     */
     public void heitaNoppaa() {
         svl.heitaNopat();
     }
 
+    /**
+     * Ilmoitetaan voitosta.
+     */
     public void voitto() {
         vuoroteksti = svl.kukaVoitti().toString() + " on voittanut!";
         this.vuoroikkuna.setVisible(true);
@@ -263,10 +294,17 @@ public class GUILogiikka {
         lopetetaan = true;
     }
 
+    /**
+     * Onko peli päättynyt.
+     * @return true jos peli on päättynyt
+     */
     public boolean lopetetaanko() {
         return this.lopetetaan;
     }
 
+    /**
+     * Lopetetaan ohjelman suoritus.
+     */
     public void lopeta() {
         System.exit(0);
     }
