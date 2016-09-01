@@ -164,7 +164,13 @@ public class GUILogiikka {
         this.pa = pa;
     }
 
-    public void lisaaSiirtotJaPelaaja(JLabel siirrot, JLabel pelaaja) {
+    /**
+     * Lisää käyttöliittymän siirroista ja vuorossa olevasta pelaajasta kertovat elementit GUILogiikkaan.
+     * 
+     * @param siirrot siirroista kertova JLabel
+     * @param pelaaja vuorossa olevasta pelaajasta kertova JLabel
+     */
+    public void lisaaSiirrotJaPelaaja(JLabel siirrot, JLabel pelaaja) {
         this.siirrot = siirrot;
         this.pelaaja = pelaaja;
     }
@@ -308,16 +314,18 @@ public class GUILogiikka {
 
     }
 
+    /**
+     * Pelaa näytä tietokonepelaajan vuoro.
+     */
     public void pelaaTietokone() {
+        if (lopetetaan) {
+            lopeta();
+        }
         while (!svl.eiVoiSiirtaa() && svl.haeSiirrot().size() > 0) {
             svl.pelaaTietokone();
             paivitaSiirrotJaPelaaja();
             kehys.revalidate();
             pa.repaint();
-            for (int i = 0; i < 10000; i++) {
-                i++;
-                i += 0;
-            }
         }
         if (svl.onkoJokuVoittanut()) {
             voitto();

@@ -98,7 +98,7 @@ public class GraafinenKayttoliittyma implements Runnable, Kayttoliittyma {
         siirrot = new JLabel("Siirrot: " + svl.haeSiirrot().toString());
         panel.add(pelaaja);
         panel.add(siirrot);
-        guilg.lisaaSiirtotJaPelaaja(siirrot, pelaaja);
+        guilg.lisaaSiirrotJaPelaaja(siirrot, pelaaja);
 
         return panel;
     }
