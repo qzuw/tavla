@@ -80,6 +80,11 @@ public class GUILogiikka {
         return kyselyteksti;
     }
 
+    /**
+     * Hae teksti vuoronvaihtoikkunaa varten.
+     * 
+     * @return teksti joka vuoronvaihtoikkunan tulisi näyttää
+     */
     public String haeVuoroteksti() {
         return vuoroteksti;
     }
