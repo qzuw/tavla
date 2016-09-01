@@ -64,4 +64,12 @@ public class Siirrot {
         return siirrot;
     }
 
+    /**
+     * Määrittelee käytettävissä olevat siirrot.
+     * 
+     * @param siirrot lista numeroita
+     */
+    public void asetaSiirrot(ArrayList<Integer> siirrot){
+        this.siirrot = siirrot;
+    }
 }

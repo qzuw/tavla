@@ -5,6 +5,7 @@
  */
 package tutavla.tavla.domain;
 
+import java.util.ArrayList;
 import java.util.Random;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -71,4 +72,15 @@ public class SiirrotTest {
         }
     }
 
+    @Test
+    public void asetaSiirrot() {
+        Random r = new Random();
+        Siirrot s = new Siirrot(r);
+
+        ArrayList<Integer> sl = new ArrayList<>();
+        sl.add(1);
+        s.asetaSiirrot(sl);
+        assertEquals(1, s.haeSiirrot().size());
+        assertEquals(1, (int) s.haeSiirrot().get(0));
+    }
 }
