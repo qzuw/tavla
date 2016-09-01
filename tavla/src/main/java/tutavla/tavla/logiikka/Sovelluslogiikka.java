@@ -149,6 +149,15 @@ public class Sovelluslogiikka {
     }
 
     /**
+     * Asetetaan siirrot.
+     * 
+     * @param s siirroiksi asetettavat luvut
+     */
+    public void asetaSiirrot(ArrayList<Integer> s) {
+        siirrot.asetaSiirrot(s);
+    }
+    
+    /**
      * Anna tietokoneen valita väri.
      */
     public void tietokoneValitseeVarin() {

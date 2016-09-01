@@ -642,13 +642,73 @@ public class SovelluslogiikkaTest {
         Pelaaja p = svl.getVuorossaOlevaPelaaja();
         svl.heitaNopat();
 
-        boolean tulos = true;
-
         ArrayList<Integer> l = new ArrayList<>(Arrays.asList(24, 13, 6, 8));
 
-        if (!svl.pelaajaVoiSiirtaaRuuduista().containsAll(l)) {
-            tulos = false;
-        }
-        assertTrue(tulos);
+        assertTrue(svl.pelaajaVoiSiirtaaRuuduista().containsAll(l));
+    }
+
+    @Test
+    public void voiSiirtaaRuutuihin() {
+        Sovelluslogiikka svl = new Sovelluslogiikka();
+        Pelaaja p = svl.getVuorossaOlevaPelaaja();
+        svl.heitaNopat();
+
+        svl.asetaLahtoruutu(24);
+        ArrayList<Integer> s = new ArrayList<>(Arrays.asList(1, 2));
+        svl.asetaSiirrot(s);
+
+        ArrayList<Integer> l = new ArrayList<>(Arrays.asList(22, 23));
+
+        assertTrue(svl.pelaajaVoiSiirtaaRuutuihin().containsAll(l));
+    }
+
+    @Test
+    public void siirra() {
+        Sovelluslogiikka svl = new Sovelluslogiikka();
+
+        ArrayList<Integer> s = new ArrayList<>(Arrays.asList(1));
+
+        svl.vaihdaVuoroa();
+        svl.asetaLahtoruutu(1);
+        svl.siirraNappulaa(2);
+        svl.asetaLahtoruutu(1);
+        svl.siirraNappulaa(2);
+        svl.vaihdaVuoroa();
+        svl.asetaLahtoruutu(24);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(24);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(13);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(13);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(13);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(13);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(13);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(8);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(8);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(8);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(6);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(6);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(6);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(6);
+        svl.siirraNappulaa(1);
+        svl.asetaLahtoruutu(6);
+        svl.siirraNappulaa(1);
+        svl.asetaSiirrot(s);
+
+        svl.asetaLahtoruutu(1);
+        svl.siirraNappulaa(0);
+
+        assertTrue(svl.haeSiirrot().isEmpty());
     }
 }
