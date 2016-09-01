@@ -2,14 +2,19 @@
 - pelaaja siirtää nappulaa, siirron oikeellisuuden tarkistus -> logiikkaan
 - (kerro syödyt nappulat ja ulos pelatut)
 
-- gui:
-  - tekoäly pelaamaan
-
 - random testaus
 - tekoäly pelaa() refaktorointi
 - svl refaktoroi siirtojen käsittely metodeiksi siirtoihin (poistaminen, tarkistus)
+- refaktorointi
 
 - bugeja:
+  - käyttöliittymä:
+    - voitosta ei aina ilmoiteta
+    - näytetään siirtovuoron ollessa pois päältä välillä vääriä siirtolistan arvoja
+    - aloitettaessa ei aina näytetä aloitusheittojen tuloksia (jos tietokone aloittaa)
+    - aloitettaessa näytetään ensimmäisen vuoron jälkeen aloitusheittojen tulokset uudestaan vaikka pitäisi vain ilmoittaa vuoron vaihtumisesta
 
-- muokkaa gitignore sallimaan jar
+- puutteita:
+  - pelaajan voittaessa aloituksen ei kysytä kumman värin hän haluaa
+
 - doc

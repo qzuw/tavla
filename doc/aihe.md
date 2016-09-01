@@ -31,7 +31,9 @@ Peli loppuu kun toinen pelaaja on siirtänyt kaikki omat nappulansa ulos laudalt
 
 ## Rakennekuvaus
 
-todo
+Käynnistettäessä ohjelma luodaan ensin käyttöliittymä, joka puolestaan luo tarvitsemansa käyttöliittymän osat sekä sovelluslogiikan. Sovelluslogiikka toimii varsinaisen pelilogiikan ja käyttöliittymän välissä ja huolehtii pelin kulkuun (vuorot, pelaajat ja pelaajien järjestys) kuuluvista asioista jotka eivät ole selkeästi pelin toimintaan pelilaudalla liittyviä. Sovelluslogiikka puolestaan luo Siirrot-olion hallinnoimaan pelinoppia ja niiden luvuista saatavia siirtoja, tekoälyn joka pelaa niiden pelaajien siirrot joita ei ohjaa ihmispelaaja sekä pelilogiikan joka huolehtii nappuloiden siirtelystä pelilaudalla. Pelilogiikka luo itselleen pelilaudan, joka puolestaan luo omat ruutunsa. Pelilogiikka luo myös pelinappulat joita liikutellaan pelilaudalla.
+
+GraafinenKayttoliittyma luo itselleen piirtoalustan pelilaudan piirtämistä varten sekä kaksi muuta ikkunaa, nämä ovat tietojen kyselyä varten sekä ilmoitusasioita varten joihin tarvitaan pelaajan kuittaus. Näiden lisäksi GraafinenKayttoliittyma luo GUILogiikka-olion ikkunoiden ja pelin kulun hallintaa varten. HiirenKuuntelija, KyselyKuuntelija ja VuoroKuuntelija kuuntelevat kukin omaa ikkunaansa ja kommunikoivat GUILogiikan kanssa ja kautta.
 
 ## Sekvenssikaaviot
 
