@@ -20,7 +20,7 @@ public class GUILogiikka {
 
     private Sovelluslogiikka sovelluslogiikka;
     private int pelaajamaara;
-    private boolean pelaajaOnIhminen;
+    //private boolean pelaajaOnIhminen;
     private Piirtoalusta piirtoalusta;
     private int kysyttavaPelaaja;
     private String kyselyteksti;
@@ -42,7 +42,7 @@ public class GUILogiikka {
      */
     public GUILogiikka(Sovelluslogiikka svl) {
         this.sovelluslogiikka = svl;
-        pelaajaOnIhminen = false;
+//        pelaajaOnIhminen = false;
         pelaajamaara = -1;
         kysyttavaPelaaja = 0;
         kyselyteksti = "Montako pelaajaa? (0-2)";
@@ -130,7 +130,7 @@ public class GUILogiikka {
         kysyttavaPelaaja++;
         kyselyteksti = "Pelaajan " + kysyttavaPelaaja + " nimi?";
         tyhjennaVastaus = true;
-        this.pelaajaOnIhminen = true;
+//        this.pelaajaOnIhminen = true;
     }
 
     /**
@@ -157,7 +157,8 @@ public class GUILogiikka {
      * @return true jos vuorossa oleva pelaaja on ihminen
      */
     public boolean pelaajaOnIhminen() {
-        return pelaajaOnIhminen;
+//        return pelaajaOnIhminen;
+        return sovelluslogiikka.haeVuorossaOlevaPelaaja().onkoIhminen();
     }
 
     /**
@@ -259,7 +260,7 @@ public class GUILogiikka {
      * Käynnistetään peli.
      */
     public void kaynnistaPeli() {
-        pelaajaOnIhminen = sovelluslogiikka.haeVuorossaOlevaPelaaja().onkoIhminen();
+//        pelaajaOnIhminen = sovelluslogiikka.haeVuorossaOlevaPelaaja().onkoIhminen();
         paivitaSiirrotJaPelaaja();
         kehys.revalidate();
     }
@@ -280,20 +281,20 @@ public class GUILogiikka {
                 sovelluslogiikka.pelaajaSiirtaaEnsin(true, 0);
                 vuoroteksti += " " + sovelluslogiikka.haeVuorossaOlevaPelaaja().toString() + " liikkuu ensin.";
                 this.onkoPeliKaynnissa = true;
-                if (sovelluslogiikka.haeVuorossaOlevaPelaaja().onkoIhminen()) {
-                    this.pelaajaOnIhminen = true;
-                } else {
-                    this.pelaajaOnIhminen = false;
-                }
+//                if (sovelluslogiikka.haeVuorossaOlevaPelaaja().onkoIhminen()) {
+//                    this.pelaajaOnIhminen = true;
+//                } else {
+//                    this.pelaajaOnIhminen = false;
+//                }
             } else if (noppa1 < noppa2) {
                 sovelluslogiikka.pelaajaSiirtaaEnsin(true, 1);
                 vuoroteksti += " " + sovelluslogiikka.haeVuorossaOlevaPelaaja().toString() + " liikkuu ensin.";
                 this.onkoPeliKaynnissa = true;
-                if (sovelluslogiikka.haeVuorossaOlevaPelaaja().onkoIhminen()) {
-                    this.pelaajaOnIhminen = true;
-                } else {
-                    this.pelaajaOnIhminen = false;
-                }
+//                if (sovelluslogiikka.haeVuorossaOlevaPelaaja().onkoIhminen()) {
+//                    this.pelaajaOnIhminen = true;
+//                } else {
+//                    this.pelaajaOnIhminen = false;
+//                }
             } else {
                 vuoroteksti += " Heitetään noppaa uudestaan.";
                 sovelluslogiikka.heitaNopat();
@@ -303,11 +304,11 @@ public class GUILogiikka {
 
             sovelluslogiikka.vaihdaVuoroa();
             sovelluslogiikka.nollaaLahtoruutu();
-            if (sovelluslogiikka.haeVuorossaOlevaPelaaja().onkoIhminen()) {
-                this.pelaajaOnIhminen = true;
-            } else {
-                this.pelaajaOnIhminen = false;
-            }
+//            if (sovelluslogiikka.haeVuorossaOlevaPelaaja().onkoIhminen()) {
+//                this.pelaajaOnIhminen = true;
+//            } else {
+//                this.pelaajaOnIhminen = false;
+//            }
             sovelluslogiikka.heitaNopat();
         }
         if (sovelluslogiikka.onkoJokuVoittanut()) {
