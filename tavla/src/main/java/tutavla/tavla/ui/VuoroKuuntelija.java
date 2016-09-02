@@ -43,20 +43,28 @@ public class VuoroKuuntelija implements ActionListener {
         if (guilogiikka.lopetetaanko()) {
             guilogiikka.lopeta();
         }
+//        vuoroTeksti.setText(guilogiikka.haeVuoroteksti());
+        pelataanTaiAloitetaan();
         vuoroTeksti.setText(guilogiikka.haeVuoroteksti());
+
+    }
+
+    private void pelataanTaiAloitetaan() {
         if (guilogiikka.onkoPeliKaynnissa()) {
             guilogiikka.vuoroNakyvyys(false);
-            if (!guilogiikka.pelaajaOnIhminen()) {
-                guilogiikka.pelaaTietokone();
-                guilogiikka.heitaNoppaa();
-                guilogiikka.vuoroVaihtuu();
-            }
+            tietokoneenVuoro();
         } else {
             guilogiikka.heitaNoppaa();
             guilogiikka.vuoroVaihtuu();
         }
-        vuoroTeksti.setText(guilogiikka.haeVuoroteksti());
+    }
 
+    private void tietokoneenVuoro() {
+        if (!guilogiikka.pelaajaOnIhminen()) {
+            guilogiikka.pelaaTietokone();
+            guilogiikka.heitaNoppaa();
+            guilogiikka.vuoroVaihtuu();
+        }
     }
 
 }

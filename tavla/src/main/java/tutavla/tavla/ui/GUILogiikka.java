@@ -274,31 +274,7 @@ public class GUILogiikka {
         }
 
         if (!onkoPeliKaynnissa && !lopetetaan) {
-            int noppa1 = sovelluslogiikka.haeSiirrot().get(0);
-            int noppa2 = sovelluslogiikka.haeSiirrot().get(1);
-            vuoroteksti = sovelluslogiikka.haeSiirtojarjestys().get(0) + " heitti " + noppa1 + " ja " + sovelluslogiikka.haeSiirtojarjestys().get(1) + " heitti " + noppa2 + ".";
-            if (noppa1 > noppa2) {
-                sovelluslogiikka.pelaajaSiirtaaEnsin(true, 0);
-                vuoroteksti += " " + sovelluslogiikka.haeVuorossaOlevaPelaaja().toString() + " liikkuu ensin.";
-                this.onkoPeliKaynnissa = true;
-//                if (sovelluslogiikka.haeVuorossaOlevaPelaaja().onkoIhminen()) {
-//                    this.pelaajaOnIhminen = true;
-//                } else {
-//                    this.pelaajaOnIhminen = false;
-//                }
-            } else if (noppa1 < noppa2) {
-                sovelluslogiikka.pelaajaSiirtaaEnsin(true, 1);
-                vuoroteksti += " " + sovelluslogiikka.haeVuorossaOlevaPelaaja().toString() + " liikkuu ensin.";
-                this.onkoPeliKaynnissa = true;
-//                if (sovelluslogiikka.haeVuorossaOlevaPelaaja().onkoIhminen()) {
-//                    this.pelaajaOnIhminen = true;
-//                } else {
-//                    this.pelaajaOnIhminen = false;
-//                }
-            } else {
-                vuoroteksti += " Heitetään noppaa uudestaan.";
-                sovelluslogiikka.heitaNopat();
-            }
+            arvoAloittaja();
         } else if (!lopetetaan) {
             vuoroteksti = "Vuoro vaihtuu.";
 
@@ -318,6 +294,26 @@ public class GUILogiikka {
         paivitaSiirrotJaPelaaja();
         kehys.revalidate();
 
+    }
+
+    private void arvoAloittaja() {
+        int noppa1 = sovelluslogiikka.haeSiirrot().get(0);
+        int noppa2 = sovelluslogiikka.haeSiirrot().get(1);
+        vuoroteksti = sovelluslogiikka.haeSiirtojarjestys().get(0) + " heitti " + noppa1 + " ja " + sovelluslogiikka.haeSiirtojarjestys().get(1) + " heitti " + noppa2 + ".";
+        if (noppa1 > noppa2) {
+            kerroAloitusarvonnanVoittaja(0);
+        } else if (noppa1 < noppa2) {
+            kerroAloitusarvonnanVoittaja(1);
+        } else {
+            vuoroteksti += " Heitetään noppaa uudestaan.";
+            sovelluslogiikka.heitaNopat();
+        }
+    }
+
+    private void kerroAloitusarvonnanVoittaja(int pelaaja) {
+        sovelluslogiikka.pelaajaSiirtaaEnsin(true, pelaaja);
+        vuoroteksti += " " + sovelluslogiikka.haeVuorossaOlevaPelaaja().toString() + " liikkuu ensin.";
+        this.onkoPeliKaynnissa = true;
     }
 
     /**
