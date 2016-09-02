@@ -73,6 +73,12 @@ public class Siirrot {
         this.siirrot = siirrot;
     }
 
+    /**
+     * poista siirto siirroista.
+     * 
+     * @param siirto poistettava siirto
+     * @return true jos siirrot sisältävät poistettavan arvon ennen poistamista
+     */
     public boolean poistaSiirto(Integer siirto) {
         boolean onko = siirrot.contains(siirto);
         if (onko) {
@@ -81,6 +87,12 @@ public class Siirrot {
         return onko;
     }
 
+    /**
+     * Poistetaan siirroista kotialueella tehtävään nappulan siirtoon soveltuva arvo.
+     * 
+     * @param siirto siirron arvo
+     * @return true jos sopiva poistettava arvo löytyi
+     */
     public boolean poistaSiirtoKotialueella(Integer siirto) {
         boolean onko = false;
         Integer poistettava = -1;

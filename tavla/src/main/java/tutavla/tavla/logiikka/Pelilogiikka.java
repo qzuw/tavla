@@ -26,6 +26,8 @@ public class Pelilogiikka {
 
     /**
      * Luodaan uusi pelilogiikka.
+     *
+     * @param random noppien luomiseen käytettävä random
      */
     public Pelilogiikka(Random random) {
         lauta = new Lauta();
@@ -138,6 +140,7 @@ public class Pelilogiikka {
      * Aseta pelaajan siirron lähtoruutu.
      *
      * @param lahtoruutu lähtöruudun indeksi
+     * @param pelaaja pelaaja jonka siirtovuoro on
      * @return true jos pelaajalla on ruudussa siirrettävissä oleva nappula
      */
     public boolean asetaLahtoruutu(int lahtoruutu, Pelaaja pelaaja) {
@@ -167,6 +170,7 @@ public class Pelilogiikka {
     /**
      * Haetaan mahdolliset kohderuudut pelaajan siirrolle.
      *
+     * @param pelaaja pelaaja jonka siirtovaihtoehtoja tutkitaan
      * @return lista mahdollisia kohderuutuja
      */
     public ArrayList<Integer> pelaajaVoiSiirtaaRuutuihin(Pelaaja pelaaja) {
@@ -208,13 +212,13 @@ public class Pelilogiikka {
             }
             lauta.siirraPelaajanNappula(mista, minne, pelaaja);
         }
-
     }
 
     /**
      * Siirretään pelaajan nappulaa.
      *
      * @param minne kohderuudun indeksi
+     * @param pelaaja pelaaja jonka nappulaa siirretään
      */
     public void siirraNappulaa(int minne, Pelaaja pelaaja) {
         if (lahtoruutu > -1) {
@@ -231,6 +235,7 @@ public class Pelilogiikka {
     /**
      * Tarkistaa eikö annettu voi Pelaaja siirtää mitään nappuloitaan.
      *
+     * @param pelaaja pelaaja jonka nappuloiden siirrettävyyttä tarkastetaan
      * @return palauttaa true jos mitään nappuloita ei voi siirtää
      */
     public boolean eiVoiSiirtaa(Pelaaja pelaaja) {
