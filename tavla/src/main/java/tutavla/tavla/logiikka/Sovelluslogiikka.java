@@ -130,7 +130,7 @@ public class Sovelluslogiikka {
 
     /**
      * Hae vuorossa oleva pelaaja.
-     * 
+     *
      * @return pelaaja jonka vuoro on
      */
     public Pelaaja haeVuorossaOlevaPelaaja() {
@@ -248,15 +248,20 @@ public class Sovelluslogiikka {
                 siirrot.haeSiirrot().remove((Integer) Math.abs(lahtoruutu - minne));
             } else if (pelilogiikka.nappulatKotialueella(siirtojarjestys.get(vuoro))) {
                 int poistettava = -1;
-                for (int siirto : siirrot.haeSiirrot()) {
-                    if (siirto >= Math.abs(lahtoruutu - minne)) {
-                        poistettava = siirto;
-                    }
-                }
+                poistettava = haePoistettavaSiirto(minne, poistettava);
                 siirrot.haeSiirrot().remove((Integer) poistettava);
             }
             lahtoruutu = -1;
         }
+    }
+
+    private int haePoistettavaSiirto(int minne, int poistettava) {
+        for (int siirto : siirrot.haeSiirrot()) {
+            if (siirto >= Math.abs(lahtoruutu - minne)) {
+                poistettava = siirto;
+            }
+        }
+        return poistettava;
     }
 
     /**
@@ -279,33 +284,54 @@ public class Sovelluslogiikka {
         boolean voiSiirtaa = false;
         Pelaaja pelaaja = siirtojarjestys.get(vuoro);
         if (pelilogiikka.pelaajanNappulaMaara(Math.abs(pelaaja.haeMaali() - 25), pelaaja) > 0) {
-            for (int siirto : siirrot.haeSiirrot()) {
-                //System.out.println("siirto " + siirto);
-                if (pelilogiikka.ruutuunVoiSiirtya((Math.abs(pelaaja.haeMaali() - 25) + suunta * siirto), pelaaja)) {
-                    voiSiirtaa = true;
-                    break;
-                }
-            }
+            voiSiirtaa = voikoRuutuunSiirtyaSyotyNappula(pelaaja, suunta, voiSiirtaa);
         } else {
-            for (int siirto : siirrot.haeSiirrot()) {
-                for (int ruutu : pelilogiikka.pelaajaVoiSiirtaaRuuduista(pelaaja)) {
-                    if (pelilogiikka.pelaajaVoiSiirtaaRuutuihin(pelaaja, ruutu, siirrot.haeSiirrot()).contains(ruutu + suunta * siirto)) {
+            voiSiirtaa = voikoSiirtaaLaudalla(pelaaja, suunta, voiSiirtaa);
+        }
+        return voiSiirtaa;
+    }
+
+    private boolean voikoSiirtaaLaudalla(Pelaaja pelaaja, int suunta, boolean voiSiirtaa) {
+        if (!pelilogiikka.nappulatKotialueella(pelaaja)) {
+            voiSiirtaa = voikoSiirtaaLaudallaNormaalisti(pelaaja, suunta, voiSiirtaa);
+        } else if (pelilogiikka.nappulatKotialueella(pelaaja)) {
+            voiSiirtaa = voikoSiirtaaKotialueella(pelaaja, voiSiirtaa);
+        }
+        return voiSiirtaa;
+    }
+
+    private boolean voikoSiirtaaKotialueella(Pelaaja pelaaja, boolean voiSiirtaa) {
+        for (int ruutu : pelilogiikka.pelaajaVoiSiirtaaRuuduista(pelaaja)) {
+            for (int kohderuutu : pelilogiikka.pelaajaVoiSiirtaaRuutuihin(pelaaja, ruutu, siirrot.haeSiirrot())) {
+                for (int siirto : siirrot.haeSiirrot()) {
+                    if (siirto >= ((Integer) Math.abs(ruutu - kohderuutu))) {
                         voiSiirtaa = true;
                         break;
                     }
                 }
             }
-            if (pelilogiikka.nappulatKotialueella(pelaaja)) {
-                for (int ruutu : pelilogiikka.pelaajaVoiSiirtaaRuuduista(pelaaja)) {
-                    for (int kohderuutu : pelilogiikka.pelaajaVoiSiirtaaRuutuihin(pelaaja, ruutu, siirrot.haeSiirrot())) {
-                        for (int siirto : siirrot.haeSiirrot()) {
-                            if (siirto >= ((Integer) Math.abs(ruutu - kohderuutu))) {
-                                voiSiirtaa = true;
-                                break;
-                            }
-                        }
-                    }
+        }
+        return voiSiirtaa;
+    }
+
+    private boolean voikoSiirtaaLaudallaNormaalisti(Pelaaja pelaaja, int suunta, boolean voiSiirtaa) {
+        for (int siirto : siirrot.haeSiirrot()) {
+            for (int ruutu : pelilogiikka.pelaajaVoiSiirtaaRuuduista(pelaaja)) {
+                if (pelilogiikka.pelaajaVoiSiirtaaRuutuihin(pelaaja, ruutu, siirrot.haeSiirrot()).contains(ruutu + suunta * siirto)) {
+                    voiSiirtaa = true;
+                    break;
                 }
+            }
+        }
+        return voiSiirtaa;
+    }
+
+    private boolean voikoRuutuunSiirtyaSyotyNappula(Pelaaja pelaaja, int suunta, boolean voiSiirtaa) {
+        for (int siirto : siirrot.haeSiirrot()) {
+            //System.out.println("siirto " + siirto);
+            if (pelilogiikka.ruutuunVoiSiirtya((Math.abs(pelaaja.haeMaali() - 25) + suunta * siirto), pelaaja)) {
+                voiSiirtaa = true;
+                break;
             }
         }
         return voiSiirtaa;
