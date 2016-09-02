@@ -64,7 +64,7 @@ public class RandomTekoalyTest {
     public void testaaEttaTekoalyOsaaSiirtaaAloitustilanteessa() {
         Random r = new Random();
         RandomTekoaly t = new RandomTekoaly(r);
-        Pelilogiikka plk = new Pelilogiikka();
+        Pelilogiikka plk = new Pelilogiikka(r);
         Siirrot st = new Siirrot(r);
 
         Pelaaja p1 = new Pelaaja();
@@ -85,7 +85,7 @@ public class RandomTekoalyTest {
     public void testaaEttaTekoalyOsaaSiirtaaAloitustilanteessa2() {
         Random r = new Random();
         RandomTekoaly t = new RandomTekoaly(r);
-        Pelilogiikka plk = new Pelilogiikka();
+        Pelilogiikka plk = new Pelilogiikka(r);
         Siirrot st = new Siirrot(r);
 
         Pelaaja p1 = new Pelaaja();
@@ -106,7 +106,7 @@ public class RandomTekoalyTest {
     public void testaaEttaTekoalyEiVoiSiirtaa() {
         Random r = new Random();
         RandomTekoaly t = new RandomTekoaly(r);
-        Pelilogiikka plk = new Pelilogiikka();
+        Pelilogiikka plk = new Pelilogiikka(r);
         Siirrot st = new Siirrot(r);
 
         Pelaaja p1 = new Pelaaja();
@@ -145,7 +145,7 @@ public class RandomTekoalyTest {
     public void testaaEttaTekoalyEiVoiSiirtaa2() {
         Random r = new Random();
         RandomTekoaly t = new RandomTekoaly(r);
-        Pelilogiikka plk = new Pelilogiikka();
+        Pelilogiikka plk = new Pelilogiikka(r);
         Siirrot st = new Siirrot(r);
 
         Pelaaja p1 = new Pelaaja();
@@ -180,7 +180,7 @@ public class RandomTekoalyTest {
     public void testaaEttaTekoalyTekeeJotainPelatessaan3() {
         Random r = new Random();
         RandomTekoaly t = new RandomTekoaly(r);
-        Pelilogiikka plk = new Pelilogiikka();
+        Pelilogiikka plk = new Pelilogiikka(r);
         Siirrot st = new Siirrot(r);
 
         Pelaaja p1 = new Pelaaja();
@@ -219,7 +219,7 @@ public class RandomTekoalyTest {
     public void tekoalyHuomaaVastustajanNappulanSyonnin() {
         Random r = new Random();
         RandomTekoaly t = new RandomTekoaly(r);
-        Pelilogiikka plk = new Pelilogiikka();
+        Pelilogiikka plk = new Pelilogiikka(r);
 
         Pelaaja p1 = new Pelaaja();
         Pelaaja p2 = new Pelaaja();
@@ -255,7 +255,7 @@ public class RandomTekoalyTest {
     public void tekoalyHuomaaVastustajanNappulanSyomattomyyden() {
         Random r = new Random();
         RandomTekoaly t = new RandomTekoaly(r);
-        Pelilogiikka plk = new Pelilogiikka();
+        Pelilogiikka plk = new Pelilogiikka(r);
         Siirrot st = new Siirrot(r);
 
         Pelaaja p1 = new Pelaaja();
@@ -294,7 +294,7 @@ public class RandomTekoalyTest {
     public void kotialueelleSiirtaminen() {
         Random r = new Random();
         RandomTekoaly t = new RandomTekoaly(r);
-        Pelilogiikka plk = new Pelilogiikka();
+        Pelilogiikka plk = new Pelilogiikka(r);
         ArrayList<Integer> st = new ArrayList<>();
 
         Pelaaja p1 = new Pelaaja();

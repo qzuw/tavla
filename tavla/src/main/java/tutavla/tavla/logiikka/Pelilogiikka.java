@@ -6,10 +6,12 @@
 package tutavla.tavla.logiikka;
 
 import java.util.ArrayList;
+import java.util.Random;
 import tutavla.tavla.domain.Lauta;
 import tutavla.tavla.domain.Nappula;
 import tutavla.tavla.domain.Noppa;
 import tutavla.tavla.domain.Pelaaja;
+import tutavla.tavla.domain.Siirrot;
 
 /**
  * Luokka sisältää pelille keskeisen logiikan nappuloiden liikuttelusta yms.
@@ -19,12 +21,19 @@ import tutavla.tavla.domain.Pelaaja;
 public class Pelilogiikka {
 
     private Lauta lauta;
+        private Siirrot siirrot;
+    private int lahtoruutu;
+
 
     /**
      * Luodaan uusi pelilogiikka.
      */
-    public Pelilogiikka() {
+    public Pelilogiikka(Random random) {
         lauta = new Lauta();
+                siirrot = new Siirrot(random);
+                        lahtoruutu = -1;
+
+
     }
 
     /**
@@ -102,6 +111,70 @@ public class Pelilogiikka {
         return lauta.pelaajanNappuloitaRuudussa(ruutu, pelaaja);
     }
 
+        /**
+     * Heitä noppia.
+     */
+    public void heitaNopat() {
+        siirrot.heitaNopat();
+    }
+
+    /**
+     * Hae noppien arvoista saatavat siirrot.
+     *
+     * @return lista kokonaislukuja jotka ovat arvotut siirrot
+     */
+    public ArrayList<Integer> haeSiirrot() {
+        return siirrot.haeSiirrot();
+    }
+
+    /**
+     * Asetetaan siirrot.
+     *
+     * @param s siirroiksi asetettavat luvut
+     */
+    public void asetaSiirrot(ArrayList<Integer> s) {
+        siirrot.asetaSiirrot(s);
+    }
+
+    /**
+     * Aseta pelaajan siirron lähtoruutu.
+     *
+     * @param lahtoruutu lähtöruudun indeksi
+     * @return true jos pelaajalla on ruudussa siirrettävissä oleva nappula
+     */
+    public boolean asetaLahtoruutu(int lahtoruutu, Pelaaja pelaaja) {
+        if (pelaajaVoiSiirtaaRuuduista(pelaaja).contains((Integer) lahtoruutu)) {
+            this.lahtoruutu = lahtoruutu;
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Nollaa pelaajan siirron lähtöruudun.
+     */
+    public void nollaaLahtoruutu() {
+        lahtoruutu = -1;
+    }
+
+    /**
+     * Haetaan asetettu lähtöruutu.
+     *
+     * @return lähtöruudun indeksi
+     */
+    public int haeLahtoruutu() {
+        return lahtoruutu;
+    }
+
+    /**
+     * Haetaan mahdolliset kohderuudut pelaajan siirrolle.
+     *
+     * @return lista mahdollisia kohderuutuja
+     */
+    public ArrayList<Integer> pelaajaVoiSiirtaaRuutuihin(Pelaaja pelaaja) {
+        return pelaajaVoiSiirtaaRuutuihin(pelaaja, lahtoruutu, siirrot.haeSiirrot());
+    }
+
     /**
      * Voiko pelaaja siirtää nappulansa ruutuun.
      *
@@ -141,6 +214,94 @@ public class Pelilogiikka {
     }
 
     /**
+     * Siirretään pelaajan nappulaa.
+     *
+     * @param minne kohderuudun indeksi
+     */
+    public void siirraNappulaa(int minne, Pelaaja pelaaja) {
+        if (lahtoruutu > -1) {
+            siirraNappulaa(pelaaja, lahtoruutu, minne);
+            if (siirrot.haeSiirrot().contains((Integer) Math.abs(lahtoruutu - minne))) {
+                siirrot.poistaSiirto((Integer) Math.abs(lahtoruutu - minne));
+            } else if (nappulatKotialueella(pelaaja)) {
+                siirrot.poistaSiirtoKotialueella((Integer) Math.abs(lahtoruutu - minne));
+            }
+            lahtoruutu = -1;
+        }
+    }
+
+    /**
+     * Tarkistaa eikö annettu voi Pelaaja siirtää mitään nappuloitaan.
+     *
+     * @return palauttaa true jos mitään nappuloita ei voi siirtää
+     */
+    public boolean eiVoiSiirtaa(Pelaaja pelaaja) {
+        boolean voiSiirtaa = false;
+        if (pelaaja.haeMaali() == 0) {
+            voiSiirtaa = voikoPelaajaSiirtaa(pelaaja, -1);
+        } else {
+            voiSiirtaa = voikoPelaajaSiirtaa(pelaaja, 1);
+        }
+        return !voiSiirtaa;
+    }
+
+    private boolean voikoPelaajaSiirtaa(Pelaaja pelaaja, int suunta) {
+        boolean voiSiirtaa = false;
+        if (pelaajanNappulaMaara(Math.abs(pelaaja.haeMaali() - 25), pelaaja) > 0) {
+            voiSiirtaa = voikoRuutuunSiirtyaSyotyNappula(pelaaja, suunta, voiSiirtaa);
+        } else {
+            voiSiirtaa = voikoSiirtaaLaudalla(pelaaja, suunta, voiSiirtaa);
+        }
+        return voiSiirtaa;
+    }
+
+    private boolean voikoSiirtaaLaudalla(Pelaaja pelaaja, int suunta, boolean voiSiirtaa) {
+        if (!nappulatKotialueella(pelaaja)) {
+            voiSiirtaa = voikoSiirtaaLaudallaNormaalisti(pelaaja, suunta, voiSiirtaa);
+        } else if (nappulatKotialueella(pelaaja)) {
+            voiSiirtaa = voikoSiirtaaKotialueella(pelaaja, voiSiirtaa);
+        }
+        return voiSiirtaa;
+    }
+
+    private boolean voikoSiirtaaKotialueella(Pelaaja pelaaja, boolean voiSiirtaa) {
+        for (int ruutu : pelaajaVoiSiirtaaRuuduista(pelaaja)) {
+            for (int kohderuutu : pelaajaVoiSiirtaaRuutuihin(pelaaja, ruutu, siirrot.haeSiirrot())) {
+                for (int siirto : siirrot.haeSiirrot()) {
+                    if (siirto >= ((Integer) Math.abs(ruutu - kohderuutu))) {
+                        voiSiirtaa = true;
+                        break;
+                    }
+                }
+            }
+        }
+        return voiSiirtaa;
+    }
+
+    private boolean voikoSiirtaaLaudallaNormaalisti(Pelaaja pelaaja, int suunta, boolean voiSiirtaa) {
+        for (int siirto : siirrot.haeSiirrot()) {
+            for (int ruutu : pelaajaVoiSiirtaaRuuduista(pelaaja)) {
+                if (pelaajaVoiSiirtaaRuutuihin(pelaaja, ruutu, siirrot.haeSiirrot()).contains(ruutu + suunta * siirto)) {
+                    voiSiirtaa = true;
+                    break;
+                }
+            }
+        }
+        return voiSiirtaa;
+    }
+
+    private boolean voikoRuutuunSiirtyaSyotyNappula(Pelaaja pelaaja, int suunta, boolean voiSiirtaa) {
+        for (int siirto : siirrot.haeSiirrot()) {
+            //System.out.println("siirto " + siirto);
+            if (ruutuunVoiSiirtya((Math.abs(pelaaja.haeMaali() - 25) + suunta * siirto), pelaaja)) {
+                voiSiirtaa = true;
+                break;
+            }
+        }
+        return voiSiirtaa;
+    }
+
+    /**
      * Hae pelilauta.
      *
      * @return pelilauta
@@ -167,7 +328,7 @@ public class Pelilogiikka {
     /**
      * Mistä ruuduista pelaaja voi siirtää.
      *
-     * @param pelaaja tarksitettava pelaaja
+     * @param pelaaja tarkistettava pelaaja
      * @return palautetaan lista ruutujen indeksejä joihin voi siirtää
      */
     public ArrayList<Integer> pelaajaVoiSiirtaaRuuduista(Pelaaja pelaaja) {

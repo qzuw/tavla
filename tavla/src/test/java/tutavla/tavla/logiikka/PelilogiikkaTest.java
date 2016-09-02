@@ -5,6 +5,7 @@
  */
 package tutavla.tavla.logiikka;
 
+import java.util.Random;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -47,7 +48,8 @@ public class PelilogiikkaTest {
     public void asetaNappulatLaudalle() {
         Pelaaja pelaaja1 = new Pelaaja();
         Pelaaja pelaaja2 = new Pelaaja();
-        Pelilogiikka logiikka = new Pelilogiikka();
+        Random r = new Random();
+        Pelilogiikka logiikka = new Pelilogiikka(r);
 
         pelaaja2.asetaMaali(0);
         assertEquals(pelaaja2.haeMaali(), 0);
@@ -94,7 +96,8 @@ public class PelilogiikkaTest {
     public void voikoSiirtaa() {
         Pelaaja pelaaja1 = new Pelaaja();
         Pelaaja pelaaja2 = new Pelaaja();
-        Pelilogiikka l = new Pelilogiikka();
+        Random r = new Random();
+        Pelilogiikka l = new Pelilogiikka(r);
 
         l.alustaPelitilanne(pelaaja1, pelaaja2);
 
@@ -119,7 +122,8 @@ public class PelilogiikkaTest {
     public void voikoSiirtaaSiirronJalkeen() {
         Pelaaja pelaaja1 = new Pelaaja();
         Pelaaja pelaaja2 = new Pelaaja();
-        Pelilogiikka l = new Pelilogiikka();
+        Random r = new Random();
+        Pelilogiikka l = new Pelilogiikka(r);
 
         l.alustaPelitilanne(pelaaja1, pelaaja2);
 
@@ -138,7 +142,8 @@ public class PelilogiikkaTest {
     public void pelaajanNappuloitaRuudussa() {
         Pelaaja pelaaja = new Pelaaja();
         Pelaaja toinen = new Pelaaja();
-        Pelilogiikka plk = new Pelilogiikka();
+        Random r = new Random();
+        Pelilogiikka plk = new Pelilogiikka(r);
 
         plk.alustaPelitilanne(pelaaja, toinen);
 
@@ -167,7 +172,8 @@ public class PelilogiikkaTest {
     public void onkoVoittanut() {
         Pelaaja pelaaja = new Pelaaja();
         Pelaaja toinen = new Pelaaja();
-        Pelilogiikka plk = new Pelilogiikka();
+        Random r = new Random();
+        Pelilogiikka plk = new Pelilogiikka(r);
         plk.alustaPelitilanne(pelaaja, toinen);
 
         plk.siirraNappulaa(pelaaja, 24, 2);
@@ -197,7 +203,8 @@ public class PelilogiikkaTest {
     public void nappulatKotialueella() {
         Pelaaja pelaaja = new Pelaaja();
         Pelaaja toinen = new Pelaaja();
-        Pelilogiikka plk = new Pelilogiikka();
+        Random r = new Random();
+        Pelilogiikka plk = new Pelilogiikka(r);
         plk.alustaPelitilanne(pelaaja, toinen);
         pelaaja.asetaMaali(0);
 
@@ -221,7 +228,8 @@ public class PelilogiikkaTest {
     public void nappulatKotialueella2() {
         Pelaaja pelaaja = new Pelaaja();
         Pelaaja toinen = new Pelaaja();
-        Pelilogiikka plk = new Pelilogiikka();
+        Random r = new Random();
+        Pelilogiikka plk = new Pelilogiikka(r);
         plk.alustaPelitilanne(pelaaja, toinen);
         pelaaja.asetaMaali(0);
 
@@ -245,7 +253,8 @@ public class PelilogiikkaTest {
     public void syominenLaudallePalatessa() {
         Pelaaja pelaaja = new Pelaaja();
         Pelaaja toinen = new Pelaaja();
-        Pelilogiikka plk = new Pelilogiikka();
+        Random r = new Random();
+        Pelilogiikka plk = new Pelilogiikka(r);
         plk.alustaPelitilanne(pelaaja, toinen);
 
         plk.siirraNappulaa(toinen, 1, 2);
@@ -260,7 +269,8 @@ public class PelilogiikkaTest {
     public void syominenLaudallePalatessa2() {
         Pelaaja pelaaja = new Pelaaja();
         Pelaaja toinen = new Pelaaja();
-        Pelilogiikka plk = new Pelilogiikka();
+        Random r = new Random();
+        Pelilogiikka plk = new Pelilogiikka(r);
         plk.alustaPelitilanne(pelaaja, toinen);
 
         plk.siirraNappulaa(toinen, 1, 2);
