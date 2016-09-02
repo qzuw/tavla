@@ -72,25 +72,25 @@ public class Siirrot {
     public void asetaSiirrot(ArrayList<Integer> siirrot) {
         this.siirrot = siirrot;
     }
-    
-    public boolean poistaSiirto(Integer siirto){
+
+    public boolean poistaSiirto(Integer siirto) {
         boolean onko = siirrot.contains(siirto);
-        if (onko){
+        if (onko) {
             siirrot.remove(siirto);
         }
         return onko;
     }
 
-    public boolean poistaSiirtoKotialueella(Integer siirto){
+    public boolean poistaSiirtoKotialueella(Integer siirto) {
         boolean onko = false;
         Integer poistettava = -1;
         for (Integer s : siirrot) {
-            if (s > siirto){
+            if (s > siirto) {
                 onko = true;
                 poistettava = s;
             }
         }
-        if (onko){
+        if (onko) {
             siirrot.remove(poistettava);
         }
         return onko;

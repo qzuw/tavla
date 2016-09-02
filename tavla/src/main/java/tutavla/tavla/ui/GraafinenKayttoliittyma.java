@@ -93,7 +93,7 @@ public class GraafinenKayttoliittyma implements Runnable, Kayttoliittyma {
     private JPanel luoInfoikkuna() {
         JPanel panel = new JPanel(new GridLayout(1, 2));
         pelaaja = new JLabel(sovelluslogiikka.haeVuorossaOlevaPelaaja().toString());
-        siirrot = new JLabel("Siirrot: " );
+        siirrot = new JLabel("Siirrot: ");
         panel.add(pelaaja);
         panel.add(siirrot);
         guilogiikka.lisaaSiirrotJaPelaaja(siirrot, pelaaja);

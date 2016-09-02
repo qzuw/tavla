@@ -21,18 +21,16 @@ import tutavla.tavla.domain.Siirrot;
 public class Pelilogiikka {
 
     private Lauta lauta;
-        private Siirrot siirrot;
+    private Siirrot siirrot;
     private int lahtoruutu;
-
 
     /**
      * Luodaan uusi pelilogiikka.
      */
     public Pelilogiikka(Random random) {
         lauta = new Lauta();
-                siirrot = new Siirrot(random);
-                        lahtoruutu = -1;
-
+        siirrot = new Siirrot(random);
+        lahtoruutu = -1;
 
     }
 
@@ -111,7 +109,7 @@ public class Pelilogiikka {
         return lauta.pelaajanNappuloitaRuudussa(ruutu, pelaaja);
     }
 
-        /**
+    /**
      * Heitä noppia.
      */
     public void heitaNopat() {
