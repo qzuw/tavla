@@ -1,20 +1,18 @@
 
-- pelaaja siirtää nappulaa, siirron oikeellisuuden tarkistus -> logiikkaan
-- (kerro syödyt nappulat ja ulos pelatut)
+- (kerro syödyt nappulat ja ulos pelatut?)
 
 - random testaus
 - tekoäly pelaa() refaktorointi
-- svl refaktoroi siirtojen käsittely metodeiksi siirtoihin (poistaminen, tarkistus)
-- refaktorointi
+- refaktorointi:
+  - pelilogiikka siirtomahdollisuuksien tarkistukset ja siirrot sisältävät nyt paljon päällekkäisyyttä
+  - kun pelilogiikka on siisti, tekoälyn pelaa() voi refaktoroida pieneksi helposti
 
 - bugeja:
   - käyttöliittymä:
     - voitosta ei aina ilmoiteta
-    - näytetään siirtovuoron ollessa pois päältä välillä vääriä siirtolistan arvoja
-    - aloitettaessa ei aina näytetä aloitusheittojen tuloksia (jos tietokone aloittaa)
-    - aloitettaessa näytetään ensimmäisen vuoron jälkeen aloitusheittojen tulokset uudestaan vaikka pitäisi vain ilmoittaa vuoron vaihtumisesta
+    - näytetään siirtovuoron ollessa pois päältä välillä vääriä siirtolistan arvoja (taitaa olla korjattu?)
 
 - puutteita:
   - pelaajan voittaessa aloituksen ei kysytä kumman värin hän haluaa
 
-- doc
+- lisättävää: pelitilanteen tallennus
