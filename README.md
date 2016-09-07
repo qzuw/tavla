@@ -4,6 +4,7 @@ Backgammon-pelin variantti
 
 ## Dokumentaatio
 
+- [Palautettu versio](https://github.com/qzuw/tavla/tree/v1.0)
 - [Aiheenmäärittely](https://github.com/qzuw/tavla/blob/master/doc/aihe.md)
 - [Käyttöohje](https://github.com/qzuw/tavla/blob/master/doc/ohje.md)
 - [Tuntikirjanpito](https://github.com/qzuw/tavla/blob/master/doc/tuntikirjanpito.md)
